@@ -1,0 +1,25 @@
+---
+layout: default
+title: Arşiv
+permalink: /arsiv/
+---
+<div class="archive">
+  <header class="masthead">
+    <h1 class="site-title site-title--sm">Arşiv</h1>
+    {% assign yillar = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+    <p class="tagline">{{ site.posts.size }} yazı, {{ yillar.size }} yıl.</p>
+  </header>
+  {% if site.posts.size == 0 %}
+    <div class="empty"><p>Yayınlanan yazılar burada yıllara göre listelenecek.</p></div>
+  {% endif %}
+  {% for yil in yillar %}
+  <section>
+    <h2>{{ yil.name }}</h2>
+    <ul>
+      {% for post in yil.items %}
+      <li><time class="mono" datetime="{{ post.date | date_to_xmlschema }}">{% include tarih.html date=post.date kisa=true %}</time><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</div>

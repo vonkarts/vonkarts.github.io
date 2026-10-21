@@ -1,0 +1,28 @@
+# Blogun temel ayarları. İsmi ve alt başlığı buradan değiştirebilirsin.
+title: vonkarts
+description: Düşünceler, notlar ve yarım kalmış cümleler.
+author: vonkarts
+url: "https://vonkarts.github.io"
+baseurl: ""
+lang: tr_TR
+timezone: Europe/Istanbul
+
+# Hakkında kısmında kenar sütununda görünen kısa metin
+about_short: "Manzaralar, şehirler ve aradaki sessizlik üzerine yazıyorum."
+instagram: vonkarts
+
+permalink: /:title/
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - YAZI-SABLONU.md
+  - images/BURAYA-GORSEL-YUKLE.txt

@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<div class="reading">
+  <article>
+    <a class="back" href="{{ '/' | relative_url }}">← Tüm yazılar</a>
+    <h1>{{ page.title }}</h1>
+    <div class="post-meta">
+      <time class="mono" datetime="{{ page.date | date_to_xmlschema }}">{% include tarih.html date=page.date %}</time>
+      <span class="mono">{% include okuma.html content=content %}</span>
+    </div>
+    {% if page.cover %}<img class="post-cover" src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: '' }}">{% endif %}
+    <div class="prose">
+{{ content }}
+    </div>
+    {% if page.tags.size > 0 %}
+    <div class="post-tags">
+      {% for tag in page.tags %}<a class="tag" href="{{ '/' | relative_url }}#etiket-{{ tag | slugify: 'latin' }}">{{ tag }}</a>{% endfor %}
+    </div>
+    {% endif %}
+    {% if page.previous or page.next %}
+    <nav class="pager" aria-label="Diğer yazılar">
+      {% if page.previous %}<a href="{{ page.previous.url | relative_url }}"><span class="mono">← Önceki yazı</span><span>{{ page.previous.title }}</span></a>{% else %}<span></span>{% endif %}
+      {% if page.next %}<a class="next" href="{{ page.next.url | relative_url }}"><span class="mono">Sonraki yazı →</span><span>{{ page.next.title }}</span></a>{% endif %}
+    </nav>
+    {% endif %}
+  </article>
+</div>

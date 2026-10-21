@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>try{var t=localStorage.getItem('tema');if(t&&t!=='system')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  {% seo %}
+  {% feed_meta %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body class="sayfa-{{ page.layout }}">
+  {% if page.layout == 'post' %}<div id="progress" aria-hidden="true"></div>{% endif %}
+  <div class="wrap">
+    <nav class="nav" aria-label="Site">
+      <a class="nav-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <div class="nav-links">
+        <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Yazılar</a>
+        <a href="{{ '/arsiv/' | relative_url }}"{% if page.url == '/arsiv/' %} aria-current="page"{% endif %}>Arşiv</a>
+        <a href="{{ '/hakkinda/' | relative_url }}"{% if page.url == '/hakkinda/' %} aria-current="page"{% endif %}>Hakkında</a>
+        <button type="button" class="theme" id="theme-btn" aria-label="Tema değiştir">Sistem</button>
+      </div>
+    </nav>
+
+    <main>{{ content }}</main>
+
+    <footer>
+      <span class="mono">{{ site.title }} · {{ site.time | date: "%Y" }}</span>
+      <span class="footer-links">
+        {% if site.instagram %}<a class="mono" href="https://instagram.com/{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a>{% endif %}
+        <a class="mono" href="{{ '/feed.xml' | relative_url }}">RSS</a>
+      </span>
+    </footer>
+  </div>
+  <script src="{{ '/assets/main.js' | relative_url }}"></script>
+</body>
+</html>
