@@ -342,7 +342,7 @@ The essential point is that serious emotional distress should not be ignored.
 
 If hopelessness becomes persistent, ordinary activities lose meaning, or suicidal thoughts emerge, professional help is important.
 
-Anyone experiencing an immediate risk of self-harm should contact local emergency services or an available crisis support service.
+Anyone experiencing an immediate risk of self-harm should contact local emergency services or an available crisis support service. You can find free, confidential helplines in your country at [findahelpline.com](https://findahelpline.com).
 
 A marriage ending does not mean a man's life has lost its value.
 
@@ -653,12 +653,12 @@ Your story is not.
 This article draws on peer-reviewed research in psychology, psychiatry, family studies, and sociology. Most cited studies are observational, and their findings should not be interpreted as proof of causation. Although the article addresses an international audience, the underlying studies do not represent every country or cultural setting equally.
 
 1. Wilson, M. J., et al. (2025). Suicidality in Men Following Relationship Breakdown: A Systematic Review and Meta-Analysis of Global Data. Psychological Bulletin, 151(7), 819–860. DOI: 10.1037/bul0000482. [pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/40674014/)
-2. Sbarra, D. A., Hasselmo, K., & Bourassa, K. J. (2015). Divorce and Health: Beyond Individual Differences. Current Directions in Psychological Science, 24(2). DOI: 10.1177/0963721414559125. [journals.sagepub.com](https://journals.sagepub.com/doi/10.1177/0963721414559125)
+2. Sbarra, D. A., Hasselmo, K., & Bourassa, K. J. (2015). Divorce and Health: Beyond Individual Differences. Current Directions in Psychological Science, 24(2), 109–113. DOI: 10.1177/0963721414559125. [journals.sagepub.com](https://journals.sagepub.com/doi/10.1177/0963721414559125)
 3. Adamsons, K., & Johnson, S. K. (2013). An Updated and Expanded Meta-Analysis of Nonresident Fathering and Child Well-Being. Journal of Family Psychology, 27(4), 589–599. DOI: 10.1037/a0033786. [pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/23978321/)
 4. Van Dijk, R., et al. (2020). A Meta-Analysis on Interparental Conflict, Parenting, and Child Adjustment in Divorced Families. Clinical Psychology Review, 79, 101861. DOI: 10.1016/j.cpr.2020.101861. [pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/32512420/)
 5. Mansour, K., et al. (2024). Social Network Investment of Men: Cross-Sectional and Longitudinal Associations With Mental Health Problems. Applied Psychology: Health and Well-Being, 16(1), 138–157. DOI: 10.1111/aphw.12475. [doi.org](https://doi.org/10.1111/aphw.12475)
 6. Oliffe, J. L., et al. (2022). Mapping Men's Mental Health Help-Seeking After an Intimate Partner Relationship Break-Up. Qualitative Health Research, 32(10), 1464–1476. DOI: 10.1177/10497323221110974. [journals.sagepub.com](https://journals.sagepub.com/doi/10.1177/10497323221110974)
-7. Sbarra, D. A., Smith, H. L., & Mehl, M. R. (2012). When Leaving Your Ex, Love Yourself: Observational Ratings of Self-Compassion Predict the Course of Emotional Recovery Following Marital Separation. Psychological Science, 23(3). DOI: 10.1177/0956797611429466. [journals.sagepub.com](https://journals.sagepub.com/doi/abs/10.1177/0956797611429466)
+7. Sbarra, D. A., Smith, H. L., & Mehl, M. R. (2012). When Leaving Your Ex, Love Yourself: Observational Ratings of Self-Compassion Predict the Course of Emotional Recovery Following Marital Separation. Psychological Science, 23(3), 261–269. DOI: 10.1177/0956797611429466. [journals.sagepub.com](https://journals.sagepub.com/doi/abs/10.1177/0956797611429466)
 8. Krietsch, K. N., Mason, A. E., & Sbarra, D. A. (2014). Sleep Complaints Predict Increases in Resting Blood Pressure Following Marital Separation. Health Psychology, 33(10), 1204–1213. DOI: 10.1037/hea0000089. [pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/25020156/)
-9. Leopold, T. (2018). Gender Differences in the Consequences of Divorce: A Study of Multiple Outcomes. Demography, 55, 769–797. DOI: 10.1007/s13524-018-0667-6. [link.springer.com](https://link.springer.com/article/10.1007/s13524-018-0667-6)
+9. Leopold, T. (2018). Gender Differences in the Consequences of Divorce: A Study of Multiple Outcomes. Demography, 55(3), 769–797. DOI: 10.1007/s13524-018-0667-6. [link.springer.com](https://link.springer.com/article/10.1007/s13524-018-0667-6)
 10. Kendler, K. S., et al. (2017). Divorce and the Onset of Alcohol Use Disorder: A Swedish Population-Based Longitudinal Cohort and Co-Relative Study. American Journal of Psychiatry, 174(5), 451–458. DOI: 10.1176/appi.ajp.2016.16050589. [pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/28103713/)
