@@ -14,7 +14,7 @@ Boşanma her zaman kâğıtlar imzalandığında bitmez. Pek çok erkek için en
 
 Bir evliliğin bitişinin ardından gelen kendine özgü bir sessizlik vardır.
 
-Bir zamanlar sohbetlerin, tartışmaların, kahkahaların ve sıradan alışkanlıkların olduğu bir evin sessizliğidir bu. Akşam yemeğine oturup masanın karşısında kimsenin olmadığını fark etmektir. Bir pazar sabahı uyanıp gidecek bir yerin, seni bekleyen birinin olmamasıdır.
+Bu, bir zamanlar sohbetlerin, tartışmaların, kahkahaların ve sıradan alışkanlıkların olduğu bir evin sessizliğidir. Akşam yemeğine oturup masanın karşısında kimsenin olmadığını fark etmektir. Bir pazar sabahı uyanıp gidecek bir yerin, seni bekleyen birinin olmamasıdır.
 
 Bazı erkekler için en acı an evliliği kaybetmek değildir. Birlikte geçen bir hafta sonunun ardından çocuklarının gidişini izlemek, onların bir geceyi daha başka bir evde geçireceğini bilmektir.
 
@@ -42,7 +42,7 @@ Bir erkek eşini kaybedebilir, ama bununla birlikte evini, gündelik aile hayat�
 
 Kendini daha küçük bir dairede, tek kişilik alışveriş yaparken ve artık içinde yaşadığı hayatı tanımakta zorlanırken bulabilir.
 
-Bu değişiklikler yasa benzeyen duygular doğurabilir: üzüntü, öfke, kafa karışıklığı, inanamama ve artık var olmayan bir şeye duyulan özlem.
+Bu değişiklikler yası andıran duygular doğurabilir: üzüntü, öfke, kafa karışıklığı, inanamama ve artık var olmayan bir şeye duyulan özlem.
 
 Yine de boşanma herkes tarafından aynı şekilde yaşanmaz.
 
@@ -72,7 +72,7 @@ Güvendiğin biriyle dürüstçe konuş. İfade etmekte zorlandığın duygular�
 
 Bir evlilik bitti diye hiçbir anlam taşımamış gibi davranmak zorunda değilsin.
 
-Bir şey bitmiş olabilir ve yine de önemli olmuş olabilir.
+Bir şey bitmiş olabilir; bu, önemsiz olduğu anlamına gelmez.
 
 ## Boşanma Sonrası Yalnızlık: Zorlandığını Kimse Fark Etmediğinde
 
@@ -122,7 +122,7 @@ Arkadaşlıklarla başla.
 
 Bir süredir konuşmadığın birine ulaş. Seni düzenli olarak başkalarıyla bir araya getiren etkinliklere katıl. Evlilik sırasında zayıflamış olabilecek bağları yeniden kur.
 
-Gelecekteki bir partnerin tüm duygusal destek sistemin olmasına güvenme.
+Bütün duygusal desteğini gelecekteki bir partnerden bekleme.
 
 Sağlıklı bir sosyal hayat tek bir kişiden fazlasını gerektirir.
 
@@ -290,7 +290,7 @@ Maddi istikrarı yeniden kurmak nadiren göz alıcıdır.
 
 Bazen sadece faturaları zamanında ödemek, gereksiz harcamaları azaltmak ve adım adım daha öngörülebilir bir gelecek oluşturmak demektir.
 
-Yavaş yavaş yeniden inşa etmenin bir onuru vardır.
+Yavaş yavaş yeniden kurmakta da bir onur vardır.
 
 ## Boşanma Sonrası Erkeklerin Ruh Sağlığı: Çoğu Zaman Gizlenen Acı
 
@@ -356,7 +356,7 @@ Acısı, bir krize dönüşmeden önce ilgiyi hak ediyor.
 
 ## Boşanma Sonrası Beden Sağlığı: Duygusal Stres Bedeni Etkilediğinde
 
-Duygusal sıkıntı her zaman düşünceler ve duygularla sınırlı kalmaz.
+Duygusal sıkıntı her zaman zihinde kalmaz.
 
 Gündelik alışkanlıkları ve beden sağlığını da etkileyebilir.
 
@@ -418,7 +418,7 @@ Yeniden duygusal olarak bağlanma ihtimali hem heyecan verici hem korkutucu olab
 
 Boşanmadan sonra flörte başlamak için ne kadar beklenmesi gerektiğine dair evrensel bir kural yoktur.
 
-Duygusal hazır olmak, keyfi bir tarihten daha önemlidir.
+Duygusal olarak hazır olmak, takvimde belirlenmiş bir tarihten daha önemlidir.
 
 ### Daha sağlıklı ilişkiler kurmak
 
@@ -460,13 +460,13 @@ Tartışmaları yeniden oynatır, önemli kararları tekrar tekrar düşünür v
 
 Geçmişe bakmak, birinin hatalarını anlamasına yardım ettiğinde faydalı olabilir.
 
-Ama bitmeyen öz cezalandırma nadiren anlamlı bir değişim yaratır.
+Ama kendini durmadan cezalandırmak nadiren anlamlı bir değişim yaratır.
 
 Araştırmalar, insanların ayrılık sürecinde kendilerine nasıl davrandığının duygusal iyileşmelerini etkileyebileceğini gösteriyor.
 
 2012 yılında Psychological Science dergisinde yayımlanan bir çalışma, evliliği sona eren 109 yetişkinde öz şefkati inceledi.
 
-Araştırmacılar, daha yüksek öz şefkatin boşanmayla ilgili daha az duygusal zihin işgaliyle ilişkili olduğunu ve bu ilişkinin sonraki aylarda da sürdüğünü buldu.
+Araştırmacılar, daha yüksek öz şefkatin boşanmayla ilgili boşanmanın gündelik hayata daha az duygusal olarak sızmasıyla ilişkili olduğunu ve bu ilişkinin sonraki aylarda da sürdüğünü buldu.
 
 Bu gözleme dayalı bir çalışma olduğu için bulgular, öz şefkatin daha iyi bir iyileşmeye doğrudan yol açtığını kanıtlamıyor.
 
@@ -480,7 +480,7 @@ Kötü kararlar verdiğini fark edebilirsin; bu, bütün geleceğinin o kararlar
 
 Bir evliliğin bitişinden pişmanlık duyarken, ilişkinin olduğu gibi devam edemeyeceğini de kabul edebilirsin.
 
-Sorumluluk almak insanları büyütür. Bitmeyen öz mahkûmiyet ise onları hapseder.
+Sorumluluk almak insanı büyütür. Kendini durmadan mahkûm etmek ise insanı hapseder.
 
 ## Boşanmadan Sonra Hayatını Yeniden Kurmak: Pratik Bir İyileşme Rehberi
 
