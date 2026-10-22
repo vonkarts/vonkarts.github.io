@@ -4,6 +4,7 @@ description: "Lo que dice la investigación sobre los hombres después del divor
 lang: es
 ref: life-after-divorce-for-men
 permalink: /es/la-vida-despues-del-divorcio-para-hombres/
+categories: [relationships, psychology]
 tags: [divorcio, salud masculina, relaciones]
 cover: /images/forest-path.jpg
 cover_alt: Un sendero de hierba bajo un arco de árboles antiguos, con un banco vacío a un lado

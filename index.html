@@ -9,6 +9,8 @@ ref: home
   <p class="tagline">{{ site.description }}</p>
 </header>
 
+<div class="with-cats">
+{% include categories.html lang="en" %}
 <div class="home">
   <div class="home-main">
   {% if en_posts.size == 0 %}
@@ -78,4 +80,5 @@ ref: home
     </div>
     {% endif %}
   </aside>
+</div>
 </div>

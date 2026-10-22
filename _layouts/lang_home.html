@@ -7,22 +7,13 @@ layout: default
   <h1 class="site-title notranslate" translate="no">{{ site.title }}</h1>
   <p class="tagline">{{ T.tagline }}</p>
 </header>
-<div class="archive">
-  {% if lp.size == 0 %}
-  <div class="empty"><h2>{{ T.no_posts }}</h2></div>
-  {% else %}
-  <ul class="list">
-    {% for post in lp %}
-    <li class="item">
-      <time class="mono" datetime="{{ post.date | date_to_xmlschema }}">{% include tarih.html date=post.date lang=page.lang %}</time>
-      <div class="item-text">
-        <a class="t" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
-        <div class="meta"><span class="mono">{% include okuma.html content=post.content lang=page.lang %}</span></div>
-      </div>
-      {% if post.cover %}<img class="thumb" src="{{ post.cover | relative_url }}" alt="" loading="lazy">{% else %}<span></span>{% endif %}
-    </li>
-    {% endfor %}
-  </ul>
-  {% endif %}
+<div class="with-cats">
+  {% include categories.html lang=page.lang %}
+  <div class="cat-main">
+    {% if lp.size == 0 %}
+    <div class="empty"><h2>{{ T.no_posts }}</h2></div>
+    {% else %}
+    <ul class="list">{% for post in lp %}{% include post-item.html post=post lang=page.lang %}{% endfor %}</ul>
+    {% endif %}
+  </div>
 </div>

@@ -37,6 +37,13 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"{{ site.title }}","alternateName":["vonkarts blog","vonkarts.github.io"],"url":"{{ '/' | absolute_url }}"}</script>
   {%- endif %}
   <meta property="og:site_name" content="{{ site.title }}">
+  {%- if page.layout == 'category' %}
+  {%- assign nck = page.cat %}
+  {%- assign ncn = site.posts | where: "lang", page.lang | where_exp: "p", "p.categories contains nck" | size %}
+  {%- if ncn == 0 %}
+  <meta name="robots" content="noindex, follow">
+  {%- endif %}
+  {%- endif %}
   {% feed_meta %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

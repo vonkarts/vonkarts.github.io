@@ -10,6 +10,7 @@ layout: default
     <div class="post-meta">
       <time class="mono" datetime="{{ page.date | date_to_xmlschema }}">{% include tarih.html date=page.date lang=L %}</time>
       <span class="mono">{% include okuma.html content=content lang=L %}</span>
+      {%- for pk in page.categories %}{% assign pc = site.data.categories | where: "key", pk | first %}{% if pc %}<a class="chip" href="{{ pc[L].url | relative_url }}">{{ pc[L].name }}</a>{% endif %}{% endfor %}
     </div>
     {%- if page.ref -%}
     {%- assign versions = site.posts | where: "ref", page.ref -%}

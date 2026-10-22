@@ -4,6 +4,7 @@ description: "Was die Forschung über Männer nach der Scheidung sagt: Trauer, E
 lang: de
 ref: life-after-divorce-for-men
 permalink: /de/leben-nach-der-scheidung-fuer-maenner/
+categories: [relationships, psychology]
 tags: [Scheidung, Männergesundheit, Beziehungen]
 cover: /images/forest-path.jpg
 cover_alt: Ein Grasweg unter einem Bogen aus alten Bäumen, daneben eine leere Bank

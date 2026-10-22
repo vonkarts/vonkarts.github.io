@@ -4,6 +4,7 @@ description: "Ce que dit la recherche sur les hommes après un divorce : deuil, 
 lang: fr
 ref: life-after-divorce-for-men
 permalink: /fr/la-vie-apres-le-divorce-pour-les-hommes/
+categories: [relationships, psychology]
 tags: [divorce, santé des hommes, relations]
 cover: /images/forest-path.jpg
 cover_alt: Un chemin herbeux sous une voûte de vieux arbres, avec un banc vide sur le côté

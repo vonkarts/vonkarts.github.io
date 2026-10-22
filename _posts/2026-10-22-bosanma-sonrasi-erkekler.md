@@ -4,6 +4,7 @@ description: "Araştırmalar boşanma sonrası erkekler hakkında ne söylüyor:
 lang: tr
 ref: life-after-divorce-for-men
 permalink: /tr/bosanma-sonrasi-erkekler/
+categories: [relationships, psychology]
 tags: [boşanma, erkek sağlığı, ilişkiler]
 cover: /images/forest-path.jpg
 cover_alt: Yaşlı ağaçların oluşturduğu kemerin altından geçen çimenli bir yol ve yanında boş bir bank

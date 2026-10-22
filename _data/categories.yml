@@ -1,0 +1,43 @@
+# Kategoriler. Yeni kategori eklemek için bir blok ekle ve yazının başına categories: [anahtar] yaz.
+- key: relationships
+  en: { name: "Relationships", url: "/category/relationships/" }
+  tr: { name: "İlişkiler", url: "/tr/kategori/iliskiler/" }
+  de: { name: "Beziehungen", url: "/de/kategorie/beziehungen/" }
+  fr: { name: "Relations", url: "/fr/categorie/relations/" }
+  es: { name: "Relaciones", url: "/es/categoria/relaciones/" }
+- key: psychology
+  en: { name: "Psychology", url: "/category/psychology/" }
+  tr: { name: "Psikoloji", url: "/tr/kategori/psikoloji/" }
+  de: { name: "Psychologie", url: "/de/kategorie/psychologie/" }
+  fr: { name: "Psychologie", url: "/fr/categorie/psychologie/" }
+  es: { name: "Psicología", url: "/es/categoria/psicologia/" }
+- key: places
+  en: { name: "Places", url: "/category/places/" }
+  tr: { name: "Yerler", url: "/tr/kategori/yerler/" }
+  de: { name: "Orte", url: "/de/kategorie/orte/" }
+  fr: { name: "Lieux", url: "/fr/categorie/lieux/" }
+  es: { name: "Lugares", url: "/es/categoria/lugares/" }
+- key: notes
+  en: { name: "Notes", url: "/category/notes/" }
+  tr: { name: "Notlar", url: "/tr/kategori/notlar/" }
+  de: { name: "Notizen", url: "/de/kategorie/notizen/" }
+  fr: { name: "Notes", url: "/fr/categorie/notes/" }
+  es: { name: "Notas", url: "/es/categoria/notas/" }
+- key: science
+  en: { name: "Science", url: "/category/science/" }
+  tr: { name: "Bilim", url: "/tr/kategori/bilim/" }
+  de: { name: "Wissenschaft", url: "/de/kategorie/wissenschaft/" }
+  fr: { name: "Science", url: "/fr/categorie/science/" }
+  es: { name: "Ciencia", url: "/es/categoria/ciencia/" }
+- key: art
+  en: { name: "Art", url: "/category/art/" }
+  tr: { name: "Sanat", url: "/tr/kategori/sanat/" }
+  de: { name: "Kunst", url: "/de/kategorie/kunst/" }
+  fr: { name: "Art", url: "/fr/categorie/art/" }
+  es: { name: "Arte", url: "/es/categoria/arte/" }
+- key: history
+  en: { name: "History", url: "/category/history/" }
+  tr: { name: "Tarih", url: "/tr/kategori/tarih/" }
+  de: { name: "Geschichte", url: "/de/kategorie/geschichte/" }
+  fr: { name: "Histoire", url: "/fr/categorie/histoire/" }
+  es: { name: "Historia", url: "/es/categoria/historia/" }

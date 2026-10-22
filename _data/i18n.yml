@@ -15,6 +15,9 @@ en:
   date: "[m] [d], [y]"
   months: [January, February, March, April, May, June, July, August, September, October, November, December]
   theme: [Auto, Light, Dark]
+  categories: Categories
+  cat_empty: "No posts in this category yet."
+  all_label: All posts
 tr:
   name: Türkçe
   home: /tr/
@@ -31,6 +34,9 @@ tr:
   date: "[d] [m] [y]"
   months: [Ocak, Şubat, Mart, Nisan, Mayıs, Haziran, Temmuz, Ağustos, Eylül, Ekim, Kasım, Aralık]
   theme: [Otomatik, Açık, Koyu]
+  categories: Kategoriler
+  cat_empty: "Bu kategoride henüz yazı yok."
+  all_label: Tüm yazılar
 de:
   name: Deutsch
   home: /de/
@@ -47,6 +53,9 @@ de:
   date: "[d]. [m] [y]"
   months: [Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
   theme: [Auto, Hell, Dunkel]
+  categories: Kategorien
+  cat_empty: "In dieser Kategorie gibt es noch keine Artikel."
+  all_label: Alle Artikel
 fr:
   name: Français
   home: /fr/
@@ -63,6 +72,9 @@ fr:
   date: "[d] [m] [y]"
   months: [janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
   theme: [Auto, Clair, Sombre]
+  categories: Catégories
+  cat_empty: "Pas encore d’articles dans cette catégorie."
+  all_label: Tous les articles
 es:
   name: Español
   home: /es/
@@ -79,3 +91,6 @@ es:
   date: "[d] de [m] de [y]"
   months: [enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre]
   theme: [Auto, Claro, Oscuro]
+  categories: Categorías
+  cat_empty: "Todavía no hay artículos en esta categoría."
+  all_label: Todos los artículos

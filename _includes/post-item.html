@@ -1,0 +1,10 @@
+{%- assign IP = include.post -%}
+<li class="item">
+  <time class="mono" datetime="{{ IP.date | date_to_xmlschema }}">{% include tarih.html date=IP.date lang=include.lang %}</time>
+  <div class="item-text">
+    <a class="t" href="{{ IP.url | relative_url }}">{{ IP.title }}</a>
+    <p>{{ IP.excerpt | strip_html | truncatewords: 30 }}</p>
+    <div class="meta"><span class="mono">{% include okuma.html content=IP.content lang=include.lang %}</span></div>
+  </div>
+  {% if IP.cover %}<img class="thumb" src="{{ IP.cover | relative_url }}" alt="" loading="lazy">{% else %}<span></span>{% endif %}
+</li>
