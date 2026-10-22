@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,13 +14,13 @@
 <body class="sayfa-{{ page.layout }}">
   {% if page.layout == 'post' %}<div id="progress" aria-hidden="true"></div>{% endif %}
   <div class="wrap">
-    <nav class="nav" aria-label="Site">
+    <nav class="nav" aria-label="Main">
       <a class="nav-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
       <div class="nav-links">
-        <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Yazılar</a>
-        <a href="{{ '/arsiv/' | relative_url }}"{% if page.url == '/arsiv/' %} aria-current="page"{% endif %}>Arşiv</a>
-        <a href="{{ '/hakkinda/' | relative_url }}"{% if page.url == '/hakkinda/' %} aria-current="page"{% endif %}>Hakkında</a>
-        <button type="button" class="theme" id="theme-btn" aria-label="Tema değiştir">Sistem</button>
+        <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Writing</a>
+        <a href="{{ '/archive/' | relative_url }}"{% if page.url == '/archive/' %} aria-current="page"{% endif %}>Archive</a>
+        <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+        <button type="button" class="theme" id="theme-btn" aria-label="Change theme">Auto</button>
       </div>
     </nav>
 

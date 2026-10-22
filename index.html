@@ -9,13 +9,13 @@ layout: default
 <div class="home">
   <div class="home-main">
   {% if site.posts.size == 0 %}
-    <div class="empty"><h2>Henüz yazı yok.</h2><p>Yayınlanan yazılar burada görünecek.</p></div>
+    <div class="empty"><h2>No posts yet.</h2><p>Published posts will appear here.</p></div>
   {% else %}
     {% assign f = site.posts.first %}
     <section class="featured{% if f.cover %} has-cover{% endif %}" id="featured">
       {% if f.cover %}<a href="{{ f.url | relative_url }}" tabindex="-1"><img class="cover" src="{{ f.cover | relative_url }}" alt=""></a>{% endif %}
       <div class="featured-text">
-        <div class="mono">Son yazı · {% include tarih.html date=f.date %}</div>
+        <div class="mono">Latest · {% include tarih.html date=f.date %}</div>
         <a class="t" href="{{ f.url | relative_url }}">{{ f.title }}</a>
         <p>{{ f.excerpt | strip_html | truncatewords: 45 }}</p>
         <div class="meta"><span class="mono">{% include okuma.html content=f.content %}</span>{% for tag in f.tags limit:3 %}<span class="chip">{{ tag }}</span>{% endfor %}</div>
@@ -24,8 +24,8 @@ layout: default
 
     <section class="list-section" id="list-section"{% if site.posts.size == 1 %} data-only-featured{% endif %}>
       <div class="section-label">
-        <span class="mono" id="list-label">Önceki yazılar</span>
-        <a class="btn ghost" href="{{ '/' | relative_url }}" id="clear" hidden>Filtreyi kaldır</a>
+        <span class="mono" id="list-label">Earlier posts</span>
+        <a class="btn ghost" href="{{ '/' | relative_url }}" id="clear" hidden>Clear filter</a>
       </div>
       <ul class="list" id="list">
       {% for post in site.posts %}
@@ -41,30 +41,30 @@ layout: default
         </li>
       {% endfor %}
       </ul>
-      <div class="empty" id="no-results" hidden><h2>Sonuç yok.</h2><p id="no-results-text">Eşleşen yazı bulunamadı.</p></div>
+      <div class="empty" id="no-results" hidden><h2>No results.</h2><p id="no-results-text">No matching posts.</p></div>
     </section>
   {% endif %}
   </div>
 
   <aside class="aside">
     <div>
-      <h3 class="mono">Ara</h3>
-      <input class="search" id="search" type="search" placeholder="Yazılarda ara…" aria-label="Yazılarda ara">
+      <h3 class="mono">Search</h3>
+      <input class="search" id="search" type="search" placeholder="Search posts…" aria-label="Search posts">
     </div>
     {% if site.tags.size > 0 %}
     <div>
-      <h3 class="mono">Etiketler</h3>
+      <h3 class="mono">Tags</h3>
       <div class="tags">
         {% assign etiket_listesi = site.tags | sort %}
-        {% for tag in etiket_listesi %}<a class="tag" href="#etiket-{{ tag[0] | slugify: 'latin' }}" data-tag="{{ tag[0] | slugify: 'latin' }}" data-name="{{ tag[0] | escape }}">{{ tag[0] }}<small>{{ tag[1].size }}</small></a>{% endfor %}
+        {% for tag in etiket_listesi %}<a class="tag" href="#tag-{{ tag[0] | slugify: 'latin' }}" data-tag="{{ tag[0] | slugify: 'latin' }}" data-name="{{ tag[0] | escape }}">{{ tag[0] }}<small>{{ tag[1].size }}</small></a>{% endfor %}
       </div>
     </div>
     {% endif %}
     {% if site.about_short %}
     <div>
-      <h3 class="mono">Hakkında</h3>
+      <h3 class="mono">About</h3>
       <p>{{ site.about_short }}</p>
-      <p class="more"><a href="{{ '/hakkinda/' | relative_url }}">Devamı</a></p>
+      <p class="more"><a href="{{ '/about/' | relative_url }}">Read more</a></p>
     </div>
     {% endif %}
   </aside>

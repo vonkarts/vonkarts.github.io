@@ -1,6 +1,6 @@
 (function(){
   // Tema: Sistem → Açık → Koyu
-  var THEMES = ['system','light','dark'], LABEL = {system:'Sistem', light:'Açık', dark:'Koyu'};
+  var THEMES = ['system','light','dark'], LABEL = {system:'Auto', light:'Light', dark:'Dark'};
   var theme = 'system';
   try { theme = localStorage.getItem('tema') || 'system'; } catch(e){}
   var btn = document.getElementById('theme-btn');
@@ -36,12 +36,12 @@
   var none = document.getElementById('no-results');
   var noneText = document.getElementById('no-results-text');
   var tagLinks = Array.prototype.slice.call(document.querySelectorAll('.aside .tag'));
-  var lower = function(s){ return String(s || '').toLocaleLowerCase('tr-TR'); };
+  var lower = function(s){ return String(s || '').toLocaleLowerCase(); };
   items.forEach(function(it){ it._s = lower(it.getAttribute('data-search')); it._t = (it.getAttribute('data-tags') || '').split(' '); });
 
   function currentTag(){
     var h = location.hash.replace(/^#/, '');
-    return h.indexOf('etiket-') === 0 ? decodeURIComponent(h.slice(7)) : '';
+    return h.indexOf('tag-') === 0 ? decodeURIComponent(h.slice(4)) : '';
   }
   function filter(){
     var tag = currentTag(), q = lower(search ? search.value.trim() : '');
@@ -58,11 +58,11 @@
       if(filtering && ok) shown++;
     });
     if(clear) clear.hidden = !filtering;
-    if(label) label.textContent = !filtering ? 'Önceki yazılar'
-      : (tag ? 'Etiket: ' + (tagName || tag) : 'Arama: “' + search.value.trim() + '”') + ' · ' + shown;
+    if(label) label.textContent = !filtering ? 'Earlier posts'
+      : (tag ? 'Tag: ' + (tagName || tag) : 'Search: “' + search.value.trim() + '”') + ' · ' + shown;
     if(none){
       none.hidden = !(filtering && shown === 0);
-      if(noneText) noneText.textContent = q ? '“' + search.value.trim() + '” için eşleşen yazı bulunamadı.' : 'Bu etikette yazı yok.';
+      if(noneText) noneText.textContent = q ? '“' + search.value.trim() + '” didn’t match any posts.' : 'No posts with this tag.';
     }
   }
   if(search) search.addEventListener('input', filter);

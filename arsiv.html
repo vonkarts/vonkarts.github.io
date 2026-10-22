@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Arşiv
-permalink: /arsiv/
+title: Archive
+permalink: /archive/
 ---
 <div class="archive">
   <header class="masthead">
-    <h1 class="site-title site-title--sm">Arşiv</h1>
+    <h1 class="site-title site-title--sm">Archive</h1>
     {% assign yillar = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
-    <p class="tagline">{{ site.posts.size }} yazı, {{ yillar.size }} yıl.</p>
+    <p class="tagline">{{ site.posts.size }} {% if site.posts.size == 1 %}post{% else %}posts{% endif %}, {{ yillar.size }} {% if yillar.size == 1 %}year{% else %}years{% endif %}.</p>
   </header>
   {% if site.posts.size == 0 %}
-    <div class="empty"><p>Yayınlanan yazılar burada yıllara göre listelenecek.</p></div>
+    <div class="empty"><p>Published posts will be listed here by year.</p></div>
   {% endif %}
   {% for yil in yillar %}
   <section>

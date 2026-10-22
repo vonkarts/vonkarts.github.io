@@ -1,14 +1,14 @@
 # Blogun temel ayarları. İsmi ve alt başlığı buradan değiştirebilirsin.
 title: vonkarts
-description: Düşünceler, notlar ve yarım kalmış cümleler.
+description: Thoughts, notes and half-finished sentences.
 author: vonkarts
 url: "https://vonkarts.github.io"
 baseurl: ""
-lang: tr_TR
+lang: en_US
 timezone: Europe/Istanbul
 
 # Hakkında kısmında kenar sütununda görünen kısa metin
-about_short: "Manzaralar, şehirler ve aradaki sessizlik üzerine yazıyorum."
+about_short: "I write about landscapes, cities and the quiet in between."
 instagram: vonkarts
 
 permalink: /:title/
@@ -26,3 +26,4 @@ exclude:
   - README.md
   - YAZI-SABLONU.md
   - images/BURAYA-GORSEL-YUKLE.txt
+  - googledd59405c5d8809f3.html.txt

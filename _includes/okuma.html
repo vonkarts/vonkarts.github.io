@@ -1,4 +1,4 @@
 {%- assign kelime = include.content | strip_html | number_of_words -%}
 {%- assign dakika = kelime | divided_by: 200 -%}
 {%- if dakika < 1 -%}{%- assign dakika = 1 -%}{%- endif -%}
-{{ dakika }} dk okuma
+{{ dakika }} min read
