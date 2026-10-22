@@ -1,7 +1,7 @@
 ---
 title: "I Quit Social Media for Three Weeks. The Hardest Part Was Discovering I Hadn't Quit Scrolling."
 description: "I quit social media for three weeks, only to discover \"hidden scrolling\" elsewhere. A personal story and evidence-based guide to social media detox."
-date: 2026-10-22 14:30:00 +0300
+date: 2026-10-22 13:00:00 +0300
 lang: en
 ref: social-media-detox
 categories: [psychology]

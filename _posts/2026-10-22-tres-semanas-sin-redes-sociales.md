@@ -1,7 +1,7 @@
 ---
 title: "Dejé las redes sociales durante tres semanas. Lo más difícil fue descubrir que no había dejado de hacer scroll."
 description: "Dejé las redes sociales tres semanas y descubrí el «scroll oculto». Un relato personal y una guía basada en la evidencia sobre la desintoxicación digital."
-date: 2026-10-22 14:30:00 +0300
+date: 2026-10-22 13:00:00 +0300
 lang: es
 ref: social-media-detox
 permalink: /es/tres-semanas-sin-redes-sociales/

@@ -1,7 +1,7 @@
 ---
 title: "J’ai quitté les réseaux sociaux pendant trois semaines. Le plus dur a été de découvrir que je n’avais pas arrêté de scroller."
 description: "Trois semaines sans réseaux sociaux, puis la découverte du « scroll caché ». Un récit personnel et un guide fondé sur la recherche pour une détox numérique."
-date: 2026-10-22 14:30:00 +0300
+date: 2026-10-22 13:00:00 +0300
 lang: fr
 ref: social-media-detox
 permalink: /fr/trois-semaines-sans-reseaux-sociaux/
