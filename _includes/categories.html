@@ -4,11 +4,11 @@
 <nav class="cats" aria-label="{{ CT.categories }}">
   <h3 class="mono">{{ CT.categories }}</h3>
   <ul>
-    <li><a href="{{ CT.home | relative_url }}"{% unless include.current %} aria-current="page"{% endunless %}>{{ CT.all_label }}<small>{{ clp.size }}</small></a></li>
+    <li><a href="{{ CT.home | relative_url }}"{% unless include.current %}{% if page.url == CT.home %} aria-current="page"{% endif %}{% endunless %}>{% include icon.html name='all' %}<span>{{ CT.all_label }}</span><small>{{ clp.size }}</small></a></li>
     {%- for c in site.data.categories %}
     {%- assign ck = c.key %}
     {%- assign cn = clp | where_exp: "p", "p.categories contains ck" | size %}
-    <li><a href="{{ c[CL].url | relative_url }}"{% if include.current == ck %} aria-current="page"{% endif %}{% if cn == 0 %} class="is-empty"{% endif %}>{{ c[CL].name }}<small>{{ cn }}</small></a></li>
+    <li><a href="{{ c[CL].url | relative_url }}"{% if include.current == ck %} aria-current="page"{% endif %}{% if cn == 0 %} class="is-empty"{% endif %}>{% include icon.html name=ck %}<span>{{ c[CL].name }}</span><small>{{ cn }}</small></a></li>
     {%- endfor %}
   </ul>
 </nav>

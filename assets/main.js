@@ -3,19 +3,46 @@
   var THEMES = ['system','light','dark'], LABEL = {system:'Auto', light:'Light', dark:'Dark'};
   var theme = 'system';
   try { theme = localStorage.getItem('tema') || 'system'; } catch(e){}
-  var btn = document.getElementById('theme-btn');
-  if(btn && btn.getAttribute('data-labels')){ var lb = btn.getAttribute('data-labels').split('|'); if(lb.length === 3){ LABEL = {system: lb[0], light: lb[1], dark: lb[2]}; } }
+  var btns = Array.prototype.slice.call(document.querySelectorAll('[data-theme-btn]'));
+  if(btns[0] && btns[0].getAttribute('data-labels')){ var lb = btns[0].getAttribute('data-labels').split('|'); if(lb.length === 3){ LABEL = {system: lb[0], light: lb[1], dark: lb[2]}; } }
   function apply(){
     if(theme === 'system') document.documentElement.removeAttribute('data-theme');
     else document.documentElement.setAttribute('data-theme', theme);
-    if(btn) btn.textContent = LABEL[theme];
+    btns.forEach(function(b){ b.textContent = LABEL[theme]; });
   }
-  if(btn) btn.addEventListener('click', function(){
+  btns.forEach(function(b){ b.addEventListener('click', function(){
     theme = THEMES[(THEMES.indexOf(theme) + 1) % 3];
     try { localStorage.setItem('tema', theme); } catch(e){}
     apply();
-  });
+  }); });
   apply();
+
+  // Mobil menü
+  var drawer = document.getElementById('drawer'), back = document.getElementById('drawer-backdrop'),
+      mbtn = document.getElementById('menu-btn'), cbtn = document.getElementById('drawer-close');
+  function setMenu(open){
+    if(!drawer) return;
+    document.body.classList.toggle('menu-open', open);
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    if(mbtn) mbtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if('inert' in drawer) drawer.inert = !open;
+    if(open && cbtn) cbtn.focus(); else if(!open && mbtn && document.activeElement && drawer.contains(document.activeElement)) mbtn.focus();
+  }
+  if(drawer){
+    if('inert' in drawer) drawer.inert = true;
+    if(mbtn) mbtn.addEventListener('click', function(){ setMenu(true); });
+    if(cbtn) cbtn.addEventListener('click', function(){ setMenu(false); });
+    if(back) back.addEventListener('click', function(){ setMenu(false); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setMenu(false); });
+    drawer.addEventListener('click', function(e){ if(e.target.closest('a')) setMenu(false); });
+    window.addEventListener('resize', function(){ if(window.innerWidth >= 1100) setMenu(false); });
+  }
+  var ls = document.getElementById('lang-select');
+  if(ls) ls.addEventListener('change', function(){
+    var o = ls.options[ls.selectedIndex];
+    try { localStorage.setItem('dil', o.getAttribute('data-lang')); } catch(_){}
+    location.href = ls.value;
+  });
 
   // Okuma ilerleme çubuğu
   var bar = document.getElementById('progress');

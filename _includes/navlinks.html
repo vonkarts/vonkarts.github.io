@@ -1,0 +1,10 @@
+{%- assign NL = include.lang | default: 'en' -%}
+{%- if NL != 'en' -%}
+{%- assign NT = site.data.i18n[NL] -%}
+<a href="{{ NT.home | relative_url }}"{% if page.url == NT.home %} aria-current="page"{% endif %}>{% if include.icons %}{% include icon.html name='home' %}{% endif %}<span>{{ NT.posts }}</span></a>
+<a href="{{ '/' | relative_url }}" lang="en" hreflang="en" data-lang="en">{% if include.icons %}{% include icon.html name='english' %}{% endif %}<span>English</span></a>
+{%- else -%}
+<a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>{% if include.icons %}{% include icon.html name='home' %}{% endif %}<span>Writing</span></a>
+<a href="{{ '/archive/' | relative_url }}"{% if page.url == '/archive/' %} aria-current="page"{% endif %}>{% if include.icons %}{% include icon.html name='archive' %}{% endif %}<span>Archive</span></a>
+<a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>{% if include.icons %}{% include icon.html name='about' %}{% endif %}<span>About</span></a>
+{%- endif -%}

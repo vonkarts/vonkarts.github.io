@@ -57,21 +57,19 @@
 <body class="sayfa-{{ page.layout }}">
   {% if page.layout == 'post' %}<div id="progress" aria-hidden="true"></div>{% endif %}
   <div class="wrap">
+    {%- assign PL = page.lang | default: 'en' %}
+    {%- assign PT = site.data.i18n[PL] | default: site.data.i18n.en %}
+    {%- assign TL = PT.theme | default: site.data.i18n.en.theme %}
     <nav class="nav" aria-label="Main">
-      <a class="nav-brand notranslate" translate="no" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <div class="nav-start">
+        <button type="button" class="menu-btn" id="menu-btn" aria-label="{{ PT.menu }}" aria-controls="drawer" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
+        </button>
+        <a class="nav-brand notranslate" translate="no" href="{{ PT.home | relative_url }}">{{ site.title }}</a>
+      </div>
       <div class="nav-links">
-        {%- assign PL = page.lang | default: 'en' %}
-        {%- if PL != 'en' %}
-        {%- assign T = site.data.i18n[PL] %}
-        <a href="{{ T.home | relative_url }}"{% if page.url == T.home %} aria-current="page"{% endif %}>{{ T.posts }}</a>
-        <a href="{{ '/' | relative_url }}" lang="en" hreflang="en" data-lang="en">English</a>
-        {%- else %}
-        <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Writing</a>
-        <a href="{{ '/archive/' | relative_url }}"{% if page.url == '/archive/' %} aria-current="page"{% endif %}>Archive</a>
-        <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
-        {%- endif %}
-        {%- assign TL = site.data.i18n[PL].theme | default: site.data.i18n.en.theme %}
-        <button type="button" class="theme" id="theme-btn" aria-label="Theme" data-labels="{{ TL | join: '|' }}">{{ TL[0] }}</button>
+        {% include navlinks.html lang=PL %}
+        <button type="button" class="theme" data-theme-btn aria-label="Theme" data-labels="{{ TL | join: '|' }}">{{ TL[0] }}</button>
       </div>
     </nav>
 
@@ -88,6 +86,36 @@
       </span>
     </footer>
   </div>
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="drawer" id="drawer" aria-label="{{ PT.menu }}" aria-hidden="true">
+    <div class="drawer-head">
+      <a class="nav-brand notranslate" translate="no" href="{{ PT.home | relative_url }}">{{ site.title }}</a>
+      <button type="button" class="drawer-close" id="drawer-close" aria-label="{{ PT.close }}">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
+      </button>
+    </div>
+    <nav class="drawer-nav" aria-label="{{ PT.menu }}">{% include navlinks.html lang=PL icons=true %}</nav>
+    <hr class="drawer-sep">
+    {% include categories.html lang=PL current=page.cat %}
+    <hr class="drawer-sep">
+    {%- comment -%} Dil seçici: bu sayfanın o dildeki sürümüne, yoksa o dilin ana sayfasına gider {%- endcomment -%}
+    {%- assign dv = "" | split: "" %}
+    {%- if page.ref %}{% assign dvp = site.posts | where: "ref", page.ref %}{% assign dvg = site.pages | where: "ref", page.ref %}{% assign dv = dvp | concat: dvg %}{% endif %}
+    <div class="drawer-foot">
+      <label class="lang-select">
+        {% include icon.html name='globe' %}
+        <span class="visually-hidden">{{ PT.languages }}</span>
+        <select id="lang-select" aria-label="{{ PT.languages }}">
+          {%- for t in site.data.i18n %}
+          {%- assign target = t[1].home %}
+          {%- for v in dv %}{% assign vl = v.lang | default: 'en' %}{% if vl == t[0] %}{% assign target = v.url %}{% endif %}{% endfor %}
+          <option value="{{ target | relative_url }}" data-lang="{{ t[0] }}"{% if t[0] == PL %} selected{% endif %}>{{ t[0] | upcase }} · {{ t[1].name }}</option>
+          {%- endfor %}
+        </select>
+      </label>
+      <button type="button" class="theme drawer-theme mono" data-theme-btn aria-label="Theme" data-labels="{{ TL | join: '|' }}">{{ TL[0] }}</button>
+    </div>
+  </aside>
   <script src="{{ '/assets/main.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
   <script data-goatcounter="https://vonkarts.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>

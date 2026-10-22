@@ -18,6 +18,9 @@ en:
   categories: Categories
   cat_empty: "No posts in this category yet."
   all_label: All posts
+  menu: Menu
+  close: Close
+  languages: Languages
 tr:
   name: Türkçe
   home: /tr/
@@ -37,6 +40,9 @@ tr:
   categories: Kategoriler
   cat_empty: "Bu kategoride henüz yazı yok."
   all_label: Tüm yazılar
+  menu: Menü
+  close: Kapat
+  languages: Diller
 de:
   name: Deutsch
   home: /de/
@@ -56,6 +62,9 @@ de:
   categories: Kategorien
   cat_empty: "In dieser Kategorie gibt es noch keine Artikel."
   all_label: Alle Artikel
+  menu: Menü
+  close: Schließen
+  languages: Sprachen
 fr:
   name: Français
   home: /fr/
@@ -75,6 +84,9 @@ fr:
   categories: Catégories
   cat_empty: "Pas encore d’articles dans cette catégorie."
   all_label: Tous les articles
+  menu: Menu
+  close: Fermer
+  languages: Langues
 es:
   name: Español
   home: /es/
@@ -94,3 +106,6 @@ es:
   categories: Categorías
   cat_empty: "Todavía no hay artículos en esta categoría."
   all_label: Todos los artículos
+  menu: Menú
+  close: Cerrar
+  languages: Idiomas
