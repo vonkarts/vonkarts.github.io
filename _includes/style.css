@@ -232,3 +232,11 @@ footer{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-co
 @media (min-width:1100px){ .drawer,.drawer-backdrop{display:none} }
 @media (prefers-reduced-motion:reduce){.drawer,.drawer-backdrop{transition:none}}
 .drawer .cats a .ico{width:20px;height:20px}
+
+/* Kaynak numaraları ve kaynakça */
+.prose sup{line-height:0;font-size:.62em;margin-left:1px}
+.prose sup a{text-decoration:none;font-family:var(--mono)}
+.prose .refs{font-size:15px;line-height:1.6;color:var(--muted);padding-left:1.6em}
+.prose .refs li{margin:.5em 0;scroll-margin-top:90px;overflow-wrap:anywhere}
+.prose .refs li:target{color:var(--fg);background:var(--accent-soft);border-radius:4px}
+.prose > p:first-child em:only-child{color:var(--muted)}
