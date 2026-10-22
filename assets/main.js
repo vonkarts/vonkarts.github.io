@@ -4,6 +4,7 @@
   var theme = 'system';
   try { theme = localStorage.getItem('tema') || 'system'; } catch(e){}
   var btn = document.getElementById('theme-btn');
+  if(btn && btn.getAttribute('data-labels')){ var lb = btn.getAttribute('data-labels').split('|'); if(lb.length === 3){ LABEL = {system: lb[0], light: lb[1], dark: lb[2]}; } }
   function apply(){
     if(theme === 'system') document.documentElement.removeAttribute('data-theme');
     else document.documentElement.setAttribute('data-theme', theme);

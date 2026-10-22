@@ -4,7 +4,7 @@ layout: default
 {%- assign T = site.data.i18n[page.lang] -%}
 {%- assign lp = site.posts | where: "lang", page.lang -%}
 <header class="masthead">
-  <h1 class="site-title">{{ site.title }}</h1>
+  <h1 class="site-title notranslate" translate="no">{{ site.title }}</h1>
   <p class="tagline">{{ T.tagline }}</p>
 </header>
 <div class="archive">

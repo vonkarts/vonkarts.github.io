@@ -51,7 +51,7 @@
   {% if page.layout == 'post' %}<div id="progress" aria-hidden="true"></div>{% endif %}
   <div class="wrap">
     <nav class="nav" aria-label="Main">
-      <a class="nav-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <a class="nav-brand notranslate" translate="no" href="{{ '/' | relative_url }}">{{ site.title }}</a>
       <div class="nav-links">
         {%- assign PL = page.lang | default: 'en' %}
         {%- if PL != 'en' %}
@@ -63,7 +63,8 @@
         <a href="{{ '/archive/' | relative_url }}"{% if page.url == '/archive/' %} aria-current="page"{% endif %}>Archive</a>
         <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
         {%- endif %}
-        <button type="button" class="theme" id="theme-btn" aria-label="Change theme">Auto</button>
+        {%- assign TL = site.data.i18n[PL].theme | default: site.data.i18n.en.theme %}
+        <button type="button" class="theme" id="theme-btn" aria-label="Theme" data-labels="{{ TL | join: '|' }}">{{ TL[0] }}</button>
       </div>
     </nav>
 

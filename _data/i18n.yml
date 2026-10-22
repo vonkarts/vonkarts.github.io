@@ -14,6 +14,7 @@ en:
   no_posts: No posts in this language yet.
   date: "[m] [d], [y]"
   months: [January, February, March, April, May, June, July, August, September, October, November, December]
+  theme: [Auto, Light, Dark]
 tr:
   name: Türkçe
   home: /tr/
@@ -29,6 +30,7 @@ tr:
   no_posts: Henüz Türkçe yazı yok.
   date: "[d] [m] [y]"
   months: [Ocak, Şubat, Mart, Nisan, Mayıs, Haziran, Temmuz, Ağustos, Eylül, Ekim, Kasım, Aralık]
+  theme: [Otomatik, Açık, Koyu]
 de:
   name: Deutsch
   home: /de/
@@ -44,6 +46,7 @@ de:
   no_posts: Noch keine Artikel auf Deutsch.
   date: "[d]. [m] [y]"
   months: [Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
+  theme: [Auto, Hell, Dunkel]
 fr:
   name: Français
   home: /fr/
@@ -59,6 +62,7 @@ fr:
   no_posts: Pas encore d’articles en français.
   date: "[d] [m] [y]"
   months: [janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
+  theme: [Auto, Clair, Sombre]
 es:
   name: Español
   home: /es/
@@ -74,3 +78,4 @@ es:
   no_posts: Todavía no hay artículos en español.
   date: "[d] de [m] de [y]"
   months: [enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre]
+  theme: [Auto, Claro, Oscuro]
