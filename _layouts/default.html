@@ -8,10 +8,12 @@
   {% feed_meta %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Gloock&family=Literata:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Literata:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Literata:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400&display=swap"></noscript>
-  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Gloock&family=Literata:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400&display=optional">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Literata:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400&display=optional" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Literata:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400&display=optional"></noscript>
+  <style>
+{% include style.css %}
+  </style>
 </head>
 <body class="sayfa-{{ page.layout }}">
   {% if page.layout == 'post' %}<div id="progress" aria-hidden="true"></div>{% endif %}
@@ -36,6 +38,6 @@
       </span>
     </footer>
   </div>
-  <script src="{{ '/assets/main.js' | relative_url }}"></script>
+  <script src="{{ '/assets/main.js' | relative_url }}" defer></script>
 </body>
 </html>
