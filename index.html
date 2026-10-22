@@ -1,7 +1,9 @@
 ---
 layout: default
+lang: en
+ref: home
 ---
-{%- assign en_posts = site.posts | where_exp: "p", "p.lang != 'tr'" -%}
+{%- assign en_posts = site.posts | where: "lang", "en" -%}
 <header class="masthead">
   <h1 class="site-title">{{ site.title }}</h1>
   <p class="tagline">{{ site.description }}</p>

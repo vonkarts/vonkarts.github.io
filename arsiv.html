@@ -3,7 +3,7 @@ layout: default
 title: Archive
 permalink: /archive/
 ---
-{%- assign en_posts = site.posts | where_exp: "p", "p.lang != 'tr'" -%}
+{%- assign en_posts = site.posts | where: "lang", "en" -%}
 <div class="archive">
   <header class="masthead">
     <h1 class="site-title site-title--sm">Archive</h1>

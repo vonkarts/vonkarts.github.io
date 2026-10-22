@@ -1,40 +1,46 @@
 ---
 layout: default
 ---
-{%- assign tr = false -%}{%- if page.lang == 'tr' -%}{%- assign tr = true -%}{%- endif -%}
-{%- assign home = '/' -%}{%- if tr -%}{%- assign home = '/tr/' -%}{%- endif -%}
+{%- assign L = page.lang | default: 'en' -%}
+{%- assign T = site.data.i18n[L] | default: site.data.i18n.en -%}
 <div class="reading">
   <article>
-    <a class="back" href="{{ home | relative_url }}">{% if tr %}← Tüm yazılar{% else %}← All posts{% endif %}</a>
+    <a class="back" href="{{ T.home | relative_url }}">{{ T.all_posts }}</a>
     <h1>{{ page.title }}</h1>
     <div class="post-meta">
-      <time class="mono" datetime="{{ page.date | date_to_xmlschema }}">{% include tarih.html date=page.date lang=page.lang %}</time>
-      <span class="mono">{% include okuma.html content=content lang=page.lang %}</span>
-      {%- if page.ref -%}
-      {%- assign versions = site.posts | where: "ref", page.ref -%}
-      {%- for v in versions -%}{%- unless v.url == page.url -%}
-      <a class="lang-link mono" href="{{ v.url | relative_url }}" hreflang="{{ v.lang }}" lang="{{ v.lang }}">{% if v.lang == 'tr' %}Türkçe oku{% else %}Read in English{% endif %}</a>
-      {%- endunless -%}{%- endfor -%}
-      {%- endif -%}
+      <time class="mono" datetime="{{ page.date | date_to_xmlschema }}">{% include tarih.html date=page.date lang=L %}</time>
+      <span class="mono">{% include okuma.html content=content lang=L %}</span>
     </div>
+    {%- if page.ref -%}
+    {%- assign versions = site.posts | where: "ref", page.ref -%}
+    {%- if versions.size > 1 %}
+    <nav class="langs" aria-label="Languages">
+      {%- for v in versions -%}{%- assign VL = v.lang | default: 'en' -%}
+      {%- if v.url == page.url -%}<span class="lang-cur mono" lang="{{ VL }}">{{ site.data.i18n[VL].name }}</span>
+      {%- else -%}<a class="lang-link mono" href="{{ v.url | relative_url }}" hreflang="{{ VL }}" lang="{{ VL }}" data-lang="{{ VL }}">{{ site.data.i18n[VL].name }}</a>{%- endif -%}
+      {%- endfor -%}
+    </nav>
+    {%- endif -%}
+    {%- endif %}
     {% if page.cover %}<img class="post-cover" src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: '' }}">{% endif %}
-    <nav class="toc" id="toc" hidden aria-label="{% if tr %}İçindekiler{% else %}Contents{% endif %}"><details><summary class="mono">{% if tr %}İçindekiler{% else %}Contents{% endif %}</summary><ol></ol></details></nav>
+    <nav class="toc" id="toc" hidden aria-label="{{ T.contents }}"><details><summary class="mono">{{ T.contents }}</summary><ol></ol></details></nav>
     <div class="prose">
 {{ content }}
     </div>
     {% if page.tags.size > 0 %}
     <div class="post-tags">
-      {% for tag in page.tags %}{% if tr %}<span class="tag">{{ tag }}</span>{% else %}<a class="tag" href="{{ '/' | relative_url }}#tag-{{ tag | slugify: 'latin' }}">{{ tag }}</a>{% endif %}{% endfor %}
+      {% for tag in page.tags %}{% if L == 'en' %}<a class="tag" href="{{ '/' | relative_url }}#tag-{{ tag | slugify: 'latin' }}">{{ tag }}</a>{% else %}<span class="tag">{{ tag }}</span>{% endif %}{% endfor %}
     </div>
     {% endif %}
-    {% unless tr %}{% include newsletter.html %}{% endunless %}
+    {% if L == 'en' %}{% include newsletter.html %}{% endif %}
     {%- assign prev = nil -%}{%- assign next = nil -%}
-    {%- if page.previous and page.previous.lang == page.lang -%}{%- assign prev = page.previous -%}{%- endif -%}
-    {%- if page.next and page.next.lang == page.lang -%}{%- assign next = page.next -%}{%- endif -%}
+    {%- assign prev_lang = page.previous.lang | default: 'en' -%}{%- assign next_lang = page.next.lang | default: 'en' -%}
+    {%- if page.previous and prev_lang == L -%}{%- assign prev = page.previous -%}{%- endif -%}
+    {%- if page.next and next_lang == L -%}{%- assign next = page.next -%}{%- endif -%}
     {% if prev or next %}
-    <nav class="pager" aria-label="{% if tr %}Diğer yazılar{% else %}More posts{% endif %}">
-      {% if prev %}<a href="{{ prev.url | relative_url }}"><span class="mono">{% if tr %}← Önceki{% else %}← Previous{% endif %}</span><span>{{ prev.title }}</span></a>{% else %}<span></span>{% endif %}
-      {% if next %}<a class="next" href="{{ next.url | relative_url }}"><span class="mono">{% if tr %}Sonraki →{% else %}Next →{% endif %}</span><span>{{ next.title }}</span></a>{% endif %}
+    <nav class="pager" aria-label="{{ T.more_posts }}">
+      {% if prev %}<a href="{{ prev.url | relative_url }}"><span class="mono">{{ T.previous }}</span><span>{{ prev.title }}</span></a>{% else %}<span></span>{% endif %}
+      {% if next %}<a class="next" href="{{ next.url | relative_url }}"><span class="mono">{{ T.next }}</span><span>{{ next.title }}</span></a>{% endif %}
     </nav>
     {% endif %}
   </article>

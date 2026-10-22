@@ -20,6 +20,11 @@ defaults:
       path: ""
     values:
       image: /images/social-card.jpg
+  - scope:
+      path: ""
+      type: posts
+    values:
+      lang: en
 
 permalink: /:title/
 markdown: kramdown

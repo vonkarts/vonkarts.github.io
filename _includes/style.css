@@ -163,3 +163,6 @@ footer{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-co
 
 .lang-link{color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor}
 .lang-link:hover{opacity:.8}
+.langs{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.lang-cur{color:var(--fg)}
+.footer-langs{flex-wrap:wrap}

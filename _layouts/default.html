@@ -12,13 +12,26 @@
   <meta name="theme-color" content="#f5f6f3" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#121513" media="(prefers-color-scheme: dark)">
   {%- if page.ref %}
-  {%- assign versions = site.posts | where: "ref", page.ref %}
+  {%- assign vp = site.posts | where: "ref", page.ref %}
+  {%- assign vg = site.pages | where: "ref", page.ref %}
+  {%- assign versions = vp | concat: vg %}
   {%- for v in versions %}
-  <link rel="alternate" hreflang="{{ v.lang | default: 'en' }}" href="{{ v.url | absolute_url }}">
-  {%- if v.lang == 'en' %}
+  {%- assign VL = v.lang | default: 'en' %}
+  <link rel="alternate" hreflang="{{ VL }}" href="{{ v.url | absolute_url }}">
+  {%- if VL == 'en' %}
   <link rel="alternate" hreflang="x-default" href="{{ v.url | absolute_url }}">
   {%- endif %}
   {%- endfor %}
+  {%- assign PL = page.lang | default: 'en' %}
+  {%- if PL == 'en' and versions.size > 1 %}
+  <script>(function(){try{
+    if(/bot|crawl|spider|slurp|lighthouse|headless|preview|facebookexternalhit|whatsapp|telegram/i.test(navigator.userAgent))return;
+    if(localStorage.getItem('dil'))return;
+    var m={ {%- for v in versions %}{% assign VL = v.lang | default: 'en' %}{% unless VL == 'en' %}"{{ VL }}":"{{ v.url | relative_url }}",{% endunless %}{% endfor -%} };
+    var ls=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||''];
+    for(var i=0;i<ls.length;i++){var l=String(ls[i]).slice(0,2).toLowerCase();if(l==='en')return;if(m[l]){location.replace(m[l]);return;}}
+  }catch(e){}})();</script>
+  {%- endif %}
   {%- endif %}
   {% feed_meta %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,17 +49,15 @@
     <nav class="nav" aria-label="Main">
       <a class="nav-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
       <div class="nav-links">
-        {%- if page.lang == 'tr' %}
-        <a href="{{ '/tr/' | relative_url }}"{% if page.url == '/tr/' %} aria-current="page"{% endif %}>Yazılar</a>
-        <a href="{{ '/' | relative_url }}" lang="en" hreflang="en">English</a>
+        {%- assign PL = page.lang | default: 'en' %}
+        {%- if PL != 'en' %}
+        {%- assign T = site.data.i18n[PL] %}
+        <a href="{{ T.home | relative_url }}"{% if page.url == T.home %} aria-current="page"{% endif %}>{{ T.posts }}</a>
+        <a href="{{ '/' | relative_url }}" lang="en" hreflang="en" data-lang="en">English</a>
         {%- else %}
         <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Writing</a>
         <a href="{{ '/archive/' | relative_url }}"{% if page.url == '/archive/' %} aria-current="page"{% endif %}>Archive</a>
         <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
-        {%- assign tr_count = site.posts | where: "lang", "tr" | size %}
-        {%- if tr_count > 0 %}
-        <a href="{{ '/tr/' | relative_url }}" lang="tr" hreflang="tr">TR</a>
-        {%- endif %}
         {%- endif %}
         <button type="button" class="theme" id="theme-btn" aria-label="Change theme">Auto</button>
       </div>
@@ -56,6 +67,9 @@
 
     <footer>
       <span class="mono">{{ site.title }} · {{ site.time | date: "%Y" }}</span>
+      <span class="footer-links footer-langs">
+        {%- for t in site.data.i18n %}<a class="mono" href="{{ t[1].home | relative_url }}" lang="{{ t[0] }}" hreflang="{{ t[0] }}" data-lang="{{ t[0] }}">{{ t[1].name }}</a>{% endfor %}
+      </span>
       <span class="footer-links">
         {% if site.instagram %}<a class="mono" href="https://instagram.com/{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a>{% endif %}
         <a class="mono" href="{{ '/feed.xml' | relative_url }}">RSS</a>

@@ -1,0 +1,28 @@
+---
+layout: default
+---
+{%- assign T = site.data.i18n[page.lang] -%}
+{%- assign lp = site.posts | where: "lang", page.lang -%}
+<header class="masthead">
+  <h1 class="site-title">{{ site.title }}</h1>
+  <p class="tagline">{{ T.tagline }}</p>
+</header>
+<div class="archive">
+  {% if lp.size == 0 %}
+  <div class="empty"><h2>{{ T.no_posts }}</h2></div>
+  {% else %}
+  <ul class="list">
+    {% for post in lp %}
+    <li class="item">
+      <time class="mono" datetime="{{ post.date | date_to_xmlschema }}">{% include tarih.html date=post.date lang=page.lang %}</time>
+      <div class="item-text">
+        <a class="t" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+        <div class="meta"><span class="mono">{% include okuma.html content=post.content lang=page.lang %}</span></div>
+      </div>
+      {% if post.cover %}<img class="thumb" src="{{ post.cover | relative_url }}" alt="" loading="lazy">{% else %}<span></span>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>

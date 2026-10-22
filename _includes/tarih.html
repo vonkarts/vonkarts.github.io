@@ -1,9 +1,11 @@
-{%- if include.lang == 'tr' -%}
-{%- assign aylar = "Ocak,Şubat,Mart,Nisan,Mayıs,Haziran,Temmuz,Ağustos,Eylül,Ekim,Kasım,Aralık" | split: "," -%}
+{%- assign L = include.lang | default: 'en' -%}
+{%- assign T = site.data.i18n[L] | default: site.data.i18n.en -%}
 {%- assign ay = include.date | date: "%-m" | minus: 1 -%}
-{{ include.date | date: "%-d" }} {{ aylar[ay] }}{% unless include.kisa %} {{ include.date | date: "%Y" }}{% endunless %}
-{%- elsif include.kisa -%}
-{{ include.date | date: "%b %-d" }}
+{%- assign gun = include.date | date: "%-d" -%}
+{%- assign yil = include.date | date: "%Y" -%}
+{%- assign ayadi = T.months[ay] -%}
+{%- if include.kisa -%}
+{%- if L == 'en' -%}{{ ayadi | slice: 0, 3 }} {{ gun }}{%- else -%}{{ gun }} {{ ayadi | slice: 0, 3 }}{%- endif -%}
 {%- else -%}
-{{ include.date | date: "%B %-d, %Y" }}
+{{ T.date | replace: "{d}", gun | replace: "{m}", ayadi | replace: "{y}", yil }}
 {%- endif -%}

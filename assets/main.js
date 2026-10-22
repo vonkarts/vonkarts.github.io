@@ -91,3 +91,9 @@
   });
   toc.hidden = false;
 })();
+
+// Ziyaretçi dili elle seçtiğinde bir daha otomatik yönlendirme yapma
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a[data-lang]') : null;
+  if(a){ try { localStorage.setItem('dil', a.getAttribute('data-lang')); } catch(_){} }
+});
