@@ -160,3 +160,6 @@ footer{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-co
 .nl-form .search{flex:1 1 180px;min-width:0}
 .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
 .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.lang-link{color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor}
+.lang-link:hover{opacity:.8}

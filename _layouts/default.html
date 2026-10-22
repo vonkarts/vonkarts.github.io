@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ page.lang | default: 'en' }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +11,15 @@
   <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
   <meta name="theme-color" content="#f5f6f3" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#121513" media="(prefers-color-scheme: dark)">
+  {%- if page.ref %}
+  {%- assign versions = site.posts | where: "ref", page.ref %}
+  {%- for v in versions %}
+  <link rel="alternate" hreflang="{{ v.lang | default: 'en' }}" href="{{ v.url | absolute_url }}">
+  {%- if v.lang == 'en' %}
+  <link rel="alternate" hreflang="x-default" href="{{ v.url | absolute_url }}">
+  {%- endif %}
+  {%- endfor %}
+  {%- endif %}
   {% feed_meta %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,9 +36,18 @@
     <nav class="nav" aria-label="Main">
       <a class="nav-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
       <div class="nav-links">
+        {%- if page.lang == 'tr' %}
+        <a href="{{ '/tr/' | relative_url }}"{% if page.url == '/tr/' %} aria-current="page"{% endif %}>Yazılar</a>
+        <a href="{{ '/' | relative_url }}" lang="en" hreflang="en">English</a>
+        {%- else %}
         <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Writing</a>
         <a href="{{ '/archive/' | relative_url }}"{% if page.url == '/archive/' %} aria-current="page"{% endif %}>Archive</a>
         <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+        {%- assign tr_count = site.posts | where: "lang", "tr" | size %}
+        {%- if tr_count > 0 %}
+        <a href="{{ '/tr/' | relative_url }}" lang="tr" hreflang="tr">TR</a>
+        {%- endif %}
+        {%- endif %}
         <button type="button" class="theme" id="theme-btn" aria-label="Change theme">Auto</button>
       </div>
     </nav>

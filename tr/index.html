@@ -1,0 +1,31 @@
+---
+layout: default
+lang: tr
+title: Türkçe yazılar
+description: vonkarts'ın Türkçe yazıları.
+permalink: /tr/
+---
+{%- assign tr_posts = site.posts | where: "lang", "tr" -%}
+<header class="masthead">
+  <h1 class="site-title">{{ site.title }}</h1>
+  <p class="tagline">Düşünceler, notlar ve yarım kalmış cümleler.</p>
+</header>
+<div class="archive">
+  {% if tr_posts.size == 0 %}
+  <div class="empty"><h2>Henüz Türkçe yazı yok.</h2><p>Türkçe yazılar burada görünecek.</p></div>
+  {% else %}
+  <ul class="list">
+    {% for post in tr_posts %}
+    <li class="item">
+      <time class="mono" datetime="{{ post.date | date_to_xmlschema }}">{% include tarih.html date=post.date lang='tr' %}</time>
+      <div class="item-text">
+        <a class="t" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+        <div class="meta"><span class="mono">{% include okuma.html content=post.content lang='tr' %}</span></div>
+      </div>
+      {% if post.cover %}<img class="thumb" src="{{ post.cover | relative_url }}" alt="" loading="lazy">{% else %}<span></span>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>

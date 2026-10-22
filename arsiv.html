@@ -3,13 +3,14 @@ layout: default
 title: Archive
 permalink: /archive/
 ---
+{%- assign en_posts = site.posts | where_exp: "p", "p.lang != 'tr'" -%}
 <div class="archive">
   <header class="masthead">
     <h1 class="site-title site-title--sm">Archive</h1>
-    {% assign yillar = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
-    <p class="tagline">{{ site.posts.size }} {% if site.posts.size == 1 %}post{% else %}posts{% endif %}, {{ yillar.size }} {% if yillar.size == 1 %}year{% else %}years{% endif %}.</p>
+    {% assign yillar = en_posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+    <p class="tagline">{{ en_posts.size }} {% if en_posts.size == 1 %}post{% else %}posts{% endif %}, {{ yillar.size }} {% if yillar.size == 1 %}year{% else %}years{% endif %}.</p>
   </header>
-  {% if site.posts.size == 0 %}
+  {% if en_posts.size == 0 %}
     <div class="empty"><p>Published posts will be listed here by year.</p></div>
   {% endif %}
   {% for yil in yillar %}
