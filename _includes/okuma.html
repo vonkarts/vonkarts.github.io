@@ -3,4 +3,4 @@
 {%- if dakika < 1 -%}{%- assign dakika = 1 -%}{%- endif -%}
 {%- assign L = include.lang | default: 'en' -%}
 {%- assign T = site.data.i18n[L] | default: site.data.i18n.en -%}
-{{ T.min_read | replace: "{n}", dakika }}
+{{ T.min_read | replace: "[n]", dakika }}

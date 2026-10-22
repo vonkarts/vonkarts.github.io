@@ -5,14 +5,14 @@ en:
   posts: Writing
   all_posts: "← All posts"
   read_in: Read in English
-  min_read: "{n} min read"
+  min_read: "[n] min read"
   contents: Contents
   previous: "← Previous"
   next: "Next →"
   more_posts: More posts
   tagline: Thoughts, notes and half-finished sentences.
   no_posts: No posts in this language yet.
-  date: "{m} {d}, {y}"
+  date: "[m] [d], [y]"
   months: [January, February, March, April, May, June, July, August, September, October, November, December]
 tr:
   name: Türkçe
@@ -20,14 +20,14 @@ tr:
   posts: Yazılar
   all_posts: "← Tüm yazılar"
   read_in: Türkçe oku
-  min_read: "{n} dk okuma"
+  min_read: "[n] dk okuma"
   contents: İçindekiler
   previous: "← Önceki"
   next: "Sonraki →"
   more_posts: Diğer yazılar
   tagline: Düşünceler, notlar ve yarım kalmış cümleler.
   no_posts: Henüz Türkçe yazı yok.
-  date: "{d} {m} {y}"
+  date: "[d] [m] [y]"
   months: [Ocak, Şubat, Mart, Nisan, Mayıs, Haziran, Temmuz, Ağustos, Eylül, Ekim, Kasım, Aralık]
 de:
   name: Deutsch
@@ -35,14 +35,14 @@ de:
   posts: Artikel
   all_posts: "← Alle Artikel"
   read_in: Auf Deutsch lesen
-  min_read: "{n} Min. Lesezeit"
+  min_read: "[n] Min. Lesezeit"
   contents: Inhalt
   previous: "← Vorheriger"
   next: "Nächster →"
   more_posts: Weitere Artikel
   tagline: Gedanken, Notizen und halb fertige Sätze.
   no_posts: Noch keine Artikel auf Deutsch.
-  date: "{d}. {m} {y}"
+  date: "[d]. [m] [y]"
   months: [Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
 fr:
   name: Français
@@ -50,14 +50,14 @@ fr:
   posts: Articles
   all_posts: "← Tous les articles"
   read_in: Lire en français
-  min_read: "{n} min de lecture"
+  min_read: "[n] min de lecture"
   contents: Sommaire
   previous: "← Précédent"
   next: "Suivant →"
   more_posts: Autres articles
   tagline: Pensées, notes et phrases à moitié terminées.
   no_posts: Pas encore d’articles en français.
-  date: "{d} {m} {y}"
+  date: "[d] [m] [y]"
   months: [janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
 es:
   name: Español
@@ -65,12 +65,12 @@ es:
   posts: Artículos
   all_posts: "← Todos los artículos"
   read_in: Leer en español
-  min_read: "{n} min de lectura"
+  min_read: "[n] min de lectura"
   contents: Contenido
   previous: "← Anterior"
   next: "Siguiente →"
   more_posts: Más artículos
   tagline: Pensamientos, notas y frases a medio terminar.
   no_posts: Todavía no hay artículos en español.
-  date: "{d} de {m} de {y}"
+  date: "[d] de [m] de [y]"
   months: [enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre]
