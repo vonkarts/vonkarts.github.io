@@ -33,6 +33,10 @@
   }catch(e){}})();</script>
   {%- endif %}
   {%- endif %}
+  {%- if page.url == '/' %}
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"{{ site.title }}","alternateName":["vonkarts blog","vonkarts.github.io"],"url":"{{ '/' | absolute_url }}"}</script>
+  {%- endif %}
+  <meta property="og:site_name" content="{{ site.title }}">
   {% feed_meta %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
