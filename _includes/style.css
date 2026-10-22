@@ -142,3 +142,21 @@ footer{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-co
 .footer-links a{text-decoration:none}
 .footer-links a:hover{color:var(--fg)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* İçindekiler */
+.toc details{border:1px solid var(--line);border-radius:6px;padding:12px 16px;background:var(--surface)}
+.toc summary{cursor:pointer;list-style-position:outside}
+.toc ol{margin:12px 0 0;padding-left:1.4em;display:flex;flex-direction:column;gap:6px;font-size:16px;line-height:1.45}
+.toc a{text-decoration:none;color:var(--muted)}
+.toc a:hover{color:var(--accent)}
+.prose h2{scroll-margin-top:80px}
+
+/* Bülten */
+.newsletter{display:flex;flex-direction:column;gap:10px;padding:24px;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+.newsletter h2{font-family:var(--display);font-weight:400;font-size:26px;margin:0;line-height:1.2}
+.newsletter p{margin:0;color:var(--muted);font-size:15px}
+.newsletter--compact{padding:0;border:0;background:none}
+.nl-form{display:flex;gap:8px;flex-wrap:wrap}
+.nl-form .search{flex:1 1 180px;min-width:0}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}

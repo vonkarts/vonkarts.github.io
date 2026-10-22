@@ -75,3 +75,19 @@
   window.addEventListener('hashchange', function(){ filter(); var l = document.getElementById('list-section'); if(currentTag() && l) l.scrollIntoView({behavior:'smooth', block:'start'}); });
   filter();
 })();
+
+// İçindekiler: 3 veya daha fazla ara başlığı olan yazılarda
+(function(){
+  var toc = document.getElementById('toc');
+  if(!toc) return;
+  var hs = document.querySelectorAll('.prose h2');
+  if(hs.length < 3) return;
+  var ol = toc.querySelector('ol');
+  Array.prototype.forEach.call(hs, function(h, i){
+    if(!h.id) h.id = 'section-' + (i + 1);
+    var li = document.createElement('li'), a = document.createElement('a');
+    a.href = '#' + h.id; a.textContent = h.textContent;
+    li.appendChild(a); ol.appendChild(li);
+  });
+  toc.hidden = false;
+})();

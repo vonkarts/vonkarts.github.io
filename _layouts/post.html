@@ -10,6 +10,7 @@ layout: default
       <span class="mono">{% include okuma.html content=content %}</span>
     </div>
     {% if page.cover %}<img class="post-cover" src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: '' }}">{% endif %}
+    <nav class="toc" id="toc" hidden aria-label="Contents"><details><summary class="mono">Contents</summary><ol></ol></details></nav>
     <div class="prose">
 {{ content }}
     </div>
@@ -18,6 +19,7 @@ layout: default
       {% for tag in page.tags %}<a class="tag" href="{{ '/' | relative_url }}#tag-{{ tag | slugify: 'latin' }}">{{ tag }}</a>{% endfor %}
     </div>
     {% endif %}
+    {% include newsletter.html %}
     {% if page.previous or page.next %}
     <nav class="pager" aria-label="More posts">
       {% if page.previous %}<a href="{{ page.previous.url | relative_url }}"><span class="mono">← Previous</span><span>{{ page.previous.title }}</span></a>{% else %}<span></span>{% endif %}

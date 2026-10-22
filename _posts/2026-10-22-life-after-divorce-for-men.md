@@ -2,6 +2,9 @@
 title: "Life After Divorce for Men: The Silent Struggles Nobody Talks About"
 description: "What research says about men after divorce: grief, loneliness, fatherhood, money, mental health, and practical steps for rebuilding your life."
 tags: [divorce, men's health, relationships]
+cover: /images/forest-path.jpg
+cover_alt: A grassy path through an arch of old trees, with an empty bench beside it
+image: /images/forest-path.jpg
 ---
 
 Divorce does not always end when the papers are signed. For many men, that is when the hardest part begins — learning how to live with an empty home, a changed relationship with their children, financial uncertainty, and a future they never imagined facing alone.

@@ -11,6 +11,16 @@ timezone: Europe/Istanbul
 about_short: "I write about landscapes, cities and the quiet in between."
 instagram: vonkarts
 
+# Bülten: Buttondown kullanıcı adını yazınca abone kutusu sitede görünür
+newsletter: ""
+
+# Paylaşım önizlemesinde (WhatsApp, Instagram, X) görünen varsayılan görsel
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /images/social-card.jpg
+
 permalink: /:title/
 markdown: kramdown
 kramdown:
