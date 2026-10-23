@@ -124,7 +124,8 @@ def main():
                 continue
             found_on[target].add(url)
             if is_internal(target):
-                if frag and frag != "top":
+                # "#tag-..." ana sayfadaki JavaScript filtresi; gerçek çapa değil
+                if frag and frag != "top" and not frag.startswith("tag-"):
                     fragments[target].add((urllib.parse.unquote(frag), url))
                 if target not in seen:
                     queue.append(target)
@@ -142,6 +143,8 @@ def main():
                 if frag not in ids[target]:
                     broken.append((f"{target}#{frag}", "çapa yok"))
                     found_on[f"{target}#{frag}"].add(src)
+
+    broken = list(dict.fromkeys(broken))
 
     def check_external(url):
         st, _, _ = fetch(url, method="HEAD")
