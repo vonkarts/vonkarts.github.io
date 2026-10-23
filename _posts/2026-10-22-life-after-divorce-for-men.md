@@ -1,5 +1,6 @@
 ---
 title: "Life After Divorce for Men: The Silent Struggles Nobody Talks About"
+seo_title: "Life After Divorce for Men: Silent Struggles"
 description: "What research says about men after divorce: grief, loneliness, fatherhood, money, mental health, and practical steps for rebuilding your life."
 lang: en
 ref: life-after-divorce-for-men

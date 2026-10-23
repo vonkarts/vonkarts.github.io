@@ -6,5 +6,5 @@
     <p>{{ IP.excerpt | strip_html | truncatewords: 30 }}</p>
     <div class="meta"><span class="mono">{% include okuma.html content=IP.content lang=include.lang %}</span></div>
   </div>
-  {% if IP.cover %}<img class="thumb" src="{{ IP.cover | relative_url }}" alt="" loading="lazy">{% else %}<span></span>{% endif %}
+  {% if IP.cover %}<img class="thumb" src="{{ IP.cover | relative_url }}" alt="{{ IP.cover_alt | default: IP.title | escape }}" loading="lazy">{% else %}<span></span>{% endif %}
 </li>

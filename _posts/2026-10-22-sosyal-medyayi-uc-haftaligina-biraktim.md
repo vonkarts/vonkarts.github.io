@@ -1,5 +1,6 @@
 ---
 title: "Sosyal Medyayı Üç Haftalığına Bıraktım. En Zor Kısmı, Kaydırmayı Bırakmadığımı Fark Etmekti."
+seo_title: "Sosyal Medyayı 3 Hafta Bıraktım: Ne Değişti?"
 description: "Sosyal medyayı üç haftalığına bıraktım, sonra \"gizli kaydırmayı\" fark ettim. Kişisel bir hikâye ve sosyal medya detoksu üzerine kanıta dayalı bir rehber."
 date: 2026-10-22 13:00:00 +0300
 lang: tr

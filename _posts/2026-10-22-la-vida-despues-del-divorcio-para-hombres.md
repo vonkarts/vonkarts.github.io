@@ -1,5 +1,6 @@
 ---
 title: "La vida después del divorcio para los hombres: las luchas silenciosas de las que nadie habla"
+seo_title: "La vida después del divorcio para hombres"
 description: "Lo que dice la investigación sobre los hombres después del divorcio: duelo, soledad, paternidad, dinero, salud mental y pasos prácticos para reconstruir tu vida."
 lang: es
 ref: life-after-divorce-for-men

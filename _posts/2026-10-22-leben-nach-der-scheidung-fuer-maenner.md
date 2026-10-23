@@ -1,5 +1,6 @@
 ---
 title: "Leben nach der Scheidung für Männer: Die stillen Kämpfe, über die niemand spricht"
+seo_title: "Leben nach der Scheidung für Männer"
 description: "Was die Forschung über Männer nach der Scheidung sagt: Trauer, Einsamkeit, Vatersein, Geld, psychische Gesundheit und praktische Schritte für einen Neuanfang."
 lang: de
 ref: life-after-divorce-for-men

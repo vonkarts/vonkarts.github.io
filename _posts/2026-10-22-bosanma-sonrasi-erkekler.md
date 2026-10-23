@@ -1,5 +1,6 @@
 ---
 title: "Boşanma Sonrası Erkekler: Kimsenin Konuşmadığı Sessiz Mücadeleler"
+seo_title: "Boşanma Sonrası Erkekler: Sessiz Mücadeleler"
 description: "Araştırmalar boşanma sonrası erkekler hakkında ne söylüyor: yas, yalnızlık, babalık, para, ruh sağlığı ve hayatı yeniden kurmak için pratik adımlar."
 lang: tr
 ref: life-after-divorce-for-men

@@ -6,7 +6,12 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://vonkarts.goatcounter.com; connect-src 'self' https://vonkarts.goatcounter.com; form-action https://buttondown.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <script>try{var t=localStorage.getItem('tema');if(t&&t!=='system')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-  {% seo %}
+  {%- if page.url == '/' %}
+  <title>{{ site.title | escape }} | {{ site.description | escape }}</title>
+  {%- else %}
+  <title>{{ page.seo_title | default: page.title | default: site.title | escape }}{% if page.seo_title or page.title %} | {{ site.title | escape }}{% endif %}</title>
+  {%- endif %}
+  {% seo title=false %}
   <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="48x48">
   <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
   <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">

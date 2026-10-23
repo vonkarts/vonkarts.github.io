@@ -1,5 +1,6 @@
 ---
 title: Yazının başlığı
+seo_title: Arama sonuçlarında görünecek kısa başlık (en fazla ~50 karakter)
 tags: [etiket1, etiket2]
 cover: /images/kapak-gorseli.jpg
 ---

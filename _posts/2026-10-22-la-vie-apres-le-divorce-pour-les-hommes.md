@@ -1,5 +1,6 @@
 ---
 title: "La vie après le divorce pour les hommes : les combats silencieux dont personne ne parle"
+seo_title: "La vie après le divorce pour les hommes"
 description: "Ce que dit la recherche sur les hommes après un divorce : deuil, solitude, paternité, argent, santé mentale et étapes concrètes pour reconstruire sa vie."
 lang: fr
 ref: life-after-divorce-for-men
