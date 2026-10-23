@@ -27,7 +27,7 @@
   {%- assign PL = page.lang | default: 'en' %}
   {%- if PL == 'en' and versions.size > 1 %}
   <script>(function(){try{
-    if(/bot|crawl|spider|slurp|lighthouse|headless|preview|facebookexternalhit|whatsapp|telegram/i.test(navigator.userAgent))return;
+    if(/bot|crawl|spider|slurp|lighthouse|headless|preview|inspection|google-|bing|chatgpt|openai|gpt|perplexity|claude|anthropic|facebookexternalhit|whatsapp|telegram/i.test(navigator.userAgent))return;
     if(localStorage.getItem('dil'))return;
     var m={ {%- for v in versions %}{% assign VL = v.lang | default: 'en' %}{% unless VL == 'en' %}"{{ VL }}":"{{ v.url | relative_url }}",{% endunless %}{% endfor -%} };
     var ls=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||''];
@@ -39,6 +39,9 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"{{ site.title }}","alternateName":["vonkarts blog","vonkarts.github.io"],"url":"{{ '/' | absolute_url }}"}</script>
   {%- endif %}
   <meta property="og:site_name" content="{{ site.title }}">
+  {%- if page.profile %}
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","url":"{{ page.url | absolute_url }}","mainEntity":{"@type":"Person","name":{{ site.author.name | jsonify }},"url":"{{ page.url | absolute_url }}","sameAs":["https://www.instagram.com/{{ site.instagram }}/"]}}</script>
+  {%- endif %}
   {%- if page.layout == 'category' %}
   {%- assign nck = page.cat %}
   {%- assign ncn = site.posts | where: "lang", page.lang | where_exp: "p", "p.categories contains nck" | size %}

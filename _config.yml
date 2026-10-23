@@ -1,7 +1,9 @@
 # Blogun temel ayarları. İsmi ve alt başlığı buradan değiştirebilirsin.
 title: vonkarts
 description: Thoughts, notes and half-finished sentences.
-author: vonkarts
+author:
+  name: vonkarts
+  url: "https://vonkarts.github.io/about/"
 url: "https://vonkarts.github.io"
 baseurl: ""
 lang: en_US
@@ -25,6 +27,15 @@ defaults:
       type: posts
     values:
       lang: en
+  # Noindex kategori sayfaları ve Google doğrulama dosyası site haritasına girmesin
+  - scope:
+      path: "kategori"
+    values:
+      sitemap: false
+  - scope:
+      path: "googledd59405c5d8809f3.html"
+    values:
+      sitemap: false
 
 permalink: /:title/
 markdown: kramdown
@@ -36,6 +47,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-redirect-from
 
 exclude:
   - README.md

@@ -21,6 +21,8 @@ en:
   menu: Menu
   close: Close
   languages: Languages
+  by: By
+  updated: Updated
 tr:
   name: Türkçe
   home: /tr/
@@ -43,6 +45,8 @@ tr:
   menu: Menü
   close: Kapat
   languages: Diller
+  by: Yazan
+  updated: Güncellendi
 de:
   name: Deutsch
   home: /de/
@@ -65,6 +69,8 @@ de:
   menu: Menü
   close: Schließen
   languages: Sprachen
+  by: Von
+  updated: Aktualisiert
 fr:
   name: Français
   home: /fr/
@@ -87,6 +93,8 @@ fr:
   menu: Menu
   close: Fermer
   languages: Langues
+  by: Par
+  updated: Mis à jour
 es:
   name: Español
   home: /es/
@@ -109,3 +117,5 @@ es:
   menu: Menú
   close: Cerrar
   languages: Idiomas
+  by: Por
+  updated: Actualizado
