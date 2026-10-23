@@ -24,16 +24,6 @@
   <link rel="alternate" hreflang="x-default" href="{{ v.url | absolute_url }}">
   {%- endif %}
   {%- endfor %}
-  {%- assign PL = page.lang | default: 'en' %}
-  {%- if PL == 'en' and versions.size > 1 %}
-  <script>(function(){try{
-    if(/bot|crawl|spider|slurp|lighthouse|headless|preview|inspection|google-|bing|chatgpt|openai|gpt|perplexity|claude|anthropic|facebookexternalhit|whatsapp|telegram/i.test(navigator.userAgent))return;
-    if(localStorage.getItem('dil'))return;
-    var m={ {%- for v in versions %}{% assign VL = v.lang | default: 'en' %}{% unless VL == 'en' %}"{{ VL }}":"{{ v.url | relative_url }}",{% endunless %}{% endfor -%} };
-    var ls=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||''];
-    for(var i=0;i<ls.length;i++){var l=String(ls[i]).slice(0,2).toLowerCase();if(l==='en')return;if(m[l]){location.replace(m[l]);return;}}
-  }catch(e){}})();</script>
-  {%- endif %}
   {%- endif %}
   {%- if page.url == '/' %}
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"{{ site.title }}","alternateName":["vonkarts blog","vonkarts.github.io"],"url":"{{ '/' | absolute_url }}"}</script>
@@ -76,6 +66,7 @@
         {% include navlinks.html lang=PL %}
         <button type="button" class="theme" data-theme-btn aria-label="Theme" data-labels="{{ TL | join: '|' }}">{{ TL[0] }}</button>
       </div>
+      {% include langswitch.html %}
     </nav>
 
     <main>{{ content }}</main>

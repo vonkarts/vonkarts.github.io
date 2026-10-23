@@ -245,3 +245,17 @@ footer{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-co
 .post-header{display:contents}
 .byline a{color:inherit;text-decoration:none}
 .byline a:hover{color:var(--accent)}
+
+/* Dil düğmesi (üst menü) */
+.lang-menu{position:relative}
+.nav-links{margin-left:auto}
+.lang-menu summary{list-style:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer;padding:6px 10px;border:1px solid var(--line);border-radius:999px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--fg);user-select:none}
+.lang-menu summary::-webkit-details-marker{display:none}
+.lang-menu summary .ico{width:16px;height:16px}
+.lang-menu summary:hover,.lang-menu[open] summary{border-color:var(--fg)}
+.lang-menu ul{position:absolute;right:0;top:calc(100% + 8px);z-index:20;list-style:none;margin:0;padding:6px;min-width:190px;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+.lang-menu li a{display:flex;align-items:center;gap:12px;padding:9px 12px;border-radius:8px;text-decoration:none;color:var(--fg);font-size:15px}
+.lang-menu li a .mono{width:22px}
+.lang-menu li a:hover{background:var(--accent-soft)}
+.lang-menu li a[aria-current="true"]{background:var(--accent-soft);font-weight:600}
+@media (max-width:700px){ .nav-links + .lang-menu{margin-left:auto} }

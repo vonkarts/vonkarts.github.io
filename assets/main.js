@@ -125,3 +125,11 @@ document.addEventListener('click', function(e){
   var a = e.target.closest ? e.target.closest('a[data-lang]') : null;
   if(a){ try { localStorage.setItem('dil', a.getAttribute('data-lang')); } catch(_){} }
 });
+
+// Dil menüsü: dışarı tıklayınca veya Esc ile kapanır
+(function(){
+  var menus = Array.prototype.slice.call(document.querySelectorAll('details.lang-menu'));
+  if(!menus.length) return;
+  document.addEventListener('click', function(e){ menus.forEach(function(m){ if(m.open && !m.contains(e.target)) m.open = false; }); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') menus.forEach(function(m){ m.open = false; }); });
+})();
