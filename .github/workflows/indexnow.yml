@@ -1,0 +1,34 @@
+# Site her yayınlandığında yeni/güncellenen sayfaları Bing'e (IndexNow) bildirir.
+# Dışarıya sadece herkese açık sayfa adresleri gider; hesap bilgisi gitmez.
+name: IndexNow
+
+on:
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      submit_all:
+        description: "Sitemap'teki tüm sayfaları gönder"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Notify IndexNow
+        env:
+          INDEXNOW_KEY: e1618df1e901f9eddc3eea221ee95775
+          SUBMIT_ALL: ${{ inputs.submit_all || 'false' }}
+        run: |
+          sleep 30   # yeni sürümün CDN'e yayılması için kısa bekleme
+          python3 .github/scripts/indexnow.py

@@ -1,0 +1,28 @@
+# Sitedeki kırık bağlantıları bulur: her yayından sonra ve her pazartesi.
+# Kırık bir şey bulursa iş kırmızı olur ve GitHub e-posta ile haber verir.
+name: Check links
+
+on:
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types: [completed]
+  schedule:
+    - cron: "17 6 * * 1"   # her pazartesi 09:17 (Türkiye)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check links on the live site
+        run: |
+          sleep 30
+          python3 .github/scripts/link_check.py
