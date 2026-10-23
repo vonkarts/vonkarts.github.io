@@ -180,6 +180,12 @@ def main():
     if summary:
         with open(summary, "a", encoding="utf-8") as f:
             f.write(text)
+    # GitHub'ın Actions sayfasında ve e-postasında görünen notlar
+    for url, st in sorted(broken):
+        pages = ", ".join(sorted(short(p) for p in found_on.get(url, [])))[:200]
+        print(f"::error title=Kırık bağlantı::{short(url)} ({st}) — bulunduğu sayfa: {pages}")
+    for url, st in sorted(warn, key=lambda r: r[0])[:10]:
+        print(f"::warning title=Kontrol edilemedi::{short(url)} ({st})")
     if broken:
         sys.exit(1)
 
