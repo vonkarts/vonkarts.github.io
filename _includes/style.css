@@ -373,5 +373,6 @@ article h1{font-family:var(--display);font-weight:600;letter-spacing:0;line-heig
 /* İlk paragraf her yazıda aynı: düz, büyük ilk harf */
 .sayfa-post .prose > p:first-of-type::first-letter{font-style:normal}
 
-/* Ana sayfada logo bir kez görünsün: üst çubuktaki ad gizli, büyük başlık kalır */
-.sayfa-lang_home .nav .nav-brand{visibility:hidden}
+/* Ana sayfada logo bir kez görünsün: üst çubuktaki ad kalır, büyük başlık yalnızca arama motorları ve ekran okuyucular için */
+.sayfa-lang_home .masthead .site-title{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.sayfa-lang_home .masthead{margin-top:8px}
