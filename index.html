@@ -18,7 +18,7 @@ ref: home
   {% else %}
     {% assign f = en_posts.first %}
     <section class="featured{% if f.cover %} has-cover{% endif %}" id="featured">
-      {% if f.cover %}<a href="{{ f.url | relative_url }}" tabindex="-1"><img class="cover" src="{{ f.cover | relative_url }}" alt="{{ f.cover_alt | default: f.title | escape }}"></a>{% endif %}
+      {% if f.cover %}<a href="{{ f.url | relative_url }}" tabindex="-1">{% include picture.html src=f.cover alt=f.cover_alt class="cover" eager=true sizes="(min-width: 1100px) 760px, (min-width: 720px) 90vw, 160vw" %}</a>{% endif %}
       <div class="featured-text">
         <div class="mono">Latest · {% include tarih.html date=f.date %}</div>
         <a class="t" href="{{ f.url | relative_url }}">{{ f.title }}</a>
@@ -42,7 +42,7 @@ ref: home
             <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
             <div class="meta"><span class="mono">{% include okuma.html content=post.content %}</span>{% include cat-chip.html post=post %}</div>
           </div>
-          {% if post.cover %}<img class="thumb" src="{{ post.cover | relative_url }}" alt="{{ post.cover_alt | default: post.title | escape }}" loading="lazy">{% else %}<span></span>{% endif %}
+          {% if post.cover %}{% include picture.html src=post.cover alt=post.cover_alt class="thumb" sizes="180px" %}{% else %}<span></span>{% endif %}
         </li>
       {% endfor %}
       </ul>
@@ -53,18 +53,18 @@ ref: home
 
   <aside class="aside">
     <div>
-      <h3 class="mono">Search</h3>
+      <h2 class="mono side-h">Search</h2>
       <input class="search" id="search" type="search" placeholder="Search posts…" aria-label="Search posts">
     </div>
     {% if site.newsletter != "" %}
     <div>
-      <h3 class="mono">Newsletter</h3>
+      <h2 class="mono side-h">Newsletter</h2>
       {% include newsletter.html compact=true %}
     </div>
     {% endif %}
     {% if site.about_short %}
     <div>
-      <h3 class="mono">About</h3>
+      <h2 class="mono side-h">About</h2>
       <p>{{ site.about_short }}</p>
       <p class="more"><a href="{{ '/about/' | relative_url }}">More about vonkarts</a></p>
     </div>

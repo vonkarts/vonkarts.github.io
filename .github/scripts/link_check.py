@@ -57,6 +57,10 @@ class Page(HTMLParser):
             url = a.get("content")
         if url:
             self.links.append(url.strip())
+        if tag in ("img", "source") and a.get("srcset"):
+            for part in a["srcset"].split(","):
+                if part.strip():
+                    self.links.append(part.strip().split()[0])
 
 
 def fetch(url, method="GET", read=False):

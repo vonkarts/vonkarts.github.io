@@ -2,7 +2,7 @@
 {%- assign CT = site.data.i18n[CL] -%}
 {%- assign clp = site.posts | where: "lang", CL -%}
 <nav class="cats" aria-label="{{ CT.categories }}">
-  <h3 class="mono">{{ CT.categories }}</h3>
+  <h2 class="mono side-h">{{ CT.categories }}</h2>
   <ul>
     <li><a href="{{ CT.home | relative_url }}"{% unless include.current %}{% if page.url == CT.home %} aria-current="page"{% endif %}{% endunless %}>{% include icon.html name='all' %}<span>{{ CT.all_label }}</span><small>{{ clp.size }}</small></a></li>
     {%- for c in site.data.categories %}
