@@ -78,9 +78,6 @@
 
     <footer>
       <span class="mono">{{ site.title }} · {{ site.time | date: "%Y" }}</span>
-      <span class="footer-links footer-langs">
-        {%- for t in site.data.i18n %}<a class="mono" href="{{ t[1].home | relative_url }}" lang="{{ t[0] }}" hreflang="{{ t[0] }}" data-lang="{{ t[0] }}">{{ t[1].name }}</a>{% endfor %}
-      </span>
       <span class="footer-links">
         {% if site.instagram %}<a class="mono" href="https://instagram.com/{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a>{% endif %}
         <a class="mono" href="{{ '/feed.xml' | relative_url }}">RSS</a>

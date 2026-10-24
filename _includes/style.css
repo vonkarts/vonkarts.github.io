@@ -317,3 +317,5 @@ a.chip:hover{filter:brightness(1.15)}
 
 .side-h{font-weight:500;font-size:11.5px;line-height:1.4}
 picture{display:contents}
+picture > source{display:none}
+@media (max-width:959px){.aside-search{display:none}}
