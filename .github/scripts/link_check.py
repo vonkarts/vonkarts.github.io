@@ -187,6 +187,8 @@ def main():
     if summary:
         with open(summary, "a", encoding="utf-8") as f:
             f.write(text)
+    webp = sorted({short(u) for u in internal_status if u.endswith(".webp")})
+    print(f"::notice title=WebP görseller::{len(webp)} WebP bulundu: {', '.join(webp)[:400]}")
     # GitHub'ın Actions sayfasında ve e-postasında görünen notlar
     for url, st in sorted(broken):
         pages = ", ".join(sorted(short(p) for p in found_on.get(url, [])))[:200]
