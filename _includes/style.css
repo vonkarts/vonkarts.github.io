@@ -272,11 +272,11 @@ footer{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-co
 
 /* Öne çıkan yazı: başlık fotoğrafın üstünde */
 .featured{border-bottom:0;padding-bottom:0;margin-bottom:28px}
-.featured.has-cover{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:0;align-items:end;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;background:#0b0f0d;isolation:isolate}
-.featured.has-cover > a:first-child{position:absolute;inset:0;z-index:0}
+.featured.has-cover{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:0;align-items:end;aspect-ratio:4/5;border-radius:var(--r);background:#0b0f0d;isolation:isolate}
+.featured.has-cover > a:first-child{position:absolute;inset:0;z-index:0;border-radius:inherit;overflow:hidden}
 .featured.has-cover .cover{height:100%;aspect-ratio:auto;border-radius:0;transition:transform .6s ease}
 .featured.has-cover:hover .cover{transform:scale(1.025)}
-.featured.has-cover .featured-text{position:relative;z-index:1;padding:96px 22px 22px;gap:10px;color:#f3eee4;
+.featured.has-cover .featured-text{position:relative;z-index:1;border-radius:0 0 var(--r) var(--r);padding:96px 22px 22px;gap:10px;color:#f3eee4;
   background:linear-gradient(to top,rgba(6,9,8,.94) 0%,rgba(6,9,8,.75) 60%,rgba(6,9,8,0) 100%)}
 .featured.has-cover .t{color:#f6f1e7;font-size:clamp(27px,7vw,40px)}
 .featured.has-cover .t:hover{color:#f0c47f}
@@ -295,7 +295,13 @@ footer{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-co
 .item{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 18px 22px;transition:border-color .2s,transform .2s}
 .item:hover{border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
 .thumb{border-radius:var(--rs);width:104px}
-@media (max-width:600px){.item{padding:14px 14px 14px 18px}.thumb{width:80px}.item a.t{font-size:21px}}
+@media (max-width:600px){
+  .item{padding:14px 14px 14px 16px;gap:4px 14px}.thumb{width:76px}
+  .item a.t{font-size:19px;line-height:1.22}
+  .item p{font-size:15px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .featured.has-cover .featured-text{padding:88px 18px 18px}
+  .featured.has-cover p{-webkit-line-clamp:2}
+}
 
 /* Yazı sayfası */
 .post-cover{border-radius:var(--r)}
