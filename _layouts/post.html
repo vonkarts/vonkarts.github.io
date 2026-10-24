@@ -16,17 +16,6 @@ layout: default
       <span class="mono">{% include okuma.html content=content lang=L %}</span>
       {%- for pk in page.categories %}{% assign pc = site.data.categories | where: "key", pk | first %}{% if pc %}<a class="chip" href="{{ pc[L].url | relative_url }}">{{ pc[L].name }}</a>{% endif %}{% endfor %}
     </div>
-    {%- if page.ref -%}
-    {%- assign versions = site.posts | where: "ref", page.ref -%}
-    {%- if versions.size > 1 %}
-    <nav class="langs" aria-label="Languages">
-      {%- for v in versions -%}{%- assign VL = v.lang | default: 'en' -%}
-      {%- if v.url == page.url -%}<span class="lang-cur mono" lang="{{ VL }}">{{ site.data.i18n[VL].name }}</span>
-      {%- else -%}<a class="lang-link mono" href="{{ v.url | relative_url }}" hreflang="{{ VL }}" lang="{{ VL }}" data-lang="{{ VL }}">{{ site.data.i18n[VL].name }}</a>{%- endif -%}
-      {%- endfor -%}
-    </nav>
-    {%- endif -%}
-    {%- endif %}
     </header>
     {% if page.cover %}{% include picture.html src=page.cover alt=page.cover_alt class="post-cover" eager=true sizes="(min-width: 760px) 720px, 100vw" pos=page.cover_pos %}{% endif %}
     <nav class="toc" id="toc" hidden aria-label="{{ T.contents }}"><details><summary class="mono">{{ T.contents }}</summary><ol></ol></details></nav>
