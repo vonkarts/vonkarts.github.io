@@ -1,0 +1,29 @@
+# Elle çalıştırılan Lighthouse ölçümü (canlı site; telefon ve masaüstü).
+name: Lighthouse
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Run Lighthouse
+        run: |
+          S=https://vonkarts.github.io
+          run() { npx --yes lighthouse@12.2.0 "$2" --quiet --output=json --output-path="lh-$1.json" --chrome-flags="--headless=new --no-sandbox" $3 || true; }
+          run home-en-mobile "$S/"
+          run home-tr-mobile "$S/tr/"
+          run post-tr-long-mobile "$S/tr/bosanma-sonrasi-erkekler/"
+          run post-en-new-mobile "$S/why-ai-landscapes-make-us-stop-scrolling/"
+          run home-en-desktop "$S/" "--preset=desktop"
+          run post-tr-long-desktop "$S/tr/bosanma-sonrasi-erkekler/" "--preset=desktop"
+      - name: Summarize
+        run: python3 .github/scripts/lh_report.py
