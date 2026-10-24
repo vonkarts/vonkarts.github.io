@@ -6,6 +6,7 @@
 - Arayüz metinleri şablona sabit yazılmaz; `_data/i18n.yml` içinde 5 dilde tanımlanır.
 - Ana sayfalar tek şablon kullanır: `_layouts/lang_home.html` (EN dahil). Arşiv: `_layouts/archive.html`. Hakkında: her dilde ayrı sayfa, `ref: about`.
 - Aynı içeriğin dil sürümleri aynı `ref` ile bağlanır (hreflang ve dil düğmesi buna bakar).
+- Her yayında `.github/scripts/i18n_check.py` canlı sitede 5 dili denetler (html lang, İngilizce kalıntı, dil düğmesi, eksik çeviri). Kırmızıysa önce onu düzelt.
 
 ## Yazı yayınlama
 - Kullanıcı yazıyı gönderir; İngilizce yayınlanır, TR/DE/FR/ES çevirileri yapılır, her çeviri kendi kendine 10 üzerinden puanlanır, 9+ ise sormadan yayınlanır.
