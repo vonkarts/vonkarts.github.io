@@ -1,11 +1,11 @@
 {%- comment -%}
   Görseli, varsa küçük WebP kopyalarıyla (foto-480/800/1200.webp) verir; yoksa düz <img>.
-  Parametreler: src, alt, class, sizes, eager (true: hemen ve öncelikli yükle)
+  Parametreler: src, alt, class, sizes, eager (true: hemen ve öncelikli yükle), pos (kesim konumu, ör. "50% 80%")
 {%- endcomment -%}
 {%- assign PS = include.src -%}
 {%- assign PB = PS | split: "." | pop | join: "." -%}
 {%- assign PW = "480,800,1200" | split: "," -%}
 {%- capture PSET -%}{%- for w in PW -%}{%- assign wp = PB | append: "-" | append: w | append: ".webp" -%}{%- assign hit = site.static_files | where: "path", wp | first -%}{%- if hit -%}{{ wp | relative_url }} {{ w }}w,{%- endif -%}{%- endfor -%}{%- endcapture -%}
 {%- assign PSET = PSET | strip | split: "," | join: ", " -%}
-{%- capture PIMG -%}<img class="{{ include.class }}" src="{{ PS | relative_url }}" alt="{{ include.alt | escape }}"{% if include.eager %} fetchpriority="high"{% else %} loading="lazy"{% endif %} decoding="async">{%- endcapture -%}
+{%- capture PIMG -%}<img class="{{ include.class }}" src="{{ PS | relative_url }}" alt="{{ include.alt | escape }}"{% if include.pos %} style="object-position:{{ include.pos }}"{% endif %}{% if include.eager %} fetchpriority="high"{% else %} loading="lazy"{% endif %} decoding="async">{%- endcapture -%}
 {%- if PSET != "" -%}<picture><source type="image/webp" srcset="{{ PSET }}" sizes="{{ include.sizes | default: '100vw' }}">{{ PIMG }}</picture>{%- else -%}{{ PIMG }}{%- endif -%}

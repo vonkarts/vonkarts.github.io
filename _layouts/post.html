@@ -28,7 +28,7 @@ layout: default
     {%- endif -%}
     {%- endif %}
     </header>
-    {% if page.cover %}{% include picture.html src=page.cover alt=page.cover_alt class="post-cover" eager=true sizes="(min-width: 760px) 720px, 100vw" %}{% endif %}
+    {% if page.cover %}{% include picture.html src=page.cover alt=page.cover_alt class="post-cover" eager=true sizes="(min-width: 760px) 720px, 100vw" pos=page.cover_pos %}{% endif %}
     <nav class="toc" id="toc" hidden aria-label="{{ T.contents }}"><details><summary class="mono">{{ T.contents }}</summary><ol></ol></details></nav>
     <div class="prose">
 {{ content }}

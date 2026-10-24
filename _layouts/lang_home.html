@@ -19,7 +19,7 @@ layout: default
   {% else %}
     {%- assign f = lp.first %}
     <section class="featured{% if f.cover %} has-cover{% endif %}" id="featured">
-      {% if f.cover %}<a href="{{ f.url | relative_url }}" tabindex="-1">{% include picture.html src=f.cover alt=f.cover_alt class="cover" eager=true sizes="(min-width: 1100px) 760px, (min-width: 720px) 90vw, 160vw" %}</a>{% endif %}
+      {% if f.cover %}<a href="{{ f.url | relative_url }}" tabindex="-1">{% if f.cover_portrait %}{% assign fsz = "(min-width: 1100px) 760px, (min-width: 720px) 90vw, 100vw" %}{% else %}{% assign fsz = "(min-width: 1100px) 760px, (min-width: 720px) 90vw, 160vw" %}{% endif %}{% include picture.html src=f.cover alt=f.cover_alt class="cover" eager=true sizes=fsz pos=f.cover_pos %}</a>{% endif %}
       <div class="featured-text">
         <div class="mono">{{ T.latest }} · {% include tarih.html date=f.date lang=HL %}</div>
         <a class="t" href="{{ f.url | relative_url }}">{{ f.title }}</a>
@@ -42,7 +42,7 @@ layout: default
             <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
             <div class="meta"><span class="mono">{% include okuma.html content=post.content lang=HL %}</span>{% include cat-chip.html post=post lang=HL %}</div>
           </div>
-          {% if post.cover %}{% include picture.html src=post.cover alt=post.cover_alt class="thumb" sizes="180px" %}{% else %}<span></span>{% endif %}
+          {% if post.cover %}{% include picture.html src=post.cover alt=post.cover_alt class="thumb" sizes="180px" pos=post.cover_pos %}{% else %}<span></span>{% endif %}
         </li>
       {% endfor %}
       </ul>
