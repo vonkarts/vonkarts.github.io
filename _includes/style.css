@@ -372,3 +372,6 @@ article h1{font-family:var(--display);font-weight:600;letter-spacing:0;line-heig
 .post-cover{clip-path:none;border-radius:16px;width:100%;aspect-ratio:16/9;align-self:stretch}
 /* İlk paragraf her yazıda aynı: düz, büyük ilk harf */
 .sayfa-post .prose > p:first-of-type::first-letter{font-style:normal}
+
+/* Ana sayfada logo bir kez görünsün: üst çubuktaki ad gizli, büyük başlık kalır */
+.sayfa-lang_home .nav .nav-brand{visibility:hidden}

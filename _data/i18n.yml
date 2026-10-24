@@ -42,6 +42,8 @@ en:
   share: "Share"
   copy_link: "Copy link"
   copied: "Link copied"
+  main_nav: "Main menu"
+  theme_label: "Theme"
 tr:
   name: Türkçe
   home: /tr/
@@ -85,6 +87,8 @@ tr:
   share: "Paylaş"
   copy_link: "Linki kopyala"
   copied: "Link kopyalandı"
+  main_nav: "Ana menü"
+  theme_label: "Tema"
 de:
   name: Deutsch
   home: /de/
@@ -128,6 +132,8 @@ de:
   share: "Teilen"
   copy_link: "Link kopieren"
   copied: "Link kopiert"
+  main_nav: "Hauptmenü"
+  theme_label: "Darstellung"
 fr:
   name: Français
   home: /fr/
@@ -171,6 +177,8 @@ fr:
   share: "Partager"
   copy_link: "Copier le lien"
   copied: "Lien copié"
+  main_nav: "Menu principal"
+  theme_label: "Thème"
 es:
   name: Español
   home: /es/
@@ -214,3 +222,5 @@ es:
   share: "Compartir"
   copy_link: "Copiar enlace"
   copied: "Enlace copiado"
+  main_nav: "Menú principal"
+  theme_label: "Tema"
