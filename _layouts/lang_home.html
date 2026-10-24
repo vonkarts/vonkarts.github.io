@@ -19,7 +19,7 @@ layout: default
   {% else %}
     {%- assign f = lp.first %}
     <section class="featured{% if f.cover %} has-cover{% endif %}" id="featured">
-      {% if f.cover %}<a href="{{ f.url | relative_url }}" tabindex="-1">{% if f.cover_portrait %}{% assign fsz = "(min-width: 1100px) 760px, (min-width: 720px) 90vw, 100vw" %}{% else %}{% assign fsz = "(min-width: 1100px) 760px, (min-width: 720px) 90vw, 160vw" %}{% endif %}{% include picture.html src=f.cover alt=f.cover_alt class="cover" eager=true sizes=fsz pos=f.cover_pos %}</a>{% endif %}
+      {% if f.cover %}<a href="{{ f.url | relative_url }}" tabindex="-1">{% if f.cover_portrait %}{% assign fsz = "(min-width: 1100px) 760px, (min-width: 720px) 90vw, calc(100vw - 32px)" %}{% else %}{% assign fsz = "(min-width: 1100px) 760px, (min-width: 720px) 90vw, calc(133vw - 43px)" %}{% endif %}{% include picture.html src=f.cover alt=f.cover_alt class="cover" eager=true sizes=fsz pos=f.cover_pos %}</a>{% endif %}
       <div class="featured-text">
         <div class="mono">{{ T.latest }} · {% include tarih.html date=f.date lang=HL %}</div>
         <a class="t" href="{{ f.url | relative_url }}">{{ f.title }}</a>
