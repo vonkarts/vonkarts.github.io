@@ -17,3 +17,6 @@ Kişisel blogum. Adres: https://vonkarts.github.io
 - **Hakkında sayfası:** `hakkinda.md`
 - **Kapak görselleri:** `images` klasörüne yükle, yazıda `cover: /images/dosya.jpg` yaz.
 - **Yazı silmek:** `_posts` içindeki dosyayı aç → üç nokta menüsü → **Delete file**.
+
+## Görseller
+Yeni kapak görseli eklenince `python3 .github/scripts/make_webp.py` çalıştır: telefonlar için küçük WebP kopyaları üretir (site bunları kendisi bulur).
