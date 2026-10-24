@@ -378,3 +378,10 @@ article h1{font-family:var(--display);font-weight:600;letter-spacing:0;line-heig
 .sayfa-lang_home .masthead{margin-top:8px}
 
 .cats a.is-empty,.drawer .cats a.is-empty{color:var(--muted)}
+
+/* Ana sayfa üstü: daha az boşluk, yatay fotoğraf */
+.wrap{gap:24px}
+.sayfa-lang_home .masthead{margin:0 0 18px;gap:0}
+.sayfa-lang_home .tagline{font-size:19px}
+.featured .cover,.featured.has-cover .cover{aspect-ratio:4/3}
+@media (min-width:720px){.featured .cover,.featured.has-cover .cover{aspect-ratio:16/10}}
