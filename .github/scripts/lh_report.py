@@ -31,6 +31,13 @@ for f in sorted(glob.glob("lh-*.json")):
             items = au.get("details", {}).get("items", [])
             info.append(f"{key}: " + ", ".join(str(i.get("url", ""))[-60:] for i in items[:3]))
     if info: lines.append(f"{name} LCP: " + " | ".join(info)[:1200])
+import re, statistics
+groups = {}
+for f in sorted(glob.glob("lh-*-[0-9].json")):
+    r = json.load(open(f)); g = re.sub(r"-\d$", "", os.path.basename(f)[3:-5])
+    groups.setdefault(g, []).append((round(r["categories"]["performance"]["score"]*100), r["audits"]["first-contentful-paint"]["numericValue"], r["audits"]["largest-contentful-paint"]["numericValue"]))
+for g, v in groups.items():
+    lines.insert(0, f"ORTALAMA {g} ({len(v)} ölçüm): PERF {statistics.median([x[0] for x in v])} (hepsi: {', '.join(str(x[0]) for x in v)}) · FCP {statistics.median([x[1] for x in v])/1000:.1f} s · LCP {statistics.median([x[2] for x in v])/1000:.1f} s")
 text = "\n".join(lines)
 print(text)
 if os.environ.get("GITHUB_STEP_SUMMARY"):
