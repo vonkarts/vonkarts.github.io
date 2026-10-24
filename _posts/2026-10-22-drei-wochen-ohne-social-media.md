@@ -2,7 +2,7 @@
 title: "Ich habe drei Wochen auf Social Media verzichtet. Das Schwierigste war zu merken, dass ich nicht aufgehört hatte zu scrollen."
 seo_title: "3 Wochen ohne Social Media: Was sich änderte"
 description: "Drei Wochen ohne Social Media – und dann das „versteckte Scrollen“. Ein persönlicher Bericht und ein evidenzbasierter Leitfaden zum Social-Media-Detox."
-date: 2026-10-22 13:00:00 +0300
+date: 2026-10-22 10:00:00 +0000
 lang: de
 ref: social-media-detox
 permalink: /de/drei-wochen-ohne-social-media/

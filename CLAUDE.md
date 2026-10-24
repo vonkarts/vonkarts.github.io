@@ -12,7 +12,7 @@
 - Kaynaklar yayından önce doğrulanır.
 - Çeviri yazıların adresi dil klasörü altında olur: `permalink: /tr/slug/` (de, fr, es aynı). İngilizce yazıda permalink yazılmaz.
 - Front matter: title, seo_title (≤ ~50 karakter), description, lang, ref, categories (sabit 7 anahtardan), cover, cover_alt, image.
-- Tarihe saat yazma (gelecek saat = yazı gizlenir).
+- Tarihe saat yazma (gelecek saat = yazı gizlenir). Site saat dilimi UTC (site global; Türkiye/İstanbul izi bırakılmaz). Türkiye saatiyle 00:00-03:00 arası yayınlanan yazıya bir önceki günün tarihini ver.
 - Yeni kapak görseli: `python3 .github/scripts/make_webp.py` çalıştır.
 - Etiket (tags) gösterilmez; görünümde yalnızca kategori rozeti var.
 
