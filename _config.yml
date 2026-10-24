@@ -50,6 +50,7 @@ plugins:
   - jekyll-redirect-from
 
 exclude:
+  - CLAUDE.md
   - README.md
   - YAZI-SABLONU.md
   - images/BURAYA-GORSEL-YUKLE.txt

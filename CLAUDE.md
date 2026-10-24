@@ -1,0 +1,22 @@
+# vonkarts.github.io – çalışma kuralları
+
+## En önemli kural: 5 dil her zaman aynı
+- Site 5 dilde: en (varsayılan), tr, de, fr, es. Arayüzde, menüde ya da bir sayfada yapılan her değişiklik 5 dile birden uygulanır.
+- Sadece bir dilde olan bir parça (kutu, link, sayfa, yazı) eklenmez. "Şimdilik sadece İngilizce" yok.
+- Arayüz metinleri şablona sabit yazılmaz; `_data/i18n.yml` içinde 5 dilde tanımlanır.
+- Ana sayfalar tek şablon kullanır: `_layouts/lang_home.html` (EN dahil). Arşiv: `_layouts/archive.html`. Hakkında: her dilde ayrı sayfa, `ref: about`.
+- Aynı içeriğin dil sürümleri aynı `ref` ile bağlanır (hreflang ve dil düğmesi buna bakar).
+
+## Yazı yayınlama
+- Kullanıcı yazıyı gönderir; İngilizce yayınlanır, TR/DE/FR/ES çevirileri yapılır, her çeviri kendi kendine 10 üzerinden puanlanır, 9+ ise sormadan yayınlanır.
+- Kaynaklar yayından önce doğrulanır.
+- Front matter: title, seo_title (≤ ~50 karakter), description, lang, ref, categories (sabit 7 anahtardan), cover, cover_alt, image.
+- Tarihe saat yazma (gelecek saat = yazı gizlenir).
+- Yeni kapak görseli: `python3 .github/scripts/make_webp.py` çalıştır.
+- Etiket (tags) gösterilmez; görünümde yalnızca kategori rozeti var.
+
+## Teknik
+- Jekyll 3.10 / GitHub Pages. Liquid filtre metinlerinde `{n}` kullanma, `[n]` kullan. Liquid 4: `remove_last` yok.
+- Sayfaya sürekli büyüyen öğe ekleme (etiket bulutu vb.).
+- Kullanıcının hesap verilerini üçüncü taraf servislere bağlama.
+- Her push sonrası: Pages build, IndexNow ve link kontrolü yeşil olmalı.
