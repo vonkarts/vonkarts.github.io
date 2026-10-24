@@ -23,6 +23,8 @@ en:
   languages: Languages
   by: By
   updated: Updated
+  latest: Latest
+  earlier: Earlier posts
 tr:
   name: Türkçe
   home: /tr/
@@ -47,6 +49,8 @@ tr:
   languages: Diller
   by: Yazan
   updated: Güncellendi
+  latest: Son yazı
+  earlier: Önceki yazılar
 de:
   name: Deutsch
   home: /de/
@@ -71,6 +75,8 @@ de:
   languages: Sprachen
   by: Von
   updated: Aktualisiert
+  latest: Neu
+  earlier: Frühere Artikel
 fr:
   name: Français
   home: /fr/
@@ -95,6 +101,8 @@ fr:
   languages: Langues
   by: Par
   updated: Mis à jour
+  latest: Dernier article
+  earlier: Articles précédents
 es:
   name: Español
   home: /es/
@@ -119,3 +127,5 @@ es:
   languages: Idiomas
   by: Por
   updated: Actualizado
+  latest: Lo último
+  earlier: Artículos anteriores

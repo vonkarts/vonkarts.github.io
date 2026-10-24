@@ -13,7 +13,20 @@ layout: default
     {% if lp.size == 0 %}
     <div class="empty"><h2>{{ T.no_posts }}</h2></div>
     {% else %}
-    <ul class="list">{% for post in lp %}{% include post-item.html post=post lang=page.lang %}{% endfor %}</ul>
+    {%- assign f = lp.first %}
+    <section class="featured{% if f.cover %} has-cover{% endif %}" id="featured">
+      {% if f.cover %}<a href="{{ f.url | relative_url }}" tabindex="-1"><img class="cover" src="{{ f.cover | relative_url }}" alt="{{ f.cover_alt | default: f.title | escape }}"></a>{% endif %}
+      <div class="featured-text">
+        <div class="mono">{{ T.latest }} · {% include tarih.html date=f.date lang=page.lang %}</div>
+        <a class="t" href="{{ f.url | relative_url }}">{{ f.title }}</a>
+        <p>{{ f.excerpt | strip_html | truncatewords: 45 }}</p>
+        <div class="meta"><span class="mono">{% include okuma.html content=f.content lang=page.lang %}</span>{% for tag in f.tags limit:3 %}<span class="chip">{{ tag }}</span>{% endfor %}</div>
+      </div>
+    </section>
+    {% if lp.size > 1 %}
+    <div class="section-label"><span class="mono">{{ T.earlier }}</span></div>
+    <ul class="list">{% for post in lp offset:1 %}{% include post-item.html post=post lang=page.lang %}{% endfor %}</ul>
+    {% endif %}
     {% endif %}
   </div>
 </div>
