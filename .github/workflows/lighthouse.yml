@@ -24,6 +24,5 @@ jobs:
           run post-tr-long-mobile "$S/tr/bosanma-sonrasi-erkekler/"
           run post-en-new-mobile "$S/why-ai-landscapes-make-us-stop-scrolling/"
           run home-en-desktop "$S/" "--preset=desktop"
-          run post-tr-long-desktop "$S/tr/bosanma-sonrasi-erkekler/" "--preset=desktop"
       - name: Summarize
         run: python3 .github/scripts/lh_report.py

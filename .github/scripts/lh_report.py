@@ -17,10 +17,23 @@ for f in sorted(glob.glob("lh-*.json")):
             if ref.get("weight", 0) > 0 and sc is not None and sc < 0.9 and au.get("scoreDisplayMode") not in ("notApplicable", "manual", "informative"):
                 bad.append(f"{au.get('title')} ({round(sc*100)})")
     if bad:
-        lines.append("  sorunlu: " + "; ".join(dict.fromkeys(bad))[:900])
+        lines.append(f"{name} sorunlu: " + "; ".join(dict.fromkeys(bad))[:900])
+    el = a.get("largest-contentful-paint-element", {}).get("details", {}).get("items", [])
+    info = []
+    for it in el:
+        for sub in it.get("items", []):
+            node = sub.get("node") if isinstance(sub, dict) else None
+            if node: info.append("öğe=" + (node.get("snippet") or "")[:160])
+            if isinstance(sub, dict) and sub.get("phase"): info.append(f"{sub.get('phase')}={round(sub.get('timing',0))}ms")
+    for key in ("render-blocking-resources", "render-blocking-insight", "lcp-discovery-insight", "uses-responsive-images", "modern-image-formats", "font-display", "unused-css-rules"):
+        au = a.get(key)
+        if au and au.get("score") is not None and au["score"] < 1:
+            items = au.get("details", {}).get("items", [])
+            info.append(f"{key}: " + ", ".join(str(i.get("url", ""))[-60:] for i in items[:3]))
+    if info: lines.append(f"{name} LCP: " + " | ".join(info)[:1200])
 text = "\n".join(lines)
 print(text)
 if os.environ.get("GITHUB_STEP_SUMMARY"):
     open(os.environ["GITHUB_STEP_SUMMARY"], "a").write("```\n" + text + "\n```\n")
-for i, l in enumerate(lines[:10]):
+for i, l in enumerate(lines[:30]):
     print(f"::notice title=LH {i+1}::{l}")
