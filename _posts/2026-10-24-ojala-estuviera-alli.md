@@ -4,6 +4,7 @@ seo_title: "Por qué los paisajes de IA nos detienen"
 description: "Convierto paisajes creados con IA en vídeos cortos, y la gente se detiene a mirarlos. ¿Por qué? Sobre la añoranza, la naturaleza, nuestras cárceles y la calma aquí."
 date: 2026-10-24
 lang: es
+permalink: /es/ojala-estuviera-alli/
 ref: ai-landscapes-longing
 categories: [psychology, art]
 cover: /images/meadow-bench.jpg

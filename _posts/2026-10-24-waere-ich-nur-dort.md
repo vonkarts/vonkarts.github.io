@@ -4,6 +4,7 @@ seo_title: "Warum uns KI-Landschaften innehalten lassen"
 description: "Ich verwandle KI-Landschaften in kurze Videos, und Menschen halten bei ihnen inne. Warum? Über Sehnsucht, Natur, selbst gebaute Gefängnisse und Ruhe im Hier."
 date: 2026-10-24
 lang: de
+permalink: /de/waere-ich-nur-dort/
 ref: ai-landscapes-longing
 categories: [psychology, art]
 cover: /images/meadow-bench.jpg

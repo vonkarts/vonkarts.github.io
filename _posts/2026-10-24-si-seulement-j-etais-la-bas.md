@@ -4,6 +4,7 @@ seo_title: "Pourquoi les paysages d’IA nous arrêtent"
 description: "Je transforme des paysages créés par IA en courtes vidéos, et les gens s’y arrêtent. Pourquoi ? Sur la nostalgie, la nature, nos prisons et le calme d’ici."
 date: 2026-10-24
 lang: fr
+permalink: /fr/si-seulement-j-etais-la-bas/
 ref: ai-landscapes-longing
 categories: [psychology, art]
 cover: /images/meadow-bench.jpg

@@ -10,6 +10,7 @@
 ## Yazı yayınlama
 - Kullanıcı yazıyı gönderir; İngilizce yayınlanır, TR/DE/FR/ES çevirileri yapılır, her çeviri kendi kendine 10 üzerinden puanlanır, 9+ ise sormadan yayınlanır.
 - Kaynaklar yayından önce doğrulanır.
+- Çeviri yazıların adresi dil klasörü altında olur: `permalink: /tr/slug/` (de, fr, es aynı). İngilizce yazıda permalink yazılmaz.
 - Front matter: title, seo_title (≤ ~50 karakter), description, lang, ref, categories (sabit 7 anahtardan), cover, cover_alt, image.
 - Tarihe saat yazma (gelecek saat = yazı gizlenir).
 - Yeni kapak görseli: `python3 .github/scripts/make_webp.py` çalıştır.

@@ -4,6 +4,7 @@ seo_title: "Yapay Zekâ Manzaraları Neden Bizi Durduruyor?"
 description: "Yapay zekâ ile ürettiğim manzaraları videoya çeviriyorum ve insanlar onlarda duruyor. Neden? Özlem, doğa, kendi kurduğumuz hapishane ve buradaki huzur üzerine."
 date: 2026-10-24
 lang: tr
+permalink: /tr/keske-orada-olsaydim/
 ref: ai-landscapes-longing
 categories: [psychology, art]
 cover: /images/meadow-bench.jpg
