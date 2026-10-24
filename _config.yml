@@ -7,6 +7,7 @@ author:
 url: "https://vonkarts.github.io"
 baseurl: ""
 lang: en_US
+logo: /images/icon-512.png
 timezone: UTC
 
 # Hakkında kısmında kenar sütununda görünen kısa metin

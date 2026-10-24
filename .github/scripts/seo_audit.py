@@ -87,7 +87,7 @@ def main():
     lastmods = {u.findtext("s:loc", namespaces=NS): u.findtext("s:lastmod", default="", namespaces=NS) for u in ET.fromstring(sm).findall("s:url", NS)} if st == 200 else {}
     notes.append(f"sitemap {st}: {len(smurls)} URL; lastmod olan: {sum(1 for v in lastmods.values() if v)}")
     st, _, feed, _ = fetch(SITE + "/feed.xml")
-    notes.append(f"feed.xml {st}: {feed.count(b'<entry>')} entry")
+    notes.append(f"feed.xml {st}: {feed.count(b'<entry')} entry")
 
     queue, seen, pages = [SITE + "/"] + smurls, set(), {}
     while queue:

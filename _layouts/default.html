@@ -40,7 +40,7 @@
   {%- if page.layout == 'category' %}
   {%- assign nck = page.cat %}
   {%- assign ncn = site.posts | where: "lang", page.lang | where_exp: "p", "p.categories contains nck" | size %}
-  {%- if ncn == 0 %}
+  {%- if ncn < 3 %}
   <meta name="robots" content="noindex, follow">
   {%- endif %}
   {%- endif %}
