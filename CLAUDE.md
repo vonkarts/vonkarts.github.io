@@ -20,4 +20,5 @@
 - Jekyll 3.10 / GitHub Pages. Liquid filtre metinlerinde `{n}` kullanma, `[n]` kullan. Liquid 4: `remove_last` yok.
 - Sayfaya sürekli büyüyen öğe ekleme (etiket bulutu vb.).
 - Kullanıcının hesap verilerini üçüncü taraf servislere bağlama.
+- Repo herkese açık: taslak/yayınlanmamış yazı, gerçek isim, e-posta, şifre ya da kişisel bilgi repoya girmez. Commit kimliği `vonkarts` + GitHub noreply e-postası kalır.
 - Her push sonrası: Pages build, IndexNow ve link kontrolü yeşil olmalı.
