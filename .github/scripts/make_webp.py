@@ -10,7 +10,7 @@ import os, sys
 from PIL import Image
 
 ROOT = os.path.join(os.path.dirname(__file__), "..", "..", "images")
-WIDTHS = (480, 800, 1200)
+WIDTHS = (240, 480, 640, 800, 1200)
 SKIP = ("icon-", "social", "-social")
 
 for name in sorted(os.listdir(ROOT)):

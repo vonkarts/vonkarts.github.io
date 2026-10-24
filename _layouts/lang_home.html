@@ -42,7 +42,7 @@ layout: default
             <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
             <div class="meta"><span class="mono">{% include okuma.html content=post.content lang=HL %}</span>{% include cat-chip.html post=post lang=HL %}</div>
           </div>
-          {% if post.cover %}{% include picture.html src=post.cover alt=post.cover_alt class="thumb" sizes="180px" pos=post.cover_pos %}{% else %}<span></span>{% endif %}
+          {% if post.cover %}{% include picture.html src=post.cover alt=post.cover_alt class="thumb" sizes="(min-width: 601px) 104px, 80px" pos=post.cover_pos %}{% else %}<span></span>{% endif %}
         </li>
       {% endfor %}
       </ul>

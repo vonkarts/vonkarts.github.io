@@ -180,10 +180,10 @@ footer{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-co
 .cats ul::-webkit-scrollbar{display:none}
 .cats li{flex:0 0 auto}
 .cats a{display:flex;align-items:center;gap:8px;white-space:nowrap;text-decoration:none;color:var(--muted);font-size:15px;padding:6px 12px;border:1px solid var(--line);border-radius:999px}
-.cats a small{font-family:var(--mono);font-size:11px;opacity:.7;font-variant-numeric:tabular-nums}
+.cats a small{font-family:var(--mono);font-size:11px;font-variant-numeric:tabular-nums}
 .cats a:hover{color:var(--fg);border-color:var(--fg)}
 .cats a[aria-current="page"]{color:var(--fg);background:var(--accent-soft);border-color:transparent}
-.cats a.is-empty{opacity:.55}
+.cats a.is-empty{opacity:1}
 @media (min-width:1100px){
   .with-cats{grid-template-columns:180px minmax(0,1fr);gap:56px}
   .cats{position:sticky;top:88px;align-self:start}
@@ -217,7 +217,7 @@ footer{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-co
 .drawer .cats .side-h{display:block;margin:0 0 6px;padding:0 14px}
 .drawer .cats ul{flex-direction:column;gap:2px;overflow:visible;padding:0}
 .drawer .cats a span{flex:1}
-.drawer .cats a.is-empty{opacity:.5}
+.drawer .cats a.is-empty{opacity:1}
 .drawer-sep{border:0;border-top:1px solid var(--line);margin:2px 8px}
 .drawer-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 4px 0}
 .lang-select{position:relative;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:12px;padding:8px 12px;color:var(--fg)}
@@ -376,3 +376,5 @@ article h1{font-family:var(--display);font-weight:600;letter-spacing:0;line-heig
 /* Ana sayfada logo bir kez görünsün: üst çubuktaki ad kalır, büyük başlık yalnızca arama motorları ve ekran okuyucular için */
 .sayfa-lang_home .masthead .site-title{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .sayfa-lang_home .masthead{margin-top:8px}
+
+.cats a.is-empty,.drawer .cats a.is-empty{color:var(--muted)}

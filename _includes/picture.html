@@ -4,7 +4,7 @@
 {%- endcomment -%}
 {%- assign PS = include.src -%}
 {%- assign PB = PS | split: "." | pop | join: "." -%}
-{%- assign PW = "480,800,1200" | split: "," -%}
+{%- assign PW = "240,480,640,800,1200" | split: "," -%}
 {%- capture PSET -%}{%- for w in PW -%}{%- assign wp = PB | append: "-" | append: w | append: ".webp" -%}{%- assign hit = site.static_files | where: "path", wp | first -%}{%- if hit -%}{{ wp | relative_url }} {{ w }}w,{%- endif -%}{%- endfor -%}{%- endcapture -%}
 {%- assign PSET = PSET | strip | split: "," | join: ", " -%}
 {%- capture PIMG -%}<img class="{{ include.class }}" src="{{ PS | relative_url }}" alt="{{ include.alt | escape }}"{% if include.pos %} style="object-position:{{ include.pos }}"{% endif %}{% if include.eager %} fetchpriority="high"{% else %} loading="lazy"{% endif %} decoding="async">{%- endcapture -%}
