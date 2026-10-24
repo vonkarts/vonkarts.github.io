@@ -54,7 +54,7 @@
     window.addEventListener('scroll', upd, {passive:true}); upd();
   }
 
-  // Ana sayfa: arama ve etiket filtresi
+  // Ana sayfa: arama (tüm dillerde aynı)
   var list = document.getElementById('list');
   if(!list) return;
   var items = Array.prototype.slice.call(list.querySelectorAll('.item'));
@@ -63,44 +63,26 @@
   var clear = document.getElementById('clear');
   var none = document.getElementById('no-results');
   var noneText = document.getElementById('no-results-text');
-  var tagLinks = Array.prototype.slice.call(document.querySelectorAll('.aside .tag'));
   var lower = function(s){ return String(s || '').toLocaleLowerCase(); };
-  items.forEach(function(it){ it._s = lower(it.getAttribute('data-search')); it._t = (it.getAttribute('data-tags') || '').split(' '); });
-
-  function currentTag(){
-    var h = location.hash.replace(/^#/, '');
-    return h.indexOf('tag-') === 0 ? decodeURIComponent(h.slice(4)) : '';
-  }
+  items.forEach(function(it){ it._s = lower(it.getAttribute('data-search')); });
   function filter(){
-    var tag = currentTag(), q = lower(search ? search.value.trim() : '');
-    var filtering = !!(tag || q);
+    var raw = search ? search.value.trim() : '', q = lower(raw);
+    var filtering = !!q, shown = 0;
     document.body.classList.toggle('filtering', filtering);
-    var shown = 0, tagName = '';
-    tagLinks.forEach(function(a){
-      var on = a.getAttribute('data-tag') === tag;
-      if(on){ a.setAttribute('aria-current', 'true'); tagName = a.getAttribute('data-name'); } else a.removeAttribute('aria-current');
-    });
     items.forEach(function(it){
-      var ok = (!tag || it._t.indexOf(tag) !== -1) && (!q || it._s.indexOf(q) !== -1);
+      var ok = it._s.indexOf(q) !== -1;
       it.hidden = filtering && !ok;
       if(filtering && ok) shown++;
     });
     if(clear) clear.hidden = !filtering;
-    if(label) label.textContent = !filtering ? 'Earlier posts'
-      : (tag ? 'Tag: ' + (tagName || tag) : 'Search: “' + search.value.trim() + '”') + ' · ' + shown;
+    if(label) label.textContent = filtering ? label.getAttribute('data-search') + ': “' + raw + '” · ' + shown : label.getAttribute('data-default');
     if(none){
       none.hidden = !(filtering && shown === 0);
-      if(noneText) noneText.textContent = q ? '“' + search.value.trim() + '” didn’t match any posts.' : 'No posts with this tag.';
+      if(noneText) noneText.textContent = (none.getAttribute('data-text') || '').replace('[q]', raw);
     }
   }
   if(search) search.addEventListener('input', filter);
-  if(clear) clear.addEventListener('click', function(e){
-    e.preventDefault();
-    if(search) search.value = '';
-    if(location.hash) history.pushState('', document.title, location.pathname + location.search);
-    filter();
-  });
-  window.addEventListener('hashchange', function(){ filter(); var l = document.getElementById('list-section'); if(currentTag() && l) l.scrollIntoView({behavior:'smooth', block:'start'}); });
+  if(clear) clear.addEventListener('click', function(e){ e.preventDefault(); if(search) search.value = ''; filter(); });
   filter();
 })();
 

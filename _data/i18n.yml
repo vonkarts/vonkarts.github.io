@@ -31,6 +31,13 @@ en:
   about_url: "/about/"
   n_posts: [post, posts]
   n_years: [year, years]
+  search: "Search"
+  search_ph: "Search posts…"
+  clear: "Clear"
+  no_results: "No results."
+  no_match: "“[q]” didn’t match any posts."
+  about_short: "I write about landscapes, cities and the quiet in between."
+  more_about: "More about vonkarts"
 tr:
   name: Türkçe
   home: /tr/
@@ -63,6 +70,13 @@ tr:
   about_url: "/tr/hakkinda/"
   n_posts: [yazı, yazı]
   n_years: [yıl, yıl]
+  search: "Ara"
+  search_ph: "Yazılarda ara…"
+  clear: "Temizle"
+  no_results: "Sonuç yok."
+  no_match: "“[q]” ile eşleşen yazı yok."
+  about_short: "Manzaralar, şehirler ve aralarındaki sessizlik üzerine yazıyorum."
+  more_about: "vonkarts hakkında daha fazlası"
 de:
   name: Deutsch
   home: /de/
@@ -95,6 +109,13 @@ de:
   about_url: "/de/ueber/"
   n_posts: [Artikel, Artikel]
   n_years: [Jahr, Jahre]
+  search: "Suche"
+  search_ph: "Artikel durchsuchen…"
+  clear: "Zurücksetzen"
+  no_results: "Keine Ergebnisse."
+  no_match: "Kein Artikel passt zu „[q]“."
+  about_short: "Ich schreibe über Landschaften, Städte und die Stille dazwischen."
+  more_about: "Mehr über vonkarts"
 fr:
   name: Français
   home: /fr/
@@ -127,6 +148,13 @@ fr:
   about_url: "/fr/a-propos/"
   n_posts: [article, articles]
   n_years: [an, ans]
+  search: "Recherche"
+  search_ph: "Rechercher un article…"
+  clear: "Effacer"
+  no_results: "Aucun résultat."
+  no_match: "Aucun article ne correspond à « [q] »."
+  about_short: "J’écris sur les paysages, les villes et le silence entre les deux."
+  more_about: "En savoir plus sur vonkarts"
 es:
   name: Español
   home: /es/
@@ -159,3 +187,10 @@ es:
   about_url: "/es/acerca-de/"
   n_posts: [artículo, artículos]
   n_years: [año, años]
+  search: "Buscar"
+  search_ph: "Buscar artículos…"
+  clear: "Borrar"
+  no_results: "Sin resultados."
+  no_match: "Ningún artículo coincide con «[q]»."
+  about_short: "Escribo sobre paisajes, ciudades y el silencio que hay entre ellos."
+  more_about: "Más sobre vonkarts"

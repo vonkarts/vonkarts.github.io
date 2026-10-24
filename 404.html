@@ -2,9 +2,10 @@
 layout: default
 title: Page not found
 permalink: /404.html
+sitemap: false
 ---
 <div class="empty">
   <h2>This page doesn’t exist.</h2>
   <p>It may have been removed, or the link is wrong.</p>
-  <a class="btn" href="{{ '/' | relative_url }}">Back to all posts</a>
+  <p class="langs">{% for t in site.data.i18n %}<a class="btn" href="{{ t[1].home | relative_url }}" lang="{{ t[0] }}">{{ t[1].all_label }}</a>{% endfor %}</p>
 </div>

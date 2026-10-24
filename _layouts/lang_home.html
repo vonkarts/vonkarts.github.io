@@ -1,32 +1,66 @@
 ---
 layout: default
 ---
-{%- assign T = site.data.i18n[page.lang] -%}
-{%- assign lp = site.posts | where: "lang", page.lang -%}
+{%- comment -%} Tüm dillerin ana sayfası (EN dahil) bu tek şablonu kullanır. {%- endcomment -%}
+{%- assign HL = page.lang | default: 'en' -%}
+{%- assign T = site.data.i18n[HL] -%}
+{%- assign lp = site.posts | where: "lang", HL -%}
 <header class="masthead">
   <h1 class="site-title notranslate" translate="no">{{ site.title }}</h1>
   <p class="tagline">{{ T.tagline }}</p>
 </header>
+
 <div class="with-cats">
-  {% include categories.html lang=page.lang %}
-  <div class="cat-main">
-    {% if lp.size == 0 %}
+{% include categories.html lang=HL %}
+<div class="home">
+  <div class="home-main">
+  {% if lp.size == 0 %}
     <div class="empty"><h2>{{ T.no_posts }}</h2></div>
-    {% else %}
+  {% else %}
     {%- assign f = lp.first %}
     <section class="featured{% if f.cover %} has-cover{% endif %}" id="featured">
       {% if f.cover %}<a href="{{ f.url | relative_url }}" tabindex="-1">{% include picture.html src=f.cover alt=f.cover_alt class="cover" eager=true sizes="(min-width: 1100px) 760px, (min-width: 720px) 90vw, 160vw" %}</a>{% endif %}
       <div class="featured-text">
-        <div class="mono">{{ T.latest }} · {% include tarih.html date=f.date lang=page.lang %}</div>
+        <div class="mono">{{ T.latest }} · {% include tarih.html date=f.date lang=HL %}</div>
         <a class="t" href="{{ f.url | relative_url }}">{{ f.title }}</a>
         <p>{{ f.excerpt | strip_html | truncatewords: 45 }}</p>
-        <div class="meta"><span class="mono">{% include okuma.html content=f.content lang=page.lang %}</span>{% include cat-chip.html post=f lang=page.lang %}</div>
+        <div class="meta"><span class="mono">{% include okuma.html content=f.content lang=HL %}</span>{% include cat-chip.html post=f lang=HL %}</div>
       </div>
     </section>
-    {% if lp.size > 1 %}
-    <div class="section-label"><span class="mono">{{ T.earlier }}</span></div>
-    <ul class="list">{% for post in lp offset:1 %}{% include post-item.html post=post lang=page.lang %}{% endfor %}</ul>
-    {% endif %}
-    {% endif %}
+
+    <section class="list-section" id="list-section"{% if lp.size == 1 %} data-only-featured{% endif %}>
+      <div class="section-label">
+        <span class="mono" id="list-label" data-default="{{ T.earlier }}" data-search="{{ T.search }}">{{ T.earlier }}</span>
+        <a class="btn ghost" href="{{ T.home | relative_url }}" id="clear" hidden>{{ T.clear }}</a>
+      </div>
+      <ul class="list" id="list">
+      {% for post in lp %}
+        <li class="item{% if forloop.first %} is-first{% endif %}" data-search="{{ post.title | escape }} {{ post.content | strip_html | strip_newlines | truncatewords: 400 | escape }}">
+          <time class="mono" datetime="{{ post.date | date_to_xmlschema }}">{% include tarih.html date=post.date lang=HL %}</time>
+          <div class="item-text">
+            <a class="t" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+            <div class="meta"><span class="mono">{% include okuma.html content=post.content lang=HL %}</span>{% include cat-chip.html post=post lang=HL %}</div>
+          </div>
+          {% if post.cover %}{% include picture.html src=post.cover alt=post.cover_alt class="thumb" sizes="180px" %}{% else %}<span></span>{% endif %}
+        </li>
+      {% endfor %}
+      </ul>
+      <div class="empty" id="no-results" data-text="{{ T.no_match | escape }}" hidden><h2>{{ T.no_results }}</h2><p id="no-results-text"></p></div>
+    </section>
+  {% endif %}
   </div>
+
+  <aside class="aside">
+    <div class="aside-search">
+      <h2 class="mono side-h">{{ T.search }}</h2>
+      <input class="search" id="search" type="search" placeholder="{{ T.search_ph }}" aria-label="{{ T.search_ph }}">
+    </div>
+    <div>
+      <h2 class="mono side-h">{{ T.about }}</h2>
+      <p>{{ T.about_short }}</p>
+      <p class="more"><a href="{{ T.about_url | relative_url }}">{{ T.more_about }}</a></p>
+    </div>
+  </aside>
+</div>
 </div>
