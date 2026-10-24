@@ -11,12 +11,6 @@
   {%- else %}
   <title>{{ page.seo_title | default: page.title | default: site.title | escape }}{% if page.seo_title or page.title %} | {{ site.title | escape }}{% endif %}</title>
   {%- endif %}
-  {%- if page.layout == 'lang_home' %}
-  {%- assign hl = page.lang | default: 'en' %}{% assign hf = site.posts | where: "lang", hl | first %}
-  {%- if hf.cover %}{% if hf.cover_portrait %}{% assign hsz = "(min-width: 1100px) 760px, (min-width: 720px) 90vw, calc(100vw - 32px)" %}{% else %}{% assign hsz = "(min-width: 1100px) 760px, (min-width: 720px) 90vw, calc(133vw - 43px)" %}{% endif %}
-  {% include picture.html src=hf.cover preload=true sizes=hsz %}
-  {%- endif %}
-  {%- endif %}
   {% seo title=false %}
   <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="48x48">
   <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
