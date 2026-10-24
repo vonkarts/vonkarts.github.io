@@ -20,7 +20,7 @@ layout: default
         <div class="mono">{{ T.latest }} · {% include tarih.html date=f.date lang=page.lang %}</div>
         <a class="t" href="{{ f.url | relative_url }}">{{ f.title }}</a>
         <p>{{ f.excerpt | strip_html | truncatewords: 45 }}</p>
-        <div class="meta"><span class="mono">{% include okuma.html content=f.content lang=page.lang %}</span>{% for tag in f.tags limit:3 %}<span class="chip">{{ tag }}</span>{% endfor %}</div>
+        <div class="meta"><span class="mono">{% include okuma.html content=f.content lang=page.lang %}</span>{% include cat-chip.html post=f lang=page.lang %}</div>
       </div>
     </section>
     {% if lp.size > 1 %}

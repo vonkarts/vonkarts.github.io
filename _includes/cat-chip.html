@@ -1,0 +1,5 @@
+{%- comment -%} Yazının ilk kategorisini o dilde küçük bir etiket olarak gösterir. Kategoriler sabit (7 tane), birikmez. {%- endcomment -%}
+{%- assign CL = include.lang | default: 'en' -%}
+{%- assign ck = include.post.categories | first -%}
+{%- if ck -%}{%- assign cd = site.data.categories | where: "key", ck | first -%}
+{%- if cd and cd[CL] -%}<a class="chip" href="{{ cd[CL].url | relative_url }}">{{ cd[CL].name }}</a>{%- endif -%}{%- endif -%}

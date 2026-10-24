@@ -33,11 +33,6 @@ layout: default
     <div class="prose">
 {{ content }}
     </div>
-    {% if page.tags.size > 0 %}
-    <div class="post-tags">
-      {% for tag in page.tags %}{% if L == 'en' %}<a class="tag" href="{{ '/' | relative_url }}#tag-{{ tag | slugify: 'latin' }}">{{ tag }}</a>{% else %}<span class="tag">{{ tag }}</span>{% endif %}{% endfor %}
-    </div>
-    {% endif %}
     {% if L == 'en' %}{% include newsletter.html %}{% endif %}
     {%- assign prev = nil -%}{%- assign next = nil -%}
     {%- assign prev_lang = page.previous.lang | default: 'en' -%}{%- assign next_lang = page.next.lang | default: 'en' -%}

@@ -312,3 +312,5 @@ footer{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-co
 .toc details,.newsletter,.pager a{border-radius:var(--rs)}
 .btn.primary{font-weight:600}
 .search{border-radius:12px}
+a.chip{text-decoration:none}
+a.chip:hover{filter:brightness(1.15)}
