@@ -1,0 +1,19 @@
+# Elle çalıştırılan SEO denetimi: canlı sitedeki her sayfanın etiketlerini okur.
+name: SEO audit
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Audit live site
+        run: python3 .github/scripts/seo_audit.py
