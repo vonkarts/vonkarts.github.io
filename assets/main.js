@@ -91,7 +91,7 @@
   var toc = document.getElementById('toc');
   if(!toc) return;
   var hs = document.querySelectorAll('.prose h2');
-  if(hs.length < 3) return;
+  if(hs.length < 1) return;
   var ol = toc.querySelector('ol');
   Array.prototype.forEach.call(hs, function(h, i){
     if(!h.id) h.id = 'section-' + (i + 1);

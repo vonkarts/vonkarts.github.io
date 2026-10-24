@@ -243,7 +243,7 @@ footer{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-co
 .prose .refs{font-size:15px;line-height:1.6;color:var(--muted);padding-left:1.6em}
 .prose .refs li{margin:.5em 0;scroll-margin-top:90px;overflow-wrap:anywhere}
 .prose .refs li:target{color:var(--fg);background:var(--accent-soft);border-radius:4px}
-.prose > p:first-child em:only-child{color:var(--muted)}
+.prose > p:first-child em:only-child{color:inherit;font-style:normal}
 
 /* Yazı başlığı grubu: anlamsal sarmalayıcı, düzeni değiştirmez */
 .post-header{display:contents}
@@ -360,3 +360,15 @@ article h1{font-family:var(--display);font-weight:600;letter-spacing:0;line-heig
 :focus-visible{outline-color:var(--fg)}
 .archive h2{font-family:var(--display);font-weight:600}
 .empty h2{font-family:var(--display);font-weight:600}
+
+/* Fotoğraflar: kemer yok, eski sitedeki gibi yuvarlak köşeli dikdörtgen */
+.featured.has-cover > a:first-child{width:100%;filter:none}
+.featured .cover,.featured.has-cover .cover{clip-path:none;border-radius:16px;aspect-ratio:4/5}
+@media (min-width:720px){.featured .cover,.featured.has-cover .cover{aspect-ratio:16/10}}
+.thumb{clip-path:none;border-radius:12px;width:80px;aspect-ratio:1}
+.item{grid-template-columns:minmax(0,1fr) 80px}
+@media (min-width:601px){.thumb{width:104px}.item{grid-template-columns:minmax(0,1fr) 104px}}
+@media (max-width:600px){.item{grid-template-columns:minmax(0,1fr) 80px}.thumb{width:80px}}
+.post-cover{clip-path:none;border-radius:16px;width:100%;aspect-ratio:16/9;align-self:stretch}
+/* İlk paragraf her yazıda aynı: düz, büyük ilk harf */
+.sayfa-post .prose > p:first-of-type::first-letter{font-style:normal}
