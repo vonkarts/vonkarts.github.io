@@ -33,6 +33,7 @@ layout: default
     <div class="prose">
 {{ content }}
     </div>
+    {% include share.html %}
     {% if L == 'en' %}{% include newsletter.html %}{% endif %}
     {%- assign prev = nil -%}{%- assign next = nil -%}
     {%- assign prev_lang = page.previous.lang | default: 'en' -%}{%- assign next_lang = page.next.lang | default: 'en' -%}

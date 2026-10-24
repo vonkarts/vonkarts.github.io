@@ -38,6 +38,10 @@ en:
   no_match: "“[q]” didn’t match any posts."
   about_short: "I write about landscapes, cities and the quiet in between."
   more_about: "More about vonkarts"
+  share_title: "Share this post"
+  share: "Share"
+  copy_link: "Copy link"
+  copied: "Link copied"
 tr:
   name: Türkçe
   home: /tr/
@@ -77,6 +81,10 @@ tr:
   no_match: "“[q]” ile eşleşen yazı yok."
   about_short: "Manzaralar, şehirler ve aralarındaki sessizlik üzerine yazıyorum."
   more_about: "vonkarts hakkında daha fazlası"
+  share_title: "Bu yazıyı paylaş"
+  share: "Paylaş"
+  copy_link: "Linki kopyala"
+  copied: "Link kopyalandı"
 de:
   name: Deutsch
   home: /de/
@@ -116,6 +124,10 @@ de:
   no_match: "Kein Artikel passt zu „[q]“."
   about_short: "Ich schreibe über Landschaften, Städte und die Stille dazwischen."
   more_about: "Mehr über vonkarts"
+  share_title: "Diesen Artikel teilen"
+  share: "Teilen"
+  copy_link: "Link kopieren"
+  copied: "Link kopiert"
 fr:
   name: Français
   home: /fr/
@@ -155,6 +167,10 @@ fr:
   no_match: "Aucun article ne correspond à « [q] »."
   about_short: "J’écris sur les paysages, les villes et le silence entre les deux."
   more_about: "En savoir plus sur vonkarts"
+  share_title: "Partager cet article"
+  share: "Partager"
+  copy_link: "Copier le lien"
+  copied: "Lien copié"
 es:
   name: Español
   home: /es/
@@ -194,3 +210,7 @@ es:
   no_match: "Ningún artículo coincide con «[q]»."
   about_short: "Escribo sobre paisajes, ciudades y el silencio que hay entre ellos."
   more_about: "Más sobre vonkarts"
+  share_title: "Compartir este artículo"
+  share: "Compartir"
+  copy_link: "Copiar enlace"
+  copied: "Enlace copiado"

@@ -29,6 +29,8 @@ UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
       "Chrome/124.0 Safari/537.36 vonkarts-linkcheck/1.0")
 TIMEOUT = 25
 SKIP_PREFIXES = ("mailto:", "tel:", "javascript:", "data:", "sms:")
+# Paylaş linkleri (her sayfada var; servisleri her seferinde yoklamaya gerek yok)
+SKIP_EXTERNAL = ("https://wa.me/", "https://x.com/intent/", "https://www.facebook.com/sharer/", "https://t.me/share/", "https://www.linkedin.com/sharing/")
 SKIP_REL = {"preconnect", "dns-prefetch"}
 NS = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 
@@ -125,6 +127,8 @@ def main():
             absu = urllib.parse.urljoin(url, raw)
             target, frag = urllib.parse.urldefrag(absu)
             if not target.startswith(("http://", "https://")):
+                continue
+            if target.startswith(SKIP_EXTERNAL):
                 continue
             found_on[target].add(url)
             if is_internal(target):

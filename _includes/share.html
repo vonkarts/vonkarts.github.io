@@ -1,0 +1,15 @@
+{%- comment -%} Paylaş: telefonda yerel paylaşım menüsü + doğrudan linkler. Dışarıdan betik yüklemez. {%- endcomment -%}
+{%- assign SU = page.url | absolute_url | url_encode | replace: "+", "%20" -%}
+{%- assign ST = page.title | url_encode | replace: "+", "%20" -%}
+<section class="share" aria-label="{{ T.share_title }}">
+  <h2 class="mono side-h">{{ T.share_title }}</h2>
+  <div class="share-row">
+    <button type="button" class="btn primary share-native" data-share-url="{{ page.url | absolute_url }}" data-share-title="{{ page.title | escape }}" hidden>{% include icon.html name='share' %}<span>{{ T.share }}</span></button>
+    <a class="btn" rel="nofollow noopener" target="_blank" href="https://wa.me/?text={{ ST }}%20{{ SU }}">WhatsApp</a>
+    <a class="btn" rel="nofollow noopener" target="_blank" href="https://x.com/intent/tweet?text={{ ST }}&amp;url={{ SU }}">X</a>
+    <a class="btn" rel="nofollow noopener" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ SU }}">Facebook</a>
+    <a class="btn" rel="nofollow noopener" target="_blank" href="https://t.me/share/url?url={{ SU }}&amp;text={{ ST }}">Telegram</a>
+    <a class="btn" rel="nofollow noopener" target="_blank" href="https://www.linkedin.com/sharing/share-offsite/?url={{ SU }}">LinkedIn</a>
+    <button type="button" class="btn share-copy" data-share-url="{{ page.url | absolute_url }}" data-copied="{{ T.copied }}">{% include icon.html name='link' %}<span>{{ T.copy_link }}</span></button>
+  </div>
+</section>

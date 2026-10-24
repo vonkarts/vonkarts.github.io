@@ -115,3 +115,23 @@ document.addEventListener('click', function(e){
   document.addEventListener('click', function(e){ menus.forEach(function(m){ if(m.open && !m.contains(e.target)) m.open = false; }); });
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') menus.forEach(function(m){ m.open = false; }); });
 })();
+
+// Paylaş: yerel paylaşım menüsü (destekleyen cihazlarda) ve link kopyalama
+(function(){
+  var nat = document.querySelector('.share-native');
+  if(nat && navigator.share){
+    nat.hidden = false;
+    nat.addEventListener('click', function(){
+      navigator.share({title: nat.getAttribute('data-share-title'), url: nat.getAttribute('data-share-url')}).catch(function(){});
+    });
+  }
+  var cp = document.querySelector('.share-copy');
+  if(!cp) return;
+  cp.addEventListener('click', function(){
+    var url = cp.getAttribute('data-share-url'), span = cp.querySelector('span'), old = span.textContent;
+    var done = function(){ span.textContent = cp.getAttribute('data-copied'); cp.classList.add('is-done');
+      setTimeout(function(){ span.textContent = old; cp.classList.remove('is-done'); }, 2000); };
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done, function(){ window.prompt('', url); }); }
+    else { window.prompt('', url); }
+  });
+})();
