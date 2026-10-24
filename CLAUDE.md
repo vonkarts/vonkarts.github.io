@@ -14,7 +14,8 @@
 - Çeviri yazıların adresi dil klasörü altında olur: `permalink: /tr/slug/` (de, fr, es aynı). İngilizce yazıda permalink yazılmaz.
 - Front matter: title, seo_title (≤ ~50 karakter), description, lang, ref, categories (sabit 7 anahtardan), cover, cover_alt, image.
 - Tarihe saat yazma (gelecek saat = yazı gizlenir). Site saat dilimi UTC (site global; Türkiye/İstanbul izi bırakılmaz). Türkiye saatiyle 00:00-03:00 arası yayınlanan yazıya bir önceki günün tarihini ver.
-- Yeni kapak görseli: `python3 .github/scripts/make_webp.py` çalıştır.
+- Yeni kapak görseli: `python3 .github/scripts/make_webp.py` çalıştır (unutulursa `optimize-images.yml` push sonrası kendisi yapar: büyük JPG küçültülür, WebP boyutları eklenir).
+- Hız bekçisi (`lighthouse.yml`) her yayından sonra ana sayfa ve en yeni yazıyı 3'er kez ölçer; ortalama hız < 90 ya da LCP > 2,5 sn ise kırmızı. Performans değişikliklerini tek ölçümle değil 3 ölçüm ortalamasıyla değerlendir. Ana sayfa fotoğrafına preload ekleme (FCP'yi bozdu).
 - Etiket (tags) gösterilmez; görünümde yalnızca kategori rozeti var.
 
 ## Teknik

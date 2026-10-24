@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Lighthouse JSON raporlarını özetler: puanlar, Core Web Vitals, sorunlu denetimler."""
-import glob, json, os
+import glob, json, os, sys
 lines = []
 for f in sorted(glob.glob("lh-*.json")):
     r = json.load(open(f))
@@ -44,3 +44,14 @@ if os.environ.get("GITHUB_STEP_SUMMARY"):
     open(os.environ["GITHUB_STEP_SUMMARY"], "a").write("```\n" + text + "\n```\n")
 for i, l in enumerate(lines[:30]):
     print(f"::notice title=LH {i+1}::{l}")
+
+if os.environ.get("GUARD"):
+    import statistics as _st
+    fails = []
+    for g, v in groups.items():
+        perf = _st.median([x[0] for x in v]); lcp = _st.median([x[2] for x in v])
+        if perf < 90: fails.append(f"{g}: ortalama hız puanı {perf} (< 90)")
+        if lcp > 2500: fails.append(f"{g}: ortalama LCP {lcp/1000:.1f} s (> 2,5 s)")
+    for f in fails: print(f"::error title=Hız bekçisi::{f}")
+    if fails: sys.exit(1)
+    print("::notice title=Hız bekçisi::Tüm ortalamalar sınırların içinde")

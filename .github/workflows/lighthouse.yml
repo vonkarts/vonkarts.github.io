@@ -1,26 +1,39 @@
-# Elle çalıştırılan Lighthouse ölçümü (canlı site; telefon ve masaüstü).
+# Hız bekçisi: her yayından sonra ana sayfa ve en yeni yazı telefonda 3'er kez ölçülür.
+# Ortalama hız puanı 90'ın altına düşer ya da LCP 2,5 saniyeyi aşarsa iş kırmızı olur (e-posta gelir).
 name: Lighthouse
 
 on:
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: lighthouse
+  cancel-in-progress: true
+
 jobs:
   lighthouse:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
         with:
           persist-credentials: false
       - name: Run Lighthouse
         run: |
+          sleep 45
           S=https://vonkarts.github.io
+          LATEST=$(python3 .github/scripts/latest_post.py "$S")
+          echo "En yeni yazı: $LATEST"
           run() { npx --yes lighthouse@12.2.0 "$2" --quiet --output=json --output-path="lh-$1.json" --chrome-flags="--headless=new --no-sandbox" $3 || true; }
-          for i in 1 2 3; do run "home-en-mobile-$i" "$S/"; run "home-tr-mobile-$i" "$S/tr/"; done
-          run post-en-new-mobile "$S/why-ai-landscapes-make-us-stop-scrolling/"
-          run home-en-desktop "$S/" "--preset=desktop"
-      - name: Summarize
+          for i in 1 2 3; do run "home-mobile-$i" "$S/"; run "latest-post-mobile-$i" "$LATEST"; done
+          run home-desktop "$S/" "--preset=desktop"
+      - name: Summarize and guard
+        env:
+          GUARD: "1"
         run: python3 .github/scripts/lh_report.py
