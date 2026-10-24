@@ -35,7 +35,7 @@
   {%- endif %}
   <meta property="og:site_name" content="{{ site.title }}">
   {%- if page.profile %}
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","url":"{{ page.url | absolute_url }}","mainEntity":{"@type":"Person","name":{{ site.author.name | jsonify }},"url":"{{ page.url | absolute_url }}","sameAs":["https://www.instagram.com/{{ site.instagram }}/"]}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","url":"{{ page.url | absolute_url }}","mainEntity":{"@type":"Person","name":{{ site.author.name | jsonify }},"url":"{{ site.author.url | absolute_url }}","sameAs":["https://www.instagram.com/{{ site.instagram }}/"]}}</script>
   {%- endif %}
   {%- if page.layout == 'category' %}
   {%- assign nck = page.cat %}

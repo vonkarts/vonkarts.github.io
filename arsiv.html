@@ -1,28 +1,10 @@
 ---
-layout: default
+layout: archive
+lang: en
+ref: archive
 title: Archive
+description: "Every post on vonkarts, listed by year."
 permalink: /archive/
 redirect_from:
   - /arsiv/
 ---
-{%- assign en_posts = site.posts | where: "lang", "en" -%}
-<div class="archive">
-  <header class="masthead">
-    <h1 class="site-title site-title--sm">Archive</h1>
-    {% assign yillar = en_posts | group_by_exp: "post", "post.date | date: '%Y'" %}
-    <p class="tagline">{{ en_posts.size }} {% if en_posts.size == 1 %}post{% else %}posts{% endif %}, {{ yillar.size }} {% if yillar.size == 1 %}year{% else %}years{% endif %}.</p>
-  </header>
-  {% if en_posts.size == 0 %}
-    <div class="empty"><p>Published posts will be listed here by year.</p></div>
-  {% endif %}
-  {% for yil in yillar %}
-  <section>
-    <h2>{{ yil.name }}</h2>
-    <ul>
-      {% for post in yil.items %}
-      <li><time class="mono" datetime="{{ post.date | date_to_xmlschema }}">{% include tarih.html date=post.date kisa=true %}</time><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
-      {% endfor %}
-    </ul>
-  </section>
-  {% endfor %}
-</div>

@@ -1,5 +1,7 @@
 ---
 layout: page
+lang: en
+ref: about
 title: About
 description: "About vonkarts, the person behind this blog and the @vonkarts Instagram account."
 permalink: /about/

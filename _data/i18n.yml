@@ -2,7 +2,7 @@
 en:
   name: English
   home: /
-  posts: Writing
+  posts: Posts
   all_posts: "← All posts"
   read_in: Read in English
   min_read: "[n] min read"
@@ -25,6 +25,12 @@ en:
   updated: Updated
   latest: Latest
   earlier: Earlier posts
+  archive: "Archive"
+  archive_url: "/archive/"
+  about: "About"
+  about_url: "/about/"
+  n_posts: [post, posts]
+  n_years: [year, years]
 tr:
   name: Türkçe
   home: /tr/
@@ -51,6 +57,12 @@ tr:
   updated: Güncellendi
   latest: Son yazı
   earlier: Önceki yazılar
+  archive: "Arşiv"
+  archive_url: "/tr/arsiv/"
+  about: "Hakkında"
+  about_url: "/tr/hakkinda/"
+  n_posts: [yazı, yazı]
+  n_years: [yıl, yıl]
 de:
   name: Deutsch
   home: /de/
@@ -77,6 +89,12 @@ de:
   updated: Aktualisiert
   latest: Neu
   earlier: Frühere Artikel
+  archive: "Archiv"
+  archive_url: "/de/archiv/"
+  about: "Über"
+  about_url: "/de/ueber/"
+  n_posts: [Artikel, Artikel]
+  n_years: [Jahr, Jahre]
 fr:
   name: Français
   home: /fr/
@@ -103,6 +121,12 @@ fr:
   updated: Mis à jour
   latest: Dernier article
   earlier: Articles précédents
+  archive: "Archives"
+  archive_url: "/fr/archives/"
+  about: "À propos"
+  about_url: "/fr/a-propos/"
+  n_posts: [article, articles]
+  n_years: [an, ans]
 es:
   name: Español
   home: /es/
@@ -129,3 +153,9 @@ es:
   updated: Actualizado
   latest: Lo último
   earlier: Artículos anteriores
+  archive: "Archivo"
+  archive_url: "/es/archivo/"
+  about: "Acerca de"
+  about_url: "/es/acerca-de/"
+  n_posts: [artículo, artículos]
+  n_years: [año, años]
