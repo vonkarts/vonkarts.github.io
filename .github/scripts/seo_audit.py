@@ -154,6 +154,10 @@ def main():
                 problems.append(f"hreflang hedefi taranmadı: {href}")
 
     # örnek bir yazının JSON-LD'si
+    homep = pages.get(SITE + "/")
+    if homep:
+        notes.append("ANA SAYFA JSON-LD: " + " || ".join(b.strip()[:700] for b in homep.d.get("ld", [])))
+        notes.append("ANA SAYFA og:site_name=" + ",".join(homep.d.get("meta:og:site_name", [])) + " · title=" + homep.title.strip())
     sample = next((p for u, p in pages.items() if "why-ai-landscapes" in u), None)
     if sample:
         notes.append("Örnek yazı JSON-LD: " + " || ".join(b.strip()[:900] for b in sample.d.get("ld", [])))
