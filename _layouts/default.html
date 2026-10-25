@@ -114,6 +114,8 @@
     </div>
   </aside>
   <script src="{{ '/assets/main.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
-  <script data-goatcounter="https://vonkarts.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+  <script>/* Ziyaret sayacı: ölçüm araçları (Lighthouse, PageSpeed, otomatik tarayıcılar) sayılmaz */
+  (function(){var ua=navigator.userAgent||'';if(navigator.webdriver||/Lighthouse|HeadlessChrome|PTST|Google Page Speed|bot|crawler|spider/i.test(ua))return;
+  var s=document.createElement('script');s.async=true;s.src='https://gc.zgo.at/count.js';s.setAttribute('data-goatcounter','https://vonkarts.goatcounter.com/count');document.body.appendChild(s);})();</script>
 </body>
 </html>
