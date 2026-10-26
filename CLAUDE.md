@@ -33,6 +33,7 @@ Site adresi: https://vonkarts.com (2026-10-26'dan beri; repo adı hâlâ vonkart
 ## Görünüm bekçisi
 - `visual-check.yml` her yayından sonra ana sayfa, arşiv, hakkında ve en yeni yazıyı 5 dilde telefon boyutunda açar (EN ayrıca gece modu ve masaüstü). Bakar: yana taşma, yüklenmeyen/ezilen fotoğraf, üst bar çakışması, eksik parça (paylaş, kapak, menü…), menü/dil/tema düğmeleri, JS ve dosya hataları. Kırmızıysa önce onu düzelt.
 - Ekran görüntüleri ve `RAPOR.txt` `gorunum` dalında (yalnızca son hali): `git fetch origin gorunum && mkdir -p <klasör> && git archive FETCH_HEAD | tar -x -C <klasör>`. Görünümü etkileyen her değişiklikten sonra bu görüntülere bak; kullanıcının söylemesini bekleme.
+- Görsel değişiklik önizlemesi: değişikliği `onizleme` dalına push et (dalı main'in üstüne kur, `.github/workflows/onizleme.yml` ve `.github/preview/shot.js` yalnızca o dalda durur: `git checkout origin/onizleme -- .github/workflows/onizleme.yml .github/preview`). İş akışı siteyi Pages gibi derler, telefonda çeker, PNG'leri `onizleme-shots` dalına koyar. Bu iki dal silinemiyor (proxy dal silmeye izin vermiyor), kalabilir; canlı siteyi etkilemez. `shot.js` içindeki sayfa listesi ve kırpma alanı işe göre değiştirilir.
 - Bekçiyi sınamak: `gh api -X POST repos/vonkarts/vonkarts.github.io/actions/workflows/visual-check.yml/dispatches -f ref=main -F 'inputs[test_fault]=true'` (sahte bozulma ekler, kırmızı olmalı); ardından aynı komutu `test_fault=false` ile çalıştırıp temiz görüntüleri geri getir.
 
 ## Teknik
