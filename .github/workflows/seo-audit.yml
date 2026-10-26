@@ -1,14 +1,24 @@
-# Elle çalıştırılan SEO denetimi: canlı sitedeki her sayfanın etiketlerini okur.
+# SEO bekçisi: her yayından sonra canlı sitedeki her sayfanın etiketlerini okur
+# (başlık, açıklama, canonical, hreflang karşılıklılığı, JSON-LD, sitemap, noindex).
+# Kritik bir sorun bulursa iş kırmızı olur (e-posta gelir). Elle de çalıştırılabilir.
 name: SEO audit
 
 on:
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: seo-audit
+  cancel-in-progress: true
+
 jobs:
   audit:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -16,4 +26,6 @@ jobs:
         with:
           persist-credentials: false
       - name: Audit live site
-        run: python3 .github/scripts/seo_audit.py
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_run" ]; then sleep 45; fi
+          python3 .github/scripts/seo_audit.py

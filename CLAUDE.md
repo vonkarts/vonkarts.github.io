@@ -37,7 +37,10 @@
 - Sayfaya sürekli büyüyen öğe ekleme (etiket bulutu vb.).
 - Kullanıcının hesap verilerini üçüncü taraf servislere bağlama.
 - Repo herkese açık: taslak/yayınlanmamış yazı, gerçek isim, e-posta, şifre ya da kişisel bilgi repoya girmez. Commit kimliği `vonkarts` + GitHub noreply e-postası kalır.
-- Her push sonrası: Pages build, IndexNow, link + dil kontrolü, Lighthouse ve görünüm bekçisi yeşil olmalı.
+- Her push sonrası: Pages build, IndexNow, link + dil kontrolü, Lighthouse, SEO bekçisi (`seo-audit.yml`) ve görünüm bekçisi yeşil olmalı.
+- SEO bekçisi kritik sorunda kırmızı olur (başlık/açıklama yok, canonical yanlış, h1, html lang, og:image, JSON-LD hatası ya da BlogPosting'de eksik alan, aynı dilde aynı başlık, hreflang karşılıksız, noindex ama sitemap'te). Satır notlarındaki diğerleri bilgi amaçlı.
+- BlogPosting JSON-LD'ye `inLanguage` alanı `_layouts/default.html` içinde jekyll-seo-tag çıktısına eklenir.
+- Her dilin seo_title'ı o dilde insanların aradığı ifadeye göre yazılır (birebir çeviri değil).
 - Ziyaret sayacı GoatCounter; `_layouts/default.html` içindeki filtre ölçüm araçlarını ve botları saymaz.
 
 ## Çalışma ortamı notları

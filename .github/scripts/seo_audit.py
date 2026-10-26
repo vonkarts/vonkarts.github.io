@@ -10,6 +10,9 @@ from html.parser import HTMLParser
 SITE = os.environ.get("SITE_URL", "https://vonkarts.github.io").rstrip("/")
 HOST = urllib.parse.urlsplit(SITE).netloc
 UA = "Mozilla/5.0 (compatible; vonkarts-seo-audit/1.0)"
+# Bunlardan biri varsa iş kırmızı olur; diğerleri yalnızca bilgi notudur.
+CRITICAL = ("başlık yok", "açıklama yok", "canonical≠url", "h1=", "html lang yok", "og:image yok",
+            "JSON-LD hatalı", "noindex ama sitemap'te", "BlogPosting eksik")
 NS = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 
 
@@ -119,7 +122,7 @@ def main():
         words = len(" ".join(p.text).split())
         hl[u] = dict(p.d.get("hreflang", []))
         if not noindex:
-            titles[title].append(path); descs[desc].append(path)
+            titles[(p.lang, title)].append(path); descs[(p.lang, desc)].append(path)
         iss = []
         if not title: iss.append("başlık yok")
         elif len(title) > 65: iss.append(f"başlık uzun({len(title)})")
@@ -139,11 +142,14 @@ def main():
             if x.get("@type") == "BlogPosting":
                 miss = [k for k in ("headline", "datePublished", "dateModified", "author", "image", "publisher", "description", "inLanguage") if k not in x]
                 if miss: iss.append("BlogPosting eksik:" + "/".join(miss))
+        crit = [x for x in iss if x.startswith(CRITICAL)]
+        if crit: problems.append(f"{path}: {'; '.join(crit)}")
         rows.append(f"{path} | lang={p.lang} | T{len(title)} D{len(desc)} | h1:{p.h['h1']} h2:{p.h['h2']} | ld:{'+'.join(types) or '-'} | hl:{len(hl[u])} | w{words} | {'; '.join(iss) or 'OK'}")
 
-    for t, ps in titles.items():
+    # aynı dilde aynı başlık/açıklama (farklı dillerde aynı kelime sorun değil)
+    for (_, t), ps in titles.items():
         if len(ps) > 1: problems.append(f"aynı başlık ({len(ps)}): {t[:60]} -> {', '.join(ps)[:200]}")
-    for t, ps in descs.items():
+    for (_, t), ps in descs.items():
         if len(ps) > 1 and t: problems.append(f"aynı açıklama ({len(ps)}): {t[:50]} -> {', '.join(ps)[:200]}")
     # hreflang karşılıklılığı
     for u, alts in hl.items():
@@ -179,6 +185,9 @@ def main():
     chunks.append(chunk)
     for i, c in enumerate(chunks[:10]):
         print(f"::notice title=SEO {i+1}/{len(chunks)}::{c}")
+    if problems:
+        print("::error title=SEO::" + "%0A".join(x.replace("%", "%25") for x in problems[:30]))
+        sys.exit(1)
 
 
 if __name__ == "__main__":

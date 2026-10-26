@@ -11,7 +11,10 @@
   {%- else %}
   <title>{{ page.seo_title | default: page.title | default: site.title | escape }}{% if page.seo_title or page.title %} | {{ site.title | escape }}{% endif %}</title>
   {%- endif %}
-  {% seo title=false %}
+  {%- capture seo_tags %}{% seo title=false %}{% endcapture %}
+  {%- assign seo_lang = page.lang | default: 'en' %}
+  {%- assign il = '"@type":"BlogPosting","inLanguage":"' | append: seo_lang | append: '",' %}
+  {{ seo_tags | replace: '"@type":"BlogPosting",', il }}
   <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="48x48">
   <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
   <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
