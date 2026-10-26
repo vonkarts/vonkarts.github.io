@@ -43,7 +43,7 @@ Site adresi: https://vonkarts.com (2026-10-26'dan beri; repo adı hâlâ vonkart
 - SEO bekçisi kritik sorunda kırmızı olur (başlık/açıklama yok, canonical yanlış, h1, html lang, og:image, JSON-LD hatası ya da BlogPosting'de eksik alan, aynı dilde aynı başlık, hreflang karşılıksız, noindex ama sitemap'te). Satır notlarındaki diğerleri bilgi amaçlı.
 - BlogPosting JSON-LD'ye `inLanguage` alanı `_layouts/default.html` içinde jekyll-seo-tag çıktısına eklenir.
 - Her dilin seo_title'ı o dilde insanların aradığı ifadeye göre yazılır (birebir çeviri değil).
-- Ziyaret sayacı GoatCounter; `_layouts/default.html` içindeki filtre ölçüm araçlarını ve botları saymaz.
+- Ziyaret sayacı GoatCounter (vonkarts.goatcounter.com; eski site 2026-10-26'da yanlışlıkla silindi, aynı kodla yeniden açıldı, sayımlar o tarihten başlıyor; ayarlarda silme düğmelerine dikkat); `_layouts/default.html` içindeki filtre ölçüm araçlarını ve botları saymaz.
 
 ## Çalışma ortamı notları
 - Canlı siteye konteynerden doğrudan erişilemez: WebFetch ya da GitHub Actions kullan. Yerel Jekyll kurulamaz (rubygems kapalı); doğrulama canlıda, iş akışlarıyla yapılır.
@@ -59,5 +59,4 @@ Site adresi: https://vonkarts.com (2026-10-26'dan beri; repo adı hâlâ vonkart
   - Önerildi, cevap bekliyor (onaysız uygulama): telefonda öne çıkan başlığı küçültmek, özeti 2 satırla sınırlamak, büyük harfli etiketleri azaltmak.
   - Önerildi: son yazıdan Instagram carousel'i.
   - vonkarts.com'a taşındı (2026-10-26): HTTPS zorunlu açık, www CNAME eklendi, Cloudflare'de e-posta sahteciliğine karşı SPF (`v=spf1 -all`) + DMARC (`p=reject`) var. Search Console: vonkarts.com URL-öneki mülkü (HTML dosyasıyla) doğrulandı, sitemap gönderildi, eski mülkten Adres değişikliği onaylandı. Bing Webmaster'da vonkarts.com ekleme (Google'dan içe aktarma) + Site Move: kullanıcı "dursun" dedi, askıda.
-  - GoatCounter sitesi (vonkarts.goatcounter.com) 2026-10-26'da yanlışlıkla silindi ("bu alanda site yok" hatası); kullanıcı support@goatcounter.com'a geri yükleme isteği gönderecek. Cevap gelene kadar aynı adla yeni site açılmaz. Sayaç bu sürede saymıyor; site etkilenmiyor. Geri gelmezse yeni site açılır ve `_layouts/default.html` + CSP'deki adres güncellenir.
   - Askıda: yorumlar (Cusdis önerildi, "dursun"), GoatCounter'da Language ayarı ve kendi ziyaretlerini hariç tutma (`#toggle-goatcounter`).
