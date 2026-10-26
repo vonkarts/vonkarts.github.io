@@ -50,7 +50,7 @@
 - Bu dosya her sohbetin başında okunur. Kullanıcının söylediği kalıcı kurallar buraya eklenir (kişisel bilgi hariç).
 - İlk iş: son iş akışlarının durumuna bak (`gh api "repos/vonkarts/vonkarts.github.io/actions/runs?per_page=10"`), kırmızı varsa önce onu çöz.
 - Bekleyenler:
-  - Google'da site adı "GitHub" görünüyordu; yapılandırma düzeltildi, kullanıcı Search Console'dan ana sayfa için dizine ekleme isteyecek. Olmazsa kalıcı çözüm özel alan adı.
+  - Google'da site adı "GitHub" görünüyordu; yapılandırma düzeltildi. Kullanıcı 2026-10-26'da Search Console'dan tüm sayfaları 5 dilde elle dizine ekletti; tekrar isteme, sonucu bekle (birkaç gün–birkaç hafta). Hâlâ "GitHub" görünürse kalıcı çözüm özel alan adı.
   - Önerildi, cevap bekliyor (onaysız uygulama): telefonda öne çıkan başlığı küçültmek, özeti 2 satırla sınırlamak, büyük harfli etiketleri azaltmak.
   - Önerildi: son yazıdan Instagram carousel'i.
   - Askıda: yorumlar (Cusdis önerildi, "dursun"), .com alan adına taşıma (trafik gelince), GoatCounter'da Language ayarı ve kendi ziyaretlerini hariç tutma (`#toggle-goatcounter`).
