@@ -84,7 +84,7 @@ async function inspect(page, type) {
     if (sw > vw + 1) out.errors.push(`Sayfa yana taşıyor: genişlik ${sw}px, ekran ${vw}px`);
     const over = [];
     for (const el of document.body.querySelectorAll('*')) {
-      if (el.closest('.drawer,[aria-hidden="true"],.visually-hidden,script,style,noscript') || el.closest('svg') && el.tagName.toLowerCase() !== 'svg') continue;
+      if (el.closest('.drawer,.drawer-backdrop,[aria-hidden="true"],.visually-hidden,script,style,noscript') || el.closest('svg') && el.tagName.toLowerCase() !== 'svg') continue;
       const r = el.getBoundingClientRect();
       if (!r.width || !r.height || r.right <= vw + 1) continue;
       let p = el.parentElement, clipped = false;

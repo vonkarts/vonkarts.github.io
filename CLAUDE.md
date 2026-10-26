@@ -17,10 +17,40 @@
 - Yeni kapak görseli: `python3 .github/scripts/make_webp.py` çalıştır (unutulursa `optimize-images.yml` push sonrası kendisi yapar: büyük JPG küçültülür, WebP boyutları eklenir).
 - Hız bekçisi (`lighthouse.yml`) her yayından sonra ana sayfa ve en yeni yazıyı 3'er kez ölçer; ortalama hız < 90 ya da LCP > 2,5 sn ise kırmızı. Performans değişikliklerini tek ölçümle değil 3 ölçüm ortalamasıyla değerlendir. Ana sayfa fotoğrafına preload ekleme (FCP'yi bozdu).
 - Etiket (tags) gösterilmez; görünümde yalnızca kategori rozeti var.
+- Her yeni yazı için Instagram story görseli: `node .github/scripts/make_story.js _posts/<EN yazı>.md --out <klasör>` (TR + EN, 1080×1920; kullanıcı yüksek çözünürlüklü fotoğraf verdiyse `--bg foto.jpg`). PNG'leri kullanıcıya gönder.
+
+## Tasarım (Sade Gotik)
+- Yazı tipleri: Cinzel (etiketler, logo), Cormorant Garamond (başlıklar), EB Garamond (metin). Modlar: Gece (koyu) ve Parşömen (açık), ayrıca sistem.
+- Fotoğraflar yuvarlak köşeli dikdörtgen (16px); kemer şekli yok. Öne çıkan fotoğraf telefonda 4:3, masaüstünde 16:10; başlık fotoğrafın altında.
+- Ana sayfada büyük site başlığı gizli (H1 olarak kalır), görünen yalnızca üst bardaki logo. Üst boşluk dar.
+- Yazının ilk harfi büyük ama düz (italik değil). İçindekiler her yazıda var.
+- Tema/görünüm değişikliklerinde var olan her şey korunur; metin, açıklama, karşılama yazısı eklenmez ya da değiştirilmez. Görsel değişiklikleri önce önizleme ile göster.
+- Hakkında sayfasına yapay zekâdan söz eden ifade eklenmez.
+
+## Görünüm bekçisi
+- `visual-check.yml` her yayından sonra ana sayfa, arşiv, hakkında ve en yeni yazıyı 5 dilde telefon boyutunda açar (EN ayrıca gece modu ve masaüstü). Bakar: yana taşma, yüklenmeyen/ezilen fotoğraf, üst bar çakışması, eksik parça (paylaş, kapak, menü…), menü/dil/tema düğmeleri, JS ve dosya hataları. Kırmızıysa önce onu düzelt.
+- Ekran görüntüleri ve `RAPOR.txt` `gorunum` dalında (yalnızca son hali): `git fetch origin gorunum && mkdir -p <klasör> && git archive FETCH_HEAD | tar -x -C <klasör>`. Görünümü etkileyen her değişiklikten sonra bu görüntülere bak; kullanıcının söylemesini bekleme.
+- Bekçiyi sınamak: `gh api -X POST repos/vonkarts/vonkarts.github.io/actions/workflows/visual-check.yml/dispatches -f ref=main -F 'inputs[test_fault]=true'` (sahte bozulma ekler, kırmızı olmalı); ardından aynı komutu `test_fault=false` ile çalıştırıp temiz görüntüleri geri getir.
 
 ## Teknik
 - Jekyll 3.10 / GitHub Pages. Liquid filtre metinlerinde `{n}` kullanma, `[n]` kullan. Liquid 4: `remove_last` yok.
 - Sayfaya sürekli büyüyen öğe ekleme (etiket bulutu vb.).
 - Kullanıcının hesap verilerini üçüncü taraf servislere bağlama.
 - Repo herkese açık: taslak/yayınlanmamış yazı, gerçek isim, e-posta, şifre ya da kişisel bilgi repoya girmez. Commit kimliği `vonkarts` + GitHub noreply e-postası kalır.
-- Her push sonrası: Pages build, IndexNow ve link kontrolü yeşil olmalı.
+- Her push sonrası: Pages build, IndexNow, link + dil kontrolü, Lighthouse ve görünüm bekçisi yeşil olmalı.
+- Ziyaret sayacı GoatCounter; `_layouts/default.html` içindeki filtre ölçüm araçlarını ve botları saymaz.
+
+## Çalışma ortamı notları
+- Canlı siteye konteynerden doğrudan erişilemez: WebFetch ya da GitHub Actions kullan. Yerel Jekyll kurulamaz (rubygems kapalı); doğrulama canlıda, iş akışlarıyla yapılır.
+- `gh workflow run` çalışmaz (GraphQL kapalı); iş akışını REST ile başlat: `gh api -X POST repos/vonkarts/vonkarts.github.io/actions/workflows/<dosya>/dispatches -f ref=main`.
+- İş akışı logları ve artifact'ler indirilemez; sonuçları notlardan oku: `gh api repos/vonkarts/vonkarts.github.io/actions/runs/<run>/jobs` → `gh api repos/vonkarts/vonkarts.github.io/check-runs/<job>/annotations`.
+- Ön planda `sleep` zinciri yerine `until … do sleep 20; done` döngüsü kullan.
+
+## Yeni sohbette devam
+- Bu dosya her sohbetin başında okunur. Kullanıcının söylediği kalıcı kurallar buraya eklenir (kişisel bilgi hariç).
+- İlk iş: son iş akışlarının durumuna bak (`gh api "repos/vonkarts/vonkarts.github.io/actions/runs?per_page=10"`), kırmızı varsa önce onu çöz.
+- Bekleyenler:
+  - Google'da site adı "GitHub" görünüyordu; yapılandırma düzeltildi, kullanıcı Search Console'dan ana sayfa için dizine ekleme isteyecek. Olmazsa kalıcı çözüm özel alan adı.
+  - Önerildi, cevap bekliyor (onaysız uygulama): telefonda öne çıkan başlığı küçültmek, özeti 2 satırla sınırlamak, büyük harfli etiketleri azaltmak.
+  - Önerildi: son yazıdan Instagram carousel'i.
+  - Askıda: yorumlar (Cusdis önerildi, "dursun"), .com alan adına taşıma (trafik gelince), GoatCounter'da Language ayarı ve kendi ziyaretlerini hariç tutma (`#toggle-goatcounter`).
