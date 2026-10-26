@@ -17,7 +17,7 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 
-const SITE = (process.env.SITE_URL || 'https://vonkarts.github.io').replace(/\/$/, '');
+const SITE = (process.env.SITE_URL || 'https://vonkarts.com').replace(/\/$/, '');
 const HOST = new URL(SITE).host;
 const LATEST = process.env.LATEST || SITE + '/';
 const OUT = process.env.OUT_DIR || 'shots';

@@ -7,7 +7,7 @@ import xml.etree.ElementTree as ET
 from collections import defaultdict, Counter
 from html.parser import HTMLParser
 
-SITE = os.environ.get("SITE_URL", "https://vonkarts.github.io").rstrip("/")
+SITE = os.environ.get("SITE_URL", "https://vonkarts.com").rstrip("/")
 HOST = urllib.parse.urlsplit(SITE).netloc
 UA = "Mozilla/5.0 (compatible; vonkarts-seo-audit/1.0)"
 # Bunlardan biri varsa iş kırmızı olur; diğerleri yalnızca bilgi notudur.

@@ -27,7 +27,7 @@ jobs:
       - name: Run Lighthouse
         run: |
           sleep 45
-          S=https://vonkarts.github.io
+          S=https://vonkarts.com
           LATEST=$(python3 .github/scripts/latest_post.py "$S")
           echo "En yeni yazı: $LATEST"
           run() { npx --yes lighthouse@12.2.0 "$2" --quiet --output=json --output-path="lh-$1.json" --chrome-flags="--headless=new --no-sandbox" $3 || true; }

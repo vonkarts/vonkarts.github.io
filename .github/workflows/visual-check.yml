@@ -43,7 +43,7 @@ jobs:
         run: |
           mkdir -p shots
           sleep 45
-          export LATEST=$(python3 .github/scripts/latest_post.py https://vonkarts.github.io)
+          export LATEST=$(python3 .github/scripts/latest_post.py https://vonkarts.com)
           node .github/scripts/visual_check.js
       - name: Put screenshots on the 'gorunum' branch
         if: always()

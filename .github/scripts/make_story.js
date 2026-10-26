@@ -85,7 +85,7 @@ p{font:italic 400 50px/1.22 "EB Garamond";margin:0;color:#f6f1e6;text-shadow:0 2
 .brand b{font:500 36px/1 Cinzel;letter-spacing:.12em}
 </style></head><body><div class="bg"></div><div class="shade"></div>
 <div class="top"><div class="lab">${esc(newPost)} · vonkarts</div><h1>${esc(title)}</h1>${sub ? `<p>${esc(sub)}</p>` : ''}</div>
-<div class="brand"><small>${esc(readMore)}</small><b lang="en">vonkarts.github.io</b></div></body></html>`;
+<div class="brand"><small>${esc(readMore)}</small><b lang="en">vonkarts.com</b></div></body></html>`;
 }
 
 (async () => {

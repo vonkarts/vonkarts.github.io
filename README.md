@@ -1,6 +1,6 @@
-# vonkarts.github.io
+# vonkarts.com
 
-Kişisel blogum. Adres: https://vonkarts.github.io
+Kişisel blogum. Adres: https://vonkarts.com
 
 ## Yeni yazı nasıl eklenir
 

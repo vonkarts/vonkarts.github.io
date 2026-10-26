@@ -1,4 +1,6 @@
-# vonkarts.github.io – çalışma kuralları
+# vonkarts.com – çalışma kuralları
+
+Site adresi: https://vonkarts.com (2026-10-26'dan beri; repo adı hâlâ vonkarts/vonkarts.github.io). Alan adı Cloudflare'de; DNS: 4 A kaydı (185.199.108-111.153) + www CNAME → vonkarts.github.io, hepsi "DNS only" (gri bulut, proxy kapalı — açılırsa GitHub HTTPS sertifikası bozulur). Alan adı GitHub hesabında doğrulandı (TXT). Özel alan adı repo kökündeki `CNAME` dosyasıyla ayarlı. Eski github.io adresleri GitHub tarafından otomatik yönlendirilir.
 
 ## En önemli kural: 5 dil her zaman aynı
 - Site 5 dilde: en (varsayılan), tr, de, fr, es. Arayüzde, menüde ya da bir sayfada yapılan her değişiklik 5 dile birden uygulanır.
@@ -53,8 +55,8 @@
 - Bu dosya her sohbetin başında okunur. Kullanıcının söylediği kalıcı kurallar buraya eklenir (kişisel bilgi hariç).
 - İlk iş: son iş akışlarının durumuna bak (`gh api "repos/vonkarts/vonkarts.github.io/actions/runs?per_page=10"`), kırmızı varsa önce onu çöz.
 - Bekleyenler:
-  - Google'da site adı "GitHub" görünüyordu; yapılandırma düzeltildi. Kullanıcı 2026-10-26'da Search Console'dan tüm sayfaları 5 dilde elle dizine ekletti; tekrar isteme, sonucu bekle (birkaç gün–birkaç hafta). Hâlâ "GitHub" görünürse kalıcı çözüm özel alan adı.
+  - Google'da site adı "GitHub" görünüyordu; yapılandırma düzeltildi. Kullanıcı 2026-10-26'da Search Console'dan tüm sayfaları 5 dilde elle dizine ekletti; tekrar isteme, sonucu bekle (birkaç gün–birkaç hafta). Kalıcı çözüm olarak özel alan adına geçildi.
   - Önerildi, cevap bekliyor (onaysız uygulama): telefonda öne çıkan başlığı küçültmek, özeti 2 satırla sınırlamak, büyük harfli etiketleri azaltmak.
   - Önerildi: son yazıdan Instagram carousel'i.
-  - vonkarts.com alındı (2026-10-26). Taşıma sırası: kullanıcı GitHub'da alan adını doğrular (TXT) → repo Pages ayarına vonkarts.com eklenir → kullanıcı DNS'e A/AAAA + www CNAME girer → DNS oturunca `_config.yml` url, betiklerdeki SITE_URL, JSON-LD alternateName, IndexNow güncellenir → HTTPS zorunlu → Search Console'da yeni mülk + adres değişikliği, Bing'de site taşıma.
+  - vonkarts.com'a taşındı (2026-10-26). Kalanlar: HTTPS sertifikası çıkınca repo Ayarlar → Pages'te "Enforce HTTPS" işaretlenir (API proxy'den kapalı, kullanıcı yapar); Search Console'da vonkarts.com için yeni mülk (Alan adı mülkü, Cloudflare'e TXT) + eski mülkten Adres değişikliği aracı; Bing Webmaster'da yeni site + Site Move.
   - Askıda: yorumlar (Cusdis önerildi, "dursun"), GoatCounter'da Language ayarı ve kendi ziyaretlerini hariç tutma (`#toggle-goatcounter`).

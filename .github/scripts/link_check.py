@@ -23,7 +23,7 @@ import xml.etree.ElementTree as ET
 from collections import defaultdict
 from html.parser import HTMLParser
 
-SITE = os.environ.get("SITE_URL", "https://vonkarts.github.io").rstrip("/")
+SITE = os.environ.get("SITE_URL", "https://vonkarts.com").rstrip("/")
 HOST = urllib.parse.urlsplit(SITE).netloc
 UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
       "Chrome/124.0 Safari/537.36 vonkarts-linkcheck/1.0")

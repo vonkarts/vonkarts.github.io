@@ -13,12 +13,12 @@ import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
 
-SITE = os.environ.get("SITE_URL", "https://vonkarts.github.io").rstrip("/")
+SITE = os.environ.get("SITE_URL", "https://vonkarts.com").rstrip("/")
 KEY = os.environ["INDEXNOW_KEY"]
 DAYS = int(os.environ.get("DAYS", "3"))
 SUBMIT_ALL = os.environ.get("SUBMIT_ALL", "false").lower() == "true"
 HOMES = ["/", "/tr/", "/de/", "/fr/", "/es/", "/archive/"]
-UA = "vonkarts-indexnow/1.0 (+https://vonkarts.github.io/)"
+UA = "vonkarts-indexnow/1.0 (+https://vonkarts.com/)"
 NS = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 
 

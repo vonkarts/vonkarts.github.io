@@ -14,7 +14,7 @@ import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 import yaml
 
-SITE = os.environ.get("SITE_URL", "https://vonkarts.github.io").rstrip("/")
+SITE = os.environ.get("SITE_URL", "https://vonkarts.com").rstrip("/")
 HOST = urllib.parse.urlsplit(SITE).netloc
 LANGS = ["en", "tr", "de", "fr", "es"]
 ROOT = os.path.join(os.path.dirname(__file__), "..", "..")

@@ -34,7 +34,7 @@
   {%- endfor %}
   {%- endif %}
   {%- if page.url == '/' %}
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"{{ site.title }}","alternateName":["Vonkarts","vonkarts.github.io"],"url":"{{ '/' | absolute_url }}"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"{{ site.title }}","alternateName":["Vonkarts","vonkarts.com"],"url":"{{ '/' | absolute_url }}"}</script>
   {%- endif %}
   {%- if page.profile %}
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","url":"{{ page.url | absolute_url }}","mainEntity":{"@type":"Person","name":{{ site.author.name | jsonify }},"url":"{{ site.author.url | absolute_url }}","sameAs":["https://www.instagram.com/{{ site.instagram }}/"]}}</script>
