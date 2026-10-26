@@ -1,0 +1,64 @@
+# Görünüm bekçisi: her yayından sonra siteyi telefon boyutunda 5 dilde açar.
+# Sayfa yana taşıyor mu, fotoğraflar yükleniyor mu, menü/dil/tema düğmeleri çalışıyor mu,
+# sayfada hata var mı bakar. Ekran görüntülerini ve RAPOR.txt'yi 'gorunum' dalına koyar
+# (her seferinde yalnızca son hali durur). Sorun bulursa iş kırmızı olur (e-posta gelir).
+name: Visual check
+
+on:
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      test_fault:
+        description: "Bekçiyi sına: sayfalara sahte bozulma ekle (site değişmez)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: visual-check
+  cancel-in-progress: true
+
+jobs:
+  visual:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Install browser
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.52.0
+          npx playwright install --with-deps chromium
+      - name: Open pages and check
+        id: check
+        continue-on-error: true
+        env:
+          FAULT: ${{ inputs.test_fault && '1' || '' }}
+        run: |
+          mkdir -p shots
+          sleep 45
+          export LATEST=$(python3 .github/scripts/latest_post.py https://vonkarts.github.io)
+          node .github/scripts/visual_check.js
+      - name: Put screenshots on the 'gorunum' branch
+        if: always()
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          cd shots
+          git init -q -b gorunum
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -qm "Görünüm $(date -u '+%F %H:%M') UTC"
+          git push -qf "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gorunum
+      - name: Result
+        if: steps.check.outcome != 'success'
+        run: |
+          echo "::error title=Görünüm bekçisi::Sorun bulundu; ayrıntılar yukarıdaki notlarda ve 'gorunum' dalındaki RAPOR.txt içinde"
+          exit 1
