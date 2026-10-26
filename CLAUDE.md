@@ -56,4 +56,5 @@
   - Google'da site adı "GitHub" görünüyordu; yapılandırma düzeltildi. Kullanıcı 2026-10-26'da Search Console'dan tüm sayfaları 5 dilde elle dizine ekletti; tekrar isteme, sonucu bekle (birkaç gün–birkaç hafta). Hâlâ "GitHub" görünürse kalıcı çözüm özel alan adı.
   - Önerildi, cevap bekliyor (onaysız uygulama): telefonda öne çıkan başlığı küçültmek, özeti 2 satırla sınırlamak, büyük harfli etiketleri azaltmak.
   - Önerildi: son yazıdan Instagram carousel'i.
-  - Askıda: yorumlar (Cusdis önerildi, "dursun"), .com alan adına taşıma (trafik gelince), GoatCounter'da Language ayarı ve kendi ziyaretlerini hariç tutma (`#toggle-goatcounter`).
+  - vonkarts.com alındı (2026-10-26). Taşıma sırası: kullanıcı GitHub'da alan adını doğrular (TXT) → repo Pages ayarına vonkarts.com eklenir → kullanıcı DNS'e A/AAAA + www CNAME girer → DNS oturunca `_config.yml` url, betiklerdeki SITE_URL, JSON-LD alternateName, IndexNow güncellenir → HTTPS zorunlu → Search Console'da yeni mülk + adres değişikliği, Bing'de site taşıma.
+  - Askıda: yorumlar (Cusdis önerildi, "dursun"), GoatCounter'da Language ayarı ve kendi ziyaretlerini hariç tutma (`#toggle-goatcounter`).
