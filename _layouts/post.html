@@ -24,15 +24,19 @@ layout: default
     </div>
     {% include share.html %}
     {% if L == 'en' %}{% include newsletter.html %}{% endif %}
-    {%- assign prev = nil -%}{%- assign next = nil -%}
-    {%- assign prev_lang = page.previous.lang | default: 'en' -%}{%- assign next_lang = page.next.lang | default: 'en' -%}
-    {%- if page.previous and prev_lang == L -%}{%- assign prev = page.previous -%}{%- endif -%}
-    {%- if page.next and next_lang == L -%}{%- assign next = page.next -%}{%- endif -%}
-    {% if prev or next %}
-    <nav class="pager" aria-label="{{ T.more_posts }}">
-      {% if prev %}<a href="{{ prev.url | relative_url }}"><span class="mono">{{ T.previous }}</span><span>{{ prev.title }}</span></a>{% else %}<span></span>{% endif %}
-      {% if next %}<a class="next" href="{{ next.url | relative_url }}"><span class="mono">{{ T.next }}</span><span>{{ next.title }}</span></a>{% endif %}
-    </nav>
+    {%- comment -%} İlgili yazılar: okurun dilinde, önce aynı kategoriden, eksikse en yenilerle; en fazla 3 {%- endcomment -%}
+    {%- assign RL = site.posts | where: "lang", L -%}
+    {%- assign RC = page.categories | first -%}
+    {%- assign RPICK = "|" -%}{%- assign RN = 0 -%}
+    {%- capture RITEMS -%}
+    {%- for p in RL -%}{%- if RN < 3 and p.url != page.url and RC and p.categories contains RC -%}{% include post-item.html post=p lang=L %}{%- assign RPICK = RPICK | append: p.url | append: "|" -%}{%- assign RN = RN | plus: 1 -%}{%- endif -%}{%- endfor -%}
+    {%- for p in RL -%}{%- assign RKEY = "|" | append: p.url | append: "|" -%}{%- if RN < 3 and p.url != page.url -%}{%- unless RPICK contains RKEY -%}{% include post-item.html post=p lang=L %}{%- assign RPICK = RPICK | append: p.url | append: "|" -%}{%- assign RN = RN | plus: 1 -%}{%- endunless -%}{%- endif -%}{%- endfor -%}
+    {%- endcapture -%}
+    {% if RN > 0 %}
+    <section class="related" aria-labelledby="related-label">
+      <div class="section-label"><span class="mono" id="related-label">{{ T.related }}</span></div>
+      <ul class="list">{{ RITEMS }}</ul>
+    </section>
     {% endif %}
   </article>
 </div>

@@ -10,6 +10,7 @@ en:
   previous: "← Previous"
   next: "Next →"
   more_posts: More posts
+  related: "You might also like"
   tagline: Thoughts, notes and half-finished sentences.
   no_posts: No posts in this language yet.
   date: "[m] [d], [y]"
@@ -55,6 +56,7 @@ tr:
   previous: "← Önceki"
   next: "Sonraki →"
   more_posts: Diğer yazılar
+  related: "Bunlar da ilginizi çekebilir"
   tagline: Düşünceler, notlar ve yarım kalmış cümleler.
   no_posts: Henüz Türkçe yazı yok.
   date: "[d] [m] [y]"
@@ -100,6 +102,7 @@ de:
   previous: "← Vorheriger"
   next: "Nächster →"
   more_posts: Weitere Artikel
+  related: "Das könnte Sie auch interessieren"
   tagline: Gedanken, Notizen und halb fertige Sätze.
   no_posts: Noch keine Artikel auf Deutsch.
   date: "[d]. [m] [y]"
@@ -145,6 +148,7 @@ fr:
   previous: "← Précédent"
   next: "Suivant →"
   more_posts: Autres articles
+  related: "Vous aimerez aussi"
   tagline: Pensées, notes et phrases à moitié terminées.
   no_posts: Pas encore d’articles en français.
   date: "[d] [m] [y]"
@@ -190,6 +194,7 @@ es:
   previous: "← Anterior"
   next: "Siguiente →"
   more_posts: Más artículos
+  related: "También te puede interesar"
   tagline: Pensamientos, notas y frases a medio terminar.
   no_posts: Todavía no hay artículos en español.
   date: "[d] de [m] de [y]"

@@ -18,6 +18,7 @@ Site adresi: https://vonkarts.com (2026-10-26'dan beri; repo adı hâlâ vonkart
 - Tarihe saat yazma (gelecek saat = yazı gizlenir). Site saat dilimi UTC (site global; Türkiye/İstanbul izi bırakılmaz). Türkiye saatiyle 00:00-03:00 arası yayınlanan yazıya bir önceki günün tarihini ver.
 - Yeni kapak görseli: `python3 .github/scripts/make_webp.py` çalıştır (unutulursa `optimize-images.yml` push sonrası kendisi yapar: büyük JPG küçültülür, WebP boyutları eklenir).
 - Hız bekçisi (`lighthouse.yml`) her yayından sonra ana sayfa ve en yeni yazıyı 3'er kez ölçer; ortalama hız < 90 ya da LCP > 2,5 sn ise kırmızı. Performans değişikliklerini tek ölçümle değil 3 ölçüm ortalamasıyla değerlendir. Ana sayfa fotoğrafına preload ekleme (FCP'yi bozdu).
+- Her yazının sonunda (paylaş düğmelerinin altında) "ilgili yazılar" bölümü var (`_layouts/post.html`, metin `related` anahtarı): okurun dilinde en fazla 3 yazı, önce aynı kategoriden, eksikse en yenilerden; ana sayfa listesiyle aynı görünüm (`post-item.html`). Eski önceki/sonraki gezinmesi kaldırıldı (dil sürümleri aynı tarihli olduğu için hiç görünmüyordu).
 - Etiket (tags) gösterilmez; görünümde yalnızca kategori rozeti var.
 - Her yeni yazı için Instagram story görseli: `node .github/scripts/make_story.js _posts/<EN yazı>.md --out <klasör>` (TR + EN, 1080×1920; kullanıcı yüksek çözünürlüklü fotoğraf verdiyse `--bg foto.jpg`). PNG'leri kullanıcıya gönder.
 
