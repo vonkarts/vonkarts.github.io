@@ -242,6 +242,7 @@ footer{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-co
 .prose sup a{text-decoration:none;font-family:var(--mono)}
 .prose .refs{font-size:15px;line-height:1.6;color:var(--muted);padding-left:1.6em}
 .prose .refs li{margin:.5em 0;scroll-margin-top:90px;overflow-wrap:anywhere}
+.prose .refs-note{font-size:15px;line-height:1.6;color:var(--muted);margin:.6em 0}
 .prose .refs li:target{color:var(--fg);background:var(--accent-soft);border-radius:4px}
 .prose > p:first-child em:only-child{color:inherit;font-style:normal}
 
