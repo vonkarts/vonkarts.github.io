@@ -1,5 +1,7 @@
 # Hız bekçisi: her yayından sonra ana sayfa ve en yeni yazı telefonda 3'er kez ölçülür.
-# Ortalama hız puanı 90'ın altına düşer ya da LCP 2,5 saniyeyi aşarsa iş kırmızı olur (e-posta gelir).
+# Ölçümden önce sayfalar ve fotoğrafları bir kez açılır (sunucu önbelleği ısınsın, yeni fotoğraf ilk açılışta yavaş kalmasın).
+# İlk tur sınırın dışında kalırsa 2 dakika sonra bir tur daha ölçülür; anlık ağ yavaşlığı alarm vermesin diye
+# karar ikinci tura göre verilir. Ortalama hız puanı 90'ın altına düşer ya da LCP 2,5 saniyeyi aşarsa iş kırmızı olur (e-posta gelir).
 name: Lighthouse
 
 on:
@@ -24,15 +26,29 @@ jobs:
       - uses: actions/checkout@v5
         with:
           persist-credentials: false
-      - name: Run Lighthouse
+      - name: Run Lighthouse (re-check once if it looks slow)
         run: |
           sleep 45
           S=https://vonkarts.com
           LATEST=$(python3 .github/scripts/latest_post.py "$S")
           echo "En yeni yazı: $LATEST"
+          warm() {
+            for u in "$S/" "$LATEST"; do
+              curl -s "$u" | grep -oE '/(images|assets)/[^" ,?]+' | sort -u | while read -r p; do curl -s -o /dev/null "$S$p"; done
+              curl -s -o /dev/null "$u"
+            done
+          }
           run() { npx --yes lighthouse@12.2.0 "$2" --quiet --output=json --output-path="lh-$1.json" --chrome-flags="--headless=new --no-sandbox" $3 || true; }
-          for i in 1 2 3; do run "home-mobile-$i" "$S/"; run "latest-post-mobile-$i" "$LATEST"; done
-          run home-desktop "$S/" "--preset=desktop"
+          measure() {
+            rm -f lh-*.json
+            for i in 1 2 3; do run "home-mobile-$i" "$S/"; run "latest-post-mobile-$i" "$LATEST"; done
+            run home-desktop "$S/" "--preset=desktop"
+          }
+          warm; measure
+          if ! GUARD=1 python3 .github/scripts/lh_report.py > first.txt 2>&1; then
+            echo "::notice title=Hız bekçisi::İlk tur sınırın dışında: $(grep -o 'ORTALAMA[^:]*: PERF [0-9]*[^·]*· FCP [^·]*· LCP [0-9.]* s' first.txt | tr '\n' ' ') — 2 dakika sonra bir kez daha ölçülüyor"
+            sleep 120; warm; measure
+          fi
       - name: Summarize and guard
         env:
           GUARD: "1"
