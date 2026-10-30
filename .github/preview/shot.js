@@ -27,7 +27,7 @@ const S = 'http://localhost:4000';
     await p.waitForTimeout(rate < 1 ? 4000 : 2000);
     await p.evaluate(() => window.scrollTo(0, document.querySelector('#list-section').offsetTop - 80));
     await p.waitForTimeout(800);
-    await p.click('#list .item:not(.is-first) .thumb');
+    await p.click('#list .item:not(.is-first) a.t');
     await p.waitForLoadState('load'); await slow();
     await p.waitForTimeout(rate < 1 ? 4000 : 2000);
     const names = await p.evaluate(() => [...document.querySelectorAll('img')].map(i => getComputedStyle(i).viewTransitionName).filter(n => n && n !== 'none'));
