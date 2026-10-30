@@ -1,11 +1,13 @@
 {%- comment -%}
   Görseli, varsa küçük WebP kopyalarıyla (foto-480/800/1200.webp) verir; yoksa düz <img>.
-  Parametreler: src, alt, class, sizes, eager (true: hemen ve öncelikli yükle), pos (kesim konumu, ör. "50% 80%")
+  Parametreler: src, alt, class, sizes, eager (true: hemen ve öncelikli yükle), pos (kesim konumu, ör. "50% 80%"),
+  vt (sayfalar arası geçişte aynı fotoğrafı eşleştiren ad, ör. c-yazi-ref)
 {%- endcomment -%}
 {%- assign PS = include.src -%}
 {%- assign PB = PS | split: "." | pop | join: "." -%}
 {%- assign PW = "240,480,640,800,1200" | split: "," -%}
 {%- capture PSET -%}{%- for w in PW -%}{%- assign wp = PB | append: "-" | append: w | append: ".webp" -%}{%- assign hit = site.static_files | where: "path", wp | first -%}{%- if hit -%}{{ wp | relative_url }} {{ w }}w,{%- endif -%}{%- endfor -%}{%- endcapture -%}
 {%- assign PSET = PSET | strip | split: "," | join: ", " -%}
-{%- capture PIMG -%}<img class="{{ include.class }}" src="{{ PS | relative_url }}" alt="{{ include.alt | escape }}"{% if include.pos %} style="object-position:{{ include.pos }}"{% endif %}{% if include.eager %} fetchpriority="high"{% else %} loading="lazy"{% endif %} decoding="async">{%- endcapture -%}
+{%- capture PST -%}{% if include.pos %}object-position:{{ include.pos }};{% endif %}{% if include.vt %}view-transition-name:{{ include.vt }};view-transition-class:cover;{% endif %}{%- endcapture -%}
+{%- capture PIMG -%}<img class="{{ include.class }}" src="{{ PS | relative_url }}" alt="{{ include.alt | escape }}"{% if PST != "" %} style="{{ PST }}"{% endif %}{% if include.eager %} fetchpriority="high"{% else %} loading="lazy"{% endif %} decoding="async">{%- endcapture -%}
 {%- if include.preload -%}{%- if PSET != "" -%}<link rel="preload" as="image" type="image/webp" imagesrcset="{{ PSET }}" imagesizes="{{ include.sizes | default: '100vw' }}" fetchpriority="high">{%- endif -%}{%- elsif PSET != "" -%}<picture><source type="image/webp" srcset="{{ PSET }}" sizes="{{ include.sizes | default: '100vw' }}">{{ PIMG }}</picture>{%- else -%}{{ PIMG }}{%- endif -%}

@@ -1,0 +1,38 @@
+# Geçici: 'onizleme' dalını Pages gibi derler, yazı sonunu telefonda fotoğraflar, görüntüleri 'onizleme-shots' dalına koyar.
+name: Preview
+on:
+  push:
+    branches: [onizleme]
+permissions:
+  contents: write
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Screenshot
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.52.0
+          npx playwright install --with-deps chromium
+          (cd _site && python3 -m http.server 4000 >/dev/null 2>&1 &)
+          sleep 2
+          mkdir -p shots
+          node .github/preview/shot.js | tee shots/OZET.txt
+          while read l; do echo "::notice::$l"; done < shots/OZET.txt
+      - name: Push screenshots
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          cd shots
+          git init -q -b onizleme-shots
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -qm "Önizleme"
+          git push -qf "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" onizleme-shots

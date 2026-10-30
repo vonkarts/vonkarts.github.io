@@ -386,3 +386,17 @@ article h1{font-family:var(--display);font-weight:600;letter-spacing:0;line-heig
 .sayfa-lang_home .tagline{font-size:19px}
 .featured .cover,.featured.has-cover .cover{aspect-ratio:4/3}
 @media (min-width:720px){.featured .cover,.featured.has-cover .cover{aspect-ratio:16/10}}
+
+/* Sayfalar arası yumuşak geçiş (tarayıcının View Transitions özelliği; destekleyen tarayıcılarda, JS yok).
+   Aynı yazının kapak fotoğrafı (ana sayfa, liste, yazı) view-transition-name ile eşleşir ve yerinden büyüyerek geçer. */
+@view-transition{navigation:auto}
+::view-transition-group(root){animation-duration:.32s}
+::view-transition-old(root){animation:vt-out .22s ease both}
+::view-transition-new(root){animation:vt-in .32s cubic-bezier(.2,.8,.2,1) both}
+@keyframes vt-out{to{opacity:0}}
+@keyframes vt-in{from{opacity:0;transform:translateY(10px)}}
+::view-transition-group(*.cover){animation-duration:.5s;animation-timing-function:cubic-bezier(.2,.8,.2,1)}
+::view-transition-image-pair(*.cover){overflow:hidden;border-radius:16px}
+::view-transition-old(*.cover),::view-transition-new(*.cover){height:100%;object-fit:cover}
+@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}}
+

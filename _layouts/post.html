@@ -17,7 +17,7 @@ layout: default
       {%- for pk in page.categories %}{% assign pc = site.data.categories | where: "key", pk | first %}{% if pc %}<a class="chip" href="{{ pc[L].url | relative_url }}">{{ pc[L].name }}</a>{% endif %}{% endfor %}
     </div>
     </header>
-    {% if page.cover %}{% include picture.html src=page.cover alt=page.cover_alt class="post-cover" eager=true sizes="(min-width: 760px) 720px, 100vw" pos=page.cover_pos %}{% endif %}
+    {% if page.cover %}{%- assign VT = 'c-' | append: page.ref | default: page.url | slugify -%}{% include picture.html src=page.cover alt=page.cover_alt class="post-cover" eager=true sizes="(min-width: 760px) 720px, 100vw" pos=page.cover_pos vt=VT %}{% endif %}
     <nav class="toc" id="toc" hidden aria-label="{{ T.contents }}"><details><summary class="mono">{{ T.contents }}</summary><ol></ol></details></nav>
     <div class="prose">
 {{ content }}
