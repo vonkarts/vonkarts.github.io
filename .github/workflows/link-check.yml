@@ -31,3 +31,6 @@ jobs:
         run: |
           python3 -c "import yaml" 2>/dev/null || pip install --quiet --break-system-packages pyyaml
           python3 .github/scripts/i18n_check.py
+      - name: Check experiment files (5 languages, same answers, cards)
+        if: always()
+        run: python3 .github/scripts/experiments_check.py

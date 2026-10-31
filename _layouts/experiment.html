@@ -1,0 +1,126 @@
+{%- comment -%}
+Tek şablon: her deneyin kendi sayfası ve her dilin "günün deneyi" ana sayfası (page.daily_page).
+Günün deneyi = o dilde yayındaki en yüksek numaralı deney. İçeriğin tamamı (hikâye, sonuç, kaynaklar) HTML'de yazılıdır;
+oyun JS ile üstüne kurulur ve sonuç bölümü tahminden sonra açılır.
+Not: "today" adı Jekyll'da her sayfada dolu geliyor; bayrak adı bu yüzden daily_page.
+{%- endcomment -%}
+{%- assign L = page.lang | default: 'en' -%}
+{%- assign T = site.data.game[L] -%}
+{%- assign exps = site.experiments | where: "lang", L | sort: "no" -%}
+{%- assign latest = exps | last -%}
+{%- if page.daily_page -%}{%- assign e = latest -%}{%- assign VREF = 'daily' -%}{%- else -%}{%- assign e = page -%}{%- assign VREF = page.ref -%}{%- endif -%}
+{%- assign NO = e.no | prepend: '00' | slice: -2, 2 -%}
+{%- assign vx = site.experiments | where: "ref", VREF -%}{%- assign vp = site.pages | where: "ref", VREF -%}{%- assign versions = vx | concat: vp -%}
+<!doctype html>
+<html lang="{{ L }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://vonkarts.goatcounter.com; connect-src 'self' https://vonkarts.goatcounter.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <script>try{var t=localStorage.getItem('tema');if(t&&t!=='system')document.documentElement.setAttribute('data-theme',t)}catch(e){}document.documentElement.className+=' js';</script>
+  {%- if page.daily_page %}
+  <title>{{ page.title | escape }}</title>
+  {%- else %}
+  <title>{{ page.seo_title | default: page.title | escape }} | {{ T.name }}</title>
+  {%- endif %}
+  {%- capture seo_tags %}{% seo title=false %}{% endcapture %}
+  {%- assign il = '"@type":"BlogPosting","inLanguage":"' | append: L | append: '",' %}
+  {{ seo_tags | replace: '"@type":"BlogPosting",', il }}
+  {%- for v in versions %}
+  <link rel="alternate" hreflang="{{ v.lang }}" href="{{ v.url | absolute_url }}">
+  {%- if v.lang == 'en' %}
+  <link rel="alternate" hreflang="x-default" href="{{ v.url | absolute_url }}">
+  {%- endif %}
+  {%- endfor %}
+  {%- if page.daily_page and L == 'en' %}
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":{{ site.title | jsonify }},"alternateName":[{{ T.name | jsonify }},"vonkarts.com"],"url":"{{ '/' | absolute_url }}","inLanguage":["en","tr","de","fr","es"]}</script>
+  {%- endif %}
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="48x48">
+  <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+  <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+  <meta name="theme-color" content="#e8ecea" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c1012" media="(prefers-color-scheme: dark)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/game/game.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+</head>
+<body>
+  <a class="skip" href="#stage">{{ e.title }}</a>
+  <div class="shell">
+    <header class="bar">
+      <button type="button" class="arc-btn" id="arc-btn" aria-controls="archive" aria-expanded="false" aria-label="{{ T.archive_open }}">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
+      </button>
+      <a class="mark notranslate" translate="no" id="mark" href="{{ T.home | relative_url }}">{{ T.name }}</a>
+      <div class="meta"><span id="streak">{{ T.streak }} 0</span><span class="week" id="week" aria-hidden="true"></span></div>
+    </header>
+
+    <aside class="archive" id="archive" aria-label="{{ T.archive }}">
+      <div class="arc-head">
+        <h2 class="arc-title">{{ T.archive }}</h2>
+        <button type="button" class="arc-close" id="arc-close" aria-label="{{ T.close }}">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
+        </button>
+      </div>
+      <ol class="arc-list" reversed>
+        {%- for x in exps reversed %}
+        {%- assign XN = x.no | prepend: '00' | slice: -2, 2 %}
+        <li><a class="arc-item{% if x.ref == e.ref %} is-current{% endif %}" href="{{ x.url | relative_url }}" data-ref="{{ x.ref }}"{% if x.ref == e.ref and page.daily_page != true %} aria-current="page"{% endif %}>
+          <span class="arc-no">{{ XN }}</span><span class="arc-t">{{ x.title }}</span><span class="arc-s" data-score></span>
+        </a></li>
+        {%- endfor %}
+      </ol>
+      <div class="arc-foot">
+        <nav class="lang-menu" aria-label="{{ T.languages }}">
+          {%- for t in site.data.game %}
+          {%- assign target = t[1].home %}
+          {%- for v in versions %}{% if v.lang == t[0] %}{% assign target = v.url %}{% endif %}{% endfor %}
+          <a href="{{ target | relative_url }}" data-lang="{{ t[0] }}" hreflang="{{ t[0] }}" lang="{{ t[0] }}" title="{{ t[1].lang_name }}"{% if t[0] == L %} aria-current="true"{% endif %}>{{ t[0] | upcase }}</a>
+          {%- endfor %}
+        </nav>
+        <button type="button" class="theme" id="theme" aria-label="{{ T.theme_label }}" data-labels="{{ T.theme | join: '|' }}">{{ T.theme[0] }}</button>
+      </div>
+    </aside>
+    <div class="arc-backdrop" id="arc-backdrop" hidden></div>
+
+    <div class="col">
+      <main class="stage" id="stage" aria-live="polite">
+        <p class="no" aria-hidden="true">{{ NO }}</p>
+        <div class="eyebrow"><span><b>{{ T.no }} {{ NO }}</b></span>{% for m in e.meta %}<span>{{ m }}</span>{% endfor %}</div>
+        <h1 class="title">{{ e.title }}</h1>
+        <div class="story">{% for p in e.story %}<p>{{ p }}</p>{% endfor %}</div>
+        <section class="panel">
+          <h2>{{ T.first_you }}</h2>
+          <p class="q">{{ e.you.q }}</p>
+        </section>
+        <p class="hint noscript-q">{{ e.q }}</p>
+      </main>
+
+      <article class="article" id="article">
+        <section class="blk"><h2>{{ T.original }}</h2><p>{{ e.original }}</p></section>
+        <section class="blk"><h2>{{ T.known }}</h2><p>{{ e.today }}</p></section>
+        <section class="blk surprise"><h2>{{ T.surprise }}</h2><p>{{ e.surprise }}</p></section>
+        <section class="srcs">
+          <h2>{{ T.sources }}</h2>
+          <ol class="src">{% for s in e.sources %}<li>{{ s[0] }} <a href="{{ s[1] }}" target="_blank" rel="noopener">{{ s[1] | remove: 'https://' }}</a></li>{% endfor %}</ol>
+        </section>
+      </article>
+
+      <p class="foot">{{ T.foot }}</p>
+    </div>
+  </div>
+
+  {%- capture list %}[{% for x in exps %}{"ref":{{ x.ref | jsonify }},"no":{{ x.no }}}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endcapture %}
+  <script type="application/json" id="game-data">{"e":{"ref":{{ e.ref | jsonify }},"no":{{ e.no }},"title":{{ e.title | jsonify }},"meta":{{ e.meta | jsonify }},"story":{{ e.story | jsonify }},"you":{{ e.you | jsonify }},"type":{{ e.type | jsonify }},"answer":{{ e.answer }},"q":{{ e.q | jsonify }},"opts":{{ e.opts | jsonify }},"stats":{{ e.stats | jsonify }},"you_real":{{ e.you_real | jsonify }}},
+  "url":{{ e.url | absolute_url | jsonify }},"latest":{{ latest.ref | jsonify }},"list":{{ list | strip }},"t":{{ T | jsonify }}}</script>
+  <script src="{{ '/assets/game/vendor/gsap.min.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/game/vendor/SplitText.min.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/game/game.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+  <script>/* Ziyaret sayacı: ölçüm araçları (Lighthouse, PageSpeed, otomatik tarayıcılar) sayılmaz */
+  (function(){var ua=navigator.userAgent||'';if(navigator.webdriver||/(?:^|[^a-z])bot|bot\/|crawl|spider|Lighthouse|HeadlessChrome|PTST|Page Speed/i.test(ua))return;
+  var s=document.createElement('script');s.async=true;s.src='https://gc.zgo.at/count.js';s.setAttribute('data-goatcounter','https://vonkarts.goatcounter.com/count');document.body.appendChild(s);})();</script>
+</body>
+</html>

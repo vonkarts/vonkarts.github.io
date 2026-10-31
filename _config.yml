@@ -1,58 +1,44 @@
-# Blogun temel ayarları. İsmi ve alt başlığı buradan değiştirebilirsin.
+# Site ayarları. Site: her gün gerçek bir deney (5 dil). Oyunun adı her dilde _data/game.yml içinde.
 title: vonkarts
-description: Thoughts, notes and half-finished sentences.
+description: "Every day, one real published experiment. Guess first, then see what really happened."
 author:
   name: vonkarts
-  url: "https://vonkarts.com/about/"
+  url: "https://vonkarts.com/"
 url: "https://vonkarts.com"
 baseurl: ""
 lang: en_US
 logo: /images/icon-512.png
 timezone: UTC
 
-# Hakkında kısmında kenar sütununda görünen kısa metin
-about_short: "I write about landscapes, cities and the quiet in between."
-instagram: vonkarts
-
-# Bülten: Buttondown kullanıcı adını yazınca abone kutusu sitede görünür
-newsletter: ""
-
-# Paylaşım önizlemesinde (WhatsApp, Instagram, X) görünen varsayılan görsel
 defaults:
+  # Deneyler kendi şablonunu kullanır; her deneyin paylaşım görseli kendi dosyasında (image)
   - scope:
       path: ""
+      type: experiments
     values:
-      image: /images/social-card.jpg
-  - scope:
-      path: ""
-      type: posts
-    values:
-      lang: en
-  # Noindex kategori sayfaları ve Google doğrulama dosyası site haritasına girmesin
-  - scope:
-      path: "kategori"
-    values:
-      sitemap: false
+      layout: experiment
+  # Google doğrulama dosyası site haritasına girmesin
   - scope:
       path: "googledd59405c5d8809f3.html"
     values:
       sitemap: false
 
-permalink: /:title/
+# Yayındaki deneyler: _experiments/<dil>/NNN-slug.md
+# Sırada bekleyenler: _queue/<dil>/NNN-slug.md (yayında değil; her gün biri otomatik taşınır)
+collections:
+  experiments:
+    output: true
+
 markdown: kramdown
-kramdown:
-  input: GFM
-  hard_wrap: false
 
 plugins:
-  - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-redirect-from
 
 exclude:
   - CLAUDE.md
+  - DESIGN.md
   - README.md
-  - YAZI-SABLONU.md
-  - images/BURAYA-GORSEL-YUKLE.txt
+  - _queue
   - googledd59405c5d8809f3.html.txt

@@ -1,0 +1,58 @@
+# Günlük yayın: her gün 00:01 UTC'de (Türkiye 03:01) sıradaki deneyi 5 dilde yayına alır,
+# siteyi derletir ve bütün kontrolleri çalıştırır. Elle de başlatılabilir (aynı gün ikinci kez yayın yapmaz).
+name: Daily release
+
+on:
+  schedule:
+    - cron: "1 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  actions: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Check experiment files
+        run: |
+          python3 -c "import yaml" 2>/dev/null || pip install --quiet --break-system-packages pyyaml
+          python3 .github/scripts/experiments_check.py
+      - name: Move the next experiment live
+        id: rel
+        run: python3 .github/scripts/release.py
+      - name: Commit and push
+        if: steps.rel.outputs.released != ''
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A _experiments _queue
+          git commit -qm "Günün deneyi: No. ${{ steps.rel.outputs.released }}"
+          git push -q
+      - name: Build the site and run the checks
+        if: steps.rel.outputs.released != ''
+        run: |
+          sleep 10
+          gh api -X POST "repos/$REPO/pages/builds" >/dev/null || echo "::notice::Derleme isteği gönderilemedi; push zaten derleme başlatmış olabilir"
+          SHA=$(git rev-parse HEAD)
+          for i in $(seq 1 40); do
+            s=$(gh api "repos/$REPO/pages/builds/latest" --jq '"\(.status) \(.commit)"' 2>/dev/null || echo "?")
+            echo "derleme: $s"
+            [ "$s" = "built $SHA" ] && break
+            [ "${s%% *}" = "errored" ] && { echo "::error title=Derleme::Site derlenemedi"; exit 1; }
+            sleep 15
+          done
+          for wf in indexnow.yml seo-audit.yml link-check.yml visual-check.yml lighthouse.yml; do
+            gh api -X POST "repos/$REPO/actions/workflows/$wf/dispatches" -f ref=main && echo "başlatıldı: $wf"
+          done
