@@ -1,68 +1,60 @@
 # vonkarts.com – çalışma kuralları
 
-Site adresi: https://vonkarts.com (2026-10-26'dan beri; repo adı hâlâ vonkarts/vonkarts.github.io). Alan adı Cloudflare'de; DNS: 4 A kaydı (185.199.108-111.153) + www CNAME → vonkarts.github.io, hepsi "DNS only" (gri bulut, proxy kapalı — açılırsa GitHub HTTPS sertifikası bozulur). Alan adı GitHub hesabında doğrulandı (TXT). Özel alan adı repo kökündeki `CNAME` dosyasıyla ayarlı. Eski github.io adresleri GitHub tarafından otomatik yönlendirilir.
+Site: https://vonkarts.com — her gün gerçek, yayımlanmış bir deney; 5 dilde. Ziyaretçi önce "sen ne yapardın"ı cevaplar, sonra sonucu tahmin eder (yüzde / hangi grup / yön), sonra İlk sonuç · Bugün ne biliyoruz · Şaşırtıcı olan + kaynaklar + paylaşım kartı görür. Seri ve geçmiş yalnızca ziyaretçinin tarayıcısında (localStorage "sezgi-v1").
+Oyunun adı dile göre: Gut Check (en), Sezgi Testi (tr), Bauchgefühl (de), Intuition (fr), Corazonada (es). Hedef global; Google'dan trafik. Site ticari değil, reklam yok.
+Tasarım kuralları: `DESIGN.md` (esas kaynak).
+
+2026-10-31'de blog kaldırıldı ve site bu oyuna dönüştü (kullanıcının kararı). Eski yazılar git geçmişinde duruyor (son blog sürümü: commit aadd3a4); eski adreslerin hepsi o dilin ana sayfasına yönlenir (`redirect_from`, dil ana sayfalarında).
+
+## Altyapı
+- Alan adı Cloudflare'de; DNS: 4 A kaydı (185.199.108-111.153) + www CNAME → vonkarts.github.io, hepsi "DNS only" (gri bulut — turuncu yapılırsa GitHub HTTPS sertifikası bozulur). Alan adı GitHub'da doğrulandı (TXT); repo kökündeki `CNAME` dosyası. SPF (`v=spf1 -all`) + DMARC (`p=reject`) var. www sertifikası 2026-10-31'de çalışıyordu.
+- Jekyll 3.10 / GitHub Pages. Eklentiler: jekyll-seo-tag, jekyll-sitemap, jekyll-redirect-from. Site saat dilimi UTC (Türkiye izi bırakılmaz).
+- Ziyaret sayacı GoatCounter (vonkarts.goatcounter.com; 2026-10-26'dan beri sayıyor; ayarlarda silme düğmelerine dikkat). Ölçüm araçları ve botlar sayılmaz (şablondaki filtre).
+- Search Console: vonkarts.com mülkü doğrulandı (googledd59405c5d8809f3.html), sitemap gönderildi. Bing Webmaster ve Site Move: kullanıcı "dursun" dedi.
 
 ## En önemli kural: 5 dil her zaman aynı
-- Site 5 dilde: en (varsayılan), tr, de, fr, es. Arayüzde, menüde ya da bir sayfada yapılan her değişiklik 5 dile birden uygulanır.
-- Sadece bir dilde olan bir parça (kutu, link, sayfa, yazı) eklenmez. "Şimdilik sadece İngilizce" yok.
-- Arayüz metinleri şablona sabit yazılmaz; `_data/i18n.yml` içinde 5 dilde tanımlanır.
-- Ana sayfalar tek şablon kullanır: `_layouts/lang_home.html` (EN dahil). Arşiv: `_layouts/archive.html`. Hakkında: her dilde ayrı sayfa, `ref: about`.
-- Aynı içeriğin dil sürümleri aynı `ref` ile bağlanır (hreflang ve dil düğmesi buna bakar).
-- Her yayında `.github/scripts/i18n_check.py` canlı sitede 5 dili denetler (html lang, İngilizce kalıntı, dil düğmesi, eksik çeviri). Kırmızıysa önce onu düzelt.
+- Diller: en (varsayılan, kökte), tr, de, fr, es. Bir dilde olan her şey (deney, arayüz metni, sayfa) 5 dilde birden olur. "Şimdilik sadece İngilizce" yok. Yeni dil eklemek kullanıcıyla konuşulur (ziyaretçi ülkelerine bakılarak).
+- Arayüz metinleri şablona yazılmaz: `_data/game.yml` (5 dil aynı anahtarlar; "no" anahtarı tırnaklı kalmalı, yoksa YAML onu false okur).
+- Adresler: ana sayfa `/`, `/tr/`, `/de/`, `/fr/`, `/es/` (= günün deneyi). Deneyler: `/experiments/…`, `/tr/deneyler/…`, `/de/experimente/…`, `/fr/experiences/…`, `/es/experimentos/…`. Her dilde slug o dilde aranan ifade.
+- Aynı deneyin dil sürümleri aynı `ref` ile bağlanır (hreflang ve dil menüsü). Ana sayfaların ref'i `daily`.
+- Çeviriler 10 üzerinden puanlanır; 9 altı yayınlanmaz, düzeltilir. Puanı kullanıcıya açıkça yaz. de/fr/es'te sayı ile % arasında bölünmez boşluk; Fransızcada `: ; ? !` öncesi ve « » içinde ince bölünmez boşluk.
 
-## Yazı yayınlama
-- Kullanıcı yazıyı gönderir; İngilizce yayınlanır, TR/DE/FR/ES çevirileri yapılır, her çeviri kendi kendine 10 üzerinden puanlanır, 9+ ise sormadan yayınlanır.
-- Kaynaklar yayından önce doğrulanır.
-- Çeviri yazıların adresi dil klasörü altında olur: `permalink: /tr/slug/` (de, fr, es aynı). İngilizce yazıda permalink yazılmaz.
-- Front matter: title, seo_title (≤ ~50 karakter), description, lang, ref, categories (sabit 7 anahtardan), cover, cover_alt, image.
-- Tarihe saat yazma (gelecek saat = yazı gizlenir). Site saat dilimi UTC (site global; Türkiye/İstanbul izi bırakılmaz). Türkiye saatiyle 00:00-03:00 arası yayınlanan yazıya bir önceki günün tarihini ver.
-- Yeni kapak görseli: `python3 .github/scripts/make_webp.py` çalıştır (unutulursa `optimize-images.yml` push sonrası kendisi yapar: büyük JPG küçültülür, WebP boyutları eklenir).
-- Hız bekçisi (`lighthouse.yml`) her yayından sonra ana sayfa ve en yeni yazıyı 3'er kez ölçer; ortalama hız < 90 ya da LCP > 2,5 sn ise kırmızı. Ölçmeden önce sayfaları ve fotoğrafları bir kez açarak önbelleği ısıtır; ilk tur kırmızıysa 2 dk sonra bir tur daha ölçer ve kararı ikinci tura göre verir (GitHub ağındaki anlık yavaşlıklar 2026-10-28'de iki kez boş alarm verdirmişti). Performans değişikliklerini tek ölçümle değil 3 ölçüm ortalamasıyla değerlendir. Ana sayfa fotoğrafına preload ekleme (FCP'yi bozdu).
-- Her yazının sonunda (paylaş düğmelerinin altında) "ilgili yazılar" bölümü var (`_layouts/post.html`, metin `related` anahtarı): okurun dilinde en fazla 3 yazı, önce aynı kategoriden, eksikse en yenilerden; ana sayfa listesiyle aynı görünüm (`post-item.html`). Eski önceki/sonraki gezinmesi kaldırıldı (dil sürümleri aynı tarihli olduğu için hiç görünmüyordu).
-- Etiket (tags) gösterilmez; görünümde yalnızca kategori rozeti var.
-- Her yeni yazı için Instagram story görseli: `node .github/scripts/make_story.js _posts/<EN yazı>.md --out <klasör>` (TR + EN, 1080×1920; kullanıcı yüksek çözünürlüklü fotoğraf verdiyse `--bg foto.jpg`). PNG'leri kullanıcıya gönder.
+## Deneyler
+- Yayındaki: `_experiments/<dil>/NNN-slug.md`. Sırada bekleyen: `_queue/<dil>/NNN-slug.md` (sitede yok).
+- Günlük yayın: `release.yml` her gün 00:01 UTC'de (Türkiye 03:01) sıradaki numarayı 5 dilde birden `_experiments`e taşır, `date:` yazar, push eder, Pages derlemesini ister ve bütün bekçileri başlatır. Aynı gün ikinci yayın yapmaz. Elle: `gh api -X POST repos/vonkarts/vonkarts.github.io/actions/workflows/release.yml/dispatches -f ref=main`.
+- Sıra 3 ve altına inince iş akışı uyarı verir; boşsa kırmızı olur. Stok azalınca yeni deneyleri araştır, doğrula, 5 dilde yaz.
+- Ön bilgi alanları: lang, ref, no, permalink, title, seo_title (≤ ~50), description (50–165), image (`/images/cards/<dil>-<ref>.jpg`), meta (3 künye), story (2 paragraf), you (q, kind: generator|lines|jars|opts, opts ya da buttons/unit/never/stop), type (percent|outcome|choice), answer, q, opts (3) + stats (2) [percent değilse], you_real, original, today, surprise, sources ([metin, doi linki]).
+- Yeni deney ekleme sırası: (1) araştır; her rakamı orijinal makale ya da güvenilir kaynaktan doğrula (WebSearch/WebFetch); (2) 5 dilde dosyaları yaz, numara sıradaki boş numara; (3) `FONT_DIR=<yazı tipleri> python3 .github/scripts/make_cards.py` ile paylaşım kartlarını çiz (Chrome + Pillow; yazı tipleri github.com/google/fonts'tan sparse clone ile alınabilir: ofl/anybody, ofl/ibmplexmono, ofl/newsreader); (4) `python3 .github/scripts/experiments_check.py` temiz olmalı.
+- Tekrarlanamayan ya da eleştirilen ünlü bulgular "Bugün ne biliyoruz" bölümünde açıkça yazılır (oyunun özelliği). "Sen ne yapardın" cevabı gerçek davranışla eşitlenmez.
+- Konu her alandan olabilir (psikoloji, tıp, hayvanlar, fizik, spor…): şart gerçek, yayımlanmış bir deney ve sezginin yanılabileceği bir sonuç olması.
 
-## Tasarım (Sade Gotik)
-- Yazı tipleri: Cinzel (etiketler, logo), Cormorant Garamond (başlıklar), EB Garamond (metin). Modlar: Gece (koyu) ve Parşömen (açık), ayrıca sistem.
-- Fotoğraflar yuvarlak köşeli dikdörtgen (16px); kemer şekli yok. Öne çıkan fotoğraf telefonda 4:3, masaüstünde 16:10; başlık fotoğrafın altında.
-- Ana sayfada büyük site başlığı gizli (H1 olarak kalır), görünen yalnızca üst bardaki logo. Üst boşluk dar.
-- Yazının ilk harfi büyük ama düz (italik değil). İçindekiler her yazıda var.
-- Tema/görünüm değişikliklerinde var olan her şey korunur; metin, açıklama, karşılama yazısı eklenmez ya da değiştirilmez. Görsel değişiklikleri önce önizleme ile göster.
-- Hakkında sayfasına yapay zekâdan söz eden ifade eklenmez.
+## Bekçiler (her derlemeden sonra; hepsi yeşil olmalı, kırmızıysa önce onu çöz)
+- Pages build · IndexNow · `link-check.yml` (kırık link + `i18n_check.py` 5 dil + `experiments_check.py`) · Lighthouse (ana sayfa ve günün deneyi 3'er ölçüm; ort. hız < 90 ya da LCP > 2,5 sn kırmızı; ilk tur kırmızıysa 2 dk sonra ikinci tur) · `seo-audit.yml` · `visual-check.yml` (5 dilde ana sayfa + günün deneyi telefonda; EN açık tema ve masaüstü; gerçekten bir tur oynar, arşivi açıp kapar, temayı döndürür).
+- Görünüm ekran görüntüleri ve `RAPOR.txt`: `gorunum` dalı (`git fetch origin gorunum && mkdir -p <klasör> && git archive FETCH_HEAD | tar -x -C <klasör>`). Görünümü etkileyen her değişiklikten sonra bak.
+- Bekçiyi sınamak: `gh api -X POST repos/vonkarts/vonkarts.github.io/actions/workflows/visual-check.yml/dispatches -f ref=main -F 'inputs[test_fault]=true'`, sonra `test_fault=false`.
+- SEO bekçisi kritik sorunda kırmızı (başlık/açıklama yok, canonical yanlış, h1≠1, html lang yok, og:image yok, JSON-LD hatası, BlogPosting'de eksik alan — inLanguage şablonda ekleniyor, aynı dilde aynı başlık, hreflang karşılıksız).
 
-## Görünüm bekçisi
-- `visual-check.yml` her yayından sonra ana sayfa, arşiv, hakkında ve en yeni yazıyı 5 dilde telefon boyutunda açar (EN ayrıca gece modu ve masaüstü). Bakar: yana taşma, yüklenmeyen/ezilen fotoğraf, üst bar çakışması, eksik parça (paylaş, kapak, menü…), menü/dil/tema düğmeleri, JS ve dosya hataları. Kırmızıysa önce onu düzelt.
-- Ekran görüntüleri ve `RAPOR.txt` `gorunum` dalında (yalnızca son hali): `git fetch origin gorunum && mkdir -p <klasör> && git archive FETCH_HEAD | tar -x -C <klasör>`. Görünümü etkileyen her değişiklikten sonra bu görüntülere bak; kullanıcının söylemesini bekleme.
-- Görsel değişiklik önizlemesi: değişikliği `onizleme` dalına push et (dalı main'in üstüne kur, `.github/workflows/onizleme.yml` ve `.github/preview/shot.js` yalnızca o dalda durur: `git checkout origin/onizleme -- .github/workflows/onizleme.yml .github/preview`). İş akışı siteyi Pages gibi derler, telefonda çeker, PNG'leri `onizleme-shots` dalına koyar. Bu iki dal silinemiyor (proxy dal silmeye izin vermiyor), kalabilir; canlı siteyi etkilemez. `shot.js` içindeki sayfa listesi ve kırpma alanı işe göre değiştirilir.
-- Bekçiyi sınamak: `gh api -X POST repos/vonkarts/vonkarts.github.io/actions/workflows/visual-check.yml/dispatches -f ref=main -F 'inputs[test_fault]=true'` (sahte bozulma ekler, kırmızı olmalı); ardından aynı komutu `test_fault=false` ile çalıştırıp temiz görüntüleri geri getir.
+## Görsel değişiklik önizlemesi
+- Görsel değişiklikler önce önizlemeyle (ekran görüntüsü + telefonda oynanış videosu) gösterilir, onay alınır.
+- Önizleme dalı: `onizleme-oyun` (main'in üstüne kurulur; `onizleme` dalına zorla yazma izni yok). `.github/workflows/onizleme.yml` ve `.github/preview/shot.js` yalnızca önizleme dalında durur, main'e girmez. İş akışı siteyi derler, yerelde sunar, canlıdaki bekçilerin aynısını çalıştırır (`BEKCILER.txt`), ekran görüntülerini ve videoyu `onizleme-shots` dalına koyar. Video webm gelir; telefona göndermeden önce ffmpeg ile mp4'e çevir.
+- Önizlemenin ilk komutundan önce dal yoksa: `git checkout -b onizleme-oyun origin/main` ve iki dosyayı geçmiş önizleme commit'inden getir.
 
-## Teknik
-- Jekyll 3.10 / GitHub Pages. Liquid filtre metinlerinde `{n}` kullanma, `[n]` kullan. Liquid 4: `remove_last` yok.
-- Sayfaya sürekli büyüyen öğe ekleme (etiket bulutu vb.).
-- Kullanıcının hesap verilerini üçüncü taraf servislere bağlama.
-- Repo herkese açık: taslak/yayınlanmamış yazı, gerçek isim, e-posta, şifre ya da kişisel bilgi repoya girmez. Commit kimliği `vonkarts` + GitHub noreply e-postası kalır.
-- Her push sonrası: Pages build, IndexNow, link + dil kontrolü, Lighthouse, SEO bekçisi (`seo-audit.yml`) ve görünüm bekçisi yeşil olmalı.
-- SEO bekçisi kritik sorunda kırmızı olur (başlık/açıklama yok, canonical yanlış, h1, html lang, og:image, JSON-LD hatası ya da BlogPosting'de eksik alan, aynı dilde aynı başlık, hreflang karşılıksız, noindex ama sitemap'te). Satır notlarındaki diğerleri bilgi amaçlı.
-- BlogPosting JSON-LD'ye `inLanguage` alanı `_layouts/default.html` içinde jekyll-seo-tag çıktısına eklenir.
-- Her dilin seo_title'ı o dilde insanların aradığı ifadeye göre yazılır (birebir çeviri değil).
-- Ziyaret sayacı GoatCounter (vonkarts.goatcounter.com; eski site 2026-10-26'da yanlışlıkla silindi, aynı kodla yeniden açıldı, sayımlar o tarihten başlıyor; ayarlarda silme düğmelerine dikkat); `_layouts/default.html` içindeki filtre ölçüm araçlarını ve botları saymaz.
+## Kullanıcıyla çalışma
+- Türkçe, samimi ("kanka" olur) ama net ve dürüst. "Bu var mı, özgün mü" sorularında araştırıp kaynakla cevap ver.
+- Kullanıcının bilgisayarı yok, Android telefondan çalışıyor: teknik işleri Claude yapar; kullanıcıya verilen adımlar telefondan yapılabilir olmalı. Telefondaki otomatik çeviri kodları bozabiliyor: kod kopyalatırken "çeviriyi kapat, kopyala düğmesini kullan" de.
+- Süs amaçlı efekt önermeden önce somut faydasını söyle. "Dursun" denen şeyi yeniden önerme.
+- Dış denetçi: kullanıcı siteyi ChatGPT'ye denetletiyor; gelen geri bildirimleri dürüstçe değerlendir, doğru olanı uygula, yanlışsa nedenini söyle.
+- Instagram'a güvenilmez; ana trafik hedefi Google (kullanıcının kararı).
 
-## Çalışma ortamı notları
-- Canlı siteye konteynerden doğrudan erişilemez: WebFetch ya da GitHub Actions kullan. Yerel Jekyll kurulamaz (rubygems kapalı); doğrulama canlıda, iş akışlarıyla yapılır.
-- `gh workflow run` çalışmaz (GraphQL kapalı); iş akışını REST ile başlat: `gh api -X POST repos/vonkarts/vonkarts.github.io/actions/workflows/<dosya>/dispatches -f ref=main`.
-- İş akışı logları ve artifact'ler indirilemez; sonuçları notlardan oku: `gh api repos/vonkarts/vonkarts.github.io/actions/runs/<run>/jobs` → `gh api repos/vonkarts/vonkarts.github.io/check-runs/<job>/annotations`.
-- Ön planda `sleep` zinciri yerine `until … do sleep 20; done` döngüsü kullan.
+## Teknik notlar
+- Liquid: `page.today` her sayfada dolu geliyor; günün deneyi bayrağı bu yüzden `daily_page`. Filtre metinlerinde `{n}` yerine `[n]`.
+- GSAP ve SplitText siteden yüklenir (`assets/game/vendor/`, 3.13.0, GreenSock standart lisans, ücretsiz). CSP dış betik olarak yalnızca GoatCounter'a izin verir.
+- Repo herkese açık: kişisel bilgi, gerçek isim, e-posta, şifre girmez. Commit kimliği `vonkarts` + `346085506+vonkarts@users.noreply.github.com`.
+- Canlı siteye konteynerden erişilemez: WebFetch ya da GitHub Actions. Yerel Jekyll yok. `gh workflow run` çalışmaz; REST ile başlat: `gh api -X POST repos/vonkarts/vonkarts.github.io/actions/workflows/<dosya>/dispatches -f ref=main`. Loglar indirilemez; sonuçlar notlardan: `…/actions/runs/<run>/jobs` → `…/check-runs/<job>/annotations`. Pages ayarları API'si proxy'de kapalı.
+- npm ve raw.githubusercontent.com kapalı; github.com'dan git clone (sparse) çalışıyor.
+- Ön planda `sleep` zinciri yerine `until … do sleep 20; done`.
 
 ## Yeni sohbette devam
 - Bu dosya her sohbetin başında okunur. Kullanıcının söylediği kalıcı kurallar buraya eklenir (kişisel bilgi hariç).
-- İlk iş: son iş akışlarının durumuna bak (`gh api "repos/vonkarts/vonkarts.github.io/actions/runs?per_page=10"`), kırmızı varsa önce onu çöz.
-- Bekleyenler:
-  - Google'da site adı "GitHub" görünüyordu; yapılandırma düzeltildi. Kullanıcı 2026-10-26'da Search Console'dan tüm sayfaları 5 dilde elle dizine ekletti; tekrar isteme, sonucu bekle (birkaç gün–birkaç hafta). Kalıcı çözüm olarak özel alan adına geçildi.
-  - Önerildi, cevap bekliyor (onaysız uygulama): telefonda öne çıkan başlığı küçültmek, özeti 2 satırla sınırlamak, büyük harfli etiketleri azaltmak.
-  - Önerildi: son yazıdan Instagram carousel'i.
-  - vonkarts.com'a taşındı (2026-10-26): HTTPS zorunlu açık, www CNAME eklendi, Cloudflare'de e-posta sahteciliğine karşı SPF (`v=spf1 -all`) + DMARC (`p=reject`) var. Search Console: vonkarts.com URL-öneki mülkü (HTML dosyasıyla) doğrulandı, sitemap gönderildi, eski mülkten Adres değişikliği onaylandı. Bing Webmaster'da vonkarts.com ekleme (Google'dan içe aktarma) + Site Move: kullanıcı "dursun" dedi, askıda.
-  - www.vonkarts.com sertifikası 2026-10-26 gecesi henüz yoktu (tarayıcı *.github.io gösteriyor; apex sertifikası www CNAME'den önce çıkmıştı). Kullanıcı Pages ayarlarında "Check again"e basacak. Bir günde düzelmezse: Pages ayarında özel alan adını kaldırıp yeniden eklemek (ya da CNAME dosyasını kısa süre kaldırıp geri koymak) sertifikayı www dahil yeniden çıkarır — kısa kesinti olur, önce kullanıcıya sor.
-  - Askıda ("dursun" dendi): ana sayfada ateş böceği animasyonu. Son taslak `onizleme` dalında (2026-10-28): kullanıcının çizim ateş böceği (`assets/firefly.webp`, `assets/fireflies.js`, tuval + ışık tozu, yalnızca ana sayfa, ekranın her yerinden çıkar). Kullanıcı silüet çizimi "çok düz" bulmuştu, kendi görselini istemişti. Gizlilik sayfası taslağı da aynı şekilde askıda ("olmamış, dursun").
-  - Önerilip istenmeyenler (2026-10-29/30, yeniden önerme): ana sayfa fotoğrafına yavaş Ken Burns hareketi, sayfalar arası View Transitions geçişi ("çok bir artısı yok"). Taslakları `onizleme` dalının geçmişinde. Kullanıcı süs amaçlı efektlere sıcak bakmıyor; somut faydası olmayan görsel eklentiyi önermeden önce faydasını açıkça söyle.
-  - YENİ PROJE (2026-10-31): "İnsanlar Ne Yaptı?" — her gün gerçek bir psikoloji deneyi; önce "sen ne yapardın", sonra tahmin (yüzde / hangi grup / yön), sonra İlk sonuç · Bugün ne biliyoruz · Şaşırtıcı olan + paylaşım kartı + seri. 5 deneylik deneme sürümü Claude'da özel sayfa olarak yayında (https://claude.ai/artifact/TuCQPUfPUh1HGaBrBTrG7K). Tasarım: "gece yarısı gözlem odası"; camgöbeği = tahmin, sodyum sarısı = gerçek; Anybody + Newsreader + IBM Plex Mono; GSAP 3.13 + SplitText. Henüz siteye eklenmedi; yayın yeri ve kullanıcı geri bildirimi bekleniyor. Ayrıntılar kullanıcıdaki devir notunda (vonkarts-devir-notu.txt). GSAP ile canlandırılan özelliklere CSS transition verme (değerleri yarıda okuyup takılıyor).
-  - Askıda: yorumlar (Cusdis önerildi, "dursun"), GoatCounter'da Language ayarı ve kendi ziyaretlerini hariç tutma (`#toggle-goatcounter`).
+- İlk iş: son iş akışlarının durumu (`gh api "repos/vonkarts/vonkarts.github.io/actions/runs?per_page=10"`), kırmızı varsa önce onu çöz. Sonra sıradaki deney sayısına bak (`ls _queue/en | wc -l`).
+- Bekleyenler / fikirler: sıradaki 30 deneylik liste (adaylar: seyirci etkisi Darley & Latané 1968, ultimatom oyunu, marshmallow testi + Watts vd. 2018, çapa etkisi, Stanford hapishane deneyi ve eleştirileri, ego tükenmesi); paylaşım kartını sonuç ekranından görsel olarak indirme; ileride ziyaretçi tahmin ortalaması için küçük bir arka uç (Cloudflare ücretsiz katman) + gizlilik sayfası; sitede "hakkında / nasıl çalışır" sayfası (güven ve SEO için).

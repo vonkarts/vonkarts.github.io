@@ -24,7 +24,9 @@ Not: "today" adı Jekyll'da her sayfada dolu geliyor; bayrak adı bu yüzden dai
   {%- else %}
   <title>{{ page.seo_title | default: page.title | escape }} | {{ T.name }}</title>
   {%- endif %}
-  {% seo title=false %}
+  {%- capture seo_tags %}{% seo title=false %}{% endcapture %}
+  {%- assign il = '"@type":"BlogPosting","inLanguage":"' | append: L | append: '",' %}
+  {{ seo_tags | replace: '"@type":"BlogPosting",', il }}
   {%- for v in versions %}
   <link rel="alternate" hreflang="{{ v.lang }}" href="{{ v.url | absolute_url }}">
   {%- if v.lang == 'en' %}
@@ -32,7 +34,7 @@ Not: "today" adı Jekyll'da her sayfada dolu geliyor; bayrak adı bu yüzden dai
   {%- endif %}
   {%- endfor %}
   {%- if page.daily_page and L == 'en' %}
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":{{ T.name | jsonify }},"alternateName":["vonkarts","vonkarts.com"],"url":"{{ '/' | absolute_url }}","inLanguage":["en","tr","de","fr","es"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":{{ site.title | jsonify }},"alternateName":[{{ T.name | jsonify }},"vonkarts.com"],"url":"{{ '/' | absolute_url }}","inLanguage":["en","tr","de","fr","es"]}</script>
   {%- endif %}
   <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="48x48">
   <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">

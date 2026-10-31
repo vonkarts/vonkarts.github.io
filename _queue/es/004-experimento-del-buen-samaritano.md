@@ -29,12 +29,12 @@ opts:
 - Si tenían prisa o no
 - Lo religiosos que eran
 stats:
-- - 63 %
+- - 63 %
   - de quienes no tenían prisa ayudó
-- - 10 %
+- - 10 %
   - de quienes tenían mucha prisa ayudó
-you_real: En realidad, solo el 10 % de los estudiantes con mucha prisa se detuvo a ayudar.
-original: 'De quienes no tenían prisa, el 63 % se detuvo a ayudar; con algo de prisa, el 45 %; con mucha prisa, solo el 10 %. El tema de la charla casi no influyó: algunos estudiantes que iban a hablar del buen samaritano pasaron literalmente por encima del hombre.'
+you_real: En realidad, solo el 10 % de los estudiantes con mucha prisa se detuvo a ayudar.
+original: 'De quienes no tenían prisa, el 63 % se detuvo a ayudar; con algo de prisa, el 45 %; con mucha prisa, solo el 10 %. El tema de la charla casi no influyó: algunos estudiantes que iban a hablar del buen samaritano pasaron literalmente por encima del hombre.'
 today: Fue un único estudio con un grupo pequeño de estudiantes, así que los porcentajes no deben leerse como cifras exactas. Su idea central, que la situación del momento puede pesar tanto como el carácter, sigue siendo una de las más debatidas de la psicología social.
 surprise: Incluso personas que iban a hablar sobre la compasión no vieron, con prisa, a alguien que necesitaba ayuda.
 sources:

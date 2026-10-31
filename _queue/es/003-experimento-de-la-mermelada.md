@@ -29,12 +29,12 @@ opts:
 - El de 6 sabores
 - Más o menos igual
 stats:
-- - 3 %
+- - 3 %
   - de quienes pararon en el puesto de 24 sabores compró
-- - 30 %
+- - 30 %
   - de quienes pararon en el puesto de 6 sabores compró
-you_real: De los clientes reales que pararon en el puesto de 24 sabores, solo el 3 % compró mermelada.
-original: 'Los 24 sabores llamaban más la atención: se detenía alrededor del 60 % de quienes pasaban, frente al 40 % con 6 sabores. Pero en las ventas ocurrió lo contrario: solo el 3 % de quienes pararon en el puesto de 24 sabores compró mermelada, frente a cerca del 30 % en el de 6.'
+you_real: De los clientes reales que pararon en el puesto de 24 sabores, solo el 3 % compró mermelada.
+original: 'Los 24 sabores llamaban más la atención: se detenía alrededor del 60 % de quienes pasaban, frente al 40 % con 6 sabores. Pero en las ventas ocurrió lo contrario: solo el 3 % de quienes pararon en el puesto de 24 sabores compró mermelada, frente a cerca del 30 % en el de 6.'
 today: Este experimento hizo famoso en todo el mundo el «exceso de opciones». Sin embargo, un metaanálisis de 2010 que reunió decenas de estudios encontró un efecto medio cercano a cero. Muchas opciones a veces paralizan a la gente y a veces no; el efecto parece aparecer cuando la decisión es difícil, las opciones son complejas o hay poco tiempo.
 surprise: Uno de los experimentos de marketing más citados del mundo resulta valer solo en ciertas condiciones.
 sources:

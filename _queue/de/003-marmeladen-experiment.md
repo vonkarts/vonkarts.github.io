@@ -29,12 +29,12 @@ opts:
 - Der mit 6 Sorten
 - Ungefähr gleich viele
 stats:
-- - 3 %
+- - 3 %
   - der Besucher am Stand mit 24 Sorten kauften Marmelade
-- - 30 %
+- - 30 %
   - der Besucher am Stand mit 6 Sorten kauften Marmelade
-you_real: Von den echten Kunden am Stand mit 24 Sorten kauften nur 3 % Marmelade.
-original: 'Die 24 Sorten zogen mehr Aufmerksamkeit an: Etwa 60 % der Vorbeigehenden blieben stehen, bei 6 Sorten waren es 40 %. Beim Kauf drehte sich das Bild aber um: Am Stand mit 24 Sorten kauften nur 3 % Marmelade, am Stand mit 6 Sorten etwa 30 %.'
+you_real: Von den echten Kunden am Stand mit 24 Sorten kauften nur 3 % Marmelade.
+original: 'Die 24 Sorten zogen mehr Aufmerksamkeit an: Etwa 60 % der Vorbeigehenden blieben stehen, bei 6 Sorten waren es 40 %. Beim Kauf drehte sich das Bild aber um: Am Stand mit 24 Sorten kauften nur 3 % Marmelade, am Stand mit 6 Sorten etwa 30 %.'
 today: Dieses Experiment machte die „Auswahlüberlastung“ weltweit bekannt. Eine Metaanalyse von 2010, die Dutzende Studien zusammenfasste, fand jedoch einen durchschnittlichen Effekt nahe null. Viele Optionen lähmen Menschen manchmal, manchmal nicht; der Effekt zeigt sich offenbar, wenn die Entscheidung schwer ist, die Optionen komplex sind oder die Zeit knapp ist.
 surprise: Eines der meistzitierten Marketing-Experimente der Welt gilt offenbar nur unter bestimmten Bedingungen.
 sources:

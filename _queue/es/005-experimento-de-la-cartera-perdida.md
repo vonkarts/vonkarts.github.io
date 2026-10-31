@@ -29,12 +29,12 @@ opts:
 - Se mantuvo igual
 - Subió
 stats:
-- - 40 %
+- - 40 %
   - tasa de aviso en carteras sin dinero
-- - 51 %
+- - 51 %
   - tasa de aviso en carteras con dinero
-you_real: En realidad, se avisó al dueño en el 51 % de las carteras con dinero, de media.
-original: De media, se avisó al dueño en el 40 % de las carteras sin dinero y en el 51 % de las que llevaban dinero. En tres países donde se puso una cantidad mayor (unos 94 dólares), la tasa subió al 72 %.
+you_real: En realidad, se avisó al dueño en el 51 % de las carteras con dinero, de media.
+original: De media, se avisó al dueño en el 40 % de las carteras sin dinero y en el 51 % de las que llevaban dinero. En tres países donde se puso una cantidad mayor (unos 94 dólares), la tasa subió al 72 %.
 today: El estudio se publicó en Science en 2019 y usó una muestra muy grande. Aun así, las tasas cambian de un país a otro; la media no describe el comportamiento en todas partes.
 surprise: 'La mayoría de las personas encuestadas, y también los economistas, predijeron lo contrario: más dinero, menos carteras devueltas. Los propios investigadores no se creían los primeros resultados.'
 sources:

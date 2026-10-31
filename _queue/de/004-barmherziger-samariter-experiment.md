@@ -29,12 +29,12 @@ opts:
 - Ob sie es eilig hatten
 - Wie religiös sie waren
 stats:
-- - 63 %
+- - 63 %
   - der Studenten ohne Eile halfen
-- - 10 %
+- - 10 %
   - der Studenten in großer Eile halfen
-you_real: In Wirklichkeit hielten nur 10 % der Studenten in großer Eile an, um zu helfen.
-original: 'Von denen ohne Eile halfen 63 %, bei etwas Eile 45 %, bei großer Eile nur 10 %. Das Vortragsthema machte kaum einen Unterschied: Manche Studenten stiegen auf dem Weg zu ihrem Vortrag über den barmherzigen Samariter buchstäblich über den Mann hinweg.'
+you_real: In Wirklichkeit hielten nur 10 % der Studenten in großer Eile an, um zu helfen.
+original: 'Von denen ohne Eile halfen 63 %, bei etwas Eile 45 %, bei großer Eile nur 10 %. Das Vortragsthema machte kaum einen Unterschied: Manche Studenten stiegen auf dem Weg zu ihrem Vortrag über den barmherzigen Samariter buchstäblich über den Mann hinweg.'
 today: Es war eine einzelne Studie mit einer kleinen Gruppe von Studenten; die Prozentwerte sollte man nicht als genaue Zahlen lesen. Ihre Kernidee, dass die Situation im Moment so viel zählen kann wie der Charakter, gehört bis heute zu den meistdiskutierten Ideen der Sozialpsychologie.
 surprise: Selbst Menschen, die gerade über Barmherzigkeit sprechen wollten, übersahen in Eile jemanden, der Hilfe brauchte.
 sources:

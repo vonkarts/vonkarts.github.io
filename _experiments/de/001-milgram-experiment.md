@@ -41,9 +41,9 @@ you:
 type: percent
 answer: 65
 q: Wie viel Prozent der Teilnehmer machten bis 450 Volt weiter?
-you_real: Von den echten Teilnehmern gingen 65 % bis 450 Volt, also bis zum letzten Schalter.
-original: 26 der 40 Männer, also 65 %, machten bis zum letzten Schalter weiter. Der Schüler war in Wahrheit ein eingeweihter Schauspieler und die Stromschläge waren nicht echt, aber das wussten die Teilnehmer nicht.
-today: '2009 wiederholte Jerry Burger die Studie in ethisch vertretbarem Rahmen und brach sie bei 150 Volt ab: 70 % der Teilnehmer waren bereit, über 150 Volt hinauszugehen. Bei Milgram lag der Wert an derselben Stelle bei 82,5 %, der Unterschied war nicht signifikant. Forscher, die Milgrams Archiv auswerteten, zeigten allerdings, dass die Versuchsleiter manchmal vom Skript abwichen und manche Teilnehmer vermuteten, dass die Stromschläge nicht echt waren. Auch in Milgrams eigenen Varianten schwankte der Gehorsam je nach Bedingung stark.'
+you_real: Von den echten Teilnehmern gingen 65 % bis 450 Volt, also bis zum letzten Schalter.
+original: 26 der 40 Männer, also 65 %, machten bis zum letzten Schalter weiter. Der Schüler war in Wahrheit ein eingeweihter Schauspieler und die Stromschläge waren nicht echt, aber das wussten die Teilnehmer nicht.
+today: '2009 wiederholte Jerry Burger die Studie in ethisch vertretbarem Rahmen und brach sie bei 150 Volt ab: 70 % der Teilnehmer waren bereit, über 150 Volt hinauszugehen. Bei Milgram lag der Wert an derselben Stelle bei 82,5 %, der Unterschied war nicht signifikant. Forscher, die Milgrams Archiv auswerteten, zeigten allerdings, dass die Versuchsleiter manchmal vom Skript abwichen und manche Teilnehmer vermuteten, dass die Stromschläge nicht echt waren. Auch in Milgrams eigenen Varianten schwankte der Gehorsam je nach Bedingung stark.'
 surprise: Vor dem Experiment schätzten die Psychiater, die Milgram befragte, dass nur etwa einer von tausend bis zum letzten Schalter gehen würde.
 sources:
 - - Milgram, S. (1963). Behavioral study of obedience. Journal of Abnormal and Social Psychology, 67(4), 371–378.

@@ -41,9 +41,9 @@ you:
 type: percent
 answer: 65
 q: ¿Qué porcentaje de los participantes siguió hasta los 450 voltios?
-you_real: De los participantes reales, el 65 % llegó a 450 voltios, es decir, hasta el último interruptor.
-original: 26 de los 40 hombres, el 65 %, llegaron hasta el último interruptor. El alumno era en realidad un actor de acuerdo con los investigadores y las descargas no eran reales, pero los participantes no lo sabían.
-today: 'En 2009, Jerry Burger repitió el estudio dentro de límites éticos, deteniéndolo en 150 voltios: el 70 % de los participantes estaba dispuesto a pasar de 150 voltios. En el estudio de Milgram, la cifra en ese mismo punto era del 82,5 %, y la diferencia no fue significativa. Por otro lado, investigadores que revisaron los archivos de Milgram mostraron que los experimentadores a veces se salían del guion y que algunos participantes sospechaban que las descargas no eran reales. En las propias variantes de Milgram, la obediencia también cambiaba mucho según las condiciones.'
+you_real: De los participantes reales, el 65 % llegó a 450 voltios, es decir, hasta el último interruptor.
+original: 26 de los 40 hombres, el 65 %, llegaron hasta el último interruptor. El alumno era en realidad un actor de acuerdo con los investigadores y las descargas no eran reales, pero los participantes no lo sabían.
+today: 'En 2009, Jerry Burger repitió el estudio dentro de límites éticos, deteniéndolo en 150 voltios: el 70 % de los participantes estaba dispuesto a pasar de 150 voltios. En el estudio de Milgram, la cifra en ese mismo punto era del 82,5 %, y la diferencia no fue significativa. Por otro lado, investigadores que revisaron los archivos de Milgram mostraron que los experimentadores a veces se salían del guion y que algunos participantes sospechaban que las descargas no eran reales. En las propias variantes de Milgram, la obediencia también cambiaba mucho según las condiciones.'
 surprise: Antes del experimento, los psiquiatras a los que consultó Milgram calcularon que solo alrededor de una persona de cada mil llegaría al último interruptor.
 sources:
 - - Milgram, S. (1963). Behavioral study of obedience. Journal of Abnormal and Social Psychology, 67(4), 371–378.

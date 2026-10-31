@@ -29,12 +29,12 @@ opts:
 - Er blieb gleich
 - Er stieg
 stats:
-- - 40 %
+- - 40 %
   - Rückmeldequote bei Geldbörsen ohne Geld
-- - 51 %
+- - 51 %
   - Rückmeldequote bei Geldbörsen mit Geld
-you_real: In Wirklichkeit wurde bei durchschnittlich 51 % der Geldbörsen mit Geld der Besitzer benachrichtigt.
-original: Bei Geldbörsen ohne Geld wurde der Besitzer im Schnitt in 40 % der Fälle benachrichtigt, bei Geldbörsen mit Geld in 51 %. In drei Ländern, in denen ein größerer Betrag (etwa 94 Dollar) darin lag, stieg die Quote auf 72 %.
+you_real: In Wirklichkeit wurde bei durchschnittlich 51 % der Geldbörsen mit Geld der Besitzer benachrichtigt.
+original: Bei Geldbörsen ohne Geld wurde der Besitzer im Schnitt in 40 % der Fälle benachrichtigt, bei Geldbörsen mit Geld in 51 %. In drei Ländern, in denen ein größerer Betrag (etwa 94 Dollar) darin lag, stieg die Quote auf 72 %.
 today: Die Studie erschien 2019 in Science und beruht auf einer sehr großen Stichprobe. Trotzdem unterscheiden sich die Quoten von Land zu Land; der Durchschnitt beschreibt nicht das Verhalten überall.
 surprise: 'Die meisten befragten Menschen und auch Ökonomen sagten das Gegenteil voraus: mehr Geld, weniger zurückgegebene Geldbörsen. Die Forscher selbst trauten den ersten Ergebnissen kaum.'
 sources:

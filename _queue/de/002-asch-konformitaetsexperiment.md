@@ -24,10 +24,10 @@ you:
 type: percent
 answer: 75
 q: Wie viel Prozent der Teilnehmer schlossen sich mindestens einmal der Gruppe an und gaben die offensichtlich falsche Antwort?
-you_real: Von den echten Teilnehmern schlossen sich etwa 75 % mindestens einmal der Gruppe an; etwa ein Viertel nie.
-original: Etwa 75 % der Teilnehmer schlossen sich mindestens einmal der Gruppe an. Rund ein Drittel der Antworten in den kritischen Runden (etwa 37 %) war falsch. Ohne Gruppendruck lag die Fehlerquote unter 1 %. Etwa ein Viertel der Teilnehmer passte sich nie an.
+you_real: Von den echten Teilnehmern schlossen sich etwa 75 % mindestens einmal der Gruppe an; etwa ein Viertel nie.
+original: Etwa 75 % der Teilnehmer schlossen sich mindestens einmal der Gruppe an. Rund ein Drittel der Antworten in den kritischen Runden (etwa 37 %) war falsch. Ohne Gruppendruck lag die Fehlerquote unter 1 %. Etwa ein Viertel der Teilnehmer passte sich nie an.
 today: 'Eine Metaanalyse von 1996 mit 133 Studien aus 17 Ländern zeigte: Der Effekt lässt sich wiederholen, aber seine Stärke schwankt. In den USA ist die Konformität seit den 1950er-Jahren gesunken, und in kollektivistischen Kulturen ist sie höher als in individualistischen.'
-surprise: 'Eine einzige Person mit der richtigen Antwort genügte: Mit einem solchen „Verbündeten“ am Tisch sank die Konformität von etwa 37 % auf etwa 5 %.'
+surprise: 'Eine einzige Person mit der richtigen Antwort genügte: Mit einem solchen „Verbündeten“ am Tisch sank die Konformität von etwa 37 % auf etwa 5 %.'
 sources:
 - - Asch, S. E. (1956). Studies of independence and conformity. Psychological Monographs, 70(9), 1–70.
   - https://doi.org/10.1037/h0093718
