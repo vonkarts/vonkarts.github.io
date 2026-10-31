@@ -8,7 +8,7 @@ botları ve aynı oturumdan gelen tekrarları atar, deney başına sonucu yazar:
   seçenekli sorular: {"n": kişi, "dist": [A oranı, B oranı, C oranı]}
 Sitede yalnızca n >= 20 olunca gösterilir. Gerekli: GOATCOUNTER_TOKEN (GoatCounter → API → "Read statistics").
 """
-import csv, glob, gzip, io, json, os, sys, time, urllib.request
+import csv, glob, gzip, io, json, os, sys, time, urllib.error, urllib.request
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 API = os.environ.get("GOATCOUNTER_API", "https://vonkarts.goatcounter.com/api/v0")
@@ -19,8 +19,13 @@ OUT = os.path.join(ROOT, "_data", "crowd.json")
 def req(method, path, body=None, raw=False):
     r = urllib.request.Request(API + path, method=method, data=json.dumps(body).encode() if body is not None else None,
                                headers={"Authorization": "Bearer " + TOKEN, "Content-Type": "application/json"})
-    with urllib.request.urlopen(r, timeout=60) as f:
-        data = f.read()
+    try:
+        with urllib.request.urlopen(r, timeout=60) as f:
+            data = f.read()
+    except urllib.error.HTTPError as e:
+        body = e.read()[:300].decode("utf-8", "replace").replace("\n", " ")
+        print(f"::error title=Ziyaretçi ortalaması::GoatCounter {method} {path} → HTTP {e.code}: {body}")
+        sys.exit(1)
     return data if raw else json.loads(data or b"{}")
 
 
@@ -85,4 +90,10 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except SystemExit:
+        raise
+    except Exception as e:
+        print(f"::error title=Ziyaretçi ortalaması::{type(e).__name__}: {e}")
+        sys.exit(1)
