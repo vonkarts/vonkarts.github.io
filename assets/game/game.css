@@ -322,3 +322,7 @@ h1.title{letter-spacing:-.035em}
 .crowd{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--muted);margin:0}
 .crowd b{color:var(--fg);font-weight:500}
 .opt .crowd-pct{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap;padding-left:10px}
+
+/* paylaşım kartı düğmeleri */
+.card .btns{display:flex;flex-wrap:wrap;gap:10px}
+.card #story{border-color:#7cc6dd;color:#7cc6dd}
