@@ -41,7 +41,7 @@ def experiment_types():
 def main():
     if not TOKEN:
         print("::notice title=Ziyaretçi ortalaması::GOATCOUNTER_TOKEN yok; atlandı"); return
-    exp = req("POST", "/export", {})
+    exp = req("POST", "/export", {"format": "csv"})
     for _ in range(60):
         st = req("GET", f"/export/{exp['id']}")
         if st.get("finished_at"): break
