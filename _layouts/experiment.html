@@ -112,7 +112,6 @@ Sezgi Testi: her deneyin kendi sayfası ve "günün deneyi" sayfası (page.daily
   "url":{{ e.url | absolute_url | jsonify }},"latest":{{ latest.ref | jsonify }},"list":{{ list | strip }},"t":{{ T | jsonify }}}</script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js" defer></script>
   <script src="{{ '/assets/game/game.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
   <script>(function(){var ua=navigator.userAgent||'';if(navigator.webdriver||/(?:^|[^a-z])bot|bot\/|crawl|spider|Lighthouse|HeadlessChrome|PTST|Page Speed/i.test(ua))return;
   var s=document.createElement('script');s.async=true;s.src='https://gc.zgo.at/count.js';s.setAttribute('data-goatcounter','https://vonkarts.goatcounter.com/count');document.body.appendChild(s);})();</script>
