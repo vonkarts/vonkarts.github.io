@@ -208,10 +208,10 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
-/* ===== Fütüristik katman: ölçüm ızgarası, köşe çerçeveleri, ışıma, keskin köşeler ===== */
-:root{--grid:rgba(124,198,221,.055);--glow-g:0 0 22px rgba(124,198,221,.45);--glow-r:0 0 26px rgba(240,180,76,.5);--dot-g:0 0 10px rgba(124,198,221,.55);--dot-r:0 0 10px rgba(240,180,76,.6);--brk:var(--muted)}
-@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--grid:rgba(17,22,24,.055);--glow-g:none;--glow-r:none;--dot-g:none;--dot-r:none}}
-:root[data-theme="light"]{--grid:rgba(17,22,24,.055);--glow-g:none;--glow-r:none;--dot-g:none;--dot-r:none}
+/* ===== Fütüristik katman: ölçüm ızgarası, köşe çerçeveleri, keskin köşeler. Işıma yok (sadelik). ===== */
+:root{--grid:rgba(124,198,221,.05);--brk:var(--muted);--term:#07090a;--term-fg:#d9e1e3;--term-line:#1f282c}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--grid:rgba(17,22,24,.055)}}
+:root[data-theme="light"]{--grid:rgba(17,22,24,.055)}
 
 body{background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
   background-size:24px 24px;background-position:-1px -1px;background-attachment:fixed}
@@ -219,7 +219,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;bac
 .shell{position:relative;z-index:1}
 
 /* köşe çerçeveleri (nişangâh) */
-.panel,.stat,.card,.note{border-radius:4px;position:relative;
+.panel,.stat,.note{border-radius:4px;position:relative;
   --b:var(--brk);
   background-image:
     linear-gradient(var(--b),var(--b)),linear-gradient(var(--b),var(--b)),
@@ -231,35 +231,49 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;bac
   background-position:-1px -1px,-1px -1px,calc(100% + 1px) -1px,calc(100% + 1px) -1px,-1px calc(100% + 1px),-1px calc(100% + 1px),calc(100% + 1px) calc(100% + 1px),calc(100% + 1px) calc(100% + 1px)}
 .panel{background-color:var(--surface)}
 .stat{background-color:var(--raise);--b:var(--real)}
-.card{background-color:var(--fg);--b:var(--bg)}
 .note{border-style:solid;background-color:transparent}
 .opt,.gen button,.stand{border-radius:4px}
 .arc-item{border-radius:3px}
-.opt[aria-pressed="true"],.gen button[aria-pressed="true"]{box-shadow:var(--dot-g)}
-.opt.right{box-shadow:var(--dot-r)}
+
+/* dev başlıklar: sıkı harf aralığı */
+h1.title{letter-spacing:-.035em}
+.no{-webkit-text-stroke:1.2px var(--guess);opacity:.35}
 
 /* başlık şeridi: yanıp sönen kayıt ışığı */
-.mark::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--real);margin-right:9px;vertical-align:2px;box-shadow:var(--dot-r);animation:rec 2.4s ease-in-out infinite}
+.mark::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--real);margin-right:9px;vertical-align:2px;animation:rec 2.4s ease-in-out infinite}
 @keyframes rec{0%,100%{opacity:1}50%{opacity:.25}}
 .eyebrow span+span::before{content:"/";margin-right:14px;color:var(--line)}
-.eyebrow{gap:6px 14px}
 
-/* büyük rakamlar ve noktalar ışır */
-.no{-webkit-text-stroke:1.2px var(--guess);opacity:.35}
-.big{text-shadow:var(--glow-g)}
-.big.real,.stat b{text-shadow:var(--glow-r)}
-.p.g{box-shadow:var(--dot-g)}
-.people.revealed .p.a{box-shadow:var(--dot-r)}
+/* seçenek harfleri: klavye tuşu */
+.opt .k{width:28px;height:28px;flex:none;display:grid;place-items:center;border-radius:5px;font-size:12px;font-weight:500;color:var(--fg);
+  border:1px solid var(--line);border-bottom-width:2.5px;background:linear-gradient(180deg,var(--raise),var(--surface))}
+.opt[aria-pressed="true"] .k{border-color:var(--guess);color:var(--guess)}
+.opt.right .k{border-color:var(--real);color:var(--real)}
+.opt:active .k{border-bottom-width:1px;transform:translateY(1.5px)}
+
+/* tarama çizgisi (sonuç açılırken) */
 .people{position:relative}
-.sweep{position:absolute;left:-6px;right:-6px;height:2px;top:0;background:var(--real);box-shadow:0 0 14px 2px var(--real);border-radius:2px;pointer-events:none;opacity:0}
-.gapbar .span{box-shadow:var(--dot-r)}
+.sweep{position:absolute;left:-6px;right:-6px;height:2px;top:0;background:var(--real);border-radius:2px;pointer-events:none;opacity:0}
 
-/* düğmeler: keskin, ışıklı */
-.cta{border-radius:4px;font-family:var(--mono);font-weight:500;font-size:15px;letter-spacing:.1em;text-transform:uppercase;background:var(--guess);color:var(--bg);box-shadow:var(--glow-g)}
-.cta:disabled{box-shadow:none;background:var(--line);color:var(--muted);opacity:1}
-.cta.alt,.next .cta{background:none;color:var(--fg);border:1px solid var(--line);box-shadow:none}
-.card .copy{border-radius:3px}
+/* düğmeler: içi boş, ince çerçeveli */
+.cta{border-radius:4px;background:transparent;color:var(--fg);border:1px solid var(--fg);font-family:var(--mono);font-weight:500;font-size:14px;letter-spacing:.12em;text-transform:uppercase;padding:16px 20px}
+.cta:hover{background:var(--raise)}
+.cta:active{filter:none;background:var(--line)}
+.cta:disabled{border-color:var(--line);color:var(--muted);background:transparent;opacity:1}
 .theme{border-radius:3px}
+
+/* paylaşım kartı: terminal penceresi (iki temada da koyu) */
+.card{background:var(--term);color:var(--term-fg);border:1px solid var(--term-line);border-radius:6px;padding:0;gap:0;overflow:hidden}
+.term-bar{display:flex;align-items:center;gap:7px;padding:10px 14px;border-bottom:1px solid var(--term-line);font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:#7d898d}
+.term-bar i{width:10px;height:10px;border-radius:50%;background:#2a3337;display:block}
+.term-bar span{margin-left:8px}
+.term-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:14px}
+.card .score{color:#f0b44c}
+.card .score small{color:#7d898d;opacity:1}
+.card pre{opacity:1;color:var(--term-fg)}
+.card pre::before{content:"> ";color:#7cc6dd}
+.card .copy{border-radius:3px;border-color:#3a464b;color:var(--term-fg)}
+.card .copy:hover{border-color:#7cc6dd;color:#7cc6dd}
 
 /* makale bölümleri: başlıklar konsol etiketi gibi */
 .blk h2::before,.srcs h2::before,.panel h2::before{content:"▸ ";color:var(--guess)}

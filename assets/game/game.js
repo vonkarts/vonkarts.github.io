@@ -261,10 +261,10 @@ function renderReveal(replay){
     '<h1 class="title">' + esc(verdict()) + '</h1>' +
     (replay ? '<p class="note" data-in>' + esc(T.played) + '</p>' : '') +
     top + youLine() +
-    '<section class="card" id="card" data-in><div class="top"><span>' + esc(T.name) + '</span><span>' + esc(T.no) + ' ' + NO + '</span></div>' +
-      '<div class="score" id="score">0<small>' + esc(T.score) + '</small></div>' +
+    '<section class="card" id="card" data-in><div class="term-bar" aria-hidden="true"><i></i><i></i><i></i><span>' + esc(T.name.toLowerCase()) + ' · ' + esc(T.no.toLowerCase()) + ' ' + NO + '</span></div>' +
+      '<div class="term-body"><div class="score" id="score">0<small>' + esc(T.score) + '</small></div>' +
       '<pre id="share">' + esc(share) + '</pre>' +
-      '<button type="button" class="copy" id="copy">' + esc(T.copy) + '</button></section>' + next;
+      '<button type="button" class="copy" id="copy">' + esc(T.copy) + '</button></div></section>' + next;
   var after = function(){
     header();
     $("#article").classList.add("open");
