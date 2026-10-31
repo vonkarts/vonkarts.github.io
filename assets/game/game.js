@@ -365,11 +365,11 @@ function makeStory(sc){
     c.fillStyle = C.g; c.fillText(pct(state.guess), M - 6, top + 170);
     c.fillStyle = C.r; c.fillText(pct(E.answer), W/2 + 14, top + 170);
     // 100 kişi (solda, kompakt): tahmin halka, gerçek dolu; isabet sağ sütunda
-    var step = 56, rad = 19, gy = Math.min(top + 220, FOOT - 40 - step*10);
+    var gy = top + 215, step = Math.min(56, Math.floor((FOOT - 40 - gy) / 10)), rad = Math.round(step * 0.34);
     for (var i = 0; i < 100; i++) {
       var cx = M + step*(i%10) + step/2, cy = gy + step*Math.floor(i/10) + step/2;
       c.beginPath(); c.arc(cx, cy, rad, 0, 7); c.fillStyle = i < E.answer ? C.r : C.line; c.fill();
-      if (i < state.guess) { c.lineWidth = 4; c.strokeStyle = C.g; c.beginPath(); c.arc(cx, cy, rad + 6, 0, 7); c.stroke(); }
+      if (i < state.guess) { c.lineWidth = 4; c.strokeStyle = C.g; c.beginPath(); c.arc(cx, cy, rad + Math.round(step * 0.1), 0, 7); c.stroke(); }
     }
     var sx = M + step*10 + 50;
     c.fillStyle = C.muted; font("400", 30, MO); c.fillText(up(T.accuracy), sx, gy + 30);
