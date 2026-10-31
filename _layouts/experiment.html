@@ -1,12 +1,12 @@
 {%- comment -%}
-Sezgi Testi: her deneyin kendi sayfası ve "günün deneyi" sayfası (page.today) bu tek şablonu kullanır.
+Sezgi Testi: her deneyin kendi sayfası ve "günün deneyi" sayfası (page.daily_page) bu tek şablonu kullanır.
 İçeriğin tamamı (hikâye, sonuç, kaynaklar) HTML'de yazılıdır; oyun JS ile üstüne kurulur. Sonuç bölümü tahminden sonra açılır.
 {%- endcomment -%}
 {%- assign L = page.lang | default: 'en' -%}
 {%- assign T = site.data.game[L] -%}
 {%- assign exps = site.experiments | where: "lang", L | sort: "no" -%}
 {%- assign latest = exps | last -%}
-{%- if page.today -%}{%- assign e = latest -%}{%- else -%}{%- assign e = page -%}{%- endif -%}
+{%- if page.daily_page -%}{%- assign e = latest -%}{%- else -%}{%- assign e = page -%}{%- endif -%}
 {%- assign NO = e.no | prepend: '00' | slice: -2, 2 -%}
 <!doctype html>
 <html lang="{{ L }}">
@@ -16,13 +16,13 @@ Sezgi Testi: her deneyin kendi sayfası ve "günün deneyi" sayfası (page.today
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://vonkarts.goatcounter.com; connect-src 'self' https://vonkarts.goatcounter.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <script>try{var t=localStorage.getItem('tema');if(t&&t!=='system')document.documentElement.setAttribute('data-theme',t)}catch(e){}document.documentElement.className+=' js';</script>
-  {%- if page.today %}
+  {%- if page.daily_page %}
   <title>{{ T.name }}: {{ T.today }} | {{ site.title }}</title>
   {%- else %}
   <title>{{ page.seo_title | default: page.title | escape }} | {{ T.name }}</title>
   {%- endif %}
   {%- capture seo_tags %}{% seo title=false %}{% endcapture %}
-  {%- if page.today %}
+  {%- if page.daily_page %}
   {%- comment -%} Günün deneyi sayfası kopya içerik sayılmasın: kanonik adres deneyin kendi sayfası {%- endcomment -%}
   {%- capture own %}<link rel="canonical" href="{{ page.url | absolute_url }}" />{% endcapture %}
   {%- capture canon %}<link rel="canonical" href="{{ e.url | absolute_url }}" />{% endcapture %}
@@ -35,7 +35,7 @@ Sezgi Testi: her deneyin kendi sayfası ve "günün deneyi" sayfası (page.today
   <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
   <meta name="theme-color" content="#e8ecea" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0c1012" media="(prefers-color-scheme: dark)">
-  {%- unless page.today %}
+  {%- unless page.daily_page %}
   {%- assign versions = site.experiments | where: "ref", page.ref %}
   {%- for v in versions %}
   <link rel="alternate" hreflang="{{ v.lang }}" href="{{ v.url | absolute_url }}">
