@@ -310,6 +310,7 @@ function renderReveal(replay){
     var sp = function(){ s.innerHTML = Math.round(so.v) + "<small>" + esc(T.score) + "</small>"; };
     if (ANIM) G.to(so, { v:sc, duration:1.6, ease:"power2.out", delay:1.1, onUpdate:sp }); else { so.v = sc; sp(); }
     $("#story").addEventListener("click", function(){ shareStory(this, sc); });
+    setTimeout(function(){ prepareStory(sc); }, 2500); // animasyonlar bitince hazırla
     $("#copy").addEventListener("click", function(){
       var btn = this;
       var ok = function(){ btn.textContent = T.copied; setTimeout(function(){ btn.textContent = T.copy; }, 1800); };
@@ -413,23 +414,35 @@ function makeStory(sc){
   c.fillStyle = C.g; font("500", 38, MO); c.fillText("vonkarts.com" + (T.home === "/" ? "" : T.home.replace(/\/$/, "")), M, FOOT + 136);
   return cv;
 }
+/* Görsel sonuç ekranı açılınca arka planda hazırlanır; dokununca paylaş menüsü hemen açılır
+   (tarayıcı, dokunuştan sonra birkaç saniye geçerse paylaşımı engelleyebiliyor). */
+var storyFile = null;
+function prepareStory(sc){
+  storyFile = null;
+  var fonts = document.fonts ? Promise.all(['800 44px "Anybody"', '400 40px "Newsreader"', '400 30px "IBM Plex Mono"', '500 30px "IBM Plex Mono"'].map(function(f){ return document.fonts.load(f); })) : Promise.resolve();
+  return fonts.catch(function(){}).then(function(){
+    return new Promise(function(res){
+      makeStory(sc).toBlob(function(blob){
+        if (blob) storyFile = new File([blob], (T.name + "-" + NO).toLowerCase().replace(/[^a-z0-9]+/g, "-") + ".png", { type:"image/png" });
+        res(storyFile);
+      }, "image/png");
+    });
+  });
+}
 function shareStory(btn, sc){
   var label = btn.textContent;
-  var fonts = document.fonts ? Promise.all(['800 44px "Anybody"', '400 40px "Newsreader"', '400 30px "IBM Plex Mono"', '500 30px "IBM Plex Mono"'].map(function(f){ return document.fonts.load(f); })) : Promise.resolve();
-  fonts.catch(function(){}).then(function(){
-    makeStory(sc).toBlob(function(blob){
-      if (!blob) return;
-      var name = (T.name + "-" + NO).toLowerCase().replace(/[^a-z0-9]+/g, "-") + ".png";
-      var file = new File([blob], name, { type:"image/png" });
-      if (navigator.canShare && navigator.canShare({ files:[file] })) {
-        navigator.share({ files:[file] }).catch(function(){});
-      } else {
-        var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click();
-        setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 1500);
-        btn.textContent = T.story_saved; setTimeout(function(){ btn.textContent = label; }, 1800);
-      }
-    }, "image/png");
-  });
+  var go = function(file){
+    if (!file) return;
+    if (navigator.canShare && navigator.canShare({ files:[file] })) {
+      navigator.share({ files:[file] }).catch(function(){});
+    } else {
+      // Paylaş menüsü yok (çoğu uygulama içi tarayıcı): görsel indirilir
+      var a = document.createElement("a"); a.href = URL.createObjectURL(file); a.download = file.name; document.body.appendChild(a); a.click();
+      setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+      btn.textContent = T.story_saved; setTimeout(function(){ btn.textContent = label; }, 4000);
+    }
+  };
+  if (storyFile) go(storyFile); else prepareStory(sc).then(go);
 }
 window.sezgiStoryPreview = function(sc){ return makeStory(sc).toDataURL("image/png"); }; // önizleme ve bekçi testi için
 
