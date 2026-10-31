@@ -342,26 +342,30 @@ function makeStory(sc){
   for (var y = 48; y < H; y += 48) { c.beginPath(); c.moveTo(0, y); c.lineTo(W, y); c.stroke(); }
   var M = 90;
   // üst şerit: kayıt ışığı + oyun adı + adres
-  c.fillStyle = C.r; c.beginPath(); c.arc(M + 10, 150, 11, 0, 7); c.fill();
-  c.fillStyle = C.fg; font("800", 44, AN, "condensed"); c.textBaseline = "middle"; c.fillText(up(T.name), M + 40, 152);
-  c.fillStyle = C.muted; font("400", 30, MO); c.textAlign = "right"; c.fillText("VONKARTS.COM", W - M, 152); c.textAlign = "left";
-  c.fillStyle = C.line; c.fillRect(M, 210, W - 2*M, 2);
+  // Instagram hikâyesinde üstteki ~250 px ve alttaki ~300 px arayüzle örtülür: içerik bu güvenli alanda
+  var Y0 = 250, FOOT = H - 400;
+  c.fillStyle = C.r; c.beginPath(); c.arc(M + 10, Y0, 11, 0, 7); c.fill();
+  c.fillStyle = C.fg; font("800", 44, AN, "condensed"); c.textBaseline = "middle"; c.fillText(up(T.name), M + 40, Y0 + 2);
+  c.fillStyle = C.muted; font("400", 30, MO); c.textAlign = "right"; c.fillText("VONKARTS.COM", W - M, Y0 + 2); c.textAlign = "left";
+  c.fillStyle = C.line; c.fillRect(M, Y0 + 60, W - 2*M, 2);
   // künye + başlık
   c.textBaseline = "alphabetic";
-  c.fillStyle = C.muted; font("400", 30, MO); c.fillText(up(T.no + " " + NO + "  /  " + (E.meta[0] || "") + "  /  " + T.result), M, 300);
-  c.fillStyle = C.fg; font("760", 96, AN, "condensed");
-  var tl = wrap(c, E.title, W - 2*M), ty = 410;
-  tl.slice(0, 3).forEach(function(l){ c.fillText(l, M, ty); ty += 98; });
-  var top = ty + 40;
+  c.fillStyle = C.muted; font("400", 30, MO); c.fillText(up(T.no + " " + NO + "  /  " + (E.meta[0] || "") + "  /  " + T.result), M, Y0 + 140);
+  var tfs = 96; c.fillStyle = C.fg; font("760", tfs, AN, "condensed");
+  var tl = wrap(c, E.title, W - 2*M);
+  if (tl.length > 2) { tfs = 74; font("760", tfs, AN, "condensed"); tl = wrap(c, E.title, W - 2*M); }
+  var ty = Y0 + 140 + tfs + 14;
+  tl.slice(0, 3).forEach(function(l){ c.fillText(l, M, ty); ty += tfs + 2; });
+  var top = ty + 30;
   if (E.type === "percent") {
     // iki dev rakam: tahmin (camgöbeği) ve gerçek (sarı)
     font("400", 30, MO); c.fillStyle = C.g; c.fillText(up(T.my_guess), M, top);
     c.fillStyle = C.r; c.fillText(up(T.real), W/2 + 20, top);
-    font("850", 210, AN, "extra-condensed");
-    c.fillStyle = C.g; c.fillText(pct(state.guess), M - 6, top + 200);
-    c.fillStyle = C.r; c.fillText(pct(E.answer), W/2 + 14, top + 200);
+    font("850", 170, AN, "extra-condensed");
+    c.fillStyle = C.g; c.fillText(pct(state.guess), M - 6, top + 170);
+    c.fillStyle = C.r; c.fillText(pct(E.answer), W/2 + 14, top + 170);
     // 100 kişi (solda, kompakt): tahmin halka, gerçek dolu; isabet sağ sütunda
-    var gy = top + 270, step = 62, rad = 21;
+    var step = 56, rad = 19, gy = Math.min(top + 220, FOOT - 40 - step*10);
     for (var i = 0; i < 100; i++) {
       var cx = M + step*(i%10) + step/2, cy = gy + step*Math.floor(i/10) + step/2;
       c.beginPath(); c.arc(cx, cy, rad, 0, 7); c.fillStyle = i < E.answer ? C.r : C.line; c.fill();
@@ -376,9 +380,9 @@ function makeStory(sc){
     // soru + üç seçenek: doğru sarı çerçeve ✓, senin yanlışın ✗
     c.fillStyle = C.fg; font("400", 40, NR);
     var ql = wrap(c, E.q, W - 2*M), qy = top + 10; ql.slice(0, 3).forEach(function(l){ c.fillText(l, M, qy); qy += 54; });
-    var oy = qy + 30;
+    var oy = qy + 20, h = Math.max(104, Math.min(150, Math.floor((FOOT - 230 - oy) / 3) - 20));
     E.opts.forEach(function(o, i){
-      var right = i === E.answer, mine = i === state.guess, h = 150;
+      var right = i === E.answer, mine = i === state.guess;
       c.lineWidth = right ? 5 : 3; c.strokeStyle = right ? C.r : (mine ? C.g : C.line);
       c.fillStyle = right ? "rgba(240,180,76,.12)" : "rgba(27,35,39,.9)";
       c.beginPath(); c.rect(M, oy, W - 2*M, h); c.fill(); c.stroke();
@@ -392,21 +396,21 @@ function makeStory(sc){
       c.fillStyle = right || mine ? C.fg : C.muted; font("400", 40, NR);
       var ol = wrap(c, o, W - 2*M - 140); ol.slice(0, 2).forEach(function(l, j){ c.fillText(l, M + 110, oy + (ol.length > 1 ? 66 : 90) + j*48); });
       if (mine && !right) { c.fillStyle = C.g; font("400", 26, MO); c.textAlign = "right"; c.fillText(up(T.your_mark), W - M - 30, oy + 40); c.textAlign = "left"; }
-      oy += h + 24;
+      oy += h + 20;
     });
-    top = oy + 30;
+    top = FOOT - 230;
   }
   // isabet (seçenekli sorularda altta; yüzde sorularında ızgaranın yanında çizildi)
   if (top >= 0) {
   c.fillStyle = C.muted; font("400", 30, MO); c.fillText(up(T.accuracy), M, top + 20);
-  c.fillStyle = C.r; font("900", 170, AN, "extra-condensed"); c.fillText(String(sc), M - 6, top + 190);
+  c.fillStyle = C.r; font("900", 150, AN, "extra-condensed"); c.fillText(String(sc), M - 6, top + 170);
   var sw = c.measureText(String(sc)).width;
-  c.fillStyle = C.muted; font("700", 60, AN, "condensed"); c.fillText("/100", M + sw + 6, top + 190);
+  c.fillStyle = C.muted; font("700", 56, AN, "condensed"); c.fillText("/100", M + sw + 6, top + 170);
   }
   // alt: davet + adres
-  c.fillStyle = C.line; c.fillRect(M, H - 250, W - 2*M, 2);
-  c.fillStyle = C.fg; font("700", 56, AN, "condensed"); c.fillText(T.story_cta + " →", M, H - 160);
-  c.fillStyle = C.g; font("500", 38, MO); c.fillText("vonkarts.com" + (T.home === "/" ? "" : T.home.replace(/\/$/, "")), M, H - 100);
+  c.fillStyle = C.line; c.fillRect(M, FOOT, W - 2*M, 2);
+  c.fillStyle = C.fg; font("700", 56, AN, "condensed"); c.fillText(T.story_cta + " →", M, FOOT + 80);
+  c.fillStyle = C.g; font("500", 38, MO); c.fillText("vonkarts.com" + (T.home === "/" ? "" : T.home.replace(/\/$/, "")), M, FOOT + 136);
   return cv;
 }
 function shareStory(btn, sc){
