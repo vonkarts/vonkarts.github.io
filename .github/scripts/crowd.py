@@ -56,7 +56,7 @@ def main():
     rows = [r for r in csv.reader(io.StringIO(raw.decode("utf-8", "replace"))) if r]
     print(f"dışa aktarma: {len(raw)} bayt, {len(rows)} satır; durum: {st}")
     if not rows:
-        print(f"::notice title=Ziyaretçi ortalaması::GoatCounter dışa aktarması boş geldi ({len(raw)} bayt); henüz kayıt yok"); return
+        print(f"::notice title=Ziyaretçi ortalaması::GoatCounter dışa aktarması boş geldi ({len(raw)} bayt); henüz kayıt yok; durum {st}"); return
     head = [h.lstrip("0123456789").strip().lower() for h in rows[0]]
     col = lambda name: next(i for i, h in enumerate(head) if h == name)
     ip, ie, ib = col("path"), col("event"), col("bot")
