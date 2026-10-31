@@ -55,10 +55,17 @@ const S = 'http://localhost:4000';
   ctx = await ctxFor(phone, 'dark'); p = await ctx.newPage();
   await p.goto(S + '/tr/deneyler/milgram-deneyi/', { waitUntil: 'load' }); await p.waitForTimeout(1500);
   await play(p, 30); await shot(p, '9-tr-milgram-kalabalik.png');
+  const saveStory = async (file) => { const u = await p.evaluate(() => window.sezgiStoryPreview(document.querySelector('#score').textContent.match(/\d+/)[0] * 1)); fs.writeFileSync('shots/' + file, Buffer.from(u.split(',')[1], 'base64')); console.log('çekildi ' + file); };
+  await p.waitForTimeout(1500); await saveStory('11-hikaye-yuzde.png');
   await p.goto(S + '/tr/', { waitUntil: 'load' }); await p.waitForTimeout(1500);
   await p.locator('[data-you]').first().click(); await p.click('#toPredict'); await p.waitForTimeout(2200);
   await p.locator('[data-g]').first().click(); await p.click('#lock'); await p.waitForTimeout(4000);
   await shot(p, '10-tr-recel-kalabalik.png');
+  await saveStory('12-hikaye-secenek.png');
+  await p.goto(S + '/de/experimente/milgram-experiment/', { waitUntil: 'load' }); await p.waitForTimeout(1200);
+  await p.evaluate(() => { try { localStorage.removeItem('sezgi-v1'); } catch (e) {} });
+  await p.reload({ waitUntil: 'load' }); await p.waitForTimeout(1200);
+  await play(p, 70); await p.waitForTimeout(1500); await saveStory('13-hikaye-de.png');
   await ctx.close();
 
   // Hakkında sayfası (TR) ve EN ana sayfa üst kısmı (tanıtım satırı)
