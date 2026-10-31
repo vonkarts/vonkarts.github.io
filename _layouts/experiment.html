@@ -16,7 +16,7 @@ Not: "today" adı Jekyll'da her sayfada dolu geliyor; bayrak adı bu yüzden dai
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://vonkarts.goatcounter.com; connect-src 'self' https://vonkarts.goatcounter.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://vonkarts.goatcounter.com; connect-src 'self' https://vonkarts.goatcounter.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <script>try{var t=localStorage.getItem('tema');if(t&&t!=='system')document.documentElement.setAttribute('data-theme',t)}catch(e){}document.documentElement.className+=' js';</script>
   {%- if page.daily_page %}
@@ -42,9 +42,8 @@ Not: "today" adı Jekyll'da her sayfada dolu geliyor; bayrak adı bu yüzden dai
   <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
   <meta name="theme-color" content="#e8ecea" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0c1012" media="(prefers-color-scheme: dark)">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="preload" href="{{ '/assets/game/fonts/newsreader.woff' | relative_url }}" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="{{ '/assets/game/fonts/anybody.woff' | relative_url }}" as="font" type="font/woff" crossorigin>
   <link rel="stylesheet" href="{{ '/assets/game/game.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
 <body>
@@ -87,15 +86,27 @@ Not: "today" adı Jekyll'da her sayfada dolu geliyor; bayrak adı bu yüzden dai
     <div class="arc-backdrop" id="arc-backdrop" hidden></div>
 
     <div class="col">
-      <main class="stage" id="stage" aria-live="polite">
+      {%- comment -%} İlk ekran burada eksiksiz yazılır (game.js'teki renderStory ile birebir aynı HTML); JS yalnızca tıklamaları bağlar. {%- endcomment -%}
+      {%- assign y = e.you %}
+      <main class="stage" id="stage" aria-live="polite" data-ssr>
         <p class="no" aria-hidden="true">{{ NO }}</p>
         <div class="eyebrow"><span><b>{{ T.no }} {{ NO }}</b></span>{% for m in e.meta %}<span>{{ m }}</span>{% endfor %}</div>
         <h1 class="title">{{ e.title }}</h1>
         <div class="story">{% for p in e.story %}<p>{{ p }}</p>{% endfor %}</div>
-        <section class="panel">
-          <h2>{{ T.first_you }}</h2>
-          <p class="q">{{ e.you.q }}</p>
-        </section>
+        {%- if e.ref != latest.ref %}<p class="note" data-in>{{ T.old_note }}</p>{% endif %}
+        <section class="panel" data-in><h2>{{ T.first_you }}</h2><p class="q">{{ y.q }}</p>
+          {%- if y.kind == 'generator' %}
+          {%- assign first = y.buttons.first[0] | split: '–' | first %}{%- assign last = y.buttons.last[0] | split: '–' | last %}
+          <div class="gen" role="group">{% for b in y.buttons %}<button type="button" data-you="{{ forloop.index0 }}" aria-pressed="false"><span>{{ b[1] }}</span><b>{{ b[0] }}</b></button>{% endfor %}</div>
+          <div class="gen-cap"><span>{{ first }} {{ y.unit }}</span><span>{{ last }} {{ y.unit }}</span></div>
+          <button type="button" class="opt" data-you="-1" aria-pressed="false"><span class="k">—</span><span>{{ y.never }}</span></button>
+          {%- else %}
+          {%- if y.kind == 'lines' %}<div class="lines" aria-hidden="true"><div class="ref"><span style="height:96px"></span>·</div><div><span style="height:72px"></span>A</div><div><span style="height:96px"></span>B</div><div><span style="height:124px"></span>C</div></div>{% endif %}
+          {%- if y.kind == 'jars' %}<div class="jars" aria-hidden="true"><div class="stand"><div class="pots">{% for i in (1..24) %}<i></i>{% endfor %}</div><small>24</small></div><div class="stand"><div class="pots">{% for i in (1..6) %}<i></i>{% endfor %}</div><small>6</small></div></div>{% endif %}
+          <div class="opts">{% assign K = "A,B,C" | split: "," %}{% for o in y.opts %}<button type="button" class="opt" data-you="{{ forloop.index0 }}" aria-pressed="false"><span class="k">{{ K[forloop.index0] }}</span><span>{{ o }}</span></button>{% endfor %}</div>
+          {%- endif %}
+          <p class="hint">{{ T.hypothetical }}</p></section>
+        <button type="button" class="cta" id="toPredict" data-in disabled><span>{{ T.to_predict }}</span><span class="arw">→</span></button>
         <p class="hint noscript-q">{{ e.q }}</p>
       </main>
 

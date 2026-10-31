@@ -36,7 +36,7 @@ stats:
 you_real: Gerçekte tadımcılar boyalı beyaz şarabı, kırmızı şarap için kullandıkları kelimelerle tarif etti.
 original: 'Tadımcılar boyalı beyaz şarabı, bir hafta önce kırmızı şarap için kullandıkları kelimelerle anlattı: koyu renkli meyveler ve kırmızı şaraba özgü kokular. Şarabın kendisi değişmemişti, yalnızca rengi değişmişti.'
 today: Araştırmacılara göre bu, uzmanların tat alamadığını göstermiyor; koku ve tadı kelimelere dökerken gözün gördüğüne yaslandığımızı gösteriyor. Rengin tat ve koku algısını etkilediği, sonraki pek çok gıda ve içecek çalışmasında da gözlendi.
-surprise: 'Deneyi yapanlar acemi değildi: Katılımcılar şarap tadımı eğitimi alan öğrencilerdi.'
+surprise: 'Tadımcılar acemi değildi: Katılımcılar şarap tadımı eğitimi alan öğrencilerdi.'
 sources:
 - - Morrot, G., Brochet, F., & Dubourdieu, D. (2001). The color of odors. Brain and Language, 79(2), 309–320.
   - https://doi.org/10.1006/brln.2001.2493

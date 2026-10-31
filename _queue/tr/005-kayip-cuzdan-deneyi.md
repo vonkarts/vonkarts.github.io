@@ -13,7 +13,7 @@ meta:
 - 17.000+ cüzdan
 story:
 - 'Araştırmacılar 40 ülkede bankalara, otellere, postanelere girip görevliye bir cüzdan uzattı: “Bunu köşede yerde buldum, acelem var, siz ilgilenir misiniz?”'
-- Şeffaf cüzdanların içinde bir e-posta adresi yazan kartvizit, bir alışveriş listesi ve bir anahtar vardı. Bazılarında para da vardı, bazılarında yoktu. Sonra kaç cüzdan sahibine haber verildiği sayıldı.
+- Şeffaf cüzdanların içinde e-posta adresi yazan kartvizitler, bir alışveriş listesi ve bir anahtar vardı. Bazılarında para da vardı, bazılarında yoktu. Sonra kaç cüzdan sahibine haber verildiği sayıldı.
 you:
   q: Cüzdan sana verildi ve içinde para var. Ne yapardın?
   kind: opts
