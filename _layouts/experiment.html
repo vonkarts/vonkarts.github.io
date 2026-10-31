@@ -53,6 +53,13 @@ Not: "today" adı Jekyll'da her sayfada dolu geliyor; bayrak adı bu yüzden dai
           <h2>{{ T.sources }}</h2>
           <ol class="src">{% for s in e.sources %}<li>{{ s[0] }} <a href="{{ s[1] }}" target="_blank" rel="noopener">{{ s[1] | remove: 'https://' }}</a></li>{% endfor %}</ol>
         </section>
+        {%- assign others = exps | where_exp: "x", "x.ref != e.ref" | reverse %}
+        {%- if others.size > 0 %}
+        <nav class="more" aria-label="{{ T.more }}">
+          <h2>{{ T.more }}</h2>
+          <ul>{% for x in others limit: 3 %}{% assign XN = x.no | prepend: '00' | slice: -2, 2 %}<li><a href="{{ x.url | relative_url }}"><span class="arc-no">{{ XN }}</span> {{ x.title }}</a> <span class="more-q">{{ x.q }}</span></li>{% endfor %}</ul>
+        </nav>
+        {%- endif %}
       </article>
 
       <p class="foot">{{ T.foot }} <a href="{{ T.about_url | relative_url }}">{{ T.about_link }}</a></p>
@@ -61,5 +68,5 @@ Not: "today" adı Jekyll'da her sayfada dolu geliyor; bayrak adı bu yüzden dai
 
   {%- capture list %}[{% for x in exps %}{"ref":{{ x.ref | jsonify }},"no":{{ x.no }}}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endcapture %}
   <script type="application/json" id="game-data">{"e":{"ref":{{ e.ref | jsonify }},"no":{{ e.no }},"title":{{ e.title | jsonify }},"meta":{{ e.meta | jsonify }},"story":{{ e.story | jsonify }},"you":{{ e.you | jsonify }},"type":{{ e.type | jsonify }},"answer":{{ e.answer }},"q":{{ e.q | jsonify }},"opts":{{ e.opts | jsonify }},"stats":{{ e.stats | jsonify }},"you_real":{{ e.you_real | jsonify }}},
-  "url":{{ e.url | absolute_url | jsonify }},"latest":{{ latest.ref | jsonify }},"list":{{ list | strip }},"t":{{ T | jsonify }}}</script>
+  "crowd":{{ site.data.crowd[e.ref] | jsonify }},"url":{{ e.url | absolute_url | jsonify }},"latest":{{ latest.ref | jsonify }},"list":{{ list | strip }},"t":{{ T | jsonify }}}</script>
 {% include tail.html %}

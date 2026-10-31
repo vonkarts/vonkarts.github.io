@@ -308,3 +308,17 @@ h1.title{letter-spacing:-.035em}
 .page p{margin:0 0 12px}
 .page ul{margin:0 0 12px;padding-left:20px}
 .page a{color:var(--guess);text-underline-offset:3px}
+
+/* diğer deneyler (iç linkler) ve ziyaretçi ortalaması */
+.more{padding-top:22px}
+.more h2{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin:0 0 10px;color:var(--muted)}
+.more h2::before{content:"▸ ";color:var(--guess)}
+.more ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.more li{border:1px solid var(--line);border-radius:4px;padding:12px 14px;background:var(--surface)}
+.more a{text-decoration:none;font-family:var(--display);font-weight:700;font-variation-settings:"wdth" 86;font-size:20px;line-height:1.15}
+.more a:hover{color:var(--guess)}
+.more .arc-no{font-family:var(--mono);font-weight:400;font-size:12px;color:var(--muted);margin-right:6px;vertical-align:2px}
+.more-q{display:block;margin-top:6px;font-size:15px;line-height:1.45;color:var(--muted)}
+.crowd{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--muted);margin:0}
+.crowd b{color:var(--fg);font-weight:500}
+.opt .crowd-pct{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap;padding-left:10px}

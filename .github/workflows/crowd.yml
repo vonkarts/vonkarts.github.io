@@ -1,0 +1,40 @@
+# Ziyaretçi tahmin ortalamaları: her gün 00:25 UTC'de GoatCounter'dan isimsiz tahmin olaylarını okur,
+# _data/crowd.json değiştiyse kaydeder ve siteyi derletir. GOATCOUNTER_TOKEN gizli anahtarı yoksa sessizce atlar.
+name: Visitor guesses
+
+on:
+  schedule:
+    - cron: "25 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  crowd:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Read guesses from GoatCounter
+        run: |
+          python3 -c "import yaml" 2>/dev/null || pip install --quiet --break-system-packages pyyaml
+          python3 .github/scripts/crowd.py
+      - name: Save and rebuild if changed
+        run: |
+          git diff --quiet -- _data/crowd.json && { echo "değişiklik yok"; exit 0; }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _data/crowd.json
+          git commit -qm "Ziyaretçi tahmin ortalamaları"
+          git push -q
+          sleep 10
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" >/dev/null || true

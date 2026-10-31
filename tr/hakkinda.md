@@ -33,4 +33,4 @@ Sezgi Testi'ni, takma adla yazan bağımsız bir üretici olan vonkarts yapıyor
 Hata olabilir. Bir hata görürsen lütfen [GitHub'da bildir](https://github.com/vonkarts/vonkarts.github.io/issues/new) (ücretsiz bir GitHub hesabı gerekir). Doğrulanan hatalar sayfada beş dilde birden düzeltilir.
 
 ## Verilerin
-Hesap, reklam ve izleme çerezi yoktur. Cevapların, puanların ve serin yalnızca kendi tarayıcında saklanır, bize hiçbir zaman gönderilmez. Ziyaretler, çerez kullanmayan ve kişisel veri toplamayan, gizliliğe saygılı bir sayaç olan GoatCounter ile sayılır.
+Hesap, reklam ve izleme çerezi yoktur. Cevapların, puanların ve serin yalnızca kendi tarayıcında saklanır. Gönderilen tek şey her deneydeki tahminindir; ziyaretçilerin ortalamasını gösterebilmek için seninle hiçbir bağı olmadan, isimsiz olarak sayılır. Ziyaretler, çerez kullanmayan ve kişisel veri toplamayan, gizliliğe saygılı bir sayaç olan GoatCounter ile sayılır.

@@ -33,4 +33,4 @@ Intuition est réalisé par vonkarts, un créateur indépendant qui écrit sous 
 Les erreurs arrivent. Si tu en repères une, [signale-la sur GitHub](https://github.com/vonkarts/vonkarts.github.io/issues/new) (un compte GitHub gratuit est nécessaire). Les erreurs confirmées sont corrigées sur la page dans les cinq langues.
 
 ## Tes données
-Il n’y a ni compte, ni publicité, ni cookie de suivi. Tes réponses, tes scores et ta série sont enregistrés uniquement dans ton navigateur et ne nous sont jamais envoyés. Les visites sont comptées avec GoatCounter, un compteur respectueux de la vie privée, sans cookie et sans collecte de données personnelles.
+Il n’y a ni compte, ni publicité, ni cookie de suivi. Tes réponses, tes scores et ta série sont enregistrés uniquement dans ton navigateur. Seul ton pronostic pour chaque expérience est envoyé, compté anonymement et sans lien avec toi, pour que le site puisse afficher la moyenne des visiteurs. Les visites sont comptées avec GoatCounter, un compteur respectueux de la vie privée, sans cookie et sans collecte de données personnelles.

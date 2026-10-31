@@ -33,4 +33,4 @@ Bauchgefühl wird von vonkarts gemacht, einer unabhängigen Person, die unter ei
 Fehler passieren. Wenn du einen entdeckst, [melde ihn bitte auf GitHub](https://github.com/vonkarts/vonkarts.github.io/issues/new) (ein kostenloses GitHub-Konto ist nötig). Bestätigte Fehler werden auf der Seite in allen fünf Sprachen korrigiert.
 
 ## Deine Daten
-Es gibt keine Konten, keine Werbung und keine Tracking-Cookies. Deine Antworten, Punkte und deine Serie werden nur in deinem eigenen Browser gespeichert und nie an uns gesendet. Besuche werden mit GoatCounter gezählt, einem datenschutzfreundlichen Zähler ohne Cookies, der keine personenbezogenen Daten erhebt.
+Es gibt keine Konten, keine Werbung und keine Tracking-Cookies. Deine Antworten, Punkte und deine Serie werden nur in deinem eigenen Browser gespeichert. Gesendet wird nur deine Schätzung zu jedem Experiment, anonym und ohne Bezug zu dir gezählt, damit die Seite den Durchschnitt der Besucher zeigen kann. Besuche werden mit GoatCounter gezählt, einem datenschutzfreundlichen Zähler ohne Cookies, der keine personenbezogenen Daten erhebt.

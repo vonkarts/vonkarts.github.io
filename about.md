@@ -33,4 +33,4 @@ Gut Check is made by vonkarts, an independent creator writing under a pen name. 
 Mistakes happen. If you spot one, please [report it on GitHub](https://github.com/vonkarts/vonkarts.github.io/issues/new) (a free GitHub account is needed). Confirmed mistakes are corrected on the page in all five languages.
 
 ## Your data
-There are no accounts, no ads and no tracking cookies. Your answers, scores and streak are stored only in your own browser and are never sent to us. Visits are counted with GoatCounter, a privacy-friendly counter that uses no cookies and collects no personal data.
+There are no accounts, no ads and no tracking cookies. Your answers, scores and streak are stored only in your own browser. The only thing sent is your guess for each experiment, counted anonymously and with no link to you, so the site can show the visitors’ average. Visits are counted with GoatCounter, a privacy-friendly counter that uses no cookies and collects no personal data.

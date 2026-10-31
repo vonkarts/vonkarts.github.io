@@ -211,7 +211,11 @@ function renderPredict(){
     }
     $("#lock").addEventListener("click", function(){
       var p = store.get().plays;
-      if (!p[E.ref]) { p[E.ref] = { d:dayKey(), g:state.guess, y:state.you, s:scoreOf(), daily:IS_TODAY }; store.save(); }
+      if (!p[E.ref]) {
+        p[E.ref] = { d:dayKey(), g:state.guess, y:state.you, s:scoreOf(), daily:IS_TODAY }; store.save();
+        // Ziyaretçi ortalaması için tahmin isimsiz bir olay olarak sayılır (GoatCounter: çerez yok, kişisel veri yok).
+        try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path:"g-" + E.ref + "-" + state.guess, title:"guess", event:true }); } catch(x){}
+      }
       renderReveal(false);
     });
   });
@@ -243,6 +247,8 @@ function verdict(){
   }
   return state.guess === E.answer ? T.correct : T.wrong;
 }
+/* Ziyaretçi ortalaması: günde bir kez güncellenen _data/crowd.json'dan; 20 kişiden azsa gösterilmez */
+var CROWD = (D.crowd && D.crowd.n >= 20) ? D.crowd : null;
 function renderReveal(replay){
   var sc = scoreOf(), share = shareText(sc), top = "";
   if (E.type === "percent") {
@@ -251,12 +257,14 @@ function renderReveal(replay){
       '<div class="readout"><div class="verdict"><span class="small">' + esc(T.real_result) + '</span><p class="big real" id="anum">' + bigPct(0) + '</p></div>' +
       '<div class="legend"><span><i style="background:var(--guess)"></i>' + esc(fill(T.guess_n, "n", pct(state.guess))) + '</span><span><i style="background:var(--real)"></i>' + esc(fill(T.real_n, "n", pct(E.answer))) + '</span><span>' + esc(fill(T.diff_n, "n", diff)) + '</span></div></div>' +
       '<div class="people revealed" id="people" aria-hidden="true">' + new Array(101).join('<span class="p"></span>') + '</div>' +
-      '<div class="gapbar" aria-hidden="true"><div class="track"></div><div class="span" style="left:' + Math.min(state.guess, E.answer) + '%;width:' + diff + '%"></div><div class="pin g" style="left:calc(' + state.guess + '% - 1px)"></div><div class="pin a" style="left:calc(' + E.answer + '% - 1px)"></div></div></div>';
+      '<div class="gapbar" aria-hidden="true"><div class="track"></div><div class="span" style="left:' + Math.min(state.guess, E.answer) + '%;width:' + diff + '%"></div><div class="pin g" style="left:calc(' + state.guess + '% - 1px)"></div><div class="pin a" style="left:calc(' + E.answer + '% - 1px)"></div></div>' +
+      (CROWD && CROWD.avg != null ? '<p class="crowd">' + esc(fill(fill(T.crowd_avg, "n", pct(Math.round(CROWD.avg))), "c", CROWD.n)) + '</p>' : '') + '</div>';
   } else {
     top = '<div class="opts">' + E.opts.map(function(o, i){
       var c = i === E.answer ? "right" : "wrong";
       var mark = i === E.answer ? "✓" : (i === state.guess ? "✗" : "ABC"[i]);
-      return '<button type="button" class="opt ' + c + '" disabled aria-pressed="' + (i === state.guess) + '"><span class="k">' + mark + '</span><span>' + esc(o) + (i === state.guess ? ' <em>· ' + esc(T.your_mark) + '</em>' : '') + '</span></button>';
+      return '<button type="button" class="opt ' + c + '" disabled aria-pressed="' + (i === state.guess) + '"><span class="k">' + mark + '</span><span>' + esc(o) + (i === state.guess ? ' <em>· ' + esc(T.your_mark) + '</em>' : '') + '</span>' +
+        (CROWD && CROWD.dist ? '<span class="crowd-pct">' + esc(fill(T.crowd_opt, "n", pct(Math.round((CROWD.dist[i] || 0) * 100)))) + '</span>' : '') + '</button>';
     }).join("") + '</div>' +
     '<div class="stats">' + (E.stats || []).map(function(s){ return '<div class="stat"><b data-count="' + esc(s[0]) + '">' + esc(s[0]) + '</b><span>' + esc(s[1]) + '</span></div>'; }).join("") + '</div>';
   }
