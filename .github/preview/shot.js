@@ -73,6 +73,22 @@ const fs = require('fs');
   await p.goto(S + B + 'boyali-sarap-deneyi/', { waitUntil: 'load' }); await shot(p, '10-telefon-jssiz.png');
   await ctx.close();
 
+  // Video: telefonda Milgram oynanışı (animasyonları görmek için)
+  ctx = await b.newContext({ ...phone, recordVideo: { dir: 'shots/tmp-video', size: { width: 390, height: 844 } } });
+  ctx.setDefaultTimeout(8000);
+  await ctx.addInitScript(() => { try { localStorage.setItem('tema', 'dark'); } catch (e) {} });
+  p = await ctx.newPage();
+  await p.goto(S + B + 'milgram-deneyi/', { waitUntil: 'load' }); await p.waitForTimeout(3500);
+  await p.mouse.wheel(0, 700); await p.waitForTimeout(1200);
+  await p.click('[data-you="4"]'); await p.waitForTimeout(900);
+  await p.click('#toPredict'); await p.waitForTimeout(3000);
+  for (const v of [55, 45, 35]) { await p.evaluate(v => { const r = document.querySelector('#range'); r.value = v; r.dispatchEvent(new Event('input')); }, v); await p.waitForTimeout(450); }
+  await p.waitForTimeout(800); await p.click('#lock'); await p.waitForTimeout(5000);
+  await p.mouse.wheel(0, 900); await p.waitForTimeout(2500);
+  const vid = p.video(); await ctx.close();
+  fs.renameSync(await vid.path(), 'shots/11-telefon-video.webm'); fs.rmSync('shots/tmp-video', { recursive: true, force: true });
+  console.log('çekildi 11-telefon-video.webm');
+
   await b.close();
   console.log(report.join('\n'));
 })().catch(e => { console.log('HATA: ' + e.message.split('\n')[0]); process.exitCode = 0; });

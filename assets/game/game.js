@@ -14,6 +14,15 @@ var REDUCE = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)")
 var ANIM = !!G && !REDUCE;
 if (G && window.SplitText) { try { G.registerPlugin(SplitText); } catch(x){} }
 var CAN_SPLIT = ANIM && !!window.SplitText;
+if (G && window.ScrambleTextPlugin) { try { G.registerPlugin(ScrambleTextPlugin); } catch(x){} }
+var CAN_SCRAMBLE = ANIM && !!window.ScrambleTextPlugin;
+var LOW = "abcdefghijklmnopqrstuvwxyz0123456789", UP = "ABCDEFGHIJKLMNOPRSTUVYZ0123456789";
+/* Harfler şifre çözülür gibi yerine oturur. Yer tutması için önce aynı uzunlukta rastgele harfler yazılır. */
+function scramble(tl, el, at, dur, set){
+  var txt = el.textContent;
+  tl.call(function(){ el.textContent = txt.replace(/\S/g, function(){ return set[Math.floor(Math.random()*set.length)]; }); }, null, at);
+  tl.to(el, { duration:dur, ease:"none", scrambleText:{ text:txt, chars:set, revealDelay:dur*.35, speed:.9 } }, at);
+}
 function esc(t){ return String(t).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
 function fill(s, k, v){ return String(s).split("[" + k + "]").join(v); }
 function pad(n){ return String(n).padStart(2, "0"); }
@@ -89,8 +98,10 @@ function enter(root){
   var no = $(".no", root), title = $("h1.title", root), eb = $(".eyebrow", root), story = $$(".story p", root), rest = $$("[data-in]", root);
   if (no) tl.from(no, { yPercent:30, opacity:0, duration:.9 }, 0);
   if (eb) tl.from(eb.children, { opacity:0, y:8, stagger:.06, duration:.5 }, .05);
+  if (eb && CAN_SCRAMBLE) $$("span", eb).forEach(function(s, i){ if (!s.children.length) scramble(tl, s, .1 + i*.05, .7, UP); });
   if (title) {
-    if (CAN_SPLIT) { var st = SplitText.create(title, { type:"words,lines", mask:"lines" }); tl.from(st.words, { yPercent:110, duration:.8, stagger:.05, onComplete:function(){ st.revert(); } }, .1); }
+    if (CAN_SCRAMBLE) scramble(tl, title, .1, Math.min(1.4, .5 + title.textContent.length*.012), LOW);
+    else if (CAN_SPLIT) { var st = SplitText.create(title, { type:"words,lines", mask:"lines" }); tl.from(st.words, { yPercent:110, duration:.8, stagger:.05, onComplete:function(){ st.revert(); } }, .1); }
     else tl.from(title, { opacity:0, y:16, duration:.6 }, .1);
   }
   story.forEach(function(p, i){
@@ -276,6 +287,8 @@ function renderReveal(replay){
       var paint = function(){ var v = Math.round(o.v); anum.innerHTML = "<sup>%</sup>" + v; dots.forEach(function(d, i){ d.classList.toggle("a", i < v); }); };
       if (ANIM) {
         G.to(o, { v:E.answer, duration:1.8, ease:"power3.out", delay:.45, onUpdate:paint });
+        var sw = document.createElement("div"); sw.className = "sweep"; $("#people").appendChild(sw);
+        G.timeline({ delay:.45 }).set(sw, { opacity:1, top:0 }).to(sw, { top:"100%", duration:1.6, ease:"power2.inOut" }).to(sw, { opacity:0, duration:.3, onComplete:function(){ sw.remove(); } });
         G.fromTo(anum, { fontVariationSettings:'"wdth" 50' }, { fontVariationSettings:'"wdth" 64', duration:1.8, ease:"power3.out", delay:.45 });
         G.from(".gapbar .span", { scaleX:0, duration:1, ease:"power2.out", delay:1.4 });
         G.from(".gapbar .pin", { scaleY:0, duration:.5, stagger:.12, ease:"back.out(3)", delay:1.2 });

@@ -207,3 +207,62 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .foot{font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.6;letter-spacing:.02em;border-top:1px solid var(--line);padding-top:14px;margin:0}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ===== Fütüristik katman: ölçüm ızgarası, köşe çerçeveleri, ışıma, keskin köşeler ===== */
+:root{--grid:rgba(124,198,221,.055);--glow-g:0 0 22px rgba(124,198,221,.45);--glow-r:0 0 26px rgba(240,180,76,.5);--dot-g:0 0 10px rgba(124,198,221,.55);--dot-r:0 0 10px rgba(240,180,76,.6);--brk:var(--muted)}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--grid:rgba(17,22,24,.055);--glow-g:none;--glow-r:none;--dot-g:none;--dot-r:none}}
+:root[data-theme="light"]{--grid:rgba(17,22,24,.055);--glow-g:none;--glow-r:none;--dot-g:none;--dot-r:none}
+
+body{background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;background-position:-1px -1px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(120% 80% at 50% 0%,transparent 40%,var(--bg) 100%)}
+.shell{position:relative;z-index:1}
+
+/* köşe çerçeveleri (nişangâh) */
+.panel,.stat,.card,.note{border-radius:4px;position:relative;
+  --b:var(--brk);
+  background-image:
+    linear-gradient(var(--b),var(--b)),linear-gradient(var(--b),var(--b)),
+    linear-gradient(var(--b),var(--b)),linear-gradient(var(--b),var(--b)),
+    linear-gradient(var(--b),var(--b)),linear-gradient(var(--b),var(--b)),
+    linear-gradient(var(--b),var(--b)),linear-gradient(var(--b),var(--b));
+  background-repeat:no-repeat;
+  background-size:12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px,12px 1.5px,1.5px 12px;
+  background-position:-1px -1px,-1px -1px,calc(100% + 1px) -1px,calc(100% + 1px) -1px,-1px calc(100% + 1px),-1px calc(100% + 1px),calc(100% + 1px) calc(100% + 1px),calc(100% + 1px) calc(100% + 1px)}
+.panel{background-color:var(--surface)}
+.stat{background-color:var(--raise);--b:var(--real)}
+.card{background-color:var(--fg);--b:var(--bg)}
+.note{border-style:solid;background-color:transparent}
+.opt,.gen button,.stand{border-radius:4px}
+.arc-item{border-radius:3px}
+.opt[aria-pressed="true"],.gen button[aria-pressed="true"]{box-shadow:var(--dot-g)}
+.opt.right{box-shadow:var(--dot-r)}
+
+/* başlık şeridi: yanıp sönen kayıt ışığı */
+.mark::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--real);margin-right:9px;vertical-align:2px;box-shadow:var(--dot-r);animation:rec 2.4s ease-in-out infinite}
+@keyframes rec{0%,100%{opacity:1}50%{opacity:.25}}
+.eyebrow span+span::before{content:"/";margin-right:14px;color:var(--line)}
+.eyebrow{gap:6px 14px}
+
+/* büyük rakamlar ve noktalar ışır */
+.no{-webkit-text-stroke:1.2px var(--guess);opacity:.35}
+.big{text-shadow:var(--glow-g)}
+.big.real,.stat b{text-shadow:var(--glow-r)}
+.p.g{box-shadow:var(--dot-g)}
+.people.revealed .p.a{box-shadow:var(--dot-r)}
+.people{position:relative}
+.sweep{position:absolute;left:-6px;right:-6px;height:2px;top:0;background:var(--real);box-shadow:0 0 14px 2px var(--real);border-radius:2px;pointer-events:none;opacity:0}
+.gapbar .span{box-shadow:var(--dot-r)}
+
+/* düğmeler: keskin, ışıklı */
+.cta{border-radius:4px;font-family:var(--mono);font-weight:500;font-size:15px;letter-spacing:.1em;text-transform:uppercase;background:var(--guess);color:var(--bg);box-shadow:var(--glow-g)}
+.cta:disabled{box-shadow:none;background:var(--line);color:var(--muted);opacity:1}
+.cta.alt,.next .cta{background:none;color:var(--fg);border:1px solid var(--line);box-shadow:none}
+.card .copy{border-radius:3px}
+.theme{border-radius:3px}
+
+/* makale bölümleri: başlıklar konsol etiketi gibi */
+.blk h2::before,.srcs h2::before,.panel h2::before{content:"▸ ";color:var(--guess)}
+.blk.surprise h2::before{color:var(--real)}
+
+@media (prefers-reduced-motion:reduce){.mark::before{animation:none}}
