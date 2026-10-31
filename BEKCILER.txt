@@ -1,0 +1,94 @@
+== Deney dosyaları
+10 deney · yayında 3 · sırada 7 · 0 hata
+== Dil
+25 sayfa tarandı · 0 hata · 0 uyarı
+== SEO
+SAYFALAR (25)
+/ | lang=en | T38 D152 | h1:1 h2:7 | ld:WebSite | hl:6 | w303 | OK
+/de/experimente/milgram-experiment/ | lang=de | T64 D150 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w345 | OK
+/de/experimente/asch-konformitaetsexperiment/ | lang=de | T61 D150 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w314 | OK
+/de/experimente/marmeladen-experiment/ | lang=de | T66 D149 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w263 | başlık uzun(66)
+/experiments/milgram-experiment/ | lang=en | T59 D153 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w368 | OK
+/experiments/asch-conformity-experiment/ | lang=en | T57 D143 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w326 | OK
+/experiments/jam-experiment/ | lang=en | T60 D126 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w286 | OK
+/es/experimentos/experimento-de-milgram/ | lang=es | T63 D157 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w389 | OK
+/es/experimentos/experimento-de-asch/ | lang=es | T59 D155 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w348 | OK
+/es/experimentos/experimento-de-la-mermelada/ | lang=es | T63 D142 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w296 | OK
+/fr/experiences/experience-de-milgram/ | lang=fr | T64 D152 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w381 | OK
+/fr/experiences/experience-de-asch/ | lang=fr | T56 D158 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w358 | OK
+/fr/experiences/experience-des-confitures/ | lang=fr | T55 D154 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w299 | OK
+/tr/deneyler/milgram-deneyi/ | lang=tr | T55 D139 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w275 | OK
+/tr/deneyler/asch-uyma-deneyi/ | lang=tr | T49 D119 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w245 | OK
+/tr/deneyler/recel-deneyi/ | lang=tr | T58 D120 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w222 | OK
+/fr/a-propos/ | lang=fr | T31 D150 | h1:1 h2:8 | ld:WebPage | hl:6 | w444 | OK
+/about/ | lang=en | T26 D142 | h1:1 h2:8 | ld:WebSite | hl:6 | w402 | OK
+/es/acerca-de/ | lang=es | T31 D148 | h1:1 h2:8 | ld:WebPage | hl:6 | w428 | OK
+/tr/hakkinda/ | lang=tr | T32 D147 | h1:1 h2:8 | ld:WebPage | hl:6 | w308 | OK
+/fr/ | lang=fr | T44 D153 | h1:1 h2:7 | ld:WebPage | hl:6 | w318 | OK
+/de/ | lang=de | T44 D146 | h1:1 h2:7 | ld:WebPage | hl:6 | w280 | OK
+/es/ | lang=es | T40 D149 | h1:1 h2:7 | ld:WebPage | hl:6 | w314 | OK
+/tr/ | lang=tr | T37 D142 | h1:1 h2:7 | ld:WebPage | hl:6 | w239 | OK
+/de/ueber/ | lang=de | T28 D154 | h1:1 h2:8 | ld:WebPage | hl:6 | w393 | OK
+
+SORUNLAR
+yok
+
+NOTLAR
+robots.txt 200: User-agent: * | Allow: / |  | Sitemap: http://localhost:4000/sitemap.xml | 
+sitemap 200: 25 URL; lastmod olan: 15
+feed.xml 404: 0 entry
+ANA SAYFA JSON-LD: {"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"vonkarts","url":"http://localhost:4000/"},"description":"Every day, one real published experiment. Guess what people (and ants, and water) actually did, then see the result, the sources and what we know today.","headline":"Gut Check: a real experiment every day","image":"http://localhost:4000/images/cards/en-home.jpg","name":"vonkarts","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/images/icon-512.png"},"name":"vonkarts"},"url":"http://localhost:4000/"} || {"@context":"https://schema.org","@type":"WebSite","name":"vonkarts","alternateName":["Gut Check","vonkarts.com"],"url":"http://localhost:4000/","inLanguage":["en","tr","de","fr","es"]}
+ANA SAYFA og:site_name=vonkarts · title=Gut Check: a real experiment every day
+== Görünüm
+Görünüm bekçisi · 2026-10-31T14:10:02.248Z · 0 hata
+
+en-ana  /
+  - sorun yok
+
+en-deney  /experiments/jam-experiment/
+  - sorun yok
+
+en-hakkinda  /about/
+  - sorun yok
+
+tr-ana  /tr/
+  - sorun yok
+
+tr-deney  /tr/deneyler/recel-deneyi/
+  - sorun yok
+
+tr-hakkinda  /tr/hakkinda/
+  - sorun yok
+
+de-ana  /de/
+  - sorun yok
+
+de-deney  /de/experimente/marmeladen-experiment/
+  - sorun yok
+
+de-hakkinda  /de/ueber/
+  - sorun yok
+
+fr-ana  /fr/
+  - sorun yok
+
+fr-deney  /fr/experiences/experience-des-confitures/
+  - sorun yok
+
+fr-hakkinda  /fr/a-propos/
+  - sorun yok
+
+es-ana  /es/
+  - sorun yok
+
+es-deney  /es/experimentos/experimento-de-la-mermelada/
+  - sorun yok
+
+es-hakkinda  /es/acerca-de/
+  - sorun yok
+
+en-ana-acik  /
+  - sorun yok
+
+en-ana-masaustu  /
+  - sorun yok

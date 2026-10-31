@@ -1,0 +1,15 @@
+çekildi 1-tr-ana.png
+çekildi 2-tr-sonuc.png
+çekildi 4-en-masaustu.png
+çekildi 5-de-acik-sonuc.png
+çekildi 6-es-arsiv.png
+çekildi 9-tr-milgram-kalabalik.png
+çekildi 11-hikaye-yuzde.png
+çekildi 10-tr-recel-kalabalik.png
+çekildi 12-hikaye-secenek.png
+çekildi 13-hikaye-de.png
+çekildi 7-tr-hakkinda.png
+çekildi 8-en-ust.png
+yönlendirme: /tr/iyiligin-ardina-saklanan-kibir/ → /tr/
+yönlendirme: /category/psychology/ → /
+yönlendirme: /de/archiv/ → /de/
