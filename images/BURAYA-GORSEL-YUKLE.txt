@@ -1,2 +1,0 @@
-Kapak görsellerini bu klasöre yükle.
-Yazıda şöyle kullan:  cover: /images/dosya-adi.jpg

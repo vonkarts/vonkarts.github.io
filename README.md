@@ -1,22 +1,10 @@
 # vonkarts.com
 
-Kişisel blogum. Adres: https://vonkarts.com
+Every day, one real published experiment in five languages (en, tr, de, fr, es).
+Guess first, then see what really happened, the sources and what we know today.
 
-## Yeni yazı nasıl eklenir
-
-1. `YAZI-SABLONU.md` dosyasını aç, içeriğini kopyala.
-2. `_posts` klasörüne gir → **Add file → Create new file**.
-3. Dosya adı: `YIL-AY-GÜN-kisa-ad.md` (örnek: `2026-10-25-gece-yuruyusu.md`).
-   Türkçe karakter ve boşluk kullanma. Tarih bugünden ileri olmasın, yoksa yazı görünmez.
-4. Şablonu yapıştır, başlığı ve metni yaz → **Commit changes**.
-5. 1–2 dakika içinde sitede görünür.
-
-## Düzenleme
-
-- **Blog adı, alt başlık, kısa tanıtım:** `_config.yml`
-- **Hakkında sayfası:** `hakkinda.md`
-- **Kapak görselleri:** `images` klasörüne yükle, yazıda `cover: /images/dosya.jpg` yaz.
-- **Yazı silmek:** `_posts` içindeki dosyayı aç → üç nokta menüsü → **Delete file**.
-
-## Görseller
-Yeni kapak görseli eklenince `python3 .github/scripts/make_webp.py` çalıştır: telefonlar için küçük WebP kopyaları üretir (site bunları kendisi bulur).
+- Live experiments: `_experiments/<lang>/NNN-slug.md`
+- Waiting in line: `_queue/<lang>/NNN-slug.md` (one goes live every day at 00:01 UTC, `release.yml`)
+- Interface text: `_data/game.yml`
+- Page template: `_layouts/experiment.html`, style and game: `assets/game/`
+- Share images: `images/cards/` (`.github/scripts/make_cards.py`)

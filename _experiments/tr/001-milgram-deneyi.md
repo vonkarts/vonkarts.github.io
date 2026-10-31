@@ -1,11 +1,13 @@
 ---
+date: 2026-10-31
 lang: tr
 ref: milgram
 'no': 1
-permalink: /tr/sezgi-testi/milgram-deneyi/
+permalink: /tr/deneyler/milgram-deneyi/
 title: Düğme senin elinde
 seo_title: 'Milgram Deneyi: Kaç Kişi 450 Volta Gitti?'
 description: Milgram itaat deneyinde katılımcıların yüzde kaçı son düğmeye kadar gitti? Önce tahmin et, sonra gerçek sonucu ve bugün ne bildiğimizi gör.
+image: /images/cards/tr-milgram.jpg
 meta:
 - 1961–62
 - Yale Üniversitesi

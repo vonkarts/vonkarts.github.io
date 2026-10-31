@@ -4,9 +4,9 @@
 Her sayfayı gezer ve şunlara bakar:
   1. Sayfanın dili (html lang) adresiyle uyumlu mu? (/tr/... -> tr, kök -> en)
   2. İngilizce olmayan bir sayfada İngilizce arayüz metni kalmış mı?
-     (_data/i18n.yml içindeki İngilizce metinler; yazı gövdesi hariç)
+     (_data/game.yml içindeki İngilizce arayüz metinleri; deney metni ve kaynaklar hariç)
   3. Dil düğmesi her dilde, sayfanın o dildeki karşılığına mı gidiyor?
-  4. Her yazının 5 dilde de karşılığı var mı?
+  4. Her deney sayfasının 5 dilde de karşılığı var mı (hreflang)?
 Hata bulursa iş kırmızı olur ve GitHub e-posta ile haber verir.
 """
 import os, re, sys, urllib.parse, urllib.request, urllib.error
@@ -18,10 +18,9 @@ SITE = os.environ.get("SITE_URL", "https://vonkarts.com").rstrip("/")
 HOST = urllib.parse.urlsplit(SITE).netloc
 LANGS = ["en", "tr", "de", "fr", "es"]
 ROOT = os.path.join(os.path.dirname(__file__), "..", "..")
-I18N = yaml.safe_load(open(os.path.join(ROOT, "_data", "i18n.yml"), encoding="utf-8"))
+I18N = yaml.safe_load(open(os.path.join(ROOT, "_data", "game.yml"), encoding="utf-8"))
 NS = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
-SKIP_CLASSES = {"prose", "lang-menu", "lang-select", "refs"}
-MONTHS_EN = I18N["en"]["months"]
+SKIP_CLASSES = {"lang-menu", "src", "srcs"}
 
 
 def fetch(url):
@@ -86,20 +85,18 @@ def leak_patterns(lang):
     en, loc = I18N["en"], I18N[lang]
     for k, v in en.items():
         lv = loc.get(k)
-        if not isinstance(v, str) or not isinstance(lv, str) or v == lv or k.endswith(("_url", "home")):
+        if not isinstance(v, str) or not isinstance(lv, str) or v == lv or k in ("home", "section", "pct", "lang_name"):
             continue
-        if k in ("name", "read_in"):  # dil adları dil menüsünde doğal olarak geçer
-            continue
-        if len(v.replace("[n]", "").strip()) < 4: continue
-        rx = re.escape(v).replace(re.escape("[n]"), r"\d+")
-        rx = rx.replace(re.escape("[m]"), r"\w+").replace(re.escape("[d]"), r"\d+").replace(re.escape("[y]"), r"\d{4}")
+        core = re.sub(r"\[\w\]", "", v).strip()
+        if len(core) < 4: continue
+        rx = re.escape(v)
+        for ph in ("n", "a", "t", "v"):
+            rx = rx.replace(re.escape(f"[{ph}]"), r".+")
         pats.append((k, re.compile(r"^(?:" + rx + r")$")))
     for k in ("theme",):
         for i, v in enumerate(en.get(k, [])):
             if v != loc.get(k, [None] * 3)[i]:
                 pats.append((f"{k}[{i}]", re.compile(r"^" + re.escape(v) + r"$")))
-    months = "|".join(MONTHS_EN + [m[:3] for m in MONTHS_EN])
-    pats.append(("date(en)", re.compile(r"^(?:" + months + r")\.? \d{1,2}(?:, \d{4})?$")))
     return pats
 
 
@@ -142,10 +139,9 @@ def main():
             absu = urllib.parse.urljoin(u, target)
             if want and absu != want:
                 errors.append(f"{path}: dil düğmesi {lang} -> {absu[len(SITE):]} (beklenen {want[len(SITE):]})")
-        # yazıların 5 dili
-        if p.og_type == "article":
-            missing = [l for l in LANGS if l not in p.hreflang]
-            if missing: warns.append(f"{path}: eksik dil sürümü: {', '.join(missing)}")
+        # her sayfanın 5 dili (deneyler ve günün deneyi sayfaları)
+        missing = [l for l in LANGS if l not in p.hreflang]
+        if missing: errors.append(f"{path}: eksik dil sürümü: {', '.join(missing)}")
 
     errors = list(dict.fromkeys(errors))
     print(f"{len(pages)} sayfa tarandı · {len(errors)} hata · {len(warns)} uyarı")

@@ -17,6 +17,9 @@ var CAN_SPLIT = ANIM && !!window.SplitText;
 function esc(t){ return String(t).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
 function fill(s, k, v){ return String(s).split("[" + k + "]").join(v); }
 function pad(n){ return String(n).padStart(2, "0"); }
+function pct(n){ return fill(T.pct, "n", n); }
+/* Dev yüzde rakamı: % işareti dile göre önde (tr) ya da arkada */
+function bigPct(n){ return T.pct.charAt(0) === "%" ? "<sup>%</sup>" + n : n + '<sup class="after">%</sup>'; }
 function dayKey(d){ d = d || new Date(); return d.getFullYear() + "-" + pad(d.getMonth()+1) + "-" + pad(d.getDate()); }
 var NO = pad(E.no);
 var IS_TODAY = E.ref === D.latest;
@@ -161,9 +164,9 @@ function renderPredict(){
   if (E.type === "percent") {
     state.guess = 50;
     body = '<div class="dial" data-in>' +
-      '<div class="readout"><p class="big" id="gnum"><sup>%</sup>50</p><div class="legend"><span><i style="background:var(--guess)"></i>' + esc(T.your_guess) + '</span><span>' + esc(T.hundred) + '</span></div></div>' +
+      '<div class="readout"><p class="big" id="gnum">' + bigPct(50) + '</p><div class="legend"><span><i style="background:var(--guess)"></i>' + esc(T.your_guess) + '</span><span>' + esc(T.hundred) + '</span></div></div>' +
       '<div class="people" id="people" aria-hidden="true">' + new Array(101).join('<span class="p"></span>') + '</div>' +
-      '<input type="range" id="range" min="0" max="100" step="1" value="50" aria-label="' + esc(T.your_guess) + ' %">' +
+      '<input type="range" id="range" min="0" max="100" step="1" value="50" aria-label="' + esc(T.your_guess) + '">' +
       '<p class="hint">' + esc(T.drag_hint) + '</p></div>';
   } else {
     body = '<div class="opts" data-in>' + E.opts.map(function(o, i){
@@ -178,7 +181,7 @@ function renderPredict(){
       var dots = $$("#people .p"), r = $("#range"), num = $("#gnum");
       var set = function(v){
         v = Math.max(0, Math.min(100, Math.round(v))); state.guess = v;
-        num.innerHTML = "<sup>%</sup>" + v; r.value = v; r.style.setProperty("--v", v + "%");
+        num.innerHTML = bigPct(v); r.value = v; r.style.setProperty("--v", v + "%");
         dots.forEach(function(d, i){ d.classList.toggle("g", i < v); });
       };
       set(50);
@@ -226,7 +229,7 @@ function youLine(){
 function shareText(sc){
   var k = Math.round(sc/20);
   var bars = "▰▰▰▰▰".slice(0, k) + "▱▱▱▱▱".slice(0, 5 - k);
-  var line = E.type === "percent" ? T.my_guess + " %" + state.guess + " · " + T.real + " %" + E.answer
+  var line = E.type === "percent" ? T.my_guess + " " + pct(state.guess) + " · " + T.real + " " + pct(E.answer)
                                   : T.my_guess + ": " + E.opts[state.guess] + (state.guess === E.answer ? " ✓" : " ✗");
   return T.name + " " + T.no + " " + NO + "\n" + E.title + "\n" + line + "\n" + T.accuracy + " " + sc + "/100 " + bars + "\n" + D.url;
 }
@@ -242,8 +245,8 @@ function renderReveal(replay){
   if (E.type === "percent") {
     var diff = Math.abs(state.guess - E.answer);
     top = '<div class="dial">' +
-      '<div class="readout"><div class="verdict"><span class="small">' + esc(T.real_result) + '</span><p class="big real" id="anum"><sup>%</sup>0</p></div>' +
-      '<div class="legend"><span><i style="background:var(--guess)"></i>' + esc(fill(T.guess_n, "n", state.guess)) + '</span><span><i style="background:var(--real)"></i>' + esc(fill(T.real_n, "n", E.answer)) + '</span><span>' + esc(fill(T.diff_n, "n", diff)) + '</span></div></div>' +
+      '<div class="readout"><div class="verdict"><span class="small">' + esc(T.real_result) + '</span><p class="big real" id="anum">' + bigPct(0) + '</p></div>' +
+      '<div class="legend"><span><i style="background:var(--guess)"></i>' + esc(fill(T.guess_n, "n", pct(state.guess))) + '</span><span><i style="background:var(--real)"></i>' + esc(fill(T.real_n, "n", pct(E.answer))) + '</span><span>' + esc(fill(T.diff_n, "n", diff)) + '</span></div></div>' +
       '<div class="people revealed" id="people" aria-hidden="true">' + new Array(101).join('<span class="p"></span>') + '</div>' +
       '<div class="gapbar" aria-hidden="true"><div class="track"></div><div class="span" style="left:' + Math.min(state.guess, E.answer) + '%;width:' + diff + '%"></div><div class="pin g" style="left:calc(' + state.guess + '% - 1px)"></div><div class="pin a" style="left:calc(' + E.answer + '% - 1px)"></div></div></div>';
   } else {
@@ -273,7 +276,7 @@ function renderReveal(replay){
       var dots = $$("#people .p"), anum = $("#anum");
       dots.forEach(function(d, i){ if (i < state.guess) d.classList.add("g"); });
       var o = { v:0 };
-      var paint = function(){ var v = Math.round(o.v); anum.innerHTML = "<sup>%</sup>" + v; dots.forEach(function(d, i){ d.classList.toggle("a", i < v); }); };
+      var paint = function(){ var v = Math.round(o.v); anum.innerHTML = bigPct(v); dots.forEach(function(d, i){ d.classList.toggle("a", i < v); }); };
       if (ANIM) {
         G.to(o, { v:E.answer, duration:1.8, ease:"power3.out", delay:.45, onUpdate:paint });
         var sw = document.createElement("div"); sw.className = "sweep"; $("#people").appendChild(sw);
@@ -284,10 +287,11 @@ function renderReveal(replay){
       } else { o.v = E.answer; paint(); }
     } else if (ANIM) {
       $$(".stat b", stage).forEach(function(b){
-        var raw = b.getAttribute("data-count"), m = /^%(\d+)$/.exec(raw);
-        if (!m) return;
+        // yalnızca yüzde değerleri sayılır ("%30", "30%", "30 %"); "15 m", "1969" gibi değerler sabit kalır
+        var raw = b.getAttribute("data-count"), m = /^(%?)(\d+)(\s?%?)$/.exec(raw);
+        if (!m || (!m[1] && m[3].indexOf("%") < 0)) return;
         var c = { v:0 };
-        G.to(c, { v:+m[1], duration:1.4, ease:"power3.out", delay:.6, onUpdate:function(){ b.textContent = "%" + Math.round(c.v); } });
+        G.to(c, { v:+m[2], duration:1.4, ease:"power3.out", delay:.6, onUpdate:function(){ b.textContent = m[1] + Math.round(c.v) + m[3]; } });
       });
       G.from(".opt.right", { scale:.94, duration:.6, ease:"back.out(2.5)", delay:.35 });
     }

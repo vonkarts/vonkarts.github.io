@@ -1,47 +1,45 @@
 {%- comment -%}
-Sezgi Testi: her deneyin kendi sayfası ve "günün deneyi" sayfası (page.daily_page) bu tek şablonu kullanır.
-İçeriğin tamamı (hikâye, sonuç, kaynaklar) HTML'de yazılıdır; oyun JS ile üstüne kurulur. Sonuç bölümü tahminden sonra açılır.
+Tek şablon: her deneyin kendi sayfası ve her dilin "günün deneyi" ana sayfası (page.daily_page).
+Günün deneyi = o dilde yayındaki en yüksek numaralı deney. İçeriğin tamamı (hikâye, sonuç, kaynaklar) HTML'de yazılıdır;
+oyun JS ile üstüne kurulur ve sonuç bölümü tahminden sonra açılır.
+Not: "today" adı Jekyll'da her sayfada dolu geliyor; bayrak adı bu yüzden daily_page.
 {%- endcomment -%}
 {%- assign L = page.lang | default: 'en' -%}
 {%- assign T = site.data.game[L] -%}
 {%- assign exps = site.experiments | where: "lang", L | sort: "no" -%}
 {%- assign latest = exps | last -%}
-{%- if page.daily_page -%}{%- assign e = latest -%}{%- else -%}{%- assign e = page -%}{%- endif -%}
+{%- if page.daily_page -%}{%- assign e = latest -%}{%- assign VREF = 'daily' -%}{%- else -%}{%- assign e = page -%}{%- assign VREF = page.ref -%}{%- endif -%}
 {%- assign NO = e.no | prepend: '00' | slice: -2, 2 -%}
+{%- assign vx = site.experiments | where: "ref", VREF -%}{%- assign vp = site.pages | where: "ref", VREF -%}{%- assign versions = vx | concat: vp -%}
 <!doctype html>
 <html lang="{{ L }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://vonkarts.goatcounter.com; connect-src 'self' https://vonkarts.goatcounter.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://vonkarts.goatcounter.com; connect-src 'self' https://vonkarts.goatcounter.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <script>try{var t=localStorage.getItem('tema');if(t&&t!=='system')document.documentElement.setAttribute('data-theme',t)}catch(e){}document.documentElement.className+=' js';</script>
   {%- if page.daily_page %}
-  <title>{{ T.name }}: {{ T.today }} | {{ site.title }}</title>
+  <title>{{ page.title | escape }}</title>
   {%- else %}
   <title>{{ page.seo_title | default: page.title | escape }} | {{ T.name }}</title>
   {%- endif %}
-  {%- capture seo_tags %}{% seo title=false %}{% endcapture %}
-  {%- if page.daily_page %}
-  {%- comment -%} Günün deneyi sayfası kopya içerik sayılmasın: kanonik adres deneyin kendi sayfası {%- endcomment -%}
-  {%- capture own %}<link rel="canonical" href="{{ page.url | absolute_url }}" />{% endcapture %}
-  {%- capture canon %}<link rel="canonical" href="{{ e.url | absolute_url }}" />{% endcapture %}
-  {{ seo_tags | replace: own, canon }}
-  {%- else %}
-  {{ seo_tags }}
+  {% seo title=false %}
+  {%- for v in versions %}
+  <link rel="alternate" hreflang="{{ v.lang }}" href="{{ v.url | absolute_url }}">
+  {%- if v.lang == 'en' %}
+  <link rel="alternate" hreflang="x-default" href="{{ v.url | absolute_url }}">
+  {%- endif %}
+  {%- endfor %}
+  {%- if page.daily_page and L == 'en' %}
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":{{ T.name | jsonify }},"alternateName":["vonkarts","vonkarts.com"],"url":"{{ '/' | absolute_url }}","inLanguage":["en","tr","de","fr","es"]}</script>
   {%- endif %}
   <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="48x48">
   <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
   <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+  <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
   <meta name="theme-color" content="#e8ecea" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0c1012" media="(prefers-color-scheme: dark)">
-  {%- unless page.daily_page %}
-  {%- assign versions = site.experiments | where: "ref", page.ref %}
-  {%- for v in versions %}
-  <link rel="alternate" hreflang="{{ v.lang }}" href="{{ v.url | absolute_url }}">
-  {%- if v.lang == 'en' %}<link rel="alternate" hreflang="x-default" href="{{ v.url | absolute_url }}">{% endif %}
-  {%- endfor %}
-  {%- endunless %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -68,13 +66,19 @@ Sezgi Testi: her deneyin kendi sayfası ve "günün deneyi" sayfası (page.daily
       <ol class="arc-list" reversed>
         {%- for x in exps reversed %}
         {%- assign XN = x.no | prepend: '00' | slice: -2, 2 %}
-        <li><a class="arc-item{% if x.ref == e.ref %} is-current{% endif %}" href="{{ x.url | relative_url }}" data-ref="{{ x.ref }}"{% if x.ref == e.ref %} aria-current="page"{% endif %}>
+        <li><a class="arc-item{% if x.ref == e.ref %} is-current{% endif %}" href="{{ x.url | relative_url }}" data-ref="{{ x.ref }}"{% if x.ref == e.ref and page.daily_page != true %} aria-current="page"{% endif %}>
           <span class="arc-no">{{ XN }}</span><span class="arc-t">{{ x.title }}</span><span class="arc-s" data-score></span>
         </a></li>
         {%- endfor %}
       </ol>
       <div class="arc-foot">
-        <a href="{{ T.blog_url | relative_url }}">{{ T.blog }} →</a>
+        <nav class="lang-menu" aria-label="{{ T.languages }}">
+          {%- for t in site.data.game %}
+          {%- assign target = t[1].home %}
+          {%- for v in versions %}{% if v.lang == t[0] %}{% assign target = v.url %}{% endif %}{% endfor %}
+          <a href="{{ target | relative_url }}" data-lang="{{ t[0] }}" hreflang="{{ t[0] }}" lang="{{ t[0] }}" title="{{ t[1].lang_name }}"{% if t[0] == L %} aria-current="true"{% endif %}>{{ t[0] | upcase }}</a>
+          {%- endfor %}
+        </nav>
         <button type="button" class="theme" id="theme" aria-label="{{ T.theme_label }}" data-labels="{{ T.theme | join: '|' }}">{{ T.theme[0] }}</button>
       </div>
     </aside>
@@ -90,7 +94,7 @@ Sezgi Testi: her deneyin kendi sayfası ve "günün deneyi" sayfası (page.daily
           <h2>{{ T.first_you }}</h2>
           <p class="q">{{ e.you.q }}</p>
         </section>
-        <noscript><p class="hint">{{ e.q }}</p></noscript>
+        <p class="hint noscript-q">{{ e.q }}</p>
       </main>
 
       <article class="article" id="article">
@@ -110,10 +114,11 @@ Sezgi Testi: her deneyin kendi sayfası ve "günün deneyi" sayfası (page.daily
   {%- capture list %}[{% for x in exps %}{"ref":{{ x.ref | jsonify }},"no":{{ x.no }}}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endcapture %}
   <script type="application/json" id="game-data">{"e":{"ref":{{ e.ref | jsonify }},"no":{{ e.no }},"title":{{ e.title | jsonify }},"meta":{{ e.meta | jsonify }},"story":{{ e.story | jsonify }},"you":{{ e.you | jsonify }},"type":{{ e.type | jsonify }},"answer":{{ e.answer }},"q":{{ e.q | jsonify }},"opts":{{ e.opts | jsonify }},"stats":{{ e.stats | jsonify }},"you_real":{{ e.you_real | jsonify }}},
   "url":{{ e.url | absolute_url | jsonify }},"latest":{{ latest.ref | jsonify }},"list":{{ list | strip }},"t":{{ T | jsonify }}}</script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+  <script src="{{ '/assets/game/vendor/gsap.min.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/game/vendor/SplitText.min.js' | relative_url }}" defer></script>
   <script src="{{ '/assets/game/game.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
-  <script>(function(){var ua=navigator.userAgent||'';if(navigator.webdriver||/(?:^|[^a-z])bot|bot\/|crawl|spider|Lighthouse|HeadlessChrome|PTST|Page Speed/i.test(ua))return;
+  <script>/* Ziyaret sayacı: ölçüm araçları (Lighthouse, PageSpeed, otomatik tarayıcılar) sayılmaz */
+  (function(){var ua=navigator.userAgent||'';if(navigator.webdriver||/(?:^|[^a-z])bot|bot\/|crawl|spider|Lighthouse|HeadlessChrome|PTST|Page Speed/i.test(ua))return;
   var s=document.createElement('script');s.async=true;s.src='https://gc.zgo.at/count.js';s.setAttribute('data-goatcounter','https://vonkarts.goatcounter.com/count');document.body.appendChild(s);})();</script>
 </body>
 </html>

@@ -280,3 +280,11 @@ h1.title{letter-spacing:-.035em}
 .blk.surprise h2::before{color:var(--real)}
 
 @media (prefers-reduced-motion:reduce){.mark::before{animation:none}}
+
+/* dil menüsü (arşiv panelinin altında) */
+.lang-menu{display:flex;flex-wrap:wrap;gap:2px}
+.lang-menu a{padding:6px 7px;border-radius:3px;text-decoration:none;color:var(--muted);letter-spacing:.06em}
+.lang-menu a:hover{color:var(--fg)}
+.lang-menu a[aria-current]{color:var(--fg);background:var(--raise)}
+.big sup.after{margin:0 0 0 4px}
+.js .noscript-q{display:none}
