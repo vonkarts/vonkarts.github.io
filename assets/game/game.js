@@ -278,7 +278,7 @@ function renderReveal(replay){
     '<section class="card" id="card" data-in><div class="term-bar" aria-hidden="true"><i></i><i></i><i></i><span>' + esc(T.name.toLowerCase()) + ' · ' + esc(T.no.toLowerCase()) + ' ' + NO + '</span></div>' +
       '<div class="term-body"><div class="score" id="score">0<small>' + esc(T.score) + '</small></div>' +
       '<pre id="share">' + esc(share) + '</pre>' +
-      '<button type="button" class="copy" id="copy">' + esc(T.copy) + '</button></div></section>' + next;
+      '<div class="btns"><button type="button" class="copy" id="story">' + esc(T.story_btn) + '</button><button type="button" class="copy" id="copy">' + esc(T.copy) + '</button></div></div></section>' + next;
   var after = function(){
     header();
     $("#article").classList.add("open");
@@ -309,6 +309,7 @@ function renderReveal(replay){
     var s = $("#score"), so = { v:0 };
     var sp = function(){ s.innerHTML = Math.round(so.v) + "<small>" + esc(T.score) + "</small>"; };
     if (ANIM) G.to(so, { v:sc, duration:1.6, ease:"power2.out", delay:1.1, onUpdate:sp }); else { so.v = sc; sp(); }
+    $("#story").addEventListener("click", function(){ shareStory(this, sc); });
     $("#copy").addEventListener("click", function(){
       var btn = this;
       var ok = function(){ btn.textContent = T.copied; setTimeout(function(){ btn.textContent = T.copy; }, 1800); };
@@ -320,6 +321,103 @@ function renderReveal(replay){
   if (replay) { stage.innerHTML = html; after(); enter(stage); }
   else swap(html, after);
 }
+
+/* ---------- hikâye görseli (1080×1920): telefonda çizilir, paylaş menüsüyle Instagram'a gider ---------- */
+function wrap(ctx, text, maxW){
+  var words = String(text).split(" "), lines = [], line = "";
+  words.forEach(function(w){ var t = line ? line + " " + w : w; if (ctx.measureText(t).width > maxW && line) { lines.push(line); line = w; } else line = t; });
+  if (line) lines.push(line);
+  return lines;
+}
+function makeStory(sc){
+  var W = 1080, H = 1920, cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+  var c = cv.getContext("2d"), L = document.documentElement.lang || "en";
+  var C = { bg:"#0c1012", line:"#273136", fg:"#ece8df", muted:"#8f989c", g:"#7cc6dd", r:"#f0b44c" };
+  var up = function(t){ return String(t).toLocaleUpperCase(L); };
+  var font = function(w, px, fam, stretch){ c.font = w + " " + px + "px " + fam; try { c.fontStretch = stretch || "normal"; } catch(x){} };
+  var AN = '"Anybody", "Arial Narrow", sans-serif', NR = '"Newsreader", Georgia, serif', MO = '"IBM Plex Mono", monospace';
+  c.fillStyle = C.bg; c.fillRect(0, 0, W, H);
+  c.strokeStyle = "rgba(124,198,221,.06)"; c.lineWidth = 2;
+  for (var x = 48; x < W; x += 48) { c.beginPath(); c.moveTo(x, 0); c.lineTo(x, H); c.stroke(); }
+  for (var y = 48; y < H; y += 48) { c.beginPath(); c.moveTo(0, y); c.lineTo(W, y); c.stroke(); }
+  var M = 90;
+  // üst şerit: kayıt ışığı + oyun adı + adres
+  c.fillStyle = C.r; c.beginPath(); c.arc(M + 10, 150, 11, 0, 7); c.fill();
+  c.fillStyle = C.fg; font("800", 44, AN, "condensed"); c.textBaseline = "middle"; c.fillText(up(T.name), M + 40, 152);
+  c.fillStyle = C.muted; font("400", 30, MO); c.textAlign = "right"; c.fillText("VONKARTS.COM", W - M, 152); c.textAlign = "left";
+  c.fillStyle = C.line; c.fillRect(M, 210, W - 2*M, 2);
+  // künye + başlık
+  c.textBaseline = "alphabetic";
+  c.fillStyle = C.muted; font("400", 30, MO); c.fillText(up(T.no + " " + NO + "  /  " + (E.meta[0] || "") + "  /  " + T.result), M, 300);
+  c.fillStyle = C.fg; font("760", 96, AN, "condensed");
+  var tl = wrap(c, E.title, W - 2*M), ty = 410;
+  tl.slice(0, 3).forEach(function(l){ c.fillText(l, M, ty); ty += 98; });
+  var top = ty + 40;
+  if (E.type === "percent") {
+    // iki dev rakam: tahmin (camgöbeği) ve gerçek (sarı)
+    font("400", 30, MO); c.fillStyle = C.g; c.fillText(up(T.my_guess), M, top);
+    c.fillStyle = C.r; c.fillText(up(T.real), W/2 + 20, top);
+    font("850", 210, AN, "extra-condensed");
+    c.fillStyle = C.g; c.fillText(pct(state.guess), M - 6, top + 200);
+    c.fillStyle = C.r; c.fillText(pct(E.answer), W/2 + 14, top + 200);
+    // 100 kişi: tahmin halka, gerçek dolu
+    var gy = top + 290, step = (W - 2*M) / 10, rad = step * 0.36;
+    for (var i = 0; i < 100; i++) {
+      var cx = M + step*(i%10) + step/2, cy = gy + step*Math.floor(i/10) + step/2;
+      c.beginPath(); c.arc(cx, cy, rad, 0, 7);
+      if (i < E.answer) { c.fillStyle = C.r; c.fill(); } else { c.fillStyle = C.line; c.fill(); }
+      if (i < state.guess) { c.lineWidth = 5; c.strokeStyle = C.g; c.beginPath(); c.arc(cx, cy, rad + 7, 0, 7); c.stroke(); }
+    }
+    top = gy + step*10 + 40;
+  } else {
+    // soru + üç seçenek: doğru sarı çerçeve ✓, senin yanlışın ✗
+    c.fillStyle = C.fg; font("400", 40, NR);
+    var ql = wrap(c, E.q, W - 2*M), qy = top + 10; ql.slice(0, 3).forEach(function(l){ c.fillText(l, M, qy); qy += 54; });
+    var oy = qy + 30;
+    E.opts.forEach(function(o, i){
+      var right = i === E.answer, mine = i === state.guess, h = 150;
+      c.lineWidth = right ? 5 : 3; c.strokeStyle = right ? C.r : (mine ? C.g : C.line);
+      c.fillStyle = right ? "rgba(240,180,76,.12)" : "rgba(27,35,39,.9)";
+      c.beginPath(); c.rect(M, oy, W - 2*M, h); c.fill(); c.stroke();
+      c.fillStyle = right ? C.r : (mine ? C.g : C.muted); font("500", 44, MO);
+      c.fillText(right ? "✓" : (mine ? "✗" : "ABC"[i]), M + 34, oy + 92);
+      c.fillStyle = right || mine ? C.fg : C.muted; font("400", 40, NR);
+      var ol = wrap(c, o, W - 2*M - 140); ol.slice(0, 2).forEach(function(l, j){ c.fillText(l, M + 110, oy + (ol.length > 1 ? 66 : 90) + j*48); });
+      if (mine && !right) { c.fillStyle = C.g; font("400", 26, MO); c.textAlign = "right"; c.fillText(up(T.your_mark), W - M - 30, oy + 40); c.textAlign = "left"; }
+      oy += h + 24;
+    });
+    top = oy + 30;
+  }
+  // isabet
+  c.fillStyle = C.muted; font("400", 30, MO); c.fillText(up(T.accuracy), M, top + 20);
+  c.fillStyle = C.r; font("900", 170, AN, "extra-condensed"); c.fillText(String(sc), M - 6, top + 190);
+  var sw = c.measureText(String(sc)).width;
+  c.fillStyle = C.muted; font("700", 60, AN, "condensed"); c.fillText("/100", M + sw + 6, top + 190);
+  // alt: davet + adres
+  c.fillStyle = C.line; c.fillRect(M, H - 250, W - 2*M, 2);
+  c.fillStyle = C.fg; font("700", 56, AN, "condensed"); c.fillText(T.story_cta + " →", M, H - 160);
+  c.fillStyle = C.g; font("500", 38, MO); c.fillText("vonkarts.com" + (T.home === "/" ? "" : T.home.replace(/\/$/, "")), M, H - 100);
+  return cv;
+}
+function shareStory(btn, sc){
+  var label = btn.textContent;
+  var fonts = document.fonts ? Promise.all(['800 44px "Anybody"', '400 40px "Newsreader"', '400 30px "IBM Plex Mono"', '500 30px "IBM Plex Mono"'].map(function(f){ return document.fonts.load(f); })) : Promise.resolve();
+  fonts.catch(function(){}).then(function(){
+    makeStory(sc).toBlob(function(blob){
+      if (!blob) return;
+      var name = (T.name + "-" + NO).toLowerCase().replace(/[^a-z0-9]+/g, "-") + ".png";
+      var file = new File([blob], name, { type:"image/png" });
+      if (navigator.canShare && navigator.canShare({ files:[file] })) {
+        navigator.share({ files:[file] }).catch(function(){});
+      } else {
+        var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click();
+        setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+        btn.textContent = T.story_saved; setTimeout(function(){ btn.textContent = label; }, 1800);
+      }
+    }, "image/png");
+  });
+}
+window.sezgiStoryPreview = function(sc){ return makeStory(sc).toDataURL("image/png"); }; // önizleme ve bekçi testi için
 
 /* ---------- yeni deneye geri sayım (yeni deney her gün 00:00 UTC'de açılır) ---------- */
 var timer = null;
