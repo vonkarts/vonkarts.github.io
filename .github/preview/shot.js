@@ -51,6 +51,16 @@ const S = 'http://localhost:4000';
   await p.click('#arc-btn'); await p.waitForTimeout(700); await shot(p, '6-es-arsiv.png', false);
   await ctx.close();
 
+  // ÖNİZLEME VERİSİ: 3 deney yayında + sahte ziyaretçi ortalaması. TR Milgram (arşiv) sonucu ve TR günün deneyi (reçel) sonucu.
+  ctx = await ctxFor(phone, 'dark'); p = await ctx.newPage();
+  await p.goto(S + '/tr/deneyler/milgram-deneyi/', { waitUntil: 'load' }); await p.waitForTimeout(1500);
+  await play(p, 30); await shot(p, '9-tr-milgram-kalabalik.png');
+  await p.goto(S + '/tr/', { waitUntil: 'load' }); await p.waitForTimeout(1500);
+  await p.locator('[data-you]').first().click(); await p.click('#toPredict'); await p.waitForTimeout(2200);
+  await p.locator('[data-g]').first().click(); await p.click('#lock'); await p.waitForTimeout(4000);
+  await shot(p, '10-tr-recel-kalabalik.png');
+  await ctx.close();
+
   // Hakkında sayfası (TR) ve EN ana sayfa üst kısmı (tanıtım satırı)
   ctx = await ctxFor(phone, 'dark'); p = await ctx.newPage();
   await p.goto(S + '/tr/hakkinda/', { waitUntil: 'load' }); await p.waitForTimeout(1500); await shot(p, '7-tr-hakkinda.png');
