@@ -19,6 +19,13 @@ Tasarım kuralları: `DESIGN.md` (esas kaynak).
 - Aynı deneyin dil sürümleri aynı `ref` ile bağlanır (hreflang ve dil menüsü). Ana sayfaların ref'i `daily`.
 - Çeviriler 10 üzerinden puanlanır; 9 altı yayınlanmaz, düzeltilir. Puanı kullanıcıya açıkça yaz. de/fr/es'te sayı ile % arasında bölünmez boşluk; Fransızcada `: ; ? !` öncesi ve « » içinde ince bölünmez boşluk.
 
+## Sayfalar ve şablonlar
+- `_layouts/experiment.html` (deney + günün deneyi), `_layouts/info.html` (Hakkında ve yöntem). Ortak parçalar: `_includes/head.html`, `shell.html` (üst şerit, arşiv, "Hakkında ve yöntem" linki, dil menüsü, tema), `tail.html`.
+- Hakkında ve yöntem (Google'ın "Kim, Nasıl, Neden" önerisi için): `/about/`, `/tr/hakkinda/`, `/de/ueber/`, `/fr/a-propos/`, `/es/acerca-de/` (ref: about). İçerik: neden, deneyler nasıl seçiliyor, nasıl kontrol ediliyor, yapay zekâ kullanımı (Claude; araştırma, taslak, çeviri; rakamlar kaynakla, 5 dil cümle cümle karşılaştırılıyor), kim yapıyor (vonkarts, takma ad, bağımsız), hata bildirimi (GitHub Issues), verilerin. Yöntem değişirse bu sayfa da güncellenir; yapay zekâ kullanımı saklanmaz.
+- Ana sayfalarda tanıtım satırı (`intro` + "Nasıl çalışır" linki). Her sayfanın altında "Hakkında ve yöntem" linki.
+- Sağlıkla ilgili deneylerde ön bilgiye `health: true` (5 dilde aynı): sonuç bölümünde "tıbbi tavsiye değildir" notu çıkar; güncel klinik kılavuz kaynaklara eklenir (YMYL).
+- Yazı tipleri sitede (`assets/game/fonts/`, WOFF, latin + Türkçe/Almanca/Fransızca/İspanyolca harfler; OFL lisansları yanında). İlk ekran (anlatı + "önce sen") sunucuda yazılır (`data-ssr`), JS yeniden çizmez ve açılış animasyonu yapmaz (hız: LCP ve kayma için).
+
 ## Deneyler
 - Yayındaki: `_experiments/<dil>/NNN-slug.md`. Sırada bekleyen: `_queue/<dil>/NNN-slug.md` (sitede yok).
 - Günlük yayın: `release.yml` her gün 00:01 UTC'de (Türkiye 03:01) sıradaki numarayı 5 dilde birden `_experiments`e taşır, `date:` yazar, push eder, Pages derlemesini ister ve bütün bekçileri başlatır. Aynı gün ikinci yayın yapmaz. Elle: `gh api -X POST repos/vonkarts/vonkarts.github.io/actions/workflows/release.yml/dispatches -f ref=main`.

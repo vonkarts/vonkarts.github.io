@@ -21,6 +21,7 @@ you:
   - Je me ferais opérer tout de suite ; si le médecin la conseille, ça marche
   - J’essaierais d’abord d’autres solutions
   - J’éviterais l’opération
+health: true
 type: outcome
 answer: 2
 q: Au bout de deux ans, quel groupe a signalé moins de douleur et une meilleure mobilité ?
@@ -35,9 +36,11 @@ stats:
   - moments où la vraie opération a fait mieux
 you_real: En réalité, en deux ans, la vraie opération n’a jamais fait mieux que la fausse.
 original: Les deux groupes opérés pour de vrai n’ont, à aucun moment en deux ans, signalé moins de douleur ou une meilleure mobilité que le groupe de la fausse opération. Les résultats ont été publiés en 2002 dans le New England Journal of Medicine, et l’efficacité de cette opération contre l’arthrose a commencé à être remise en question.
-today: 'Des essais ultérieurs comparant chirurgie et chirurgie simulée ont donné des résultats similaires, et certaines recommandations médicales ne conseillent plus cette opération pour l’arthrose du genou. L’étude a aussi une limite : presque tous les patients étaient des hommes d’un seul hôpital pour anciens combattants.'
+today: 'Des essais ultérieurs comparant chirurgie et chirurgie simulée ont donné des résultats similaires. En 2017, un panel international d’experts a formulé dans The BMJ une forte recommandation contre ce type d’arthroscopie pour les maladies dégénératives du genou. L’étude a aussi une limite : presque tous les patients étaient des hommes d’un seul hôpital pour anciens combattants.'
 surprise: Un an après, le groupe avec le score de douleur le plus bas était celui de la fausse opération. L’écart n’était pas significatif, mais les genoux où l’on n’avait rien fait ne sont pas restés à la traîne.
 sources:
 - - Moseley, J. B., O’Malley, K., Petersen, N. J., et al. (2002). A controlled trial of arthroscopic surgery for osteoarthritis of the knee. New England Journal of Medicine, 347(2), 81–88.
   - https://doi.org/10.1056/NEJMoa013259
+- - Siemieniuk, R. A. C., Harris, I. A., Agoritsas, T., et al. (2017). Arthroscopic surgery for degenerative knee arthritis and meniscal tears: a clinical practice guideline. BMJ, 357, j1982.
+  - https://doi.org/10.1136/bmj.j1982
 ---

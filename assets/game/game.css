@@ -293,3 +293,18 @@ h1.title{letter-spacing:-.035em}
 .lang-menu a[aria-current]{color:var(--fg);background:var(--raise)}
 .big sup.after{margin:0 0 0 4px}
 .js .noscript-q{display:none}
+
+/* ana sayfa tanıtım satırı, hakkında linkleri, sağlık notu, hakkında sayfası */
+.intro{font-family:var(--mono);font-size:13px;line-height:1.55;color:var(--muted);margin:0 0 -6px;letter-spacing:.02em}
+.intro a,.foot a{color:var(--guess);text-underline-offset:3px}
+.arc-about{display:block;padding:10px 0;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--muted);text-decoration:none;border-top:1px solid var(--line)}
+.arc-about:hover{color:var(--fg)}
+.note.health{margin-top:16px}
+.page h1.title{margin-bottom:6px}
+.page .lead{font-size:var(--s1);line-height:1.55;margin:0}
+.page h2{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;color:var(--muted);margin:30px 0 8px}
+.page h2::before{content:"▸ ";color:var(--guess)}
+.page p,.page li{font-size:var(--s0);line-height:1.65}
+.page p{margin:0 0 12px}
+.page ul{margin:0 0 12px;padding-left:20px}
+.page a{color:var(--guess);text-underline-offset:3px}

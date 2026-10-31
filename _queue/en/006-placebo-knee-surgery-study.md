@@ -21,6 +21,7 @@ you:
   - Have it right away; if a doctor recommends it, it works
   - Try other options first
   - Stay away from surgery
+health: true
 type: outcome
 answer: 2
 q: After two years, which group reported less pain and better movement?
@@ -35,9 +36,11 @@ stats:
   - time points where real surgery beat fake surgery
 you_real: In reality, at no point in two years did real surgery do better than fake surgery.
 original: The two real-surgery groups never reported less pain or better movement than the fake-surgery group at any point over two years. The results were published in the New England Journal of Medicine in 2002, and doctors began to question how well this operation works for osteoarthritis.
-today: 'Later trials comparing surgery with sham surgery gave similar results, and some medical guidelines no longer recommend this operation for knee osteoarthritis. The study has a limitation too: almost all the patients were men from a single veterans’ hospital.'
+today: 'Later trials comparing surgery with sham surgery gave similar results. In 2017, an international expert panel writing in The BMJ made a strong recommendation against this kind of arthroscopic surgery for degenerative knee disease. The study has a limitation too: almost all the patients were men from a single veterans’ hospital.'
 surprise: One year later, the group with the lowest pain score was the fake-surgery group. The difference was not significant, but the knees where nothing was done did not fall behind.
 sources:
 - - Moseley, J. B., O’Malley, K., Petersen, N. J., et al. (2002). A controlled trial of arthroscopic surgery for osteoarthritis of the knee. New England Journal of Medicine, 347(2), 81–88.
   - https://doi.org/10.1056/NEJMoa013259
+- - Siemieniuk, R. A. C., Harris, I. A., Agoritsas, T., et al. (2017). Arthroscopic surgery for degenerative knee arthritis and meniscal tears: a clinical practice guideline. BMJ, 357, j1982.
+  - https://doi.org/10.1136/bmj.j1982
 ---

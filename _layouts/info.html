@@ -1,0 +1,24 @@
+{%- comment -%}
+Bilgi sayfaları (Hakkında ve yöntem). Oyun yok; üst şerit, arşiv, dil menüsü ve tema deney sayfalarıyla aynı.
+Dil sürümleri aynı ref ile bağlanır.
+{%- endcomment -%}
+{%- assign L = page.lang | default: 'en' -%}
+{%- assign T = site.data.game[L] -%}
+{%- assign exps = site.experiments | where: "lang", L | sort: "no" -%}
+{%- assign latest = exps | last -%}
+{%- assign e = nil -%}
+{%- assign versions = site.pages | where: "ref", page.ref -%}
+{% include head.html %}
+<body>
+  <a class="skip" href="#stage">{{ page.title }}</a>
+{% include shell.html %}    <div class="col">
+      <main class="page" id="stage">
+        <h1 class="title">{{ page.title }}</h1>
+        {{ content }}
+      </main>
+      <p class="foot">{{ T.foot }}</p>
+    </div>
+  </div>
+  {%- capture list %}[{% for x in exps %}{"ref":{{ x.ref | jsonify }},"no":{{ x.no }}}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endcapture %}
+  <script type="application/json" id="game-data">{"e":null,"latest":{{ latest.ref | jsonify }},"list":{{ list | strip }},"t":{{ T | jsonify }}}</script>
+{% include tail.html %}

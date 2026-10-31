@@ -21,6 +21,7 @@ const FAULT = process.env.FAULT === '1';
 const LANGS = ['en', 'tr', 'de', 'fr', 'es'];
 const MOBILE = { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true };
 const DESKTOP = { viewport: { width: 1280, height: 900 } };
+const ABOUT = { en: '/about/', tr: '/tr/hakkinda/', de: '/de/ueber/', fr: '/fr/a-propos/', es: '/es/acerca-de/' };
 
 fs.mkdirSync(OUT, { recursive: true });
 const report = [];
@@ -33,8 +34,8 @@ async function newCtx(browser, opts, theme) {
   return ctx;
 }
 
-async function inspect(page, lang) {
-  return page.evaluate((lang) => {
+async function inspect(page, lang, kind) {
+  return page.evaluate(([lang, kind]) => {
     const out = { errors: [], warns: [] };
     const vw = document.documentElement.clientWidth;
     const shown = el => { if (!el) return false; const r = el.getBoundingClientRect(), cs = getComputedStyle(el);
@@ -48,8 +49,9 @@ async function inspect(page, lang) {
       out.errors.push(`Sayfa yana taşıyor (${document.documentElement.scrollWidth - vw}px): ${wide.join(', ')}`);
     }
     const need = (sel, name, min = 1) => { const n = [...document.querySelectorAll(sel)].filter(shown).length; if (n < min) out.errors.push(`Eksik: ${name} (${sel})`); };
-    need('.bar .mark', 'Logo'); need('#stage h1.title', 'Başlık'); need('#stage .story p', 'Hikâye', 2);
-    need('#stage .panel [data-you]', '"Önce sen" seçenekleri', 2); need('#toPredict', '"Tahmine geç" düğmesi');
+    need('.bar .mark', 'Logo'); need('#stage h1.title', 'Başlık');
+    if (kind === 'about') { need('.page h2', 'Hakkında bölümleri', 5); need('.page a[href*="github.com"]', 'Hata bildirme linki'); }
+    else { need('#stage .story p', 'Hikâye', 2); need('#stage .panel [data-you]', '"Önce sen" seçenekleri', 2); need('#toPredict', '"Tahmine geç" düğmesi'); need('.foot a', 'Hakkında linki'); }
     if (document.querySelectorAll('.arc-item').length < 1) out.errors.push('Arşivde hiç deney yok');
     const langs = [...document.querySelectorAll('.lang-menu a[data-lang]')].map(a => a.dataset.lang);
     if (langs.length !== 5) out.errors.push(`Dil menüsünde ${langs.length} dil var, 5 olmalı`);
@@ -58,7 +60,7 @@ async function inspect(page, lang) {
     if (bar) { const items = [...bar.children].filter(shown).map(e => e.getBoundingClientRect());
       for (let i = 1; i < items.length; i++) if (items[i].left < items[i - 1].right - 1) out.errors.push('Üst şeritte öğeler üst üste biniyor'); }
     return out;
-  }, lang);
+  }, [lang, kind]);
 }
 
 async function play(page) {
@@ -99,7 +101,7 @@ async function archiveAndTheme(page) {
   return out;
 }
 
-async function check(browser, opts, theme, url, lang, name, interact) {
+async function check(browser, opts, theme, url, lang, name, interact, kind) {
   const ctx = await newCtx(browser, opts, theme);
   const page = await ctx.newPage();
   const issues = [], failed = [];
@@ -112,7 +114,7 @@ async function check(browser, opts, theme, url, lang, name, interact) {
     await page.evaluate(() => document.fonts.ready);
     await page.waitForTimeout(2500);
     if (FAULT) { await page.addStyleTag({ content: '.panel{min-width:620px}#arc-btn{display:none!important}' }); await page.waitForTimeout(300); }
-    const r = await inspect(page, lang);
+    const r = await inspect(page, lang, kind || 'exp');
     r.errors.forEach(e => issues.push('HATA: ' + e)); r.warns.forEach(w => issues.push('UYARI: ' + w));
     await page.screenshot({ path: `${OUT}/${name}.png`, fullPage: true });
     if (interact) {
@@ -139,6 +141,7 @@ async function check(browser, opts, theme, url, lang, name, interact) {
     await ctx.close();
     if (own) await check(browser, MOBILE, 'dark', own, lang, `${lang}-deney`, false);
     else { errorCount++; report.push(`${lang}-deney\n  - HATA: Günün deneyinin adresi bulunamadı`); }
+    await check(browser, MOBILE, 'dark', SITE + ABOUT[lang], lang, `${lang}-hakkinda`, false, 'about');
   }
   await check(browser, MOBILE, 'light', SITE + '/', 'en', 'en-ana-acik', true);
   await check(browser, DESKTOP, 'dark', SITE + '/', 'en', 'en-ana-masaustu', true);

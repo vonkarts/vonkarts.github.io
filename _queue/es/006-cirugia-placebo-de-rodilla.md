@@ -21,6 +21,7 @@ you:
   - Me operaría enseguida; si el médico la recomienda, funciona
   - Probaría antes otras opciones
   - Me mantendría lejos del quirófano
+health: true
 type: outcome
 answer: 2
 q: Después de dos años, ¿qué grupo dijo tener menos dolor y mejor movilidad?
@@ -35,9 +36,11 @@ stats:
   - momentos en que la operación real fue mejor
 you_real: En realidad, en dos años la operación real nunca dio mejor resultado que la falsa.
 original: Los dos grupos operados de verdad no dijeron tener menos dolor ni mejor movilidad que el grupo de la operación falsa en ningún momento de los dos años. Los resultados se publicaron en el New England Journal of Medicine en 2002, y se empezó a cuestionar la utilidad de esta operación para la artrosis.
-today: 'Ensayos posteriores que compararon la cirugía con una cirugía simulada dieron resultados parecidos, y algunas guías médicas ya no recomiendan esta operación para la artrosis de rodilla. El estudio también tiene un límite: casi todos los pacientes eran hombres de un único hospital para veteranos.'
+today: 'Ensayos posteriores que compararon la cirugía con una cirugía simulada dieron resultados parecidos. En 2017, un panel internacional de expertos publicó en The BMJ una recomendación firme en contra de este tipo de artroscopia en la enfermedad degenerativa de rodilla. El estudio también tiene un límite: casi todos los pacientes eran hombres de un único hospital para veteranos.'
 surprise: Al cabo de un año, el grupo con la puntuación de dolor más baja era el de la operación falsa. La diferencia no fue significativa, pero las rodillas en las que no se hizo nada no se quedaron atrás.
 sources:
 - - Moseley, J. B., O’Malley, K., Petersen, N. J., et al. (2002). A controlled trial of arthroscopic surgery for osteoarthritis of the knee. New England Journal of Medicine, 347(2), 81–88.
   - https://doi.org/10.1056/NEJMoa013259
+- - Siemieniuk, R. A. C., Harris, I. A., Agoritsas, T., et al. (2017). Arthroscopic surgery for degenerative knee arthritis and meniscal tears: a clinical practice guideline. BMJ, 357, j1982.
+  - https://doi.org/10.1136/bmj.j1982
 ---

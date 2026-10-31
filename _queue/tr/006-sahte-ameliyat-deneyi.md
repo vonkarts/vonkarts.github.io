@@ -21,6 +21,7 @@ you:
   - Hemen olurdum, doktor öneriyorsa işe yarar
   - Önce başka yolları denerdim
   - Ameliyattan uzak dururdum
+health: true
 type: outcome
 answer: 2
 q: İki yılın sonunda hangi grup daha az ağrı ve daha iyi hareket bildirdi?
@@ -35,9 +36,11 @@ stats:
   - Gerçek ameliyatın sahteden daha iyi olduğu ölçüm noktası
 you_real: Gerçekte iki yıl boyunca hiçbir ölçümde gerçek ameliyat, sahte ameliyattan daha iyi sonuç vermedi.
 original: Gerçek ameliyat olan iki grup, iki yıl boyunca hiçbir ölçüm noktasında sahte ameliyat olanlardan daha az ağrı ya da daha iyi hareket bildirmedi. Sonuç 2002’de New England Journal of Medicine’de yayımlandı ve bu ameliyatın kireçlenme için ne kadar işe yaradığı sorgulanmaya başlandı.
-today: 'Sahte ameliyatla karşılaştırılan sonraki çalışmalar da benzer sonuçlar verdi ve bazı tıp kılavuzları bu ameliyatı diz kireçlenmesi için artık önermiyor. Çalışmanın bir sınırı da var: Hastaların neredeyse tamamı tek bir gazi hastanesinden gelen erkeklerdi.'
+today: 'Sahte ameliyatla karşılaştırılan sonraki çalışmalar da benzer sonuçlar verdi. 2017’de The BMJ’de yayımlanan uluslararası bir uzman paneli, kireçlenme gibi yıpranmaya bağlı diz hastalıklarında bu tür artroskopik ameliyatın yapılmamasını güçlü biçimde önerdi. Çalışmanın bir sınırı da var: Hastaların neredeyse tamamı tek bir gazi hastanesinden gelen erkeklerdi.'
 surprise: Bir yıl sonra ağrı puanı en düşük olan grup, sahte ameliyat olanlardı. Fark anlamlı değildi, ama içeride hiçbir şey yapılmayan dizler geride kalmadı.
 sources:
 - - Moseley, J. B., O’Malley, K., Petersen, N. J., et al. (2002). A controlled trial of arthroscopic surgery for osteoarthritis of the knee. New England Journal of Medicine, 347(2), 81–88.
   - https://doi.org/10.1056/NEJMoa013259
+- - Siemieniuk, R. A. C., Harris, I. A., Agoritsas, T., et al. (2017). Arthroscopic surgery for degenerative knee arthritis and meniscal tears: a clinical practice guideline. BMJ, 357, j1982.
+  - https://doi.org/10.1136/bmj.j1982
 ---
