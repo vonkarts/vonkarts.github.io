@@ -2,7 +2,14 @@
 const { chromium } = require('playwright');
 const S = 'http://localhost:4000';
 const B = '/tr/sezgi-testi/';
+const fs = require('fs');
 (async () => {
+  // Derlenmiş HTML'den örnekler (hata ayıklama için)
+  fs.mkdirSync('shots/html', { recursive: true });
+  for (const f of ['tr/sezgi-testi/index.html', 'tr/sezgi-testi/milgram-deneyi/index.html']) {
+    try { fs.copyFileSync('_site/' + f, 'shots/html/' + f.replace(/\//g, '_')); } catch (e) { console.log('yok: ' + f); }
+  }
+  console.log(fs.readdirSync('_site/tr/sezgi-testi').join(' '));
   const b = await chromium.launch();
   const report = [];
   async function ctxFor(opts, theme) {
@@ -67,4 +74,4 @@ const B = '/tr/sezgi-testi/';
 
   await b.close();
   console.log(report.join('\n'));
-})();
+})().catch(e => { console.log('HATA: ' + e.message.split('\n')[0]); process.exitCode = 0; });

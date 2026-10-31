@@ -8,7 +8,7 @@ tr:
   archive_open: "Arşivi aç"
   close: "Kapat"
   streak: "Seri"
-  no: "No."
+  "no": "No."
   first_you: "Önce sen"
   hypothetical: "Bu cevap varsayımsal; gerçek bir laboratuvardaki davranışınla aynı şey değil."
   to_predict: "Tahmine geç"
