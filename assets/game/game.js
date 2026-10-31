@@ -144,7 +144,10 @@ function renderStory(){
     '<section class="panel" data-in><h2>' + esc(T.first_you) + '</h2><p class="q">' + esc(y.q) + '</p>' + you +
     '<p class="hint">' + esc(T.hypothetical) + '</p></section>' +
     '<button type="button" class="cta" id="toPredict" data-in disabled><span>' + esc(T.to_predict) + '</span><span class="arw">→</span></button>';
-  stage.innerHTML = html;
+  // İlk ekran sunucuda hazır yazılıysa (data-ssr) yeniden çizilmez ve açılış animasyonu yapılmaz:
+  // böylece sayfa ilk boyamada tamamlanır (hızlı LCP, kayma yok). Yalnızca tıklamalar bağlanır.
+  var ssr = stage.hasAttribute("data-ssr");
+  if (!ssr) stage.innerHTML = html;
   $$("[data-you]", stage).forEach(function(b){
     b.addEventListener("click", function(){
       state.you = +b.getAttribute("data-you");
@@ -154,8 +157,8 @@ function renderStory(){
       pop(b);
     });
   });
-  $("#toPredict").addEventListener("click", renderPredict);
-  enter(stage);
+  $("#toPredict").addEventListener("click", function(){ stage.removeAttribute("data-ssr"); renderPredict(); });
+  if (!ssr) enter(stage);
 }
 
 /* ---------- 2. tahmin ---------- */
@@ -330,11 +333,8 @@ function boot(){
   if (played) { state.guess = played.g; state.you = played.y; renderReveal(true); }
   else renderStory();
   if (ANIM) {
-    if (CAN_SPLIT) { var m = SplitText.create("#mark", { type:"chars" }); G.from(m.chars, { yPercent:60, opacity:0, duration:.6, stagger:.025, ease:"power3.out", onComplete:function(){ m.revert(); } }); }
     G.from("#week i", { scale:0, duration:.4, stagger:.05, ease:"back.out(3)", delay:.3 });
   }
 }
-var started = false;
-var go = function(){ if (!started) { started = true; boot(); } };
-if (document.fonts && document.fonts.ready) { document.fonts.ready.then(go); setTimeout(go, 1200); } else go();
+boot();
 })();

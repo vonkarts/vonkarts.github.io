@@ -2,6 +2,11 @@
    İki renk iki gerçeği taşır: camgöbeği = senin tahminin, sodyum sarısı = gerçek sonuç.
    Telefonda tek sütun deney föyü (en fazla 560 px); geniş ekranda solda sabit arşiv.
    Not: GSAP'ın canlandırdığı özelliklere (opacity, transform) CSS transition verme. */
+/* Yazı tipleri sitede (latin + Türkçe, Almanca, Fransızca, İspanyolca harfler). Lisans: OFL, fonts/ klasöründe. */
+@font-face{font-family:"Anybody";src:url("fonts/anybody.woff") format("woff");font-weight:300 900;font-stretch:50% 150%;font-display:swap}
+@font-face{font-family:"Newsreader";src:url("fonts/newsreader.woff") format("woff");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("fonts/plexmono-400.woff") format("woff");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("fonts/plexmono-500.woff") format("woff");font-weight:500;font-display:swap}
 :root{
   --bg:#0c1012; --surface:#141a1d; --raise:#1b2327; --line:#273136; --fg:#ece8df; --muted:#8f989c;
   --guess:#7cc6dd; --guess-soft:rgba(124,198,221,.14); --real:#f0b44c; --real-soft:rgba(240,180,76,.14); --ok:#8fcf9a; --no:#e08b7a;
