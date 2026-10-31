@@ -1,0 +1,9 @@
+{%- comment -%} Betikler ve ziyaret sayacı. {%- endcomment -%}
+  <script src="{{ '/assets/game/vendor/gsap.min.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/game/vendor/SplitText.min.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/game/game.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+  <script>/* Ziyaret sayacı: ölçüm araçları (Lighthouse, PageSpeed, otomatik tarayıcılar) sayılmaz */
+  (function(){var ua=navigator.userAgent||'';if(navigator.webdriver||/(?:^|[^a-z])bot|bot\/|crawl|spider|Lighthouse|HeadlessChrome|PTST|Page Speed/i.test(ua))return;
+  var s=document.createElement('script');s.async=true;s.src='https://gc.zgo.at/count.js';s.setAttribute('data-goatcounter','https://vonkarts.goatcounter.com/count');document.body.appendChild(s);})();</script>
+</body>
+</html>

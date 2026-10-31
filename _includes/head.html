@@ -1,0 +1,36 @@
+{%- comment -%} Ortak <head> ... <body> öncesi. Beklenen değişkenler: L, T, versions. {%- endcomment -%}
+<!doctype html>
+<html lang="{{ L }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://vonkarts.goatcounter.com; connect-src 'self' https://vonkarts.goatcounter.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <script>try{var t=localStorage.getItem('tema');if(t&&t!=='system')document.documentElement.setAttribute('data-theme',t)}catch(e){}document.documentElement.className+=' js';</script>
+  {%- if page.daily_page %}
+  <title>{{ page.title | escape }}</title>
+  {%- else %}
+  <title>{{ page.seo_title | default: page.title | escape }} | {{ T.name }}</title>
+  {%- endif %}
+  {%- capture seo_tags %}{% seo title=false %}{% endcapture %}
+  {%- assign il = '"@type":"BlogPosting","inLanguage":"' | append: L | append: '",' %}
+  {{ seo_tags | replace: '"@type":"BlogPosting",', il }}
+  {%- for v in versions %}
+  <link rel="alternate" hreflang="{{ v.lang }}" href="{{ v.url | absolute_url }}">
+  {%- if v.lang == 'en' %}
+  <link rel="alternate" hreflang="x-default" href="{{ v.url | absolute_url }}">
+  {%- endif %}
+  {%- endfor %}
+  {%- if page.daily_page and L == 'en' %}
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":{{ site.title | jsonify }},"alternateName":[{{ T.name | jsonify }},"vonkarts.com"],"url":"{{ '/' | absolute_url }}","inLanguage":["en","tr","de","fr","es"]}</script>
+  {%- endif %}
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="48x48">
+  <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+  <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+  <meta name="theme-color" content="#e8ecea" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c1012" media="(prefers-color-scheme: dark)">
+  <link rel="preload" href="{{ '/assets/game/fonts/newsreader.woff' | relative_url }}" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="{{ '/assets/game/fonts/anybody.woff' | relative_url }}" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="{{ '/assets/game/game.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+</head>

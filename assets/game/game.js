@@ -4,7 +4,7 @@
 (function(){
 "use strict";
 var D; try { D = JSON.parse(document.getElementById("game-data").textContent); } catch(x){ return; }
-var E = D.e, T = D.t;
+var E = D.e || null, T = D.t;
 
 /* ---------- yardımcılar ---------- */
 var $ = function(s, r){ return (r||document).querySelector(s); };
@@ -21,8 +21,8 @@ function pct(n){ return fill(T.pct, "n", n); }
 /* Dev yüzde rakamı: % işareti dile göre önde (tr) ya da arkada */
 function bigPct(n){ return T.pct.charAt(0) === "%" ? "<sup>%</sup>" + n : n + '<sup class="after">%</sup>'; }
 function dayKey(d){ d = d || new Date(); return d.getFullYear() + "-" + pad(d.getMonth()+1) + "-" + pad(d.getDate()); }
-var NO = pad(E.no);
-var IS_TODAY = E.ref === D.latest;
+var NO = E ? pad(E.no) : "";
+var IS_TODAY = E ? E.ref === D.latest : false;
 
 var store = (function(){
   var K = "sezgi-v1", mem = { plays:{} };
@@ -329,6 +329,7 @@ function tick(){
 /* ---------- başlat ---------- */
 function boot(){
   header(); archive();
+  if (!E) return; // hakkında gibi oyunsuz sayfalar: yalnızca üst şerit ve arşiv
   var played = store.get().plays[E.ref];
   if (played) { state.guess = played.g; state.you = played.y; renderReveal(true); }
   else renderStory();

@@ -13,7 +13,7 @@ LANGS = ["en", "tr", "de", "fr", "es"]
 G = yaml.safe_load(open(os.path.join(ROOT, "_data", "game.yml"), encoding="utf-8"))
 NEED = ["lang", "ref", "no", "permalink", "title", "seo_title", "description", "image", "meta", "story", "you",
         "type", "answer", "q", "you_real", "original", "today", "surprise", "sources"]
-SAME = ["no", "type", "answer", "sources"]
+SAME = ["no", "type", "answer", "sources", "health"]
 
 
 def main():
