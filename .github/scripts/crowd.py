@@ -2,31 +2,34 @@
 """Ziyaretçi tahmin ortalamaları: GoatCounter'daki isimsiz "g-<ref>-<tahmin>" olaylarını okur, _data/crowd.json yazar.
 
 Oyun, bir ziyaretçi bir deneyi ilk kez kilitlediğinde tahminini GoatCounter'a olay olarak sayar
-(çerez yok, kişisel veri yok). Bu betik GoatCounter'ın dışa aktarma (export) API'sinden bütün kayıtları alır,
-botları ve aynı oturumdan gelen tekrarları atar, deney başına sonucu yazar:
+(çerez yok, kişisel veri yok). Bu betik GoatCounter'ın istatistik API'sinden her "g-…" olayının ziyaretçi sayısını
+alır (GoatCounter botları zaten saymaz) ve deney başına sonucu yazar:
   yüzde soruları: {"n": kişi, "avg": ortalama tahmin}
   seçenekli sorular: {"n": kişi, "dist": [A oranı, B oranı, C oranı]}
 Sitede yalnızca n >= 20 olunca gösterilir. Gerekli: GOATCOUNTER_TOKEN (GoatCounter → API → "Read statistics").
 """
-import csv, glob, gzip, io, json, os, sys, time, urllib.error, urllib.request
+import datetime, glob, json, os, sys, time, urllib.error, urllib.parse, urllib.request
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 API = os.environ.get("GOATCOUNTER_API", "https://vonkarts.goatcounter.com/api/v0")
 TOKEN = os.environ.get("GOATCOUNTER_TOKEN", "").strip()
 OUT = os.path.join(ROOT, "_data", "crowd.json")
+START = "2026-10-26T00:00:00Z"  # sayaç bu günden beri açık
 
 
-def req(method, path, body=None, raw=False):
-    r = urllib.request.Request(API + path, method=method, data=json.dumps(body).encode() if body is not None else None,
-                               headers={"Authorization": "Bearer " + TOKEN, "Content-Type": "application/json"})
-    try:
-        with urllib.request.urlopen(r, timeout=60) as f:
-            data = f.read()
-    except urllib.error.HTTPError as e:
-        body = e.read()[:300].decode("utf-8", "replace").replace("\n", " ")
-        print(f"::error title=Ziyaretçi ortalaması::GoatCounter {method} {path} → HTTP {e.code}: {body}")
-        sys.exit(1)
-    return data if raw else json.loads(data or b"{}")
+def req(path, params=None):
+    url = API + path + ("?" + urllib.parse.urlencode(params, doseq=True) if params else "")
+    r = urllib.request.Request(url, headers={"Authorization": "Bearer " + TOKEN, "Content-Type": "application/json"})
+    for attempt in range(5):
+        try:
+            with urllib.request.urlopen(r, timeout=60) as f:
+                return json.loads(f.read() or b"{}")
+        except urllib.error.HTTPError as e:
+            if e.code == 429 and attempt < 4:
+                time.sleep(2 + attempt * 3); continue
+            body = e.read()[:300].decode("utf-8", "replace").replace("\n", " ")
+            print(f"::error title=Ziyaretçi ortalaması::GoatCounter {path} → HTTP {e.code}: {body}")
+            sys.exit(1)
 
 
 def experiment_types():
@@ -38,49 +41,63 @@ def experiment_types():
     return types
 
 
+def all_paths():
+    out, after = [], None
+    while True:
+        p = {"limit": 200}
+        if after: p["after"] = after
+        d = req("/paths", p)
+        out += d.get("paths") or []
+        if not d.get("more") or not d.get("paths"): return out
+        after = d["paths"][-1]["id"]
+
+
+def visitors(ids):
+    """Verilen yol kimliklerinin START'tan bu yana ziyaretçi sayıları {id: sayı}."""
+    end = (datetime.datetime.utcnow() + datetime.timedelta(hours=1)).strftime("%Y-%m-%dT%H:00:00Z")
+    got = {}
+    for i in range(0, len(ids), 50):
+        batch = ids[i:i + 50]
+        d = req("/stats/hits", {"start": START, "end": end, "limit": 100, "include_paths": ",".join(map(str, batch))})
+        rows = d.get("hits") or []
+        if any(h["path_id"] not in batch for h in rows):  # toplu süzme tutmadıysa tek tek sor
+            rows = []
+            for pid in batch:
+                rows += (req("/stats/hits", {"start": START, "end": end, "limit": 1, "include_paths": str(pid)}).get("hits") or [])[:1]
+                time.sleep(0.3)
+        for h in rows:
+            got[h["path_id"]] = h.get("count", 0)
+        time.sleep(0.3)
+    return got
+
+
 def main():
     if not TOKEN:
         print("::notice title=Ziyaretçi ortalaması::GOATCOUNTER_TOKEN yok; atlandı"); return
-    exp = req("POST", "/export", {"format": "csv"})
-    for _ in range(60):
-        st = req("GET", f"/export/{exp['id']}")
-        if st.get("finished_at"): break
-        time.sleep(5)
-    else:
-        sys.exit("dışa aktarma bitmedi")
-    if st.get("error"):
-        sys.exit("dışa aktarma hatası: " + str(st["error"]))
-    raw = req("GET", f"/export/{exp['id']}/download", raw=True)
-    try: raw = gzip.decompress(raw)
-    except OSError: pass
-    rows = [r for r in csv.reader(io.StringIO(raw.decode("utf-8", "replace"))) if r]
-    print(f"dışa aktarma: {len(raw)} bayt, {len(rows)} satır; durum: {st}")
-    if not rows:
-        print(f"::notice title=Ziyaretçi ortalaması::GoatCounter dışa aktarması boş geldi ({len(raw)} bayt); henüz kayıt yok; durum {st}"); return
-    head = [h.lstrip("0123456789").strip().lower() for h in rows[0]]
-    col = lambda name: next(i for i, h in enumerate(head) if h == name)
-    ip, ie, ib = col("path"), col("event"), col("bot")
-    isess = next((i for i, h in enumerate(head) if h == "session"), None)
-
     types = experiment_types()
-    seen, votes = set(), {}
-    for r in rows[1:]:
-        if len(r) <= max(ip, ie, ib): continue
-        path, event, bot = r[ip], r[ie].lower(), r[ib].strip()
-        if event not in ("true", "1", "t") or bot not in ("", "0") or not path.startswith("g-"): continue
+    paths = all_paths()
+    guess = {}
+    for p in paths:
+        name = p["path"].lstrip("/")
+        if not name.startswith("g-"): continue
         try:
-            _, ref, val = path.split("-", 2); val = int(val)
+            ref, val = name[2:].rsplit("-", 1)
+            val = int(val)
         except ValueError:
             continue
         t = types.get(ref)
         if t is None or (t == "percent" and not 0 <= val <= 100) or (t != "percent" and not 0 <= val <= 2): continue
-        key = (r[isess] if isess is not None else id(r), ref)
-        if key in seen: continue
-        seen.add(key)
-        votes.setdefault(ref, []).append(val)
+        guess[p["id"]] = (ref, val)
+
+    counts = visitors(sorted(guess)) if guess else {}
+    votes = {}
+    for pid, n in counts.items():
+        ref, val = guess[pid]
+        votes.setdefault(ref, []).extend([val] * n)
 
     out = {}
     for ref, vs in sorted(votes.items()):
+        if not vs: continue
         if types[ref] == "percent":
             out[ref] = {"n": len(vs), "avg": round(sum(vs) / len(vs), 1)}
         else:
@@ -89,7 +106,9 @@ def main():
     new = json.dumps(out, ensure_ascii=False, indent=1, sort_keys=True) + "\n"
     if new != old:
         open(OUT, "w", encoding="utf-8").write(new)
-    print(f"::notice title=Ziyaretçi ortalaması::{sum(len(v) for v in votes.values())} tahmin, {len(out)} deney" + (" (güncellendi)" if new != old else " (değişiklik yok)"))
+    detail = ", ".join(f"{r} {v['n']}" for r, v in out.items()) or "-"
+    print(f"::notice title=Ziyaretçi ortalaması::GoatCounter'da {len(paths)} yol, {len(guess)} tahmin yolu; "
+          f"{sum(len(v) for v in votes.values())} tahmin ({detail})" + (" (güncellendi)" if new != old else " (değişiklik yok)"))
 
 
 if __name__ == "__main__":
