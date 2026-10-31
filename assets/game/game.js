@@ -360,15 +360,18 @@ function makeStory(sc){
     font("850", 210, AN, "extra-condensed");
     c.fillStyle = C.g; c.fillText(pct(state.guess), M - 6, top + 200);
     c.fillStyle = C.r; c.fillText(pct(E.answer), W/2 + 14, top + 200);
-    // 100 kişi: tahmin halka, gerçek dolu
-    var gy = top + 290, step = (W - 2*M) / 10, rad = step * 0.36;
+    // 100 kişi (solda, kompakt): tahmin halka, gerçek dolu; isabet sağ sütunda
+    var gy = top + 270, step = 62, rad = 21;
     for (var i = 0; i < 100; i++) {
       var cx = M + step*(i%10) + step/2, cy = gy + step*Math.floor(i/10) + step/2;
-      c.beginPath(); c.arc(cx, cy, rad, 0, 7);
-      if (i < E.answer) { c.fillStyle = C.r; c.fill(); } else { c.fillStyle = C.line; c.fill(); }
-      if (i < state.guess) { c.lineWidth = 5; c.strokeStyle = C.g; c.beginPath(); c.arc(cx, cy, rad + 7, 0, 7); c.stroke(); }
+      c.beginPath(); c.arc(cx, cy, rad, 0, 7); c.fillStyle = i < E.answer ? C.r : C.line; c.fill();
+      if (i < state.guess) { c.lineWidth = 4; c.strokeStyle = C.g; c.beginPath(); c.arc(cx, cy, rad + 6, 0, 7); c.stroke(); }
     }
-    top = gy + step*10 + 40;
+    var sx = M + step*10 + 50;
+    c.fillStyle = C.muted; font("400", 30, MO); c.fillText(up(T.accuracy), sx, gy + 30);
+    c.fillStyle = C.r; font("900", 170, AN, "extra-condensed"); c.fillText(String(sc), sx - 4, gy + 200);
+    c.fillStyle = C.muted; font("700", 56, AN, "condensed"); c.fillText("/100", sx, gy + 270);
+    top = -1;
   } else {
     // soru + üç seçenek: doğru sarı çerçeve ✓, senin yanlışın ✗
     c.fillStyle = C.fg; font("400", 40, NR);
@@ -379,8 +382,13 @@ function makeStory(sc){
       c.lineWidth = right ? 5 : 3; c.strokeStyle = right ? C.r : (mine ? C.g : C.line);
       c.fillStyle = right ? "rgba(240,180,76,.12)" : "rgba(27,35,39,.9)";
       c.beginPath(); c.rect(M, oy, W - 2*M, h); c.fill(); c.stroke();
-      c.fillStyle = right ? C.r : (mine ? C.g : C.muted); font("500", 44, MO);
-      c.fillText(right ? "✓" : (mine ? "✗" : "ABC"[i]), M + 34, oy + 92);
+      var mx = M + 52, my = oy + h/2;
+      if (right || mine) {
+        c.strokeStyle = right ? C.r : C.g; c.lineWidth = 7; c.lineCap = "round"; c.beginPath();
+        if (right) { c.moveTo(mx - 18, my + 2); c.lineTo(mx - 4, my + 16); c.lineTo(mx + 20, my - 16); }
+        else { c.moveTo(mx - 15, my - 15); c.lineTo(mx + 15, my + 15); c.moveTo(mx + 15, my - 15); c.lineTo(mx - 15, my + 15); }
+        c.stroke();
+      } else { c.fillStyle = C.muted; font("500", 44, MO); c.fillText("ABC"[i], M + 38, oy + 92); }
       c.fillStyle = right || mine ? C.fg : C.muted; font("400", 40, NR);
       var ol = wrap(c, o, W - 2*M - 140); ol.slice(0, 2).forEach(function(l, j){ c.fillText(l, M + 110, oy + (ol.length > 1 ? 66 : 90) + j*48); });
       if (mine && !right) { c.fillStyle = C.g; font("400", 26, MO); c.textAlign = "right"; c.fillText(up(T.your_mark), W - M - 30, oy + 40); c.textAlign = "left"; }
@@ -388,11 +396,13 @@ function makeStory(sc){
     });
     top = oy + 30;
   }
-  // isabet
+  // isabet (seçenekli sorularda altta; yüzde sorularında ızgaranın yanında çizildi)
+  if (top >= 0) {
   c.fillStyle = C.muted; font("400", 30, MO); c.fillText(up(T.accuracy), M, top + 20);
   c.fillStyle = C.r; font("900", 170, AN, "extra-condensed"); c.fillText(String(sc), M - 6, top + 190);
   var sw = c.measureText(String(sc)).width;
   c.fillStyle = C.muted; font("700", 60, AN, "condensed"); c.fillText("/100", M + sw + 6, top + 190);
+  }
   // alt: davet + adres
   c.fillStyle = C.line; c.fillRect(M, H - 250, W - 2*M, 2);
   c.fillStyle = C.fg; font("700", 56, AN, "condensed"); c.fillText(T.story_cta + " →", M, H - 160);
