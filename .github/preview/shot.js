@@ -24,7 +24,7 @@ const S = 'http://localhost:4000';
   ctx.setDefaultTimeout(8000);
   await ctx.addInitScript(() => { try { localStorage.setItem('tema', 'dark'); } catch (e) {} });
   let p = await ctx.newPage();
-  await p.goto(S + '/tr/', { waitUntil: 'load' }); await p.waitForTimeout(3200);
+  await p.goto(S + '/tr/deneyler/milgram-deneyi/', { waitUntil: 'load' }); await p.waitForTimeout(3200);
   await shot(p, '1-tr-ana.png');
   await p.mouse.wheel(0, 700); await p.waitForTimeout(1000);
   await play(p, 40);
@@ -41,7 +41,7 @@ const S = 'http://localhost:4000';
 
   // DE açık tema, sonuç
   ctx = await ctxFor(phone, 'light'); p = await ctx.newPage();
-  await p.goto(S + '/de/', { waitUntil: 'load' }); await p.waitForTimeout(3000);
+  await p.goto(S + '/de/experimente/milgram-experiment/', { waitUntil: 'load' }); await p.waitForTimeout(3000);
   await play(p, 70); await shot(p, '5-de-acik-sonuc.png');
   await ctx.close();
 
