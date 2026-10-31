@@ -13,8 +13,8 @@ meta:
 - Yale Üniversitesi
 - 40 katılımcı
 story:
-- Gazete ilanıyla gelen 40 erkek, “öğrenme ve ceza üzerine bir araştırma” için laboratuvara çağrıldı. Görevleri, yan odadaki “öğrenci” her yanlış cevap verdiğinde ona elektrik şoku vermekti.
-- Şok her seferinde 15 volt artıyordu. Makinedeki son düğmenin üzerinde 450 volt ve sadece “XXX” yazıyordu. Bir noktadan sonra öğrenci duvarı yumrukladı, sonra sesi hiç çıkmadı. Önlüklü deneyci her tereddütte sakin bir sesle “Devam etmeniz gerekiyor” dedi.
+- Gazete ilanıyla gelen 40 erkek, “hafıza ve öğrenme üzerine bir araştırma” için laboratuvara çağrıldı. Görevleri, yan odadaki “öğrenci” her yanlış cevap verdiğinde ona elektrik şoku vermekti.
+- Şok her seferinde 15 volt artıyordu. Makinedeki son düğmenin üzerinde 450 volt ve sadece “XXX” yazıyordu. Bir noktadan sonra öğrenci duvarı yumrukladı, sonra sesi hiç çıkmadı. Önlüklü deneyci her tereddütte sakin bir sesle “Lütfen devam edin” dedi.
 you:
   q: Sen olsan hangi düğmede dururdun?
   kind: generator
