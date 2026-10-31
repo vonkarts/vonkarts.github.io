@@ -24,7 +24,7 @@ jobs:
           (cd _site && python3 -m http.server 4000 >/dev/null 2>&1 &)
           sleep 2
           mkdir -p shots
-          node .github/preview/shot.js | tee shots/OZET.txt
+          timeout 420 node .github/preview/shot.js | tee shots/OZET.txt || true
           while read l; do echo "::notice::$l"; done < shots/OZET.txt
       - name: Push screenshots
         env:

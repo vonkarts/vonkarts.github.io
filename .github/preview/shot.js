@@ -14,6 +14,7 @@ const fs = require('fs');
   const report = [];
   async function ctxFor(opts, theme) {
     const ctx = await b.newContext(opts);
+    ctx.setDefaultTimeout(8000); ctx.setDefaultNavigationTimeout(20000);
     await ctx.addInitScript(t => { try { localStorage.setItem('tema', t); } catch (e) {} }, theme);
     return ctx;
   }
@@ -22,7 +23,7 @@ const fs = require('fs');
       font: document.fonts.check('16px Anybody') }));
     report.push(`${name}: taşma ${r.over}px · gsap ${r.gsap} · splittext ${r.split} · font ${r.font}`);
   }
-  async function shot(p, file, full = true) { await p.screenshot({ path: 'shots/' + file, fullPage: full }); }
+  async function shot(p, file, full = true) { await p.screenshot({ path: 'shots/' + file, fullPage: full }); console.log('çekildi ' + file); }
   async function play(p, you, guess) {
     await p.click(`[data-you="${you}"]`); await p.waitForTimeout(400);
     await p.click('#toPredict'); await p.waitForTimeout(2200);
@@ -36,12 +37,12 @@ const fs = require('fs');
   // Telefon, koyu: Milgram (yüzde sorusu)
   let ctx = await ctxFor(phone, 'dark'); let p = await ctx.newPage();
   const errs = []; p.on('pageerror', e => errs.push(e.message)); p.on('console', m => { if (m.type() === 'error') errs.push(m.text()); });
-  await p.goto(S + B + 'milgram-deneyi/', { waitUntil: 'networkidle' }); await p.waitForTimeout(2500);
+  await p.goto(S + B + 'milgram-deneyi/', { waitUntil: 'load' }); await p.waitForTimeout(2500);
   await check(p, 'telefon milgram'); await shot(p, '1-telefon-hikaye.png');
   await play(p, 3, 40); await shot(p, '2-telefon-tahmin.png', false);
   await p.click('#lock'); await p.waitForTimeout(4500); await shot(p, '3-telefon-sonuc.png');
   // Günün deneyi (en son deney, seçenekli soru)
-  await p.goto(S + B, { waitUntil: 'networkidle' }); await p.waitForTimeout(2500);
+  await p.goto(S + B, { waitUntil: 'load' }); await p.waitForTimeout(2500);
   await shot(p, '4-telefon-gunun-deneyi.png', false);
   await play(p, 0, 0); await p.click('#lock'); await p.waitForTimeout(4000);
   await shot(p, '5-telefon-gunun-sonuc.png');
@@ -52,7 +53,7 @@ const fs = require('fs');
 
   // Telefon, açık tema: karıncalar
   ctx = await ctxFor(phone, 'light'); p = await ctx.newPage();
-  await p.goto(S + B + 'karinca-adim-sayma-deneyi/', { waitUntil: 'networkidle' }); await p.waitForTimeout(2500);
+  await p.goto(S + B + 'karinca-adim-sayma-deneyi/', { waitUntil: 'load' }); await p.waitForTimeout(2500);
   await play(p, 1, 1); await p.click('#lock'); await p.waitForTimeout(4000);
   await check(p, 'telefon açık'); await shot(p, '7-telefon-acik-sonuc.png');
   await ctx.close();
@@ -60,7 +61,7 @@ const fs = require('fs');
   // Masaüstü, koyu: arşiv solda
   ctx = await ctxFor({ viewport: { width: 1366, height: 900 } }, 'dark'); p = await ctx.newPage();
   const errs2 = []; p.on('pageerror', e => errs2.push(e.message));
-  await p.goto(S + B + 'sahte-ameliyat-deneyi/', { waitUntil: 'networkidle' }); await p.waitForTimeout(2500);
+  await p.goto(S + B + 'sahte-ameliyat-deneyi/', { waitUntil: 'load' }); await p.waitForTimeout(2500);
   await check(p, 'masaüstü'); await shot(p, '8-masaustu-hikaye.png', false);
   await play(p, 0, 0); await p.click('#lock'); await p.waitForTimeout(4000);
   await shot(p, '9-masaustu-sonuc.png');
