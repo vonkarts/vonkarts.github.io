@@ -5,6 +5,7 @@ ref: about
 title: "Acerca de Corazonada y cómo se hace"
 seo_title: "Acerca de y método"
 description: "Cómo funciona Corazonada: cómo se eligen los experimentos y se comprueban con sus fuentes, dónde se usa IA, quién lo hace y cómo avisar de un error."
+image: /images/cards/es-home.jpg
 permalink: /es/acerca-de/
 ---
 <p class="lead">Corazonada es un juego diario basado en ciencia real. Cada día cuenta la historia de un experimento publicado. Tú dices qué harías, adivinas qué pasó de verdad y luego ves el resultado, las fuentes y lo que sabemos hoy.</p>

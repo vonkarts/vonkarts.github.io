@@ -5,6 +5,7 @@ ref: about
 title: "À propos d’Intuition et de sa fabrication"
 seo_title: "À propos et méthode"
 description: "Comment fonctionne Intuition : choix des expériences, vérification auprès des sources, usage de l’IA, qui fait le site et comment signaler une erreur."
+image: /images/cards/fr-home.jpg
 permalink: /fr/a-propos/
 ---
 <p class="lead">Intuition est un jeu quotidien fondé sur de la vraie science. Chaque jour, il raconte l’histoire d’une expérience publiée. Tu dis ce que tu ferais, tu devines ce qui s’est réellement passé, puis tu découvres le résultat, les sources et ce qu’on sait aujourd’hui.</p>

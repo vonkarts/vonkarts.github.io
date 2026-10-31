@@ -5,6 +5,7 @@ ref: about
 title: "About Gut Check and how it’s made"
 seo_title: "About & method"
 description: "How Gut Check works: how experiments are chosen and checked against their sources, where AI is used, who makes it and how to report a mistake."
+image: /images/cards/en-home.jpg
 permalink: /about/
 ---
 <p class="lead">Gut Check is a daily game built on real science. Each day it tells the story of one published experiment. You say what you would do, guess what really happened, and then see the result, the sources and what we know today.</p>
