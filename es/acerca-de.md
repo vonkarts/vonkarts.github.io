@@ -33,4 +33,4 @@ Corazonada lo hace vonkarts, un creador independiente que escribe con seudónimo
 Los errores pasan. Si ves uno, por favor [avísanos en GitHub](https://github.com/vonkarts/vonkarts.github.io/issues/new) (hace falta una cuenta gratuita de GitHub). Los errores confirmados se corrigen en la página en los cinco idiomas.
 
 ## Tus datos
-No hay cuentas, ni publicidad, ni cookies de seguimiento. Tus respuestas, puntuaciones y racha se guardan solo en tu propio navegador y nunca se nos envían. Las visitas se cuentan con GoatCounter, un contador respetuoso con la privacidad que no usa cookies ni recoge datos personales.
+No hay cuentas, ni publicidad, ni cookies de seguimiento. Tus respuestas, puntuaciones y racha se guardan solo en tu propio navegador. Lo único que se envía es tu apuesta en cada experimento, contada de forma anónima y sin relación contigo, para que el sitio pueda mostrar la media de los visitantes. Las visitas se cuentan con GoatCounter, un contador respetuoso con la privacidad que no usa cookies ni recoge datos personales.

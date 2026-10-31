@@ -7,6 +7,9 @@ en:
   about_url: /about/
   about_link: About & method
   health_note: This page is for information only and is not medical advice. Talk to a doctor about decisions on your own health.
+  more: "More experiments"
+  crowd_avg: "Visitors’ average guess: [n] · [c] people"
+  crowd_opt: "[n] of visitors"
   name: "Gut Check"
   home: "/"
   section: "/experiments/"
@@ -67,6 +70,9 @@ tr:
   about_url: /tr/hakkinda/
   about_link: Hakkında ve yöntem
   health_note: Bu sayfa yalnızca bilgilendirme amaçlıdır, tıbbi tavsiye değildir. Kendi sağlığınla ilgili kararlar için bir doktora danış.
+  more: "Diğer deneyler"
+  crowd_avg: "Ziyaretçilerin ortalama tahmini: [n] · [c] kişi"
+  crowd_opt: "ziyaretçi oyu [n]"
   name: "Sezgi Testi"
   home: "/tr/"
   section: "/tr/deneyler/"
@@ -127,6 +133,9 @@ de:
   about_url: /de/ueber/
   about_link: Über & Methode
   health_note: Diese Seite dient nur der Information und ist keine medizinische Beratung. Sprich bei Entscheidungen über deine Gesundheit mit einer Ärztin oder einem Arzt.
+  more: "Weitere Experimente"
+  crowd_avg: "Durchschnittliche Schätzung der Besucher: [n] · [c] Personen"
+  crowd_opt: "[n] der Besucher"
   name: "Bauchgefühl"
   home: "/de/"
   section: "/de/experimente/"
@@ -187,6 +196,9 @@ fr:
   about_url: /fr/a-propos/
   about_link: À propos et méthode
   health_note: Cette page est uniquement informative et ne constitue pas un avis médical. Pour toute décision concernant ta santé, parles-en à un médecin.
+  more: "Autres expériences"
+  crowd_avg: "Pronostic moyen des visiteurs : [n] · [c] personnes"
+  crowd_opt: "[n] des visiteurs"
   name: "Intuition"
   home: "/fr/"
   section: "/fr/experiences/"
@@ -247,6 +259,9 @@ es:
   about_url: /es/acerca-de/
   about_link: Acerca de y método
   health_note: Esta página es solo informativa y no es consejo médico. Para decisiones sobre tu salud, consulta a un médico.
+  more: "Más experimentos"
+  crowd_avg: "Apuesta media de los visitantes: [n] · [c] personas"
+  crowd_opt: "[n] de los visitantes"
   name: "Corazonada"
   home: "/es/"
   section: "/es/experimentos/"
