@@ -5,6 +5,7 @@ ref: about
 title: "Sezgi Testi hakkında ve nasıl hazırlanıyor"
 seo_title: "Hakkında ve yöntem"
 description: "Sezgi Testi nasıl çalışır: deneyler nasıl seçilip kaynaklarıyla doğrulanıyor, yapay zekâ nerede kullanılıyor, kim yapıyor ve hata nasıl bildirilir."
+image: /images/cards/tr-home.jpg
 permalink: /tr/hakkinda/
 ---
 <p class="lead">Sezgi Testi, gerçek bilime dayanan günlük bir oyun. Her gün yayımlanmış bir deneyin hikâyesini anlatır. Önce sen ne yapacağını söylersin, sonra gerçekte ne olduğunu tahmin edersin; ardından sonucu, kaynakları ve bugün ne bildiğimizi görürsün.</p>
