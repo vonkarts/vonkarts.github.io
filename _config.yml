@@ -28,6 +28,11 @@ defaults:
       type: posts
     values:
       lang: en
+  - scope:
+      path: ""
+      type: experiments
+    values:
+      layout: experiment
   # Noindex kategori sayfaları ve Google doğrulama dosyası site haritasına girmesin
   - scope:
       path: "kategori"
@@ -37,6 +42,11 @@ defaults:
       path: "googledd59405c5d8809f3.html"
     values:
       sitemap: false
+
+# Sezgi Testi: her deney kendi sayfası (_experiments/<dil>/<slug>.md)
+collections:
+  experiments:
+    output: true
 
 permalink: /:title/
 markdown: kramdown
