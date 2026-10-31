@@ -49,5 +49,9 @@ Tema: telefonun ayarı (sistem) + elle Otomatik/Açık/Koyu (localStorage "tema"
 - "Hareketi azalt" açıksa ya da GSAP yüklenemezse her şey animasyonsuz ama eksiksiz.
 - İstenmedi, ekleme: harflerin şifre çözülür gibi açılması (ScrambleText), ışıma efektleri.
 
+## İkon: usturlap (2026-10-31, kullanıcı seçti)
+Eski bir gök ölçüm aleti gibi kadran: 36 çentikli beyaz dış halka, camgöbeği yay = tahmin, sarı ibre = gerçek (%65'i gösterir), sarı merkez. Koyu zemin, hafif ölçüm ızgarası.
+Kaynak çizim `images/icon-source.svg` (512 px; icon-512, icon-192 ve 48 px favicon buradan). 16/32 px ve `favicon.svg` için ayrıntısı azaltılmış ayrı çizim (çentikler yok, kalın çizgiler). `apple-touch-icon.png` köşesiz kare (iOS kendisi yuvarlar).
+
 ## Paylaşım kartları (1200×630)
 `.github/scripts/make_cards.py` çizer: koyu zemin, ızgara, logo + kayıt ışığı, künye, dev başlık, soru, sağ altta içi boş numara. Ana sayfa kartında 100 noktanın 65'i sarı.
