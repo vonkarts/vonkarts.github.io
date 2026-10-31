@@ -51,6 +51,12 @@ const S = 'http://localhost:4000';
   await p.click('#arc-btn'); await p.waitForTimeout(700); await shot(p, '6-es-arsiv.png', false);
   await ctx.close();
 
+  // Hakkında sayfası (TR) ve EN ana sayfa üst kısmı (tanıtım satırı)
+  ctx = await ctxFor(phone, 'dark'); p = await ctx.newPage();
+  await p.goto(S + '/tr/hakkinda/', { waitUntil: 'load' }); await p.waitForTimeout(1500); await shot(p, '7-tr-hakkinda.png');
+  await p.goto(S + '/', { waitUntil: 'load' }); await p.waitForTimeout(1500); await shot(p, '8-en-ust.png', false);
+  await ctx.close();
+
   // Eski blog adresleri → o dilin ana sayfası
   ctx = await ctxFor(phone, 'dark'); p = await ctx.newPage();
   for (const u of ['/tr/iyiligin-ardina-saklanan-kibir/', '/category/psychology/', '/de/archiv/']) {
