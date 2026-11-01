@@ -54,6 +54,7 @@ Tasarım kuralları: `DESIGN.md` (esas kaynak).
 - Süs amaçlı efekt önermeden önce somut faydasını söyle. "Dursun" denen şeyi yeniden önerme.
 - Dış denetçi: kullanıcı siteyi ChatGPT'ye denetletiyor; gelen geri bildirimleri dürüstçe değerlendir, doğru olanı uygula, yanlışsa nedenini söyle.
 - Instagram'a güvenilmez; ana trafik hedefi Google (kullanıcının kararı).
+- 2026-11-01: Paylaşımda cevabı gizleyip "Ben yanıldım. Sen bilebilir misin?" meydan okuması (metin + hikâye görseli) önizlemede hazırlandı (`onizleme-oyun` dalı, commit 9dbf8f2); kullanıcı "dursun" dedi. Paylaşım şimdilik gerçek cevabı göstermeye devam ediyor.
 - 2026-11-01: ChatGPT'nin SEO/GEO önerileri (deney sayfalarını uzun makaleye çevirmek, "oyunu atla" linki, konu makaleleri, anahtar kelime araştırması) değerlendirildi; kullanıcı "gerek yok, site spama düşmesin yeter" dedi → dursun. Öncelik: Google spam politikalarına uymak (toplu/şişirilmiş içerik yok, kullanıcıya ve Google'a aynı içerik, gerçek kaynaklı deneyler).
 
 ## Teknik notlar
