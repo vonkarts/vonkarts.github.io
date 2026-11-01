@@ -2,7 +2,7 @@
 layout: info
 lang: es
 ref: about
-title: "Acerca de Corazonada y cómo se hace"
+title: "Acerca de: cómo se eligen y se comprueban los experimentos"
 seo_title: "Acerca de y método"
 description: "Cómo funciona Corazonada: cómo se eligen los experimentos y se comprueban con sus fuentes, dónde se usa IA, quién lo hace y cómo avisar de un error."
 image: /images/cards/es-home.jpg

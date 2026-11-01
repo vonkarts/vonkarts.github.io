@@ -2,7 +2,7 @@
 layout: info
 lang: tr
 ref: about
-title: "Sezgi Testi hakkında ve nasıl hazırlanıyor"
+title: "Hakkında: deneyler nasıl seçiliyor ve kontrol ediliyor"
 seo_title: "Hakkında ve yöntem"
 description: "Sezgi Testi nasıl çalışır: deneyler nasıl seçilip kaynaklarıyla doğrulanıyor, yapay zekâ nerede kullanılıyor, kim yapıyor ve hata nasıl bildirilir."
 image: /images/cards/tr-home.jpg

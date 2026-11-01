@@ -2,7 +2,7 @@
 layout: info
 lang: de
 ref: about
-title: "Über Bauchgefühl und wie es entsteht"
+title: "Über das Projekt: wie Experimente ausgewählt und geprüft werden"
 seo_title: "Über & Methode"
 description: "So funktioniert Bauchgefühl: wie Experimente ausgewählt und anhand der Quellen geprüft werden, wo KI genutzt wird, wer es macht und wie man Fehler meldet."
 image: /images/cards/de-home.jpg

@@ -81,6 +81,8 @@ async function play(page) {
   }));
   if (!r.article) out.push('HATA: Sonuç bölümü (ilk sonuç, bugün, kaynaklar) tahminden sonra açılmadı');
   if (!/https?:\/\//.test(r.share)) out.push('HATA: Paylaşım metninde site linki yok');
+  if (!(await page.$('#story'))) out.push('HATA: "Hikâyede paylaş" düğmesi yok');
+  else { const ok = await page.evaluate(() => { try { return window.sezgiStoryPreview(50).length > 10000; } catch (e) { return false; } }); if (!ok) out.push('HATA: Hikâye görseli çizilemedi'); }
   if (r.over > 1) out.push(`HATA: Sonuç ekranı yana taşıyor (${r.over}px)`);
   return out;
 }
