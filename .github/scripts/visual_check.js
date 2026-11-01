@@ -81,6 +81,13 @@ async function play(page) {
   }));
   if (!r.article) out.push('HATA: Sonuç bölümü (ilk sonuç, bugün, kaynaklar) tahminden sonra açılmadı');
   if (!/https?:\/\//.test(r.share)) out.push('HATA: Paylaşım metninde site linki yok');
+  // paylaşım cevabı ele vermemeli (arkadaş linke tıklayıp kendisi tahmin etsin)
+  const leak = await page.evaluate(share => {
+    const e = JSON.parse(document.getElementById('game-data').textContent).e;
+    if (e.type === 'percent') return new RegExp('(^|[^0-9])(%\\s?' + e.answer + '|' + e.answer + '[\\s\\u00a0\\u202f]?%)').test(share);
+    return share.includes(e.opts[e.answer]);
+  }, r.share);
+  if (leak) out.push('HATA: Paylaşım metni deneyin cevabını ele veriyor');
   if (!(await page.$('#story'))) out.push('HATA: "Hikâyede paylaş" düğmesi yok');
   else { const ok = await page.evaluate(() => { try { return window.sezgiStoryPreview(50).length > 10000; } catch (e) { return false; } }); if (!ok) out.push('HATA: Hikâye görseli çizilemedi'); }
   if (r.over > 1) out.push(`HATA: Sonuç ekranı yana taşıyor (${r.over}px)`);
