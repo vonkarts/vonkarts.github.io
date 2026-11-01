@@ -2,7 +2,7 @@
 layout: info
 lang: en
 ref: about
-title: "About Gut Check and how it’s made"
+title: "About: how experiments are chosen and checked"
 seo_title: "About & method"
 description: "How Gut Check works: how experiments are chosen and checked against their sources, where AI is used, who makes it and how to report a mistake."
 image: /images/cards/en-home.jpg

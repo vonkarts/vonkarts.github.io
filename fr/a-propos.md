@@ -2,7 +2,7 @@
 layout: info
 lang: fr
 ref: about
-title: "À propos d’Intuition et de sa fabrication"
+title: "À propos : comment les expériences sont choisies et vérifiées"
 seo_title: "À propos et méthode"
 description: "Comment fonctionne Intuition : choix des expériences, vérification auprès des sources, usage de l’IA, qui fait le site et comment signaler une erreur."
 image: /images/cards/fr-home.jpg
