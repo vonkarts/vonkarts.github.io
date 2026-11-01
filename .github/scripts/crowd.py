@@ -79,6 +79,13 @@ def summary():
     t = req("/stats/total", {"start": week, "end": end})
     days = ", ".join(f"{d['day'][5:]}: {d.get('daily', 0)}" for d in (t.get("stats") or [])[-7:])
     print(f"::notice title=Ziyaret (7 gün, UTC)::toplam {t.get('total', 0)} ziyaretçi · günlük: {days}")
+    # Türkiye günü (UTC+3): bugün şu ana kadar ve dün bütün gün
+    tr = now + datetime.timedelta(hours=3)
+    d0 = datetime.datetime(tr.year, tr.month, tr.day) - datetime.timedelta(hours=3)  # bugünün TR gece yarısı, UTC
+    f = lambda x: x.strftime("%Y-%m-%dT%H:00:00Z")
+    today = req("/stats/total", {"start": f(d0), "end": end}).get("total", 0)
+    yday = req("/stats/total", {"start": f(d0 - datetime.timedelta(days=1)), "end": f(d0)}).get("total", 0)
+    print(f"::notice title=Ziyaret (Türkiye günü)::bugün ({tr:%d.%m}, saat {tr:%H:%M}'e kadar) {today} · dün bütün gün {yday}")
     def top(page, n=8):
         d = req(f"/stats/{page}", {"start": week, "end": end, "limit": n})
         return ", ".join(f"{x.get('name') or '(doğrudan)'} {x.get('count', 0)}" for x in (d.get("stats") or [])) or "-"
