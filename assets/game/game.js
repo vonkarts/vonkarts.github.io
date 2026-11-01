@@ -20,7 +20,9 @@ function pad(n){ return String(n).padStart(2, "0"); }
 function pct(n){ return fill(T.pct, "n", n); }
 /* Dev yüzde rakamı: % işareti dile göre önde (tr) ya da arkada */
 function bigPct(n){ return T.pct.charAt(0) === "%" ? "<sup>%</sup>" + n : n + '<sup class="after">%</sup>'; }
-function dayKey(d){ d = d || new Date(); return d.getFullYear() + "-" + pad(d.getMonth()+1) + "-" + pad(d.getDate()); }
+/* Gün anahtarı UTC: yeni deney her gün UTC'de açılır; seri ve haftalık noktalar aynı takvimi izler
+   (yerel tarih kullanılınca ör. Türkiye'de gece 00:00–03:00 arası oynayanın serisi yanlışlıkla kopuyordu). */
+function dayKey(d){ d = d || new Date(); return d.getUTCFullYear() + "-" + pad(d.getUTCMonth()+1) + "-" + pad(d.getUTCDate()); }
 var NO = E ? pad(E.no) : "";
 var IS_TODAY = E ? E.ref === D.latest : false;
 
@@ -37,8 +39,8 @@ function dailyDays(){
 }
 function streak(){
   var s = dailyDays(), n = 0, d = new Date();
-  if (!s[dayKey(d)]) d.setDate(d.getDate() - 1);
-  while (s[dayKey(d)]) { n++; d.setDate(d.getDate() - 1); }
+  if (!s[dayKey(d)]) d.setUTCDate(d.getUTCDate() - 1);
+  while (s[dayKey(d)]) { n++; d.setUTCDate(d.getUTCDate() - 1); }
   return n;
 }
 
@@ -48,7 +50,7 @@ function header(){
   $("#streak").textContent = T.streak + " " + streak();
   w.innerHTML = "";
   for (var i = 6; i >= 0; i--) {
-    var d = new Date(); d.setDate(d.getDate() - i);
+    var d = new Date(); d.setUTCDate(d.getUTCDate() - i);
     var dot = document.createElement("i");
     if (s[dayKey(d)]) dot.className = "done";
     if (i === 0) dot.className += " today";
