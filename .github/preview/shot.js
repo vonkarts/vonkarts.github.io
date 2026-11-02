@@ -83,18 +83,21 @@ const S = 'http://localhost:4000';
   await ctx.close();
 
   // Logo seçenekleri: üst şeritte oyun adı yerine "vonkarts" (yalnızca önizleme; CSS ile denenir)
+  const FACES = ['doto', 'silkscreen', 'vt323', 'pixelify'].map(n => '@font-face{font-family:"L-' + n + '";src:url(/assets/game/fonts/logo-' + n + '.woff) format("woff");font-weight:100 900;font-display:block}').join('');
   const LOGO = {
     'a-genis': 'font-family:var(--display);font-weight:900;font-variation-settings:"wdth" 125;font-size:21px;letter-spacing:-.03em;text-transform:none',
-    'b-serif': 'font-family:"Newsreader",Georgia,serif;font-weight:400;font-variation-settings:normal;font-size:25px;letter-spacing:-.01em;text-transform:none',
     'c-mono': 'font-family:"IBM Plex Mono",monospace;font-weight:500;font-variation-settings:normal;font-size:16px;letter-spacing:.02em;text-transform:none',
-    'd-dar': 'font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 72;font-size:18px;text-transform:uppercase',
+    'e-nokta': 'font-family:"L-doto";font-weight:900;font-variation-settings:"wght" 900,"ROND" 100;font-size:27px;letter-spacing:.01em;text-transform:none',
+    'f-silkscreen': 'font-family:"L-silkscreen";font-weight:700;font-variation-settings:normal;font-size:17px;letter-spacing:.02em;text-transform:none',
+    'g-terminal-piksel': 'font-family:"L-vt323";font-weight:400;font-variation-settings:normal;font-size:28px;letter-spacing:.02em;text-transform:none',
+    'h-pixelify': 'font-family:"L-pixelify";font-weight:700;font-variation-settings:"wght" 700;font-size:23px;letter-spacing:.01em;text-transform:none',
   };
   for (const [name, css] of Object.entries(LOGO)) {
     ctx = await ctxFor(phone, 'dark'); p = await ctx.newPage();
     await p.goto(S + '/tr/', { waitUntil: 'load' }); await p.waitForTimeout(1800);
-    await p.addStyleTag({ content: '.mark{' + css + '}' });
-    await p.evaluate(n => { const m = document.querySelector('#mark'); m.textContent = n === 'c-mono' ? 'vonkarts_' : 'vonkarts'; }, name);
-    await p.waitForTimeout(400);
+    await p.addStyleTag({ content: FACES + '.mark{' + css + '}' });
+    await p.evaluate(n => { const m = document.querySelector('#mark'); m.textContent = (n === 'c-mono' || n === 'g-terminal-piksel') ? 'vonkarts_' : 'vonkarts'; }, name);
+    await p.evaluate(() => document.fonts.ready); await p.waitForTimeout(600);
     await p.screenshot({ path: 'shots/logo-' + name + '.png', clip: { x: 0, y: 0, width: 390, height: 420 } }); console.log('çekildi logo-' + name);
     await ctx.close();
   }
