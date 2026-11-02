@@ -1,5 +1,5 @@
 ---
-date: 2026-10-31
+date: 2026-11-02
 lang: de
 ref: jam
 'no': 3

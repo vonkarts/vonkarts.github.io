@@ -81,5 +81,22 @@ const S = 'http://localhost:4000';
     console.log('yönlendirme: ' + u + ' → ' + p.url().replace(S, ''));
   }
   await ctx.close();
+
+  // Logo seçenekleri: üst şeritte oyun adı yerine "vonkarts" (yalnızca önizleme; CSS ile denenir)
+  const LOGO = {
+    'a-genis': 'font-family:var(--display);font-weight:900;font-variation-settings:"wdth" 125;font-size:21px;letter-spacing:-.03em;text-transform:none',
+    'b-serif': 'font-family:"Newsreader",Georgia,serif;font-weight:400;font-variation-settings:normal;font-size:25px;letter-spacing:-.01em;text-transform:none',
+    'c-mono': 'font-family:"IBM Plex Mono",monospace;font-weight:500;font-variation-settings:normal;font-size:16px;letter-spacing:.02em;text-transform:none',
+    'd-dar': 'font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 72;font-size:18px;text-transform:uppercase',
+  };
+  for (const [name, css] of Object.entries(LOGO)) {
+    ctx = await ctxFor(phone, 'dark'); p = await ctx.newPage();
+    await p.goto(S + '/tr/', { waitUntil: 'load' }); await p.waitForTimeout(1800);
+    await p.addStyleTag({ content: '.mark{' + css + '}' });
+    await p.evaluate(n => { const m = document.querySelector('#mark'); m.textContent = n === 'c-mono' ? 'vonkarts_' : 'vonkarts'; }, name);
+    await p.waitForTimeout(400);
+    await p.screenshot({ path: 'shots/logo-' + name + '.png', clip: { x: 0, y: 0, width: 390, height: 420 } }); console.log('çekildi logo-' + name);
+    await ctx.close();
+  }
   await b.close();
 })().catch(e => { console.log('HATA: ' + e.message.split('\n')[0]); });
