@@ -37,6 +37,7 @@ Tema: telefonun ayarı (sistem) + elle Otomatik/Açık/Koyu (localStorage "tema"
 - **Düğmeler:** içi boş, ince çerçeveli, mono büyük harf. Pasifken çizgi rengi.
 - **Paylaşım kartı:** terminal penceresi (üstte üç nokta, mono metin, "> " istemi, sarı puan).
 - **100 kişi ızgarası:** 10×10 nokta; tahmin camgöbeği, gerçek sarı; sonuçta tahmin halka olarak kalır.
+- **Logo (üst şerit):** 5 dilde de "vonkarts_" — VT323 piksel terminal yazı tipi (OFL; yalnızca bu harfler, `fonts/vt323-logo.woff`), 28 px, küçük harf, sondaki "_" CSS ile. Oyunun dile göre adı (Sezgi Testi, Gut Check…) sekme başlığında, paylaşım metninde ve hikâye görselinde kalır. (2026-11-02, kullanıcı seçti)
 - **Kayıt ışığı:** logonun solunda yanıp sönen sarı nokta.
 - Bölüm başlıkları "▸ " ile başlar (konsol etiketi).
 - Emoji yok. Fotoğraf yok (paylaşım kartları hariç, onlar da yazı + ızgara).
