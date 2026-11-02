@@ -1,4 +1,5 @@
 ---
+date: 2026-11-02
 lang: es
 ref: jam
 'no': 3
