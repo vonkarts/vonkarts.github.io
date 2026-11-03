@@ -35,7 +35,7 @@ stats:
   - chiens dans une étude de 2012 sur la même question
 you_real: 'Dans l’étude, le regard en disait plus sur le maître que sur le chien : il était le plus marqué quand des chiens obéissants étaient grondés malgré tout.'
 original: 'Que le chien ait réellement mangé la friandise ou non ne changeait rien à ses comportements de « culpabilité ». Être grondé, si : les chiens grondés en montraient beaucoup plus, et surtout quand ils étaient grondés sans avoir mangé la friandise.'
-today: Une étude de 2012 menée en Hongrie avec 64 chiens a montré que les chiens qui avaient enfreint une règle et ceux qui ne l’avaient pas fait se comportaient de façon aussi coupable en accueillant leur maître. Aucune des deux études ne dit que les chiens ne ressentent rien ; elles montrent que « le regard » n’est pas un signe fiable qu’un chien a fait une bêtise.
+today: Une étude de 2012 menée en Hongrie avec 64 chiens a montré que les chiens qui avaient enfreint une règle et ceux qui ne l’avaient pas fait présentaient autant de comportements associés à la culpabilité lorsque leur maître revenait. Aucune des deux études ne dit que les chiens ne ressentent rien ; elles montrent que « le regard » n’est pas un signe fiable qu’un chien a fait une bêtise.
 surprise: Les chiens qui avaient suivi des cours d’obéissance montraient plus souvent le regard coupable quand on les grondait.
 sources:
 - - 'Horowitz, A. (2009). Disambiguating the “guilty look”: Salient prompts to a familiar dog behaviour. Behavioural Processes, 81(3), 447–452.'

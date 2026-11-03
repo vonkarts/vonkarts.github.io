@@ -32,7 +32,7 @@ stats:
 - - '918'
   - Kinder in der Studie von 2018
 - - 2/3
-  - des Zusammenhangs verschwanden, als der Hintergrund berücksichtigt wurde
+  - des verbleibenden Zusammenhangs verschwanden, als der Hintergrund berücksichtigt wurde
 you_real: In der Studie von 2018 war der Zusammenhang zwischen der Wartezeit und den Schulleistungen mit 15 nur halb so stark wie in den Originalstudien, und zwei Drittel davon verschwanden, als der Familienhintergrund berücksichtigt wurde.
 original: Die bekannteste Version (1972) fand im Bing-Kindergarten in Stanford mit 50 Kindern statt; die Belohnungen waren Marshmallows oder Salzstangen. Folgestudien von 1988 und 1990 berichteten, dass Kinder, die länger gewartet hatten, als Jugendliche als kompetenter eingeschätzt wurden und höhere SAT-Werte hatten.
 today: In der Wiederholung von 2018 war der Zusammenhang zwischen Warten und Leistung mit 15 nur halb so groß wie in den Originalstudien berichtet. Mit Kontrollen für Familienhintergrund, frühe kognitive Fähigkeiten und das häusliche Umfeld schrumpfte er um weitere zwei Drittel. Der Test scheint die Lebenslage eines Kindes ebenso zu messen wie seine Willenskraft.

@@ -32,7 +32,7 @@ stats:
 - - '918'
   - çocuk, 2018 araştırmasında
 - - 2/3
-  - bağın aile geçmişi hesaba katılınca kaybolan kısmı
+  - kalan bağın, aile geçmişi hesaba katılınca kaybolan kısmı
 you_real: 2018 araştırmasında, çocukların ne kadar beklediği ile 15 yaşındaki okul başarıları arasındaki bağ, orijinal çalışmalardakinin yarısı kadardı; aile geçmişi hesaba katılınca da bunun üçte ikisi kayboldu.
 original: En bilinen versiyon (1972), Stanford'daki Bing Anaokulu'nda 50 çocukla yapıldı; ödüller marshmallow ya da tuzlu çubuktu. 1988 ve 1990'daki takip araştırmaları, daha uzun bekleyen çocukların ergenlikte daha yetkin bulunduğunu ve SAT puanlarının daha yüksek olduğunu bildirdi.
 today: 2018'deki tekrar araştırmasında beklemek ile 15 yaşındaki başarı arasındaki bağ, orijinal çalışmalarda bildirilenin yalnızca yarısı kadardı. Aile geçmişi, erken yaştaki bilişsel beceriler ve ev ortamı hesaba katılınca bu bağ üçte iki oranında daha küçüldü. Test, çocuğun irade gücünü olduğu kadar içinde bulunduğu koşulları da ölçüyor gibi görünüyor.

@@ -5,14 +5,14 @@ ref: crash
 permalink: /tr/deneyler/loftus-palmer-araba-kazasi-deneyi/
 title: Tek bir kelime
 seo_title: 'Loftus ve Palmer Araba Kazası Deneyi: Sonuçlar'
-description: İnsanlar filmde bir araba kazası izledi ve arabaların birbirine “çarptığında” ne kadar hızlı gittiği soruldu. Bir hafta sonra kaçı kırık cam “hatırladı”?
+description: İnsanlar filmde bir araba kazası izledi ve arabaların “birbirine girdiklerinde” ne kadar hızlı gittiği soruldu. Bir hafta sonra kaçı kırık cam “hatırladı”?
 image: /images/cards/tr-crash.jpg
 meta:
 - '1974'
 - Washington Üniversitesi
 - Öğrenciler
 story:
-- 'Öğrenciler trafik kazalarını gösteren kısa filmler izledi. Ardından gördükleriyle ilgili soruları cevapladılar, aralarında şu da vardı: “Arabalar birbirine ___ zaman ne kadar hızlı gidiyordu?” Fiil gruptan gruba değişiyordu: “paramparça olurcasına çarptıklarında”, “çarpıştıklarında”, “tosladıklarında”, “vurduklarında” ya da “temas ettiklerinde”.'
+- 'Öğrenciler trafik kazalarını gösteren kısa filmler izledi. Ardından gördükleriyle ilgili soruları cevapladılar, aralarında şu da vardı: “Arabalar ___ yaklaşık ne kadar hızlı gidiyordu?” Boşluğa gelen ifade gruptan gruba değişiyordu: “birbirine girdiklerinde”, “çarpıştıklarında”, “tosladıklarında”, “birbirine çarptıklarında” ya da “birbirine değdiklerinde”.'
 - 'Bir hafta sonra katılımcılar geri geldi ve filmi yeniden izlemeden başka soruları cevapladı. Bunlardan biri şuydu: “Kırık cam gördünüz mü?” Filmde kırık cam yoktu.'
 you:
   q: Filmden bir hafta sonra sana kırık camı soruyorlar. Geçen haftaki kelime seni etkiler miydi?
@@ -23,9 +23,9 @@ you:
   - Muhtemelen evet
 type: percent
 answer: 32
-q: “Paramparça olurcasına çarptıklarında” ifadesini duyanların yüzde kaçı kırık cam gördüğünü söyledi?
-you_real: “Paramparça olurcasına çarptıklarında” ifadesini duyan gerçek katılımcıların %32'si kırık cam gördüğünü söyledi; “vurduklarında” ifadesini duyanlarda bu oran %14'tü.
-original: İlk deneyde (45 öğrenci) “paramparça olurcasına çarptıklarında” ifadesi ortalama saatte 40,8 mil (yaklaşık 66 km), “temas ettiklerinde” ise 31,8 mil (yaklaşık 51 km) hız tahmini getirdi. İkinci deneyde (150 öğrenci) “paramparça” grubunun %32'si kırık cam gördüğünü söyledi; “vurduklarında” grubunda bu oran %14, hızı hiç sorulmayan grupta %12'ydi.
+q: “Birbirine girdiklerinde” ifadesini duyanların yüzde kaçı kırık cam gördüğünü söyledi?
+you_real: “Birbirine girdiklerinde” ifadesini duyan gerçek katılımcıların %32'si kırık cam gördüğünü söyledi; “birbirine çarptıklarında” ifadesini duyanlarda bu oran %14'tü.
+original: İlk deneyde (45 öğrenci) “birbirine girdiklerinde” ifadesi ortalama saatte 40,8 mil (yaklaşık 66 km), “birbirine değdiklerinde” ise 31,8 mil (yaklaşık 51 km) hız tahmini getirdi. İkinci deneyde (150 öğrenci) “birbirine girdiklerinde” grubunun %32'si kırık cam gördüğünü söyledi; “birbirine çarptıklarında” grubunda bu oran %14, hızı hiç sorulmayan grupta %12'ydi.
 today: Araştırma bellek çalışmalarının klasiklerinden biri oldu ve polisin ve mahkemelerin görgü tanığı ifadesine ve yönlendirici sorulara bakışını etkiledi. Örneklemler küçüktü ve öğrencilerden oluşuyordu, ama sonraki araştırmalar soruların nasıl sorulduğunun insanların hatırladığını söylediği şeyi değiştirebildiğini defalarca gösterdi.
 surprise: Tek bir sorudaki tek bir kelime, bazı insanların bir hafta sonra gördüğünü “hatırladığı” şeyi değiştirmeye yetti.
 sources:

@@ -32,7 +32,7 @@ stats:
 - - '918'
   - niños en el estudio de 2018
 - - 2/3
-  - de la relación desaparecieron al tener en cuenta el entorno
+  - de la relación restante desaparecieron al tener en cuenta el entorno
 you_real: En el estudio de 2018, la relación entre cuánto esperaban los niños y sus resultados escolares a los 15 años era la mitad de fuerte que en los estudios originales, y dos tercios de ella desaparecían al tener en cuenta el entorno familiar.
 original: La versión más conocida (1972) se hizo en la escuela infantil Bing de Stanford con 50 niños; las recompensas eran malvaviscos o palitos salados. Estudios de seguimiento de 1988 y 1990 informaron de que los niños que habían esperado más eran considerados más competentes en la adolescencia y tenían mejores puntuaciones en el SAT.
 today: En la réplica de 2018, la relación entre esperar y el rendimiento a los 15 años era solo la mitad de la que se había informado en los estudios originales. Al controlar el entorno familiar, la capacidad cognitiva temprana y el ambiente en casa, se reducía otros dos tercios. El test parece medir la situación del niño tanto como su fuerza de voluntad.

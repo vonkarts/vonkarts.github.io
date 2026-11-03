@@ -30,9 +30,9 @@ opts:
 - Es gab keinen Unterschied
 stats:
 - - 4,8
-  - Silbermedaillen, Durchschnittswert direkt nach dem Wettkampf
+  - Silbermedaillengewinner, durchschnittliche Bewertung direkt nach dem Wettkampf
 - - 7,1
-  - Bronzemedaillen, im selben Moment
+  - Bronzemedaillengewinner, im selben Moment
 you_real: 'Im Durchschnitt wirkten die echten Silbermedaillengewinner weniger glücklich als die Bronzemedaillengewinner: 4,8 gegenüber 7,1 von 10, direkt nach dem Wettkampf.'
 original: 'Direkt nach dem Wettkampf erhielten Silbermedaillengewinner 4,8 und Bronzemedaillengewinner 7,1 Punkte; auf dem Podest 4,3 und 5,7. Die Erklärung der Forschenden: Silbergewinner vergleichen sich nach oben („Fast hätte ich Gold geholt“), Bronzegewinner nach unten („Wenigstens habe ich eine Medaille“).'
 today: 'Eine Studie von 2021 analysierte mit Software zur Gesichtsausdruckserkennung Podestfotos von 413 Athletinnen und Athleten aus fünf Olympischen Spielen (2000–2016): Bronzemedaillengewinner lächelten mit höherer Wahrscheinlichkeit als Silbermedaillengewinner, am glücklichsten waren die Goldmedaillengewinner.'

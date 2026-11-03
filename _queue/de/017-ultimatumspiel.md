@@ -3,7 +3,7 @@ lang: de
 ref: ultimatum
 'no': 17
 permalink: /de/experimente/ultimatumspiel/
-title: Friss oder stirb
+title: Nimm’s oder lass es
 seo_title: 'Ultimatumspiel: Wie viel bieten Menschen an?'
 description: Eine Person schlägt eine Aufteilung des Geldes vor; die andere nimmt an oder lehnt ab, dann bekommt keiner etwas. Wie viel bieten Menschen wirklich an? Schätz.
 image: /images/cards/de-ultimatum.jpg
