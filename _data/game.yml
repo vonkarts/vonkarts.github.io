@@ -65,6 +65,7 @@ en:
   theme_label: "Theme"
   not_found: "This page doesn’t exist."
   not_found_go: "Go to today’s experiment"
+  gone_note: "The old blog posts on this site have been removed. vonkarts is now a daily game: guess the outcome of a real, published experiment."
 tr:
   lang_name: "Türkçe"
   intro: Her gün gerçek, yayımlanmış bir deney. Önce tahmin et, sonra gerçekte ne olduğunu gör.
@@ -130,6 +131,7 @@ tr:
   theme_label: "Tema"
   not_found: "Bu sayfa yok."
   not_found_go: "Günün deneyine git"
+  gone_note: "Sitedeki eski blog yazıları kaldırıldı. vonkarts artık günlük bir oyun: gerçek, yayımlanmış bir deneyin sonucunu tahmin et."
 de:
   lang_name: "Deutsch"
   intro: Jeden Tag ein echtes, veröffentlichtes Experiment. Erst schätzen, dann sehen, was wirklich geschah.
@@ -195,6 +197,7 @@ de:
   theme_label: "Design"
   not_found: "Diese Seite gibt es nicht."
   not_found_go: "Zum Experiment des Tages"
+  gone_note: "Die alten Blogartikel dieser Seite wurden entfernt. vonkarts ist jetzt ein tägliches Spiel: Schätz das Ergebnis eines echten, veröffentlichten Experiments."
 fr:
   lang_name: "Français"
   intro: Chaque jour, une vraie expérience publiée. Devine d’abord, puis découvre ce qui s’est réellement passé.
@@ -260,6 +263,7 @@ fr:
   theme_label: "Thème"
   not_found: "Cette page n’existe pas."
   not_found_go: "Aller à l’expérience du jour"
+  gone_note: "Les anciens articles de blog de ce site ont été supprimés. vonkarts est désormais un jeu quotidien : devine le résultat d’une vraie expérience publiée."
 es:
   lang_name: "Español"
   intro: Cada día, un experimento real y publicado. Primero adivina, luego mira qué pasó de verdad.
@@ -325,3 +329,4 @@ es:
   theme_label: "Tema"
   not_found: "Esta página no existe."
   not_found_go: "Ir al experimento del día"
+  gone_note: "Los antiguos artículos del blog de este sitio se han eliminado. vonkarts ahora es un juego diario: adivina el resultado de un experimento real y publicado."

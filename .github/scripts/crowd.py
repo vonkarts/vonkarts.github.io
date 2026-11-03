@@ -25,7 +25,7 @@ def req(path, params=None):
             with urllib.request.urlopen(r, timeout=60) as f:
                 return json.loads(f.read() or b"{}")
         except urllib.error.HTTPError as e:
-            if e.code == 429 and attempt < 4:
+            if e.code in (404, 429, 500, 502, 503, 504) and attempt < 4:  # GoatCounter ara sıra geçici 404 veriyor
                 time.sleep(2 + attempt * 3); continue
             body = e.read()[:300].decode("utf-8", "replace").replace("\n", " ")
             print(f"::error title=Ziyaretçi ortalaması::GoatCounter {path} → HTTP {e.code}: {body}")

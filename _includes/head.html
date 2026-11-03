@@ -24,9 +24,9 @@
   {%- if page.daily_page and L == 'en' %}
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":{{ site.title | jsonify }},"alternateName":[{{ T.name | jsonify }},"vonkarts.com"],"url":"{{ '/' | absolute_url }}","inLanguage":["en","tr","de","fr","es"]}</script>
   {%- endif %}
-  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="48x48">
-  <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}?v=2" sizes="48x48">
+  <link rel="icon" href="{{ '/favicon.svg' | relative_url }}?v=2" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}?v=2">
   <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
   <meta name="theme-color" content="#e8ecea" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0c1012" media="(prefers-color-scheme: dark)">
