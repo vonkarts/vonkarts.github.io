@@ -17,37 +17,41 @@ Adaylar doğrulanmadı: her rakam yayına girmeden önce orijinal makaleden kont
 | 8 | ants | Ayaklıklı karıncalar, Wittlinger vd. (2006) | sırada |
 | 9 | hothand | Sıcak el yanılgısı, Gilovich vd. (1985) + Miller & Sanjurjo | sırada |
 | 10 | mpemba | Mpemba etkisi (1969) | sırada |
+| 11 | bystander | Seyirci etkisi: nöbet geçiren öğrenci, Darley & Latané (1968) | sırada |
+| 12 | parachute | Paraşüt RCT'si, Yeh vd. (BMJ 2018) | sırada |
+| 13 | anchor | Çapa etkisi: şans çarkı, Tversky & Kahneman (1974) | sırada |
+| 14 | dogguilt | Köpeklerin suçlu bakışı, Horowitz (2009) | sırada |
+| 15 | gorilla | Görünmez goril, Simons & Chabris (1999) | sırada |
+| 16 | penalty | Penaltıda kaleci, Bar-Eli vd. (2007) | sırada |
+| 17 | ultimatum | Ültimatom oyunu, Güth vd. (1982) + Oosterbeek (2004) | sırada |
+| 18 | crash | Araba kazası kelime deneyi, Loftus & Palmer (1974) | sırada |
+| 19 | medals | Gümüş / bronz madalya, Medvec vd. (1995) | sırada |
+| 20 | marshmallow | Marshmallow testi, Mischel (1972) + Watts vd. (2018) | sırada |
 
 ## Adaylar (öncelik sırasıyla; ünlüler önce)
 ### Sosyal psikoloji
-- Seyirci etkisi: nöbet geçiren öğrenci, Darley & Latané (1968)
 - Dumanla dolan oda, Latané & Darley (1968)
 - Kapıdaki ayak (foot-in-the-door), Freedman & Fraser (1966)
 - Bilişsel çelişki: 1 dolar / 20 dolar, Festinger & Carlsmith (1959)
 - Halo etkisi, Nisbett & Wilson (1977)
 - Robbers Cave yaz kampı, Sherif (1954) + eleştirileri
-- Stanford hapishane deneyi (1971) + eleştirileri (Le Texier 2019)
+- Stanford hapishane deneyi (1971) + eleştirileri (Le Texier 2019) — dikkat: sayısal, tahmin edilebilir bir sonucu yok; ancak "bugün ne biliyoruz" odaklı bir soruyla
 - Fotokopi sırası "çünkü" deneyi, Langer vd. (1978)
 - Sahte fikir birliği, Ross vd. (1977) (tabela taşıma)
 - Sahnede konuşmacı / spot ışığı etkisi: Barry Manilow tişörtü, Gilovich vd. (2000)
 - Pigmalyon etkisi, Rosenthal & Jacobson (1968) + eleştirileri
 - Kendini ortalamanın üstünde görmek: sürücüler, Svenson (1981)
-- Görmezden gelinen goril, Simons & Chabris (1999)
 - Değişim körlüğü: kapı deneyi, Simons & Levin (1998)
 - Seçim körlüğü: fotoğraflar, Johansson vd. (2005)
 ### Davranışsal ekonomi
-- Ultimatom oyunu, Güth vd. (1982)
-- Çapa etkisi: çark, Tversky & Kahneman (1974)
 - Sahiplik etkisi: kupa deneyi, Kahneman vd. (1990)
 - Organ bağışında varsayılan seçenek, Johnson & Goldstein (2003)
-- Kısa vadeli sabırsızlık: marshmallow testi, Mischel (1972) + Watts vd. (2018)
 - Para teşvikinin ters tepmesi: kreş cezası, Gneezy & Rustichini (2000)
 - Fiyat ve plasebo: pahalı ağrı kesici, Waber vd. (2008)
 - Kelime çerçeveleme: Asya hastalığı problemi, Tversky & Kahneman (1981)
 - Bedava kurabiye / sıfır fiyat etkisi, Shampanier vd. (2007)
 - Kayıptan kaçınma: yazı-tura bahsi (Tom vd. 2007)
 ### Tıp ve sağlık (health: true)
-- Paraşüt RCT'si, Yeh vd. (BMJ 2018)
 - Açık etiketli plasebo, Kaptchuk vd. (2010)
 - El yıkama ve doğum ateşi, Semmelweis (1847)
 - Mide ülseri ve bakteri, Marshall (1984/85)
@@ -57,7 +61,6 @@ Adaylar doğrulanmadı: her rakam yayına girmeden önce orijinal makaleden kont
 - Arıların dansı ve uzaklık, von Frisch (1967)
 - Kargaların yüz hatırlaması, Marzluff vd. (2010)
 - Akıllı Hans atı, Pfungst (1907)
-- Köpeklerin suçlu bakışı, Horowitz (2009)
 - Fil ayna testi, Plotnik vd. (2006)
 - Şempanze ve ultimatom oyunu, Jensen vd. (2007)
 - Ahtapotun kavanoz açması / öğrenme (aday araştırılacak)
@@ -69,10 +72,8 @@ Adaylar doğrulanmadı: her rakam yayına girmeden önce orijinal makaleden kont
 - Spagetti neden ikiye kırılmaz, Audoly & Neukirch (2005)
 - Sıcak su borusunun donması vb. (Mpemba ile tekrar olmasın)
 ### Spor
-- Penaltıda kalecinin ortada kalması, Bar-Eli vd. (2007)
 - Kırmızı forma ve kazanma, Hill & Barton (2005)
 - Ev sahibi avantajı ve hakem, Nevill vd. (2002)
-- Gümüş madalyalının bronzdan mutsuz olması, Medvec vd. (1995)
 ### Ig Nobel (gerçek ve şaşırtıcı)
 - Küfür etmenin ağrıya etkisi, Stephens vd. (2009)
 - Yürüyen kahve neden dökülür, Mayer & Krechetnikov (2012)
@@ -80,7 +81,6 @@ Adaylar doğrulanmadı: her rakam yayına girmeden önce orijinal makaleden kont
 - Banyo / bira köpüğü vb. (aday araştırılacak)
 ### Bellek ve algı
 - Sahte anı: alışveriş merkezinde kaybolmak, Loftus & Pickrell (1995)
-- Araba kazası kelime deneyi ("çarptı" / "dokundu"), Loftus & Palmer (1974)
 - Şarabın fiyatı ve tat (Plassmann vd. 2008)
 - Zaman algısı / beklenti etkisi (aday araştırılacak)
 
