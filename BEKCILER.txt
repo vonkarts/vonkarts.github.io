@@ -1,0 +1,120 @@
+== Deney dosyaları
+20 deney · yayında 20 · sırada 0 · 0 hata
+::warning title=Sıra boş::Sırada deney kalmadı; yeni deney eklenmeli
+== Dil
+110 sayfa tarandı · 0 hata · 0 uyarı
+== SEO
+SAYFALAR (110)
+/ | lang=en | T38 D152 | h1:1 h2:7 | ld:WebSite | hl:6 | w451 | OK
+/de/experimente/milgram-experiment/ | lang=de | T64 D150 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w345 | OK
+/de/experimente/asch-konformitaetsexperiment/ | lang=de | T61 D150 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w314 | OK
+/de/experimente/marmeladen-experiment/ | lang=de | T66 D149 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w276 | başlık uzun(66)
+/de/experimente/barmherziger-samariter-experiment/ | lang=de | T63 D128 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w290 | OK
+/de/experimente/verlorene-geldboerse-experiment/ | lang=de | T64 D146 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w284 | OK
+/de/experimente/schein-operation-knie-studie/ | lang=de | T58 D132 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w384 | OK
+/de/experimente/rot-gefaerbter-weisswein-experiment/ | lang=de | T64 D128 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w265 | OK
+/de/experimente/ameisen-auf-stelzen-experiment/ | lang=de | T64 D132 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w311 | OK
+/de/experimente/hot-hand-phaenomen/ | lang=de | T56 D138 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w346 | OK
+/de/experimente/mpemba-effekt/ | lang=de | T62 D132 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w353 | OK
+/de/experimente/zuschauereffekt-experiment/ | lang=de | T58 D147 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w368 | OK
+/de/experimente/fallschirm-studie/ | lang=de | T64 D160 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w343 | OK
+/de/experimente/ankereffekt-experiment/ | lang=de | T51 D161 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w312 | OK
+/de/experimente/hund-schuldiger-blick-studie/ | lang=de | T55 D152 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w325 | OK
+/de/experimente/unsichtbarer-gorilla-experiment/ | lang=de | T58 D152 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w327 | OK
+/de/experimente/elfmeter-torwart-studie/ | lang=de | T57 D152 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w274 | OK
+/de/experimente/ultimatumspiel/ | lang=de | T58 D159 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w340 | OK
+/de/experimente/loftus-palmer-autounfall-experiment/ | lang=de | T58 D153 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w321 | OK
+/de/experimente/silber-bronze-medaille-glueck-studie/ | lang=de | T54 D156 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w286 | OK
+/de/experimente/marshmallow-test/ | lang=de | T60 D148 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w401 | OK
+/experiments/milgram-experiment/ | lang=en | T59 D153 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w368 | OK
+/experiments/asch-conformity-experiment/ | lang=en | T57 D143 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w326 | OK
+/experiments/jam-experiment/ | lang=en | T60 D126 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w302 | OK
+/experiments/good-samaritan-experiment/ | lang=en | T56 D127 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w316 | OK
+/experiments/lost-wallet-experiment/ | lang=en | T61 D143 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w298 | OK
+/experiments/placebo-knee-surgery-study/ | lang=en | T52 D120 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w411 | OK
+/experiments/white-wine-dyed-red-experiment/ | lang=en | T57 D119 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w290 | OK
+/experiments/ants-on-stilts-experiment/ | lang=en | T54 D143 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w330 | OK
+/experiments/hot-hand-fallacy/ | lang=en | T55 D128 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w371 | OK
+/experiments/mpemba-effect/ | lang=en | T60 D122 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w382 | OK
+/experiments/bystander-effect-experiment/ | lang=en | T59 D150 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w391 | OK
+/experiments/parachute-trial/ | lang=en | T57 D151 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w363 | OK
+/experiments/anchoring-effect-experiment/ | lang=en | T61 D147 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w315 | OK
+/experiments/dog-guilty-look-study/ | lang=en | T54 D144 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w336 | OK
+/experiments/invisible-gorilla-experiment/ | lang=en | T56 D147 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w348 | OK
+/experiments/penalty-kick-goalkeeper-study/ | lang=en | T59 D149 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w285 | OK
+/experiments/ultimatum-game/ | lang=en | T53 D145 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w349 | OK
+/experiments/loftus-palmer-car-crash-experiment/ | lang=en | T59 D151 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w339 | OK
+/experiments/silver-bronze-medal-happiness-study/ | lang=en | T56 D146 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w301 | OK
+/experiments/marshmallow-test/ | lang=en | T58 D157 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w434 | OK
+/es/experimentos/experimento-de-milgram/ | lang=es | T63 D157 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w389 | OK
+/es/experimentos/experimento-de-asch/ | lang=es | T59 D155 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w348 | OK
+/es/experimentos/experimento-de-la-mermelada/ | lang=es | T63 D142 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w312 | OK
+/es/experimentos/experimento-del-buen-samaritano/ | lang=es | T59 D125 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w320 | OK
+/es/experimentos/experimento-de-la-cartera-perdida/ | lang=es | T58 D124 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w300 | OK
+/es/experimentos/cirugia-placebo-de-rodilla/ | lang=es | T55 D147 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w430 | OK
+/es/experimentos/vino-blanco-tenido-de-rojo/ | lang=es | T58 D139 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w296 | OK
+/es/experimentos/hormigas-con-zancos/ | lang=es | T53 D151 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w329 | OK
+/es/experimentos/mano-caliente-baloncesto/ | lang=es | T59 D146 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w382 | OK
+/es/experimentos/efecto-mpemba/ | lang=es | T63 D129 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w389 | OK
+/es/experimentos/efecto-espectador-experimento/ | lang=es | T58 D145 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w410 | OK
+/es/experimentos/estudio-paracaidas/ | lang=es | T54 D162 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w367 | OK
+/es/experimentos/efecto-anclaje-experimento/ | lang=es | T55 D161 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w334 | OK
+/es/experimentos/mirada-culpable-perro-estudio/ | lang=es | T58 D160 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w354 | OK
+/es/experimentos/gorila-invisible-experimento/ | lang=es | T51 D157 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w370 | OK
+/es/experimentos/penalti-portero-estudio/ | lang=es | T59 D152 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w316 | OK
+/es/experimentos/juego-del-ultimatum/ | lang=es | T58 D143 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w355 | OK
+/es/experimentos/loftus-palmer-experimento-accidente-coche/ | lang=es | T58 D154 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w368 | OK
+grep: write error: Broken pipe
+== Görünüm
+Görünüm bekçisi · 2026-11-03T21:08:18.457Z · 0 hata
+
+en-ana  /
+  - sorun yok
+
+en-deney  /experiments/marshmallow-test/
+  - sorun yok
+
+en-hakkinda  /about/
+  - sorun yok
+
+tr-ana  /tr/
+  - sorun yok
+
+tr-deney  /tr/deneyler/marshmallow-testi/
+  - sorun yok
+
+tr-hakkinda  /tr/hakkinda/
+  - sorun yok
+
+de-ana  /de/
+  - sorun yok
+
+de-deney  /de/experimente/marshmallow-test/
+  - sorun yok
+
+de-hakkinda  /de/ueber/
+  - sorun yok
+
+fr-ana  /fr/
+  - sorun yok
+
+fr-deney  /fr/experiences/test-du-marshmallow/
+  - sorun yok
+
+fr-hakkinda  /fr/a-propos/
+  - sorun yok
+
+es-ana  /es/
+  - sorun yok
+
+es-deney  /es/experimentos/test-del-malvavisco/
+  - sorun yok
+
+es-hakkinda  /es/acerca-de/
+  - sorun yok
+
+en-ana-acik  /
+  - sorun yok
+
+en-ana-masaustu  /
+  - sorun yok
