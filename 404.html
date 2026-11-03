@@ -3,28 +3,50 @@ layout: null
 permalink: /404.html
 sitemap: false
 ---
+{%- comment -%}
+Bulunamayan her adres (eski blog yazıları dahil) bu sayfayı 404 durumuyla gösterir; Google bu adresleri dizinden düşürür.
+Dil, adresin başından seçilir (/tr/…, /de/…); bulunamazsa İngilizce. Seçilen dilin düğmesi en üstte durur.
+{%- endcomment -%}
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
-  <title>{{ site.data.game.en.not_found }} | {{ site.data.game.en.name }}</title>
-  <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <title>{{ site.data.game.en.not_found }} | vonkarts</title>
+  <link rel="icon" href="{{ '/favicon.svg' | relative_url }}?v=2" type="image/svg+xml">
   <link rel="stylesheet" href="{{ '/assets/game/game.css' | relative_url }}">
+  <style>.gone [data-l]{display:none}.gone [data-l].on{display:block}.gone .lead{margin:0 0 28px;color:var(--muted)}</style>
 </head>
 <body>
   <div class="shell">
     <header class="bar"><a class="mark notranslate" translate="no" href="{{ '/' | relative_url }}" aria-label="vonkarts">vonkarts</a></header>
-    <main class="stage">
+    <main class="stage gone">
       <p class="no" aria-hidden="true">404</p>
-      <h1 class="title">{{ site.data.game.en.not_found }}</h1>
-      <div class="opts">
+      {%- for t in site.data.game %}
+      <div data-l="{{ t[0] }}" lang="{{ t[0] }}"{% if t[0] == 'en' %} class="on"{% endif %}>
+        <h1 class="title">{{ t[1].not_found }}</h1>
+        <p class="lead">{{ t[1].gone_note }}</p>
+      </div>
+      {%- endfor %}
+      <div class="opts" id="go">
         {%- for t in site.data.game %}
-        <a class="opt" href="{{ t[1].home | relative_url }}" lang="{{ t[0] }}"><span class="k">{{ t[0] | upcase }}</span><span>{{ t[1].not_found_go }}</span></a>
+        <a class="opt" href="{{ t[1].home | relative_url }}" lang="{{ t[0] }}" data-go="{{ t[0] }}"><span class="k">{{ t[0] | upcase }}</span><span>{{ t[1].not_found_go }}</span></a>
         {%- endfor %}
       </div>
     </main>
   </div>
+  <script>
+  (function(){
+    var l = (location.pathname.split('/')[1] || '').toLowerCase();
+    if (!/^(tr|de|fr|es)$/.test(l)) l = 'en';
+    document.documentElement.lang = l;
+    var blocks = document.querySelectorAll('[data-l]');
+    for (var i = 0; i < blocks.length; i++) blocks[i].className = blocks[i].getAttribute('data-l') === l ? 'on' : '';
+    var h = document.querySelector('[data-l="' + l + '"] h1'); if (h) document.title = h.textContent + ' | vonkarts';
+    var go = document.getElementById('go'), first = go.querySelector('[data-go="' + l + '"]');
+    if (first) go.insertBefore(first, go.firstChild);
+  })();
+  </script>
 </body>
 </html>

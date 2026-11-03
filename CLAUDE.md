@@ -4,7 +4,7 @@ Site: https://vonkarts.com — her gün gerçek, yayımlanmış bir deney; 5 dil
 Oyunun adı dile göre: Gut Check (en), Sezgi Testi (tr), Bauchgefühl (de), Intuition (fr), Corazonada (es). Hedef global; Google'dan trafik. Site ticari değil, reklam yok.
 Tasarım kuralları: `DESIGN.md` (esas kaynak).
 
-2026-10-31'de blog kaldırıldı ve site bu oyuna dönüştü (kullanıcının kararı). Eski yazılar git geçmişinde duruyor (son blog sürümü: commit aadd3a4); eski adreslerin hepsi o dilin ana sayfasına yönlenir (`redirect_from`, dil ana sayfalarında).
+2026-10-31'de blog kaldırıldı ve site bu oyuna dönüştü (kullanıcının kararı). Eski yazılar git geçmişinde duruyor (son blog sürümü: commit aadd3a4); eski adresler 2026-11-03'ten beri yönlenmez, 404 verir (kullanıcının kararı: Google'dan eski yazıları arayıp gelenler oyunu oynamadan çıkıyordu; 404 ile Google onları dizinden düşürür). `404.html` adresin dil önekine göre (/tr/, /de/…) "eski blog yazıları kaldırıldı, vonkarts artık günlük deney oyunu" notunu (`gone_note`) ve günün deneyi düğmelerini gösterir.
 
 ## Altyapı
 - Alan adı Cloudflare'de; DNS: 4 A kaydı (185.199.108-111.153) + www CNAME → vonkarts.github.io, hepsi "DNS only" (gri bulut — turuncu yapılırsa GitHub HTTPS sertifikası bozulur). Alan adı GitHub'da doğrulandı (TXT); repo kökündeki `CNAME` dosyası. SPF (`v=spf1 -all`) + DMARC (`p=reject`) var. www sertifikası 2026-10-31'de çalışıyordu.
