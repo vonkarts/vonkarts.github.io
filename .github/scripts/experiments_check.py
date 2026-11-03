@@ -3,7 +3,8 @@
 
 Bakar: her deney 5 dilde de var mı; numara, tip, doğru cevap, kaynaklar ve görsel tipi
 dillerde aynı mı; numaralar boşluksuz mu; zorunlu alanlar dolu mu; seçenek sayıları doğru mu;
-adresler (permalink) benzersiz ve doğru klasörde mi; paylaşım kartı var mı.
+adresler (permalink) benzersiz ve doğru klasörde mi; paylaşım kartı var mı;
+aynı deney (ref) bir dilde iki kez var mı; iki ayrı deneyin ana kaynağı (ilk kaynak, DOI) aynı mı (tekrar).
 Hata bulursa çıkış kodu 1 (iş kırmızı olur)."""
 import glob, os, sys
 import yaml
@@ -39,6 +40,7 @@ def main():
             if y.get("kind") != "generator" and len(y.get("opts") or []) != 3: errs.append(f"{rel}: 'önce sen' 3 seçenek olmalı")
             img = os.path.join(ROOT, str(d.get("image", "")).lstrip("/"))
             if not os.path.exists(img): errs.append(f"{rel}: paylaşım kartı yok ({d.get('image')})")
+            if folder_lang in docs.get(d.get("ref"), {}): errs.append(f"{rel}: '{d.get('ref')}' bu dilde iki kez var ({docs[d.get('ref')][folder_lang][2]})")
             docs.setdefault(d.get("ref"), {})[folder_lang] = (where, d, rel)
 
     urls = {}
@@ -55,6 +57,14 @@ def main():
             u = d.get("permalink")
             if u in urls: errs.append(f"{rel}: adres {u} {urls[u]} ile aynı")
             urls[u] = rel
+    # Tekrar kontrolü: aynı çalışma (ana kaynağın DOI/bağlantısı) iki ayrı deney olarak yayımlanamaz
+    src = {}
+    for ref, by in docs.items():
+        base = (by.get("en") or next(iter(by.values())))[1]
+        for s_ in (base.get("sources") or [])[:1]:
+            key = str(s_[1] if isinstance(s_, list) and len(s_) > 1 else s_).lower().rstrip("/").replace("http://", "https://")
+            if key in src: errs.append(f"{ref}: ana kaynağı {src[key]} deneyiyle aynı ({key}) — aynı çalışma tekrar mı?")
+            src[key] = ref
     nos = sorted({d["no"] for by in docs.values() for _, d, _ in by.values() if isinstance(d.get("no"), int)})
     if nos and nos != list(range(1, nos[-1] + 1)): errs.append(f"numaralarda boşluk/tekrar: {nos}")
     live = sorted({d["no"] for by in docs.values() for w, d, _ in by.values() if w == "_experiments"})
