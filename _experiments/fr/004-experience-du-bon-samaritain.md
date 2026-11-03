@@ -1,4 +1,5 @@
 ---
+date: 2026-11-03
 lang: fr
 ref: samaritan
 'no': 4
