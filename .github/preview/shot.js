@@ -76,9 +76,12 @@ const S = 'http://localhost:4000';
 
   // Eski blog adresleri → o dilin ana sayfası
   ctx = await ctxFor(phone, 'dark'); p = await ctx.newPage();
+  // yerel sunucu 404.html'i kendisi göstermiyor; GitHub Pages'in yaptığı gibi bulunamayan adrese 404.html'i 404 durumuyla ver
+  await p.route(/localhost:4000\/(tr\/iyiligin|category\/psych|de\/archiv)/, r => r.fulfill({ status: 404, path: '_site/404.html', contentType: 'text/html' }));
   for (const u of ['/tr/iyiligin-ardina-saklanan-kibir/', '/category/psychology/', '/de/archiv/']) {
     await p.goto(S + u, { waitUntil: 'load' }); await p.waitForTimeout(2000);
-    console.log('yönlendirme: ' + u + ' → ' + p.url().replace(S, ''));
+    console.log('eski adres: ' + u + ' → ' + p.url().replace(S, ''));
+    await p.screenshot({ path: 'shots/eski-' + u.replace(/\//g, '_') + '.png', fullPage: true });
   }
   await ctx.close();
 
