@@ -1,4 +1,5 @@
 ---
+date: 2026-11-04
 lang: fr
 ref: wallet
 'no': 5
