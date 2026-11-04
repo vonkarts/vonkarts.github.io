@@ -9,7 +9,7 @@ Tasarım kuralları: `DESIGN.md` (esas kaynak).
 ## Altyapı
 - Alan adı Cloudflare'de; DNS: 4 A kaydı (185.199.108-111.153) + www CNAME → vonkarts.github.io, hepsi "DNS only" (gri bulut — turuncu yapılırsa GitHub HTTPS sertifikası bozulur). Alan adı GitHub'da doğrulandı (TXT); repo kökündeki `CNAME` dosyası. SPF (`v=spf1 -all`) + DMARC (`p=reject`) var. www sertifikası 2026-10-31'de çalışıyordu.
 - Jekyll 3.10 / GitHub Pages. Eklentiler: jekyll-seo-tag, jekyll-sitemap, jekyll-redirect-from. Site saat dilimi UTC (Türkiye izi bırakılmaz).
-- Ziyaret sayacı GoatCounter (vonkarts.goatcounter.com; 2026-10-26'dan beri sayıyor; ayarlarda silme düğmelerine dikkat). Ölçüm araçları ve botlar sayılmaz (şablondaki filtre).
+- Ziyaret sayacı GoatCounter (vonkarts.goatcounter.com; 2026-10-26'dan beri sayıyor; ayarlarda silme düğmelerine dikkat). Ölçüm araçları ve botlar sayılmaz (şablondaki filtre). Site sahibi kendini saymamak için her tarayıcıda bir kez `vonkarts.com/#sayma` açar (aç/kapa; uyarı "sayım KAPALI" der; localStorage `skipgc`, `tail.html`'de; GoatCounter'ın kendi #toggle-goatcounter'ı Firefox'ta uyarı göstermiyordu).
 - Search Console: vonkarts.com mülkü doğrulandı (googledd59405c5d8809f3.html), sitemap gönderildi. Bing Webmaster ve Site Move: kullanıcı "dursun" dedi.
 
 ## En önemli kural: 5 dil her zaman aynı
