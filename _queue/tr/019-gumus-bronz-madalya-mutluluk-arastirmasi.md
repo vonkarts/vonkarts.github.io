@@ -34,7 +34,7 @@ stats:
 - - 7,1
   - bronz madalyalılar, aynı anda
 you_real: 'Gerçek gümüş madalyalılar ortalamada bronz madalyalılardan daha az mutlu görünüyordu: yarıştan hemen sonra 10 üzerinden 4,8''e karşı 7,1.'
-original: 'Yarıştan hemen sonra gümüş madalyalılar 4,8, bronz madalyalılar 7,1 puan aldı; kürsüde 4,3 ve 5,7. Araştırmacıların açıklaması: gümüş madalyalılar kendilerini yukarıyla kıyaslıyor (“az kalsın altını alıyordum”), bronz madalyalılar aşağıyla (“en azından madalya aldım”).'
+original: 'Yarıştan hemen sonra gümüş madalyalılar 4,8, bronz madalyalılar 7,1 puan aldı. Kürsüde 4,3 ve 5,7. Araştırmacıların açıklaması: gümüş madalyalılar kendilerini yukarıyla kıyaslıyor (“az kalsın altını alıyordum”), bronz madalyalılar aşağıyla (“en azından madalya aldım”).'
 today: '2021''deki bir araştırma, yüz ifadesi yazılımıyla beş olimpiyattaki (2000–2016) 413 sporcunun kürsü fotoğraflarını inceledi: bronz madalyalıların gülümseme ihtimali gümüş madalyalılardan daha yüksekti, en mutlu görünenler ise altın madalyalılardı.'
 surprise: Kürsüde, madalya boyunlarındayken bile gümüş madalyalılar bronz madalyalılardan daha az mutlu görünüyordu.
 sources:

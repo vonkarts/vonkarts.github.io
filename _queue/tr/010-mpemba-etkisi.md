@@ -33,7 +33,7 @@ stats:
   - Mpemba ve Osborne’un makalesi
 - - 1 cm
   - 2016’da sonucu değiştirebilen termometre farkı
-you_real: Gerçekte su için cevap hâlâ net değil; bilim insanları tartışmaya devam ediyor.
+you_real: Gerçekte su için cevap hâlâ net değil. Bilim insanları tartışmaya devam ediyor.
 original: Mpemba ve Osborne, belirli koşullarda daha sıcak suyun daha önce donmaya başladığını bildirdi. Osborne deneylerin basit olduğunu kabul etti ve daha dikkatli ölçümler yapılması çağrısında bulundu.
 today: '2016’da yapılan dikkatli bir çalışma, eski ölçümlerin termometrenin konumu gibi küçük ayrıntılara çok duyarlı olduğunu gösterdi: Termometreyi bir santim kaydırmak sonucu değiştirebiliyordu. Araştırmacılar suda bu etkiye dair anlamlı bir kanıt bulamadı. Öte yandan 2020’de başka bir fiziksel sistemde, sıcak olanın ılık olandan çok daha hızlı soğuduğu bir “Mpemba etkisi” laboratuvarda gösterildi. Su için soru hâlâ açık.'
 surprise: Aristoteles’ten beri konuşulan bu soruyu modern bilime taşıyan, öğretmeninin “olamaz” dediği bir lise öğrencisiydi.

@@ -12,8 +12,8 @@ meta:
 - Tunus, Sahra
 - Çöl karıncaları
 story:
-- Sahra’nın dümdüz çölünde yaşayan bir karınca türü, yiyecek bulduktan sonra yuvasına neredeyse dümdüz bir çizgide döner. Yönü güneşe bakarak bulduğu biliniyordu; peki mesafeyi nasıl biliyordu?
-- Araştırmacılar karıncaları yuvalarından 10 metre uzaktaki bir yem kabına alıştırdı. Sonra yem kabındaki bazı karıncaların bacaklarına ince kıllar yapıştırarak onları uzattılar; bazılarının ise bacaklarını kısalttılar. Ve eve dönüşlerini izlediler.
+- Sahra’nın dümdüz çölünde yaşayan bir karınca türü, yiyecek bulduktan sonra yuvasına neredeyse dümdüz bir çizgide döner. Yönü güneşe bakarak bulduğu biliniyordu, peki mesafeyi nasıl biliyordu?
+- Araştırmacılar karıncaları yuvalarından 10 metre uzaktaki bir yem kabına alıştırdı. Sonra yem kabındaki bazı karıncaların bacaklarına ince kıllar yapıştırarak onları uzattılar, bazılarının ise bacaklarını kısalttılar ve eve dönüşlerini izlediler.
 you:
   q: Gözlerin bağlı 10 metre yürüdün. Dönüşte adımların birden uzasa ne olurdu?
   kind: opts
@@ -34,7 +34,7 @@ stats:
 - - 6 m
   - Bacakları kısaltılanların yuva aradığı yer
 you_real: Gerçekte bacakları uzatılan karıncalar yuvayı geçip 15 metre civarında aramaya başladı.
-original: Normal karıncalar yuvayı 10 metrede aradı. Bacakları uzatılanlar yuvayı geçip yaklaşık 15 metrede, bacakları kısaltılanlar ise yaklaşık 6 metrede aramaya başladı. Karıncalar mesafeyi adımlarını sayarak ölçüyordu; adım boyu değişince hesap şaştı.
+original: Normal karıncalar yuvayı 10 metrede aradı. Bacakları uzatılanlar yuvayı geçip yaklaşık 15 metrede, bacakları kısaltılanlar ise yaklaşık 6 metrede aramaya başladı. Karıncalar mesafeyi adımlarını sayarak ölçüyordu. Adım boyu değişince hesap şaştı.
 today: Bu çalışma, karıncaların bir tür adımsayar kullandığının en güçlü kanıtlarından biri sayılıyor. Bugünkü anlayışa göre karıncalar yönü güneşe ve gökyüzündeki ışığa bakarak, mesafeyi ise adımlarıyla ölçüyor.
 surprise: Aynı karıncalar yeni bacaklarıyla yuvadan yola çıkıp geri dönünce mesafeyi yine doğru buldu. Saydıkları şey bacak uzunluğu değil, o yolda attıkları adımlardı.
 sources:

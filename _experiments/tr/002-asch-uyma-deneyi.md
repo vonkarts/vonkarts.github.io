@@ -25,7 +25,7 @@ you:
 type: percent
 answer: 75
 q: Katılımcıların yüzde kaçı en az bir kez gruba uyup açıkça yanlış cevabı verdi?
-you_real: Gerçek katılımcıların yaklaşık %75’i en az bir kez gruba uydu; yaklaşık dörtte biri hiç uymadı.
+you_real: Gerçek katılımcıların yaklaşık %75’i en az bir kez gruba uydu. Yaklaşık dörtte biri hiç uymadı.
 original: Katılımcıların yaklaşık %75’i en az bir kez gruba uydu. Kritik turlardaki cevapların yaklaşık üçte biri (%37 civarı) yanlıştı. Grup baskısı olmadığında hata oranı %1’in altındaydı. Katılımcıların yaklaşık dörtte biri ise hiç uymadı.
 today: '17 ülkeden 133 çalışmayı birleştiren 1996 tarihli bir meta-analiz, etkinin tekrarlandığını ama büyüklüğünün değiştiğini gösterdi: ABD’de 1950’lerden bu yana uyma azalmış, toplulukçu kültürlerde ise bireyci kültürlere göre daha yüksek bulunmuş.'
 surprise: 'Masada tek bir kişinin bile doğru cevabı söylemesi yetiyordu: Böyle bir “müttefik” olduğunda uyma oranı %37’den yaklaşık %5’e düştü.'

@@ -14,7 +14,7 @@ meta:
 - 180 hasta
 story:
 - 'Diz kireçlenmesi olan hastalar için yaygın bir ameliyat vardı: Dize küçük deliklerden kamera sokulup eklem yıkanıyor ya da yıpranmış doku temizleniyordu. Hastalar sonrasında daha iyi hissettiklerini söylüyordu.'
-- Bir araştırma ekibi 180 hastayı rastgele üç gruba ayırdı. İki grup gerçek ameliyatı oldu. Üçüncü gruba ise yalnızca dizlerinin derisine küçük kesikler atıldı, içeride hiçbir şey yapılmadı; ama ameliyathanede her şey gerçek ameliyat gibi canlandırıldı. Hastalar iki yıl boyunca hangi grupta olduklarını bilmedi.
+- Bir araştırma ekibi 180 hastayı rastgele üç gruba ayırdı. İki grup gerçek ameliyatı oldu. Üçüncü gruba ise yalnızca dizlerinin derisine küçük kesikler atıldı, içeride hiçbir şey yapılmadı, ama ameliyathanede her şey gerçek ameliyat gibi canlandırıldı. Hastalar iki yıl boyunca hangi grupta olduklarını bilmedi.
 you:
   q: Dizin ağrıyor ve bu ameliyat sana öneriliyor. Ne yapardın?
   kind: opts

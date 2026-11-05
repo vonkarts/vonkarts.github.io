@@ -12,7 +12,7 @@ meta:
 - ABD · BMJ
 - 23 katılımcı
 story:
-- Araştırmacılar 92 uçak yolcusuna bir deneye katılıp katılmayacaklarını sordu. Kabul edenlere rastgele ya paraşüt ya da boş bir sırt çantası verildi; sonra uçaktan atladılar.
+- Araştırmacılar 92 uçak yolcusuna bir deneye katılıp katılmayacaklarını sordu. Kabul edenlere rastgele ya paraşüt ya da boş bir sırt çantası verildi, sonra uçaktan atladılar.
 - 'Ölçülen sonuç, doktorların en çok önemsediği şeydi: yere çarpınca ölüm ya da ağır yaralanma. Hemen ve 30 gün sonra tekrar kontrol edildi. Deneye 23 kişi katılmayı kabul etti.'
 you:
   q: Deneye katılman isteniyor. Ne dersin?
@@ -36,7 +36,7 @@ stats:
 you_real: 'Gerçek katılımcıların kabul etmek için iyi bir nedeni vardı: hepsi yerde hareketsiz duran küçük uçaklardaydı.'
 original: 'İki grupta da kimse yaralanmadı: paraşütle %0, boş çantayla %0. Katılımcılar ortalama 0,6 metre yükseklikten, saatte 0 km hızla giden uçaklardan atladı. Katılmayı reddeden yolcular ise ortalama 9.146 metre yükseklikte ve saatte 800 km hızla uçuyordu.'
 today: 'Araştırma BMJ dergisinin Noel sayısında, ciddi bir mesajı olan bir şaka olarak yayımlandı: bir deney kusursuz biçimde rastgele olabilir, ama içindeki insanlar yardım etmek istediğin insanlara benzemiyorsa, ilgilendiğin durum hakkında sana hiçbir şey söylemeyebilir. Yazarlar da sonuçların yüksek irtifadan atlayışlara uygulanmaması konusunda uyarıyor.'
-surprise: Bu çalışma, 2003'te BMJ'de yayımlanan ve paraşütle ilgili rastgele kontrollü deney arayıp hiç bulamayan bir derlemeye cevaptı; yalnızca rastgele kontrollü deneylerin kanıt sayılması fikrine bir iğneydi.
+surprise: Bu çalışma, 2003'te BMJ'de yayımlanan ve paraşütle ilgili rastgele kontrollü deney arayıp hiç bulamayan bir derlemeye cevaptı. Yalnızca rastgele kontrollü deneylerin kanıt sayılması fikrine bir iğneydi.
 sources:
 - - 'Yeh, R. W., Valsdottir, L. R., Yeh, M. W., et al. (2018). Parachute use to prevent death and major trauma when jumping from aircraft: Randomized controlled trial. BMJ, 363, k5094.'
   - https://doi.org/10.1136/bmj.k5094

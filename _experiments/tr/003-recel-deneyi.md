@@ -36,7 +36,7 @@ stats:
   - 6 çeşide uğrayanların reçel alma oranı
 you_real: Gerçek alışverişçilerden 24 çeşide uğrayanların yalnızca %3’ü reçel aldı.
 original: '24 çeşit daha çok ilgi çekti: Önünden geçenlerin yaklaşık %60’ı durdu, 6 çeşitte bu oran %40’tı. Ama satış tersine döndü: 24 çeşide uğrayanların yalnızca %3’ü reçel aldı, 6 çeşide uğrayanların ise yaklaşık %30’u.'
-today: Bu deney “seçenek fazlalığı” fikrini dünyaya yaydı. Ancak 2010’da onlarca çalışmayı birleştiren bir meta-analiz, ortalama etkinin neredeyse sıfır olduğunu buldu. Çok seçenek bazen insanları dondurur, bazen dondurmaz; karar zor, seçenekler karmaşık ya da zaman dar olduğunda etki ortaya çıkabiliyor.
+today: Bu deney “seçenek fazlalığı” fikrini dünyaya yaydı. Ancak 2010’da onlarca çalışmayı birleştiren bir meta-analiz, ortalama etkinin neredeyse sıfır olduğunu buldu. Çok seçenek bazen insanları dondurur, bazen dondurmaz. Karar zor, seçenekler karmaşık ya da zaman dar olduğunda etki ortaya çıkabiliyor.
 surprise: Dünyanın en çok anlatılan pazarlama deneylerinden biri, aslında yalnızca belirli koşullarda geçerli bir sonuç.
 sources:
 - - Iyengar, S. S., & Lepper, M. R. (2000). When choice is demotivating. Journal of Personality and Social Psychology, 79(6), 995–1006.

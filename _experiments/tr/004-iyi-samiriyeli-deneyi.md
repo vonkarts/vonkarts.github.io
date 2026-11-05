@@ -13,7 +13,7 @@ meta:
 - Princeton
 - İlahiyat öğrencileri
 story:
-- İlahiyat öğrencilerinden kısa bir konuşma hazırlamaları istendi. Bir kısmının konusu, yolda yaralı bir yabancıya yardım eden “İyi Samiriyeli” hikâyesiydi; diğerlerininki meslek seçimi.
+- İlahiyat öğrencilerinden kısa bir konuşma hazırlamaları istendi. Bir kısmının konusu, yolda yaralı bir yabancıya yardım eden “İyi Samiriyeli” hikâyesiydi, diğerlerininki meslek seçimi.
 - Sonra konuşmayı yapacakları binaya gönderildiler. Kimine “Daha birkaç dakikanız var” dendi, kimine “Geç kaldınız, sizi bekliyorlar”. Yolda, bir kapı aralığında, öksürüp inleyen bir adam yatıyordu.
 you:
   q: Geç kaldın ve seni bekliyorlar. Ne yapardın?
@@ -36,7 +36,7 @@ stats:
   - Çok acelesi olanların yardım etme oranı
 you_real: Gerçekte çok acelesi olan öğrencilerin yalnızca %10’u durup yardım etti.
 original: 'Hiç acelesi olmayanların %63’ü durup yardım etti, biraz acelesi olanların %45’i, çok acelesi olanların yalnızca %10’u. Konuşmanın konusu neredeyse fark yaratmadı: İyi Samiriyeli üzerine konuşmaya giderken adamın üzerinden adımlayıp geçen öğrenciler bile oldu.'
-today: Bu, küçük bir öğrenci grubuyla yapılmış tek bir çalışma; oranları kesin rakamlar gibi okumamak gerekir. Ana fikri, yani anlık koşulların karakter kadar belirleyici olabileceği, sosyal psikolojinin en çok tartışılan fikirlerinden biri olmaya devam ediyor.
+today: Bu, küçük bir öğrenci grubuyla yapılmış tek bir çalışma. Oranları kesin rakamlar gibi okumamak gerekir. Ana fikri, yani anlık koşulların karakter kadar belirleyici olabileceği, sosyal psikolojinin en çok tartışılan fikirlerinden biri olmaya devam ediyor.
 surprise: Merhamet üzerine konuşmaya giden insanlar bile acele ederken yardıma ihtiyacı olanı görmedi.
 sources:
 - - 'Darley, J. M., & Batson, C. D. (1973). “From Jerusalem to Jericho”: A study of situational and dispositional variables in helping behavior. Journal of Personality and Social Psychology, 27(1), 100–108.'

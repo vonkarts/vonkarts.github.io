@@ -35,7 +35,7 @@ stats:
   - köpek, aynı soruya bakan 2012 araştırmasında
 you_real: 'Araştırmada bakış, köpekten çok sahibi hakkında bilgi veriyordu: en güçlü hali, söz dinlemiş köpekler yine de azarlandığında görüldü.'
 original: 'Köpeğin ödülü gerçekten yiyip yemediği, suçlu bakış davranışlarında hiçbir fark yaratmadı. Azarlamak ise yarattı: köpekler azarlandıklarında bu davranışları çok daha fazla gösterdi, en çok da ödülü yemedikleri halde azarlandıklarında.'
-today: 2012'de Macaristan'da 64 köpekle yapılan bir araştırma, kuralı çiğneyen köpeklerle çiğnemeyenlerin karşılanırken eşit derecede suçlu davrandığını buldu. İki araştırma da köpeklerin hiçbir şey hissetmediğini söylemiyor; “o bakışın” bir köpeğin yaramazlık yaptığına dair güvenilir bir işaret olmadığını gösteriyor.
+today: 2012'de Macaristan'da 64 köpekle yapılan bir araştırma, kuralı çiğneyen köpeklerle çiğnemeyenlerin karşılanırken eşit derecede suçlu davrandığını buldu. İki araştırma da köpeklerin hiçbir şey hissetmediğini söylemiyor. “o bakışın” bir köpeğin yaramazlık yaptığına dair güvenilir bir işaret olmadığını gösteriyor.
 surprise: İtaat kursuna gitmiş köpekler, azarlandıklarında suçlu bakışı daha sık gösterdi.
 sources:
 - - 'Horowitz, A. (2009). Disambiguating the “guilty look”: Salient prompts to a familiar dog behaviour. Behavioural Processes, 81(3), 447–452.'

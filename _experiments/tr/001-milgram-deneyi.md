@@ -42,7 +42,7 @@ type: percent
 answer: 65
 q: Sence katılımcıların yüzde kaçı 450 volta kadar devam etti?
 you_real: Gerçek katılımcıların %65’i 450 volta, yani son düğmeye kadar gitti.
-original: 40 kişiden 26’sı, yani %65’i, son düğmeye kadar devam etti. Öğrenci aslında deneyle anlaşmış bir oyuncuydu ve şoklar gerçek değildi; ama katılımcılar bunu bilmiyordu.
+original: 40 kişiden 26’sı, yani %65’i, son düğmeye kadar devam etti. Öğrenci aslında deneyle anlaşmış bir oyuncuydu ve şoklar gerçek değildi ama katılımcılar bunu bilmiyordu.
 today: '2009’da Jerry Burger deneyi etik sınırlar içinde, 150 voltta durdurarak tekrarladı: Katılımcıların %70’i 150 voltu geçmeye hazırdı. Milgram’ın aynı noktadaki oranı %82,5’ti ve fark anlamlı değildi. Öte yandan Milgram’ın arşivini inceleyen araştırmacılar, deneycilerin zaman zaman senaryonun dışına çıktığını ve bazı katılımcıların şokların gerçek olduğundan şüphelendiğini gösterdi. Milgram’ın kendi çeşitlemelerinde de itaat oranı koşullara göre büyük ölçüde değişti.'
 surprise: Deneyden önce Milgram’ın görüştüğü psikiyatristler, son düğmeye kadar gidenlerin binde bir civarında kalacağını tahmin etmişti.
 sources:

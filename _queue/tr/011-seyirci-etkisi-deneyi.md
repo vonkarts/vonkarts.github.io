@@ -12,15 +12,15 @@ meta:
 - New York
 - İnterkomdaki öğrenciler
 story:
-- Öğrenciler, üniversite hayatının baskıları üzerine konuşmak için bir laboratuvara geldi. Her biri küçük bir odada tek başına oturdu ve interkomdan konuştu; kimse kimseyi göremiyordu. Bazılarına hatta bir öğrenci daha olduğu, bazılarına iki, bazılarına beş öğrenci olduğu söylendi.
+- Öğrenciler, üniversite hayatının baskıları üzerine konuşmak için bir laboratuvara geldi. Her biri küçük bir odada tek başına oturdu ve interkomdan konuştu, kimse kimseyi göremiyordu. Bazılarına hatta bir öğrenci daha olduğu, bazılarına iki, bazılarına beş öğrenci olduğu söylendi.
 - Konuşmanın başlarında seslerden biri kekelemeye başladı, nöbet geçirdiğini söyledi ve yardım istedi. Sonra boğulur gibi oldu ve sustu. Araştırmacılar, gerçek katılımcının yardım çağırmak için odadan çıkıp çıkmadığını ve ne kadar hızlı çıktığını ölçtü.
 you:
   q: Onu interkomdan duyuyorsun. Ne yapardın?
   kind: opts
   opts:
   - Hemen kalkıp yardım çağırırdım
-  - Biraz beklerdim; belki başka biri gitmiştir
-  - Donar kalırdım; ne yapacağımı bilemezdim
+  - Biraz beklerdim, belki başka biri gitmiştir
+  - Donar kalırdım, ne yapacağımı bilemezdim
 type: percent
 answer: 31
 q: Dört kişinin daha duyduğunu sanan katılımcıların yüzde kaçı, nöbet bitmeden yardım çağırmaya gitti?
