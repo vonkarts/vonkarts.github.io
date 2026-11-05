@@ -48,5 +48,21 @@ Dil, adresin başından seçilir (/tr/…, /de/…); bulunamazsa İngilizce. Se�
     if (first) go.insertBefore(first, go.firstChild);
   })();
   </script>
+  <script>/* Ziyaret sayacı (404: eski blog linkleriyle gelenler "404/eski-adres" diye sayılır): ölçüm araçları (Lighthouse, PageSpeed, otomatik tarayıcılar) sayılmaz.
+     Site sahibi kendini saymamak için adresin sonuna #sayma (ya da #toggle-goatcounter) ekler: bu tarayıcıda sayım açılır/kapanır. */
+  (function(){
+    var K='skipgc', get=function(){try{return localStorage.getItem(K)==='t'}catch(e){return false}};
+    var toggle=function(){
+      var h=location.hash; if(h!=='#sayma'&&h!=='#toggle-goatcounter')return false;
+      var off=!get(); try{off?localStorage.setItem(K,'t'):localStorage.removeItem(K)}catch(e){}
+      try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}
+      alert(off?'vonkarts: bu tarayıcıda sayım KAPALI (counting OFF)':'vonkarts: bu tarayıcıda sayım AÇIK (counting ON)');
+      return true;
+    };
+    toggle(); addEventListener('hashchange',toggle);
+    var ua=navigator.userAgent||'';
+    if(get()||navigator.webdriver||/(?:^|[^a-z])bot|bot\/|crawl|spider|Lighthouse|HeadlessChrome|PTST|Page Speed/i.test(ua))return;
+    window.goatcounter={path:function(p){return '404'+p}};var s=document.createElement('script');s.async=true;s.src='https://gc.zgo.at/count.js';s.setAttribute('data-goatcounter','https://vonkarts.goatcounter.com/count');document.body.appendChild(s);
+  })();</script>
 </body>
 </html>
