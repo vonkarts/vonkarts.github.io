@@ -5,7 +5,7 @@ ref: ultimatum
 permalink: /tr/deneyler/ultimatom-oyunu/
 title: Ya kabul et ya reddet
 seo_title: 'Ültimatom Oyunu: İnsanlar Ne Kadar Teklif Eder?'
-description: Bir oyuncu parayı nasıl bölüşeceğini teklif ediyor. Diğeri kabul ediyor ya da reddediyor, o zaman kimse bir şey alamıyor. İnsanlar gerçekte ne teklif ediyor?
+description: Bir oyuncu parayı nasıl bölüşeceğini teklif ediyor. Diğeri reddederse ikisi de hiçbir şey alamıyor. İnsanlar gerçekte ne kadar teklif ediyor?
 image: /images/cards/tr-ultimatum.jpg
 meta:
 - '1982'
