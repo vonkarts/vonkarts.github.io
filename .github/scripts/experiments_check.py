@@ -17,6 +17,38 @@ NEED = ["lang", "ref", "no", "permalink", "title", "seo_title", "description", "
 SAME = ["no", "type", "answer", "sources", "health"]
 
 
+
+# Yapay zekâ / çeviri kokusu taraması (uyarı; yayını durdurmaz). Kurallar: _plan/yazim-kurallari.md
+STYLE = {
+    "all": [r"—"],
+    "tr": [r"\badeta\b", r"yadsınamaz", r"kritik bir rol", r"derinlemesine", r"yelpaze", r"dönüm noktası", r"bununla birlikte",
+           r"öte yandan", r"söz konusu", r"bu bağlamda", r"tarafından", r"m[ae]kt[ae]d[ıi]r\b", r"sadece .{1,40} değil, aynı zamanda", r"; "],
+    "en": [r"\bdelve", r"tapestry", r"testament to", r"\bpivotal\b", r"\bcrucial\b", r"\bshowcas", r"\bunderscore", r"^Additionally|\. Additionally",
+           r"\bserves as\b", r"\bstands as\b", r"\bboasts?\b", r"\bnestled\b", r"breathtaking", r"it'?s worth noting", r"in today'?s", r"not just .{1,40}, but"],
+    "de": [r"Es ist wichtig zu beachten", r"In der heutigen", r"eintauchen", r"Facette", r"\bmaßgeblich", r"Sinn machen|macht Sinn", r"am Ende des Tages"],
+    "fr": [r"Il est important de noter", r"Il convient de souligner", r"À l.ère de", r"Dans un monde où", r"mettre en lumière", r"s.inscrire dans une démarche",
+           r"N.hésitez pas", r"\badresser (un|le|les|ce) (problème|enjeu)", r'"'],
+    "es": [r"[Cc]abe destacar", r"[Ee]s importante (de )?mencionar", r"no es solo .{1,40}, sino", r"[Ee]n definitiva", r"los expertos coinciden",
+           r"al final del día"],
+}
+TEXT_KEYS = ("title", "description", "story", "q", "opts", "you_real", "original", "today", "surprise")
+
+def style_warnings(lang, d, rel):
+    import re as _re
+    out = []
+    def walk(v):
+        if isinstance(v, str): yield v
+        elif isinstance(v, list):
+            for x in v: yield from walk(x)
+        elif isinstance(v, dict):
+            for x in v.values(): yield from walk(x)
+    text = "\n".join(t for k in TEXT_KEYS for t in walk(d.get(k)))
+    text += "\n" + "\n".join(walk((d.get("you") or {})))
+    for pat in STYLE["all"] + STYLE.get(lang, []):
+        m = _re.search(pat, text, _re.M | _re.I)
+        if m: out.append(f"{rel}: “{m.group(0).strip() or pat}” ({lang} yazım kuralı)")
+    return out
+
 def main():
     errs, docs = [], {}
     for where in ("_experiments", "_queue"):
@@ -71,7 +103,12 @@ def main():
     queued = sorted({d["no"] for by in docs.values() for w, d, _ in by.values() if w == "_queue"})
     if live and queued and min(queued) <= max(live): errs.append("sıradaki bir deney, yayındakilerden daha küçük numaralı")
 
-    print(f"{len(docs)} deney · yayında {len(live)} · sırada {len(queued)} · {len(errs)} hata")
+    warns = []
+    for ref, by in docs.items():
+        for lg, (where, d, rel) in by.items(): warns += style_warnings(lg, d, rel)
+    print(f"{len(docs)} deney · yayında {len(live)} · sırada {len(queued)} · {len(errs)} hata · {len(warns)} yazım uyarısı")
+    for w in warns: print("UYARI:", w)
+    for w in warns[:10]: print(f"::warning title=Yazım (yapay zekâ kokusu)::{w}")
     for e in errs: print("HATA:", e)
     for e in errs[:10]: print(f"::error title=Deney dosyaları::{e}")
     if 0 < len(queued) <= 3: print(f"::warning title=Sıra azalıyor::Sırada yalnızca {len(queued)} deney kaldı")
