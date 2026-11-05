@@ -27,7 +27,7 @@ q: Çarkı 65'te duran grubun ortanca tahmini yüzde kaçtı?
 you_real: 'Gerçek katılımcılar da sayının çarktan geldiğini gördü, yine de etkilendiler: 65 grubunun ortanca tahmini %45''ti.'
 original: Çarkı 10'da duran grubun ortanca tahmini %25, 65'te duran grubunki %45'ti. Sayının soruyla hiçbir ilgisi yoktu ve herkes onun bir çarktan çıktığını görmüştü.
 today: Çapa etkisi psikolojinin en sağlam bulgularından biri. 2014'teki “Many Labs” projesinde 12 ülkede 36 araştırma grubu, 6.344 gönüllüyle 13 klasik bulguyu tekrarladı. Çapa etkisi tuttu, hatta orijinal çalışmadakinden de güçlü çıktı.
-surprise: 'Sayının rastgele olduğunu görmek kimseyi korumadı: deney zaten herkesin onun bir çark çevrilerek çıktığını bileceği şekilde tasarlanmıştı.'
+surprise: Katılımcılara doğru cevap için para ödemek de çapa etkisini azaltmadı.
 sources:
 - - 'Tversky, A., & Kahneman, D. (1974). Judgment under uncertainty: Heuristics and biases. Science, 185(4157), 1124–1131.'
   - https://doi.org/10.1126/science.185.4157.1124

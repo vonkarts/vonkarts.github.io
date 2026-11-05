@@ -27,7 +27,7 @@ q: Quand les participants croyaient que quatre autres personnes entendaient auss
 you_real: Parmi les vrais participants qui croyaient que quatre autres entendaient, seuls 31 % sont allés chercher de l’aide avant la fin de la crise.
 original: Quand les participants se croyaient seuls à entendre, 85 % sont allés chercher de l’aide avant la fin de la crise. Avec un autre auditeur, c’était 62 %, et avec quatre autres, 31 %. La « victime » était un enregistrement, mais les participants ne le savaient pas.
 today: 'Le résultat de laboratoire a été reproduit de nombreuses fois. La vraie vie y ajoute une nuance : une étude de 2020 a analysé les images de vidéosurveillance de 219 altercations dans l’espace public à Amsterdam, au Cap et à Lancaster. Dans environ 91 % d’entre elles, au moins un témoin est intervenu.'
-surprise: 'Dans ces images de rue, plus de témoins voulait dire plus d’aide, pas moins : chaque personne en plus augmentait la probabilité que quelqu’un intervienne. Chacun peut attendre, mais la foule dans son ensemble reste rarement sans rien faire.'
+surprise: 'Dans ces images de rue, plus de témoins voulait dire plus d’aide, pas moins : chaque personne en plus augmentait la probabilité que quelqu’un intervienne.'
 sources:
 - - 'Darley, J. M., & Latané, B. (1968). Bystander intervention in emergencies: Diffusion of responsibility. Journal of Personality and Social Psychology, 8(4), 377–383.'
   - https://doi.org/10.1037/h0025589

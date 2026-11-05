@@ -35,7 +35,7 @@ stats:
   - du lien restant ont disparu une fois le milieu pris en compte
 you_real: Dans l’étude de 2018, le lien entre le temps d’attente des enfants et leurs résultats scolaires à 15 ans était deux fois plus faible que dans les études d’origine, et les deux tiers en disparaissaient une fois le milieu familial pris en compte.
 original: La version la plus connue (1972) a eu lieu à l’école maternelle Bing de Stanford avec 50 enfants ; les récompenses étaient des marshmallows ou des bretzels. Des études de suivi de 1988 et 1990 ont rapporté que les enfants qui avaient attendu plus longtemps étaient jugés plus compétents à l’adolescence et avaient de meilleurs scores au SAT.
-today: Dans la réplication de 2018, le lien entre l’attente et la réussite à 15 ans ne valait que la moitié de celui rapporté dans les études d’origine. En tenant compte du milieu familial, des capacités cognitives précoces et de l’environnement à la maison, il diminuait encore des deux tiers. Le test semble mesurer la situation de l’enfant autant que sa volonté.
+today: Dans la réplication de 2018, le lien entre l’attente et la réussite à 15 ans ne valait que la moitié de celui rapporté dans les études d’origine. En tenant compte du milieu familial, des capacités cognitives précoces et de l’environnement à la maison, il diminuait encore des deux tiers.
 surprise: Dans une étude de 2013, 28 enfants rencontraient d’abord un adulte qui tenait ou ne tenait pas une petite promesse. Après une promesse tenue, ils attendaient 12 minutes en moyenne ; après une promesse rompue, 3 minutes.
 sources:
 - - Mischel, W., Ebbesen, E. B., & Zeiss, A. R. (1972). Cognitive and attentional mechanisms in delay of gratification. Journal of Personality and Social Psychology, 21(2), 204–218.

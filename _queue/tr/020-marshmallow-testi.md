@@ -35,7 +35,7 @@ stats:
   - kalan bağın, aile geçmişi hesaba katılınca kaybolan kısmı
 you_real: 2018 araştırmasında, çocukların ne kadar beklediği ile 15 yaşındaki okul başarıları arasındaki bağ, orijinal çalışmalardakinin yarısı kadardı. Aile geçmişi hesaba katılınca da bunun üçte ikisi kayboldu.
 original: En bilinen versiyon (1972), Stanford'daki Bing Anaokulu'nda 50 çocukla yapıldı. Ödüller marshmallow ya da tuzlu çubuktu. 1988 ve 1990'daki takip araştırmaları, daha uzun bekleyen çocukların ergenlikte daha yetkin bulunduğunu ve SAT puanlarının daha yüksek olduğunu bildirdi.
-today: 2018'deki tekrar araştırmasında beklemek ile 15 yaşındaki başarı arasındaki bağ, orijinal çalışmalarda bildirilenin yalnızca yarısı kadardı. Aile geçmişi, erken yaştaki bilişsel beceriler ve ev ortamı hesaba katılınca bu bağ üçte iki oranında daha küçüldü. Test, çocuğun irade gücünü olduğu kadar içinde bulunduğu koşulları da ölçüyor gibi görünüyor.
+today: 2018'deki tekrar araştırmasında beklemek ile 15 yaşındaki başarı arasındaki bağ, orijinal çalışmalarda bildirilenin yalnızca yarısı kadardı. Aile geçmişi, erken yaştaki bilişsel beceriler ve ev ortamı hesaba katılınca bu bağ üçte iki oranında daha küçüldü.
 surprise: 2013'teki bir araştırmada 28 çocuk önce küçük bir sözünü ya tutan ya da tutmayan bir yetişkinle karşılaştı. Söz tutulduysa ortalama 12 dakika, tutulmadıysa 3 dakika beklediler.
 sources:
 - - Mischel, W., Ebbesen, E. B., & Zeiss, A. R. (1972). Cognitive and attentional mechanisms in delay of gratification. Journal of Personality and Social Psychology, 21(2), 204–218.

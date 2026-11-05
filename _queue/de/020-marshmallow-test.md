@@ -35,7 +35,7 @@ stats:
   - des verbleibenden Zusammenhangs verschwanden, als der Hintergrund berücksichtigt wurde
 you_real: In der Studie von 2018 war der Zusammenhang zwischen der Wartezeit und den Schulleistungen mit 15 nur halb so stark wie in den Originalstudien, und zwei Drittel davon verschwanden, als der Familienhintergrund berücksichtigt wurde.
 original: Die bekannteste Version (1972) fand im Bing-Kindergarten in Stanford mit 50 Kindern statt; die Belohnungen waren Marshmallows oder Salzstangen. Folgestudien von 1988 und 1990 berichteten, dass Kinder, die länger gewartet hatten, als Jugendliche als kompetenter eingeschätzt wurden und höhere SAT-Werte hatten.
-today: In der Wiederholung von 2018 war der Zusammenhang zwischen Warten und Leistung mit 15 nur halb so groß wie in den Originalstudien berichtet. Mit Kontrollen für Familienhintergrund, frühe kognitive Fähigkeiten und das häusliche Umfeld schrumpfte er um weitere zwei Drittel. Der Test scheint die Lebenslage eines Kindes ebenso zu messen wie seine Willenskraft.
+today: In der Wiederholung von 2018 war der Zusammenhang zwischen Warten und Leistung mit 15 nur halb so groß wie in den Originalstudien berichtet. Mit Kontrollen für Familienhintergrund, frühe kognitive Fähigkeiten und das häusliche Umfeld schrumpfte er um weitere zwei Drittel.
 surprise: In einer Studie von 2013 trafen 28 Kinder zuerst einen Erwachsenen, der ein kleines Versprechen entweder hielt oder brach. Nach einem gehaltenen Versprechen warteten sie im Schnitt 12 Minuten, nach einem gebrochenen 3 Minuten.
 sources:
 - - Mischel, W., Ebbesen, E. B., & Zeiss, A. R. (1972). Cognitive and attentional mechanisms in delay of gratification. Journal of Personality and Social Psychology, 21(2), 204–218.

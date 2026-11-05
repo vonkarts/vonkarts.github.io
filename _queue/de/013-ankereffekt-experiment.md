@@ -27,7 +27,7 @@ q: Wie lautete der Median der Schätzungen in der Gruppe, bei der das Rad auf 65
 you_real: 'Auch die echten Versuchspersonen sahen, dass die Zahl von einem Rad kam, und sie zog sie trotzdem mit: Der Median in der 65er-Gruppe lag bei 45 %.'
 original: Der Median der Schätzungen lag bei 25 % in der Gruppe, deren Rad bei 10 stehen blieb, und bei 45 % in der Gruppe mit 65. Die Zahl hatte nichts mit der Frage zu tun, und alle hatten gesehen, dass sie von einem Rad stammte.
 today: Der Ankereffekt gehört zu den robustesten Befunden der Psychologie. Im Projekt „Many Labs“ von 2014 wiederholten 36 Forschungsgruppen mit 6.344 Freiwilligen in 12 Ländern 13 klassische Befunde; der Ankereffekt hielt stand und fiel sogar stärker aus als in der Originalstudie.
-surprise: 'Zu sehen, dass die Zahl zufällig war, schützte niemanden: Das Experiment war genau so angelegt, dass alle wussten, dass sie aus einer Drehung stammte.'
+surprise: Auch eine Bezahlung für genaue Antworten verringerte den Ankereffekt nicht.
 sources:
 - - 'Tversky, A., & Kahneman, D. (1974). Judgment under uncertainty: Heuristics and biases. Science, 185(4157), 1124–1131.'
   - https://doi.org/10.1126/science.185.4157.1124

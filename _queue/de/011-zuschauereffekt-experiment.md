@@ -27,7 +27,7 @@ q: Wie viel Prozent der Versuchspersonen, die glaubten, vier andere hörten mit,
 you_real: Von den echten Versuchspersonen, die glaubten, vier andere hörten mit, holten nur 31 % Hilfe, bevor der Anfall vorbei war.
 original: Wer glaubte, als Einzige oder Einziger mitzuhören, holte zu 85 % Hilfe, bevor der Anfall vorbei war. Mit einer weiteren Person in der Leitung waren es 62 %, mit vier weiteren 31 %. Das „Opfer“ war eine Tonaufnahme, aber das wussten die Versuchspersonen nicht.
 today: 'Der Laborbefund wurde viele Male wiederholt. Das echte Leben fügt eine Wendung hinzu: Eine Studie von 2020 wertete Überwachungsvideos von 219 Auseinandersetzungen im öffentlichen Raum in Amsterdam, Kapstadt und Lancaster aus. In etwa 91 % davon griff mindestens eine umstehende Person ein.'
-surprise: 'In diesen Straßenaufnahmen bedeuteten mehr Umstehende mehr Hilfe, nicht weniger: Jede zusätzliche Person erhöhte die Chance, dass jemand eingriff. Der Einzelne zögert vielleicht, aber die Menge als Ganzes tut selten gar nichts.'
+surprise: 'In diesen Straßenaufnahmen bedeuteten mehr Umstehende mehr Hilfe, nicht weniger: Jede zusätzliche Person erhöhte die Chance, dass jemand eingriff.'
 sources:
 - - 'Darley, J. M., & Latané, B. (1968). Bystander intervention in emergencies: Diffusion of responsibility. Journal of Personality and Social Psychology, 8(4), 377–383.'
   - https://doi.org/10.1037/h0025589

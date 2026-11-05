@@ -27,7 +27,7 @@ q: ¿Cuál fue la estimación mediana del grupo cuya rueda se paró en el 65?
 you_real: 'Los participantes reales también vieron que el número salía de una rueda, y aun así los arrastró: la estimación mediana del grupo del 65 fue del 45 %.'
 original: La estimación mediana fue del 25 % en el grupo cuya rueda se paró en el 10, y del 45 % en el grupo del 65. El número no tenía nada que ver con la pregunta, y todos habían visto que salía de una rueda.
 today: El anclaje es uno de los hallazgos más sólidos de la psicología. En el proyecto «Many Labs» de 2014, 36 grupos de investigación con 6344 voluntarios de 12 países repitieron 13 hallazgos clásicos; el efecto anclaje se mantuvo e incluso salió más fuerte que en el estudio original.
-surprise: 'Ver que el número era aleatorio no protegió a nadie: el experimento estaba diseñado precisamente para que todos supieran que salía de un giro de la rueda.'
+surprise: Pagar a los participantes por acertar no redujo el efecto anclaje.
 sources:
 - - 'Tversky, A., & Kahneman, D. (1974). Judgment under uncertainty: Heuristics and biases. Science, 185(4157), 1124–1131.'
   - https://doi.org/10.1126/science.185.4157.1124

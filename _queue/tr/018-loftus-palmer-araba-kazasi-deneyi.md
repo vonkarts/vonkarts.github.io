@@ -27,7 +27,7 @@ q: “Birbirine girdiklerinde” ifadesini duyanların yüzde kaçı kırık cam
 you_real: “Birbirine girdiklerinde” ifadesini duyan gerçek katılımcıların %32'si kırık cam gördüğünü söyledi. “birbirine çarptıklarında” ifadesini duyanlarda bu oran %14'tü.
 original: İlk deneyde (45 öğrenci) “birbirine girdiklerinde” ifadesi ortalama saatte 40,8 mil (yaklaşık 66 km), “birbirine değdiklerinde” ise 31,8 mil (yaklaşık 51 km) hız tahmini getirdi. İkinci deneyde (150 öğrenci) “birbirine girdiklerinde” grubunun %32'si kırık cam gördüğünü söyledi. “birbirine çarptıklarında” grubunda bu oran %14, hızı hiç sorulmayan grupta %12'ydi.
 today: Araştırma bellek çalışmalarının klasiklerinden biri oldu ve polisin ve mahkemelerin görgü tanığı ifadesine ve yönlendirici sorulara bakışını etkiledi. Örneklemler küçüktü ve öğrencilerden oluşuyordu, ama sonraki araştırmalar soruların nasıl sorulduğunun insanların hatırladığını söylediği şeyi değiştirebildiğini defalarca gösterdi.
-surprise: Tek bir sorudaki tek bir kelime, bazı insanların bir hafta sonra gördüğünü “hatırladığı” şeyi değiştirmeye yetti.
+surprise: Filmde hiç kırık cam yoktu. Yine de “birbirine girdiklerinde” grubundaki 50 kişiden 16'sı kırık cam gördüğünü söyledi.
 sources:
 - - 'Loftus, E. F., & Palmer, J. C. (1974). Reconstruction of automobile destruction: An example of the interaction between language and memory. Journal of Verbal Learning and Verbal Behavior, 13(5), 585–589.'
   - https://doi.org/10.1016/S0022-5371(74)80011-3

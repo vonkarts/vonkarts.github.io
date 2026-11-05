@@ -27,7 +27,7 @@ q: When participants thought four other people could also hear, what percentage 
 you_real: Of the real participants who thought four others could hear, only 31% went for help before the seizure ended.
 original: When participants thought they were the only one who could hear, 85% went for help before the seizure ended. With one other listener it was 62%, and with four others it was 31%. The “victim” was a recording, but the participants did not know that.
 today: 'The lab finding has been repeated many times. Real life adds a twist: a 2020 study analysed CCTV footage of 219 public fights in Amsterdam, Cape Town and Lancaster, and in about 91% of them at least one bystander stepped in.'
-surprise: 'In that street footage, more bystanders meant more help, not less: each extra person raised the chance that someone would step in. Each individual may wait, but the crowd as a whole rarely does nothing.'
+surprise: 'In that street footage, more bystanders meant more help, not less: each extra person raised the chance that someone would step in.'
 sources:
 - - 'Darley, J. M., & Latané, B. (1968). Bystander intervention in emergencies: Diffusion of responsibility. Journal of Personality and Social Psychology, 8(4), 377–383.'
   - https://doi.org/10.1037/h0025589

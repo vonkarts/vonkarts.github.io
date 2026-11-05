@@ -27,7 +27,7 @@ q: On average, what percentage of the money did proposers offer?
 you_real: In real experiments, about 16% of offers were rejected on average, even though rejecting meant walking away with nothing.
 original: The game was first studied by Güth, Schmittberger and Schwarze in 1982. A 2004 meta-analysis of 37 papers with 75 results found that proposers offered 40% of the money on average, and that 16% of offers were rejected.
 today: 'The result holds in many countries, but its size depends on culture: in experiments in 15 small-scale societies, average offers ranged from 26% among the Machiguenga in Peru to 58% among the Lamalera in Indonesia.'
-surprise: Theory says to offer almost nothing; real people hand over close to half. Many seem to know that an unfair offer may be rejected out of anger.
+surprise: Theory says to offer almost nothing; real people hand over close to half.
 sources:
 - - 'Oosterbeek, H., Sloof, R., & van de Kuilen, G. (2004). Cultural differences in ultimatum game experiments: Evidence from a meta-analysis. Experimental Economics, 7(2), 171–188.'
   - https://doi.org/10.1023/B:EXEC.0000026978.14316.74

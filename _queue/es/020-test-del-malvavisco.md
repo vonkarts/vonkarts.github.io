@@ -35,7 +35,7 @@ stats:
   - de la relación restante desaparecieron al tener en cuenta el entorno
 you_real: En el estudio de 2018, la relación entre cuánto esperaban los niños y sus resultados escolares a los 15 años era la mitad de fuerte que en los estudios originales, y dos tercios de ella desaparecían al tener en cuenta el entorno familiar.
 original: La versión más conocida (1972) se hizo en la escuela infantil Bing de Stanford con 50 niños; las recompensas eran malvaviscos o palitos salados. Estudios de seguimiento de 1988 y 1990 informaron de que los niños que habían esperado más eran considerados más competentes en la adolescencia y tenían mejores puntuaciones en el SAT.
-today: En la réplica de 2018, la relación entre esperar y el rendimiento a los 15 años era solo la mitad de la que se había informado en los estudios originales. Al controlar el entorno familiar, la capacidad cognitiva temprana y el ambiente en casa, se reducía otros dos tercios. El test parece medir la situación del niño tanto como su fuerza de voluntad.
+today: En la réplica de 2018, la relación entre esperar y el rendimiento a los 15 años era solo la mitad de la que se había informado en los estudios originales. Al controlar el entorno familiar, la capacidad cognitiva temprana y el ambiente en casa, se reducía otros dos tercios.
 surprise: En un estudio de 2013, 28 niños conocieron primero a un adulto que cumplía o incumplía una pequeña promesa. Tras una promesa cumplida, esperaron 12 minutos de media; tras una incumplida, 3 minutos.
 sources:
 - - Mischel, W., Ebbesen, E. B., & Zeiss, A. R. (1972). Cognitive and attentional mechanisms in delay of gratification. Journal of Personality and Social Psychology, 21(2), 204–218.

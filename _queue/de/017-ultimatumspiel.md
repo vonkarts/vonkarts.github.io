@@ -27,7 +27,7 @@ q: Wie viel Prozent des Geldes boten die Proposer im Durchschnitt an?
 you_real: In echten Experimenten wurden im Schnitt etwa 16 % der Angebote abgelehnt, obwohl Ablehnen hieß, mit leeren Händen zu gehen.
 original: Das Spiel wurde 1982 erstmals von Güth, Schmittberger und Schwarze untersucht. Eine Meta-Analyse von 2004 über 37 Arbeiten mit 75 Ergebnissen fand, dass Proposer im Durchschnitt 40 % des Geldes anboten und 16 % der Angebote abgelehnt wurden.
 today: 'Das Ergebnis gilt in vielen Ländern, aber seine Größe hängt von der Kultur ab: In Experimenten in 15 kleinen Gesellschaften reichten die durchschnittlichen Angebote von 26 % bei den Machiguenga in Peru bis 58 % bei den Lamalera in Indonesien.'
-surprise: Die Theorie sagt, man solle fast nichts anbieten; echte Menschen geben fast die Hälfte. Viele scheinen zu wissen, dass ein unfaires Angebot aus Ärger abgelehnt werden kann.
+surprise: Die Theorie sagt, man solle fast nichts anbieten; echte Menschen geben fast die Hälfte.
 sources:
 - - 'Oosterbeek, H., Sloof, R., & van de Kuilen, G. (2004). Cultural differences in ultimatum game experiments: Evidence from a meta-analysis. Experimental Economics, 7(2), 171–188.'
   - https://doi.org/10.1023/B:EXEC.0000026978.14316.74

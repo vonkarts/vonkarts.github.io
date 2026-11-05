@@ -27,7 +27,7 @@ q: En moyenne, quel pourcentage de l’argent les proposants ont-ils offert ?
 you_real: Dans les vraies expériences, environ 16 % des offres ont été refusées en moyenne, alors que refuser voulait dire repartir les mains vides.
 original: Le jeu a été étudié pour la première fois par Güth, Schmittberger et Schwarze en 1982. Une méta-analyse de 2004 portant sur 37 articles et 75 résultats a trouvé que les proposants offraient en moyenne 40 % de l’argent, et que 16 % des offres étaient refusées.
 today: 'Le résultat se vérifie dans de nombreux pays, mais son ampleur dépend de la culture : dans des expériences menées dans 15 sociétés à petite échelle, les offres moyennes allaient de 26 % chez les Machiguenga du Pérou à 58 % chez les Lamalera d’Indonésie.'
-surprise: La théorie dit de n’offrir presque rien ; les vraies gens donnent près de la moitié. Beaucoup semblent savoir qu’une offre injuste peut être refusée par colère.
+surprise: La théorie dit de n’offrir presque rien ; les vraies gens donnent près de la moitié.
 sources:
 - - 'Oosterbeek, H., Sloof, R., & van de Kuilen, G. (2004). Cultural differences in ultimatum game experiments: Evidence from a meta-analysis. Experimental Economics, 7(2), 171–188.'
   - https://doi.org/10.1023/B:EXEC.0000026978.14316.74

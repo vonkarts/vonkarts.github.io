@@ -27,7 +27,7 @@ q: Dört kişinin daha duyduğunu sanan katılımcıların yüzde kaçı, nöbet
 you_real: Dört kişinin daha duyduğunu sanan gerçek katılımcıların yalnızca %31'i nöbet bitmeden yardım çağırmaya gitti.
 original: Sesi bir tek kendisinin duyduğunu sananların %85'i nöbet bitmeden yardım çağırmaya gitti. Bir dinleyici daha olduğunda bu oran %62, dört dinleyici daha olduğunda %31'di. Nöbet geçiren “öğrenci” bir ses kaydıydı, ama katılımcılar bunu bilmiyordu.
 today: 'Laboratuvar bulgusu birçok kez tekrarlandı. Gerçek hayat ise işin içine bir ayrıntı katıyor: 2020''deki bir araştırma Amsterdam, Cape Town ve Lancaster''da sokakta yaşanan 219 kavganın güvenlik kamerası görüntülerini inceledi ve bunların yaklaşık %91''inde en az bir kişinin araya girdiğini buldu.'
-surprise: 'O sokak görüntülerinde daha fazla seyirci daha az değil, daha fazla yardım demekti: her ek kişi, birinin araya girme ihtimalini artırdı. Kişiler tek tek bekleyebilir, ama kalabalık bir bütün olarak nadiren hiçbir şey yapmaz.'
+surprise: 'O sokak görüntülerinde daha fazla seyirci daha az değil, daha fazla yardım demekti: her ek kişi, birinin araya girme ihtimalini artırdı.'
 sources:
 - - 'Darley, J. M., & Latané, B. (1968). Bystander intervention in emergencies: Diffusion of responsibility. Journal of Personality and Social Psychology, 8(4), 377–383.'
   - https://doi.org/10.1037/h0025589

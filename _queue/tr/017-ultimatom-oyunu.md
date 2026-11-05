@@ -27,7 +27,7 @@ q: Teklif edenler ortalama olarak paranın yüzde kaçını teklif etti?
 you_real: Gerçek deneylerde, reddetmek eli boş dönmek demek olsa da tekliflerin ortalama %16'sı reddedildi.
 original: Oyunu ilk kez 1982'de Güth, Schmittberger ve Schwarze inceledi. 2004'te 37 makaleden 75 sonucu bir araya getiren bir meta-analiz, teklif edenlerin paranın ortalama %40'ını teklif ettiğini ve tekliflerin %16'sının reddedildiğini buldu.
 today: 'Sonuç birçok ülkede geçerli, ama büyüklüğü kültüre göre değişiyor: 15 küçük ölçekli toplulukta yapılan deneylerde ortalama teklif, Peru''daki Machiguengalarda %26 ile Endonezya''daki Lamaleralarda %58 arasında değişti.'
-surprise: Kuram neredeyse hiçbir şey teklif etmeyi söylüyor. Gerçek insanlar yarıya yakınını veriyor. Birçoğu, adaletsiz bir teklifin öfkeyle reddedilebileceğini biliyor gibi.
+surprise: Kuram neredeyse hiçbir şey teklif etmemeyi söylüyor. Gerçek insanlar ise yarıya yakınını veriyor.
 sources:
 - - 'Oosterbeek, H., Sloof, R., & van de Kuilen, G. (2004). Cultural differences in ultimatum game experiments: Evidence from a meta-analysis. Experimental Economics, 7(2), 171–188.'
   - https://doi.org/10.1023/B:EXEC.0000026978.14316.74

@@ -27,7 +27,7 @@ q: Cuando los participantes creían que otras cuatro personas también lo oían,
 you_real: De los participantes reales que creían que otros cuatro lo oían, solo el 31 % fue a buscar ayuda antes de que terminara el ataque.
 original: Cuando los participantes creían ser los únicos que lo oían, el 85 % fue a buscar ayuda antes de que terminara el ataque. Con otro oyente, el 62 %, y con otros cuatro, el 31 %. La «víctima» era una grabación, pero los participantes no lo sabían.
 today: 'El hallazgo de laboratorio se ha repetido muchas veces. La vida real añade un matiz: un estudio de 2020 analizó las imágenes de cámaras de vigilancia de 219 peleas en la vía pública en Ámsterdam, Ciudad del Cabo y Lancaster, y en alrededor del 91 % al menos un espectador intervino.'
-surprise: 'En esas imágenes de la calle, más espectadores significaban más ayuda, no menos: cada persona adicional aumentaba la probabilidad de que alguien interviniera. Cada uno puede esperar, pero la multitud en su conjunto rara vez no hace nada.'
+surprise: 'En esas imágenes de la calle, más espectadores significaban más ayuda, no menos: cada persona adicional aumentaba la probabilidad de que alguien interviniera.'
 sources:
 - - 'Darley, J. M., & Latané, B. (1968). Bystander intervention in emergencies: Diffusion of responsibility. Journal of Personality and Social Psychology, 8(4), 377–383.'
   - https://doi.org/10.1037/h0025589

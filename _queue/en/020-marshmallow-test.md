@@ -35,7 +35,7 @@ stats:
   - of the remaining link disappeared once background was taken into account
 you_real: In the 2018 study, the link between how long children waited and their school results at 15 was half as strong as in the original studies, and two thirds of it disappeared once family background was taken into account.
 original: The best-known version (1972) took place at Stanford’s Bing Nursery School with 50 children; the rewards were marshmallows or pretzels. Follow-up studies in 1988 and 1990 reported that children who had waited longer were rated as more competent teenagers and had higher SAT scores.
-today: In the 2018 replication, the link between waiting and achievement at 15 was only half the size reported in the original studies. With controls for family background, early cognitive ability and the home environment, it shrank by a further two thirds. The test seems to measure a child’s situation as much as their willpower.
+today: In the 2018 replication, the link between waiting and achievement at 15 was only half the size reported in the original studies. With controls for family background, early cognitive ability and the home environment, it shrank by a further two thirds.
 surprise: In a 2013 study, 28 children first met an adult who either kept or broke a small promise. After a kept promise they waited 12 minutes on average; after a broken one, 3 minutes.
 sources:
 - - Mischel, W., Ebbesen, E. B., & Zeiss, A. R. (1972). Cognitive and attentional mechanisms in delay of gratification. Journal of Personality and Social Psychology, 21(2), 204–218.

@@ -27,7 +27,7 @@ q: Quelle était l’estimation médiane du groupe dont la roue s’était arrê
 you_real: 'Les vrais participants voyaient eux aussi que le nombre venait d’une roue, et il les a quand même tirés vers le haut : l’estimation médiane du groupe 65 était de 45 %.'
 original: L’estimation médiane était de 25 % dans le groupe dont la roue s’était arrêtée sur 10, et de 45 % dans le groupe à 65. Le nombre n’avait aucun rapport avec la question, et tout le monde l’avait vu sortir d’une roue.
 today: L’ancrage fait partie des résultats les plus solides de la psychologie. Dans le projet « Many Labs » de 2014, 36 équipes de recherche avec 6 344 volontaires dans 12 pays ont refait 13 expériences classiques ; l’effet d’ancrage a tenu, et il est même ressorti plus fort que dans l’étude d’origine.
-surprise: 'Voir que le nombre était aléatoire n’a protégé personne : l’expérience était justement conçue pour que chacun sache qu’il venait d’un tour de roue.'
+surprise: Payer les participants pour des réponses exactes n’a pas réduit l’effet d’ancrage.
 sources:
 - - 'Tversky, A., & Kahneman, D. (1974). Judgment under uncertainty: Heuristics and biases. Science, 185(4157), 1124–1131.'
   - https://doi.org/10.1126/science.185.4157.1124

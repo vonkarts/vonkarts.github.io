@@ -27,7 +27,7 @@ q: Entre quienes habían oído «se estrellaron», ¿qué porcentaje dijo haber 
 you_real: De los participantes reales que habían oído «se estrellaron», el 32 % dijo haber visto cristales rotos; entre quienes habían oído «se golpearon», el 14 %.
 original: En el primer experimento (45 estudiantes), «se estrellaron» dio una velocidad estimada media de 40,8 millas por hora (unos 66 km/h), y «se tocaron», 31,8 millas por hora (unos 51 km/h). En el segundo (150 estudiantes), el 32 % del grupo de «se estrellaron» dijo haber visto cristales rotos, frente al 14 % del grupo de «se golpearon» y el 12 % de un grupo al que no se preguntó por la velocidad.
 today: El estudio se convirtió en un clásico de la investigación sobre la memoria e influyó en cómo la policía y los tribunales ven los testimonios y las preguntas sugestivas. Las muestras eran pequeñas y estaban formadas por estudiantes, pero investigaciones posteriores han mostrado una y otra vez que la forma de hacer una pregunta puede cambiar lo que la gente dice recordar.
-surprise: Una sola palabra, en una sola pregunta, bastó para cambiar lo que algunas personas «recordaban» haber visto una semana después.
+surprise: En la película no había ningún cristal roto y, aun así, 16 de las 50 personas del grupo de «se estrellaron» dijeron haber visto alguno.
 sources:
 - - 'Loftus, E. F., & Palmer, J. C. (1974). Reconstruction of automobile destruction: An example of the interaction between language and memory. Journal of Verbal Learning and Verbal Behavior, 13(5), 585–589.'
   - https://doi.org/10.1016/S0022-5371(74)80011-3

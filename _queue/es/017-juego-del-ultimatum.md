@@ -27,7 +27,7 @@ q: De media, ¿qué porcentaje del dinero ofrecieron los proponentes?
 you_real: En los experimentos reales, de media se rechazó alrededor del 16 % de las ofertas, aunque rechazar significaba irse con las manos vacías.
 original: El juego lo estudiaron por primera vez Güth, Schmittberger y Schwarze en 1982. Un metaanálisis de 2004 sobre 37 artículos con 75 resultados encontró que los proponentes ofrecían de media el 40 % del dinero y que se rechazaba el 16 % de las ofertas.
 today: 'El resultado se cumple en muchos países, pero su tamaño depende de la cultura: en experimentos en 15 sociedades de pequeña escala, la oferta media iba del 26 % entre los machiguenga de Perú al 58 % entre los lamalera de Indonesia.'
-surprise: La teoría dice que hay que ofrecer casi nada; la gente real entrega casi la mitad. Muchos parecen saber que una oferta injusta puede rechazarse por rabia.
+surprise: La teoría dice que hay que ofrecer casi nada; la gente real entrega casi la mitad.
 sources:
 - - 'Oosterbeek, H., Sloof, R., & van de Kuilen, G. (2004). Cultural differences in ultimatum game experiments: Evidence from a meta-analysis. Experimental Economics, 7(2), 171–188.'
   - https://doi.org/10.1023/B:EXEC.0000026978.14316.74
