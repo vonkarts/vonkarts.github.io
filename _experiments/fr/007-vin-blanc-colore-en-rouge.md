@@ -1,4 +1,5 @@
 ---
+date: 2026-11-06
 lang: fr
 ref: wine
 'no': 7
