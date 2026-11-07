@@ -23,7 +23,7 @@ More: [About & method](https://vonkarts.com/about/)
 
 ## Your data
 
-Your streak and history stay in your own browser. Guesses are counted anonymously (no cookies, no personal data) to show the average guess once enough people have played.
+Your streak and history stay in your own browser. Visits and guesses are counted with [GoatCounter](https://www.goatcounter.com/help/privacy): no cookies, no stored IP addresses, only totals. Details on the [About page](https://vonkarts.com/about/).
 
 ## Found a mistake?
 
