@@ -94,6 +94,9 @@ def summary():
     h = req("/stats/hits", {"start": week, "end": end, "limit": 10})
     pages = ", ".join(f"{x['path']} {x.get('count', 0)}" for x in (h.get("hits") or []) if not x.get("event"))
     print(f"::notice title=Sayfalar (7 gün)::{pages or '-'}")
+    h4 = req("/stats/hits", {"start": week, "end": end, "limit": 100})
+    gone = [f"{x['path']} {x.get('count', 0)}" for x in (h4.get("hits") or []) if str(x.get("path", "")).startswith("404")]
+    print(f"::notice title=Eski linkler (404, 7 gün)::{len(gone)} adres · " + (", ".join(gone[:15]) or "-"))
 
 
 def main():
