@@ -145,6 +145,21 @@ async function check(browser, opts, theme, url, lang, name, interact, kind) {
     else { errorCount++; report.push(`${lang}-deney\n  - HATA: Günün deneyinin adresi bulunamadı`); }
     await check(browser, MOBILE, 'dark', SITE + ABOUT[lang], lang, `${lang}-hakkinda`, false, 'about');
   }
+  // Eski blog adresi: 404 dönmeli, 404 sayfası sayaç betiğini ve günün deneyi düğmelerini içermeli
+  {
+    const ctx = await newCtx(browser, MOBILE); const p = await ctx.newPage(); const issues = [];
+    try {
+      const res = await p.goto(SITE + '/tr/bosanma-sonrasi-erkekler/', { waitUntil: 'load' });
+      if (!res || res.status() !== 404) issues.push(`HATA: Eski adres 404 dönmedi (${res && res.status()})`);
+      const html = await p.content();
+      if (!html.includes('window.goatcounter')) issues.push('HATA: 404 sayfasında sayaç betiği yok');
+      if ((await p.locator('#go a').count()) !== 5) issues.push('HATA: 404 sayfasında 5 dil düğmesi yok');
+      if (await p.evaluate(() => document.documentElement.lang) !== 'tr') issues.push('HATA: 404 sayfası dili Türkçe seçmedi');
+    } catch (e) { issues.push('HATA: ' + e.message.split('\n')[0]); }
+    errorCount += issues.length;
+    report.push('tr-404  /tr/bosanma-sonrasi-erkekler/\n' + (issues.length ? issues.map(i => '  - ' + i).join('\n') : '  - sorun yok'));
+    await ctx.close();
+  }
   await check(browser, MOBILE, 'light', SITE + '/', 'en', 'en-ana-acik', true);
   await check(browser, DESKTOP, 'dark', SITE + '/', 'en', 'en-ana-masaustu', true);
   await browser.close();
