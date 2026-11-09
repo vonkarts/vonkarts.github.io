@@ -1,4 +1,5 @@
 ---
+date: 2026-11-09
 lang: tr
 ref: mpemba
 'no': 10
