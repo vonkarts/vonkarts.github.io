@@ -1,4 +1,5 @@
 ---
+date: 2026-11-10
 lang: fr
 ref: bystander
 'no': 11
