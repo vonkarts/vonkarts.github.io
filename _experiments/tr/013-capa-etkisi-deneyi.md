@@ -1,4 +1,5 @@
 ---
+date: 2026-11-12
 lang: tr
 ref: anchor
 'no': 13
