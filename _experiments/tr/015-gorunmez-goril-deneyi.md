@@ -1,4 +1,5 @@
 ---
+date: 2026-11-14
 lang: tr
 ref: gorilla
 'no': 15
