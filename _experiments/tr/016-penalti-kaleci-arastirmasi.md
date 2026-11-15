@@ -1,4 +1,5 @@
 ---
+date: 2026-11-15
 lang: tr
 ref: penalty
 'no': 16
