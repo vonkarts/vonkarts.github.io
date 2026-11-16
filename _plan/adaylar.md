@@ -27,32 +27,35 @@ Adaylar doğrulanmadı: her rakam yayına girmeden önce orijinal makaleden kont
 | 18 | crash | Araba kazası kelime deneyi, Loftus & Palmer (1974) | sırada |
 | 19 | medals | Gümüş / bronz madalya, Medvec vd. (1995) | sırada |
 | 20 | marshmallow | Marshmallow testi, Mischel (1972) + Watts vd. (2018) | sırada |
+| 21 | footdoor | Kapıya ayak, Freedman & Fraser (1966) | sırada |
+| 22 | because | Fotokopi "çünkü" deneyi, Langer vd. (1978) | sırada |
+| 23 | spotlight | Spot ışığı etkisi: Barry Manilow tişörtü, Gilovich vd. (2000) | sırada |
+| 24 | choiceblind | Seçim körlüğü: fotoğraflar, Johansson vd. (2005) | sırada |
+| 25 | organ | Organ bağışında varsayılan seçenek, Johnson & Goldstein (2003) | sırada |
+| 26 | openlabel | Açık etiketli plasebo, Kaptchuk vd. (2010) | sırada |
+| 27 | redshirt | Kırmızı forma ve kazanma, Hill & Barton (2005) | sırada |
+| 28 | swearing | Küfür etmenin ağrıya etkisi, Stephens vd. (2009) | sırada |
+| 29 | lostmall | Sahte anı: alışveriş merkezinde kaybolmak, Loftus & Pickrell (1995) | sırada |
+| 30 | elephant | Fil ayna testi, Plotnik vd. (2006) | sırada |
 
 ## Adaylar (öncelik sırasıyla; ünlüler önce)
 ### Sosyal psikoloji
 - Dumanla dolan oda, Latané & Darley (1968)
-- Kapıdaki ayak (foot-in-the-door), Freedman & Fraser (1966)
 - Bilişsel çelişki: 1 dolar / 20 dolar, Festinger & Carlsmith (1959)
 - Halo etkisi, Nisbett & Wilson (1977)
 - Robbers Cave yaz kampı, Sherif (1954) + eleştirileri
 - Stanford hapishane deneyi (1971) + eleştirileri (Le Texier 2019) — dikkat: sayısal, tahmin edilebilir bir sonucu yok; ancak "bugün ne biliyoruz" odaklı bir soruyla
-- Fotokopi sırası "çünkü" deneyi, Langer vd. (1978)
 - Sahte fikir birliği, Ross vd. (1977) (tabela taşıma)
-- Sahnede konuşmacı / spot ışığı etkisi: Barry Manilow tişörtü, Gilovich vd. (2000)
 - Pigmalyon etkisi, Rosenthal & Jacobson (1968) + eleştirileri
 - Kendini ortalamanın üstünde görmek: sürücüler, Svenson (1981)
 - Değişim körlüğü: kapı deneyi, Simons & Levin (1998)
-- Seçim körlüğü: fotoğraflar, Johansson vd. (2005)
 ### Davranışsal ekonomi
 - Sahiplik etkisi: kupa deneyi, Kahneman vd. (1990)
-- Organ bağışında varsayılan seçenek, Johnson & Goldstein (2003)
 - Para teşvikinin ters tepmesi: kreş cezası, Gneezy & Rustichini (2000)
-- Fiyat ve plasebo: pahalı ağrı kesici, Waber vd. (2008)
 - Kelime çerçeveleme: Asya hastalığı problemi, Tversky & Kahneman (1981)
 - Bedava kurabiye / sıfır fiyat etkisi, Shampanier vd. (2007)
 - Kayıptan kaçınma: yazı-tura bahsi (Tom vd. 2007)
 ### Tıp ve sağlık (health: true)
-- Açık etiketli plasebo, Kaptchuk vd. (2010)
 - El yıkama ve doğum ateşi, Semmelweis (1847)
 - Mide ülseri ve bakteri, Marshall (1984/85)
 - Sahte akupunktur, Haake vd. (2007, GERAC)
@@ -61,7 +64,6 @@ Adaylar doğrulanmadı: her rakam yayına girmeden önce orijinal makaleden kont
 - Arıların dansı ve uzaklık, von Frisch (1967)
 - Kargaların yüz hatırlaması, Marzluff vd. (2010)
 - Akıllı Hans atı, Pfungst (1907)
-- Fil ayna testi, Plotnik vd. (2006)
 - Şempanze ve ultimatom oyunu, Jensen vd. (2007)
 - Ahtapotun kavanoz açması / öğrenme (aday araştırılacak)
 - Tavukların sayı yönü, Rugani vd. (2015)
@@ -72,17 +74,14 @@ Adaylar doğrulanmadı: her rakam yayına girmeden önce orijinal makaleden kont
 - Spagetti neden ikiye kırılmaz, Audoly & Neukirch (2005)
 - Sıcak su borusunun donması vb. (Mpemba ile tekrar olmasın)
 ### Spor
-- Kırmızı forma ve kazanma, Hill & Barton (2005)
 - Ev sahibi avantajı ve hakem, Nevill vd. (2002)
 ### Ig Nobel (gerçek ve şaşırtıcı)
-- Küfür etmenin ağrıya etkisi, Stephens vd. (2009)
 - Yürüyen kahve neden dökülür, Mayer & Krechetnikov (2012)
 - Kaplumbağa esnemesi bulaşır mı, Wilkinson vd. (2011)
 - Banyo / bira köpüğü vb. (aday araştırılacak)
 ### Bellek ve algı
-- Sahte anı: alışveriş merkezinde kaybolmak, Loftus & Pickrell (1995)
 - Şarabın fiyatı ve tat (Plassmann vd. 2008)
 - Zaman algısı / beklenti etkisi (aday araştırılacak)
 
 ## Reddedildi
-_(henüz yok)_
+- Fiyat ve plasebo: pahalı ağrı kesici, Waber vd. (2008): yazarlardan Ariely'nin başka çalışmalarında veri sorunları çıktı; tartışmasız bir ana kaynak yerine açık etiketli plasebo (26) seçildi (2026-11-16)
