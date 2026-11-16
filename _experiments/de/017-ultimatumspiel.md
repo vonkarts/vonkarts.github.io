@@ -1,4 +1,5 @@
 ---
+date: 2026-11-16
 lang: de
 ref: ultimatum
 'no': 17
