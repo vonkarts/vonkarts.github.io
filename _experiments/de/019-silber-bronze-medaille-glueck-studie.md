@@ -1,4 +1,5 @@
 ---
+date: 2026-11-18
 lang: de
 ref: medals
 'no': 19
