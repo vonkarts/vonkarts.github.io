@@ -1,4 +1,5 @@
 ---
+date: 2026-11-20
 lang: tr
 ref: footdoor
 'no': 21
