@@ -34,7 +34,9 @@ jobs:
       - name: Install browser
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.52.0
-          npx playwright install --with-deps chromium
+          # 17 Kasım'dan beri --with-deps kurulumu düşüyordu: önce o, olmazsa yalnız tarayıcı;
+          # o da olmazsa betik sunucudaki hazır Google Chrome'u kullanır.
+          npx playwright install --with-deps chromium || npx playwright install chromium || echo "::warning title=Tarayıcı::Playwright Chromium kurulamadı, hazır Chrome kullanılacak"
       - name: Open pages and check
         id: check
         continue-on-error: true

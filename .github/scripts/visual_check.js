@@ -132,7 +132,9 @@ async function check(browser, opts, theme, url, lang, name, interact, kind) {
 }
 
 (async () => {
-  const browser = await chromium.launch();
+  let browser;
+  try { browser = await chromium.launch(); }
+  catch (e) { console.log('Playwright Chromium yok, hazır Chrome deneniyor'); browser = await chromium.launch({ channel: 'chrome' }); }
   for (const lang of LANGS) {
     const home = SITE + (lang === 'en' ? '/' : `/${lang}/`);
     await check(browser, MOBILE, 'dark', home, lang, `${lang}-ana`, true);
