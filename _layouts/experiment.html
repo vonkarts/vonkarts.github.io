@@ -37,7 +37,7 @@ Not: "today" adı Jekyll'da her sayfada dolu geliyor; bayrak adı bu yüzden dai
           {%- if y.kind == 'jars' %}<div class="jars" aria-hidden="true"><div class="stand"><div class="pots">{% for i in (1..24) %}<i></i>{% endfor %}</div><small>24</small></div><div class="stand"><div class="pots">{% for i in (1..6) %}<i></i>{% endfor %}</div><small>6</small></div></div>{% endif %}
           <div class="opts">{% assign K = "A,B,C" | split: "," %}{% for o in y.opts %}<button type="button" class="opt" data-you="{{ forloop.index0 }}" aria-pressed="false"><span class="k">{{ K[forloop.index0] }}</span><span>{{ o }}</span></button>{% endfor %}</div>
           {%- endif %}
-          <p class="hint">{{ T.hypothetical }}</p></section>
+          </section>
         <button type="button" class="cta" id="toPredict" data-in disabled><span>{{ T.to_predict }}</span><span class="arw">→</span></button>
         <p class="hint noscript-q">{{ e.q }}</p>
       </main>

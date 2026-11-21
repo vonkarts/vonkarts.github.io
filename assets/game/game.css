@@ -10,7 +10,7 @@
 /* Logo: VT323 (OFL), yalnızca "vonkarts_" harfleri */
 @font-face{font-family:"VT323 Logo";src:url("fonts/vt323-logo.woff") format("woff");font-weight:400;font-display:swap}
 :root{
-  --bg:#0c1012; --surface:#141a1d; --raise:#1b2327; --line:#273136; --fg:#ece8df; --muted:#8f989c;
+  --bg:#0c1012; --surface:#141a1d; --raise:#1b2327; --line:#273136; --fg:#ece8df; --muted:#a2abaf;
   --guess:#7cc6dd; --guess-soft:rgba(124,198,221,.14); --real:#f0b44c; --real-soft:rgba(240,180,76,.14); --ok:#8fcf9a; --no:#e08b7a;
   --display:"Anybody","Arial Narrow",Arial,sans-serif;
   --body:"Newsreader",Georgia,"Times New Roman",serif;
@@ -329,3 +329,10 @@ h1.title{letter-spacing:-.035em}
 /* paylaşım kartı düğmeleri */
 .card .btns{display:flex;flex-wrap:wrap;gap:10px}
 .card #story{border-color:#7cc6dd;color:#7cc6dd}
+
+/* Telefonda oyun ilk ekrana yaklaşsın (tasarım incelemesi, 2026-11) */
+@media (max-width:600px){
+  .no{font-size:72px;margin:0 0 -2px}
+  .story{font-size:17px;line-height:1.5}
+  .intro{font-size:14px}
+}

@@ -144,7 +144,7 @@ function renderStory(){
     '<div class="story">' + E.story.map(function(p){ return '<p>' + esc(p) + '</p>'; }).join("") + '</div>' +
     (IS_TODAY ? "" : '<p class="note" data-in>' + esc(T.old_note) + '</p>') +
     '<section class="panel" data-in><h2>' + esc(T.first_you) + '</h2><p class="q">' + esc(y.q) + '</p>' + you +
-    '<p class="hint">' + esc(T.hypothetical) + '</p></section>' +
+    '</section>' +
     '<button type="button" class="cta" id="toPredict" data-in disabled><span>' + esc(T.to_predict) + '</span><span class="arw">→</span></button>';
   // İlk ekran sunucuda hazır yazılıysa (data-ssr) yeniden çizilmez ve açılış animasyonu yapılmaz:
   // böylece sayfa ilk boyamada tamamlanır (hızlı LCP, kayma yok). Yalnızca tıklamalar bağlanır.
@@ -225,7 +225,7 @@ function renderPredict(){
 
 /* ---------- 3. sonuç ---------- */
 function scoreOf(){
-  if (E.type === "percent") return Math.max(0, 100 - 2*Math.abs(state.guess - E.answer));
+  if (E.type === "percent") return Math.max(0, 100 - Math.abs(state.guess - E.answer));
   return state.guess === E.answer ? 100 : 0;
 }
 function youLine(){
