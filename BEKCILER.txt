@@ -1,0 +1,125 @@
+== Deney dosyaları
+30 deney · yayında 21 · sırada 9 · 0 hata · 0 yazım uyarısı
+== Dil
+115 sayfa tarandı · 0 hata · 0 uyarı
+== SEO
+SAYFALAR (115)
+/ | lang=en | T38 D152 | h1:1 h2:7 | ld:WebSite | hl:6 | w394 | OK
+/de/experimente/milgram-experiment/ | lang=de | T64 D150 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w330 | OK
+/experiments/milgram-experiment/ | lang=en | T59 D153 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w350 | OK
+/es/experimentos/experimento-de-milgram/ | lang=es | T63 D157 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w373 | OK
+/fr/experiences/experience-de-milgram/ | lang=fr | T64 D152 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w363 | OK
+/tr/deneyler/milgram-deneyi/ | lang=tr | T55 D139 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w264 | OK
+/de/experimente/asch-konformitaetsexperiment/ | lang=de | T61 D150 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w299 | OK
+/experiments/asch-conformity-experiment/ | lang=en | T57 D143 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w308 | OK
+/es/experimentos/experimento-de-asch/ | lang=es | T59 D155 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w332 | OK
+/fr/experiences/experience-de-asch/ | lang=fr | T56 D158 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w340 | OK
+/tr/deneyler/asch-uyma-deneyi/ | lang=tr | T49 D119 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w235 | OK
+/de/experimente/marmeladen-experiment/ | lang=de | T66 D149 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w261 | başlık uzun(66)
+/experiments/jam-experiment/ | lang=en | T60 D126 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w284 | OK
+/es/experimentos/experimento-de-la-mermelada/ | lang=es | T63 D142 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w296 | OK
+/fr/experiences/experience-des-confitures/ | lang=fr | T55 D154 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w298 | OK
+/tr/deneyler/recel-deneyi/ | lang=tr | T58 D120 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w221 | OK
+/de/experimente/barmherziger-samariter-experiment/ | lang=de | T63 D128 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w275 | OK
+/experiments/good-samaritan-experiment/ | lang=en | T56 D127 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w298 | OK
+/es/experimentos/experimento-del-buen-samaritano/ | lang=es | T59 D125 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w304 | OK
+/fr/experiences/experience-du-bon-samaritain/ | lang=fr | T60 D131 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w321 | OK
+/tr/deneyler/iyi-samiriyeli-deneyi/ | lang=tr | T52 D115 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w219 | OK
+/de/experimente/verlorene-geldboerse-experiment/ | lang=de | T64 D146 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w269 | OK
+/experiments/lost-wallet-experiment/ | lang=en | T61 D143 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w280 | OK
+/es/experimentos/experimento-de-la-cartera-perdida/ | lang=es | T58 D124 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w284 | OK
+/fr/experiences/experience-du-portefeuille-perdu/ | lang=fr | T60 D157 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w310 | OK
+/tr/deneyler/kayip-cuzdan-deneyi/ | lang=tr | T60 D122 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w209 | OK
+/de/experimente/schein-operation-knie-studie/ | lang=de | T58 D132 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w369 | OK
+/experiments/placebo-knee-surgery-study/ | lang=en | T52 D120 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w393 | OK
+/es/experimentos/cirugia-placebo-de-rodilla/ | lang=es | T55 D147 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w414 | OK
+/fr/experiences/chirurgie-placebo-du-genou/ | lang=fr | T58 D147 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w434 | OK
+/tr/deneyler/sahte-ameliyat-deneyi/ | lang=tr | T58 D112 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w323 | OK
+/de/experimente/rot-gefaerbter-weisswein-experiment/ | lang=de | T64 D128 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w250 | OK
+/experiments/white-wine-dyed-red-experiment/ | lang=en | T57 D119 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w272 | OK
+/es/experimentos/vino-blanco-tenido-de-rojo/ | lang=es | T58 D139 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w280 | OK
+/fr/experiences/vin-blanc-colore-en-rouge/ | lang=fr | T59 D142 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w304 | OK
+/tr/deneyler/boyali-sarap-deneyi/ | lang=tr | T59 D113 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w205 | OK
+/de/experimente/ameisen-auf-stelzen-experiment/ | lang=de | T64 D132 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w296 | OK
+/experiments/ants-on-stilts-experiment/ | lang=en | T54 D143 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w312 | OK
+/es/experimentos/hormigas-con-zancos/ | lang=es | T53 D151 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w313 | OK
+/fr/experiences/fourmis-sur-echasses/ | lang=fr | T61 D152 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w337 | OK
+/tr/deneyler/karinca-adim-sayma-deneyi/ | lang=tr | T54 D112 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w215 | OK
+/de/experimente/hot-hand-phaenomen/ | lang=de | T56 D138 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w331 | OK
+/experiments/hot-hand-fallacy/ | lang=en | T55 D128 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w353 | OK
+/es/experimentos/mano-caliente-baloncesto/ | lang=es | T59 D146 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w366 | OK
+/fr/experiences/main-chaude-basket/ | lang=fr | T61 D142 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w383 | OK
+/tr/deneyler/eli-isinma-yanilgisi/ | lang=tr | T56 D117 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w270 | OK
+/de/experimente/mpemba-effekt/ | lang=de | T62 D132 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w338 | OK
+/experiments/mpemba-effect/ | lang=en | T60 D122 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w364 | OK
+/es/experimentos/efecto-mpemba/ | lang=es | T63 D129 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w373 | OK
+/fr/experiences/effet-mpemba/ | lang=fr | T63 D135 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w387 | OK
+/tr/deneyler/mpemba-etkisi/ | lang=tr | T58 D108 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w292 | OK
+/de/experimente/zuschauereffekt-experiment/ | lang=de | T58 D147 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w340 | OK
+/experiments/bystander-effect-experiment/ | lang=en | T59 D150 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w360 | OK
+/es/experimentos/efecto-espectador-experimento/ | lang=es | T58 D145 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w379 | OK
+/fr/experiences/effet-du-temoin-experience/ | lang=fr | T63 D155 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w392 | OK
+/tr/deneyler/seyirci-etkisi-deneyi/ | lang=tr | T55 D138 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w292 | OK
+/de/experimente/fallschirm-studie/ | lang=de | T64 D160 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w328 | OK
+/experiments/parachute-trial/ | lang=en | T57 D151 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w345 | OK
+/es/experimentos/estudio-paracaidas/ | lang=es | T54 D162 | h1:1 h2:7 | ld:BlogPosting | hl:6 | w351 | OK
+grep: write error: Broken pipe
+== Görünüm
+Playwright Chromium yok, hazır Chrome deneniyor
+Görünüm bekçisi · 2026-11-21T14:05:36.023Z · 3 hata
+
+en-ana  /
+  - sorun yok
+
+en-deney  /experiments/foot-in-the-door-experiment/
+  - sorun yok
+
+en-hakkinda  /about/
+  - sorun yok
+
+tr-ana  /tr/
+  - sorun yok
+
+tr-deney  /tr/deneyler/kapiya-ayak-teknigi-deneyi/
+  - sorun yok
+
+tr-hakkinda  /tr/hakkinda/
+  - sorun yok
+
+de-ana  /de/
+  - sorun yok
+
+de-deney  /de/experimente/fuss-in-der-tuer-technik-experiment/
+  - sorun yok
+
+de-hakkinda  /de/ueber/
+  - sorun yok
+
+fr-ana  /fr/
+  - sorun yok
+
+fr-deney  /fr/experiences/experience-pied-dans-la-porte/
+  - sorun yok
+
+fr-hakkinda  /fr/a-propos/
+  - sorun yok
+
+es-ana  /es/
+  - sorun yok
+
+es-deney  /es/experimentos/experimento-pie-en-la-puerta/
+  - sorun yok
+
+es-hakkinda  /es/acerca-de/
+  - sorun yok
+
+tr-404  /tr/bosanma-sonrasi-erkekler/
+  - HATA: 404 sayfasında sayaç betiği yok
+  - HATA: 404 sayfasında 5 dil düğmesi yok
+  - HATA: 404 sayfası dili Türkçe seçmedi
+
+en-ana-acik  /
+  - sorun yok
+
+en-ana-masaustu  /
+  - sorun yok

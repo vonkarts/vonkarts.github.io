@@ -1,0 +1,57 @@
+Görünüm bekçisi · 2026-11-21T14:05:36.023Z · 3 hata
+
+en-ana  /
+  - sorun yok
+
+en-deney  /experiments/foot-in-the-door-experiment/
+  - sorun yok
+
+en-hakkinda  /about/
+  - sorun yok
+
+tr-ana  /tr/
+  - sorun yok
+
+tr-deney  /tr/deneyler/kapiya-ayak-teknigi-deneyi/
+  - sorun yok
+
+tr-hakkinda  /tr/hakkinda/
+  - sorun yok
+
+de-ana  /de/
+  - sorun yok
+
+de-deney  /de/experimente/fuss-in-der-tuer-technik-experiment/
+  - sorun yok
+
+de-hakkinda  /de/ueber/
+  - sorun yok
+
+fr-ana  /fr/
+  - sorun yok
+
+fr-deney  /fr/experiences/experience-pied-dans-la-porte/
+  - sorun yok
+
+fr-hakkinda  /fr/a-propos/
+  - sorun yok
+
+es-ana  /es/
+  - sorun yok
+
+es-deney  /es/experimentos/experimento-pie-en-la-puerta/
+  - sorun yok
+
+es-hakkinda  /es/acerca-de/
+  - sorun yok
+
+tr-404  /tr/bosanma-sonrasi-erkekler/
+  - HATA: 404 sayfasında sayaç betiği yok
+  - HATA: 404 sayfasında 5 dil düğmesi yok
+  - HATA: 404 sayfası dili Türkçe seçmedi
+
+en-ana-acik  /
+  - sorun yok
+
+en-ana-masaustu  /
+  - sorun yok
