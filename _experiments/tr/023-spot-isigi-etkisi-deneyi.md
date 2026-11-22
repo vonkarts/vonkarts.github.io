@@ -1,4 +1,5 @@
 ---
+date: 2026-11-22
 lang: tr
 ref: spotlight
 'no': 23
