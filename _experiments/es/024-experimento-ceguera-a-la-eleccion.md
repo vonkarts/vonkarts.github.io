@@ -1,4 +1,5 @@
 ---
+date: 2026-11-23
 lang: es
 ref: choiceblind
 'no': 24

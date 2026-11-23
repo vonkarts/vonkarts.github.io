@@ -1,4 +1,5 @@
 ---
+date: 2026-11-23
 lang: tr
 ref: choiceblind
 'no': 24
