@@ -18,7 +18,7 @@ Dil sürümleri aynı ref ile bağlanır.
       </main>
       <p class="foot">{{ T.foot }}</p>
     </div>
-  </div>
+{% include shell_end.html %}  </div>
   {%- capture list %}[{% for x in exps %}{"ref":{{ x.ref | jsonify }},"no":{{ x.no }}}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endcapture %}
   <script type="application/json" id="game-data">{"e":null,"latest":{{ latest.ref | jsonify }},"list":{{ list | strip }},"t":{{ T | jsonify }}}</script>
 {% include tail.html %}

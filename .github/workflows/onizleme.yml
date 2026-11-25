@@ -1,0 +1,44 @@
+# Geçici (yalnızca önizleme dallarında): siteyi Pages gibi derler, yerelde sunar, canlıdaki bekçilerin
+# aynısını (görünüm, dil, SEO, deney dosyaları) çalıştırır, ekran görüntülerini 'onizleme-shots' dalına koyar.
+name: Preview
+on:
+  push:
+    branches: [onizleme, onizleme-oyun]
+permissions:
+  contents: write
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Serve locally and run the guards
+        run: |
+          sudo chown -R "$(id -u)" _site
+          grep -rl "https://vonkarts.com" _site | xargs sed -i 's#https://vonkarts.com#http://localhost:4000#g'
+          npm i --no-save --no-audit --no-fund playwright@1.52.0
+          npx playwright install --with-deps chromium || npx playwright install chromium || true
+          python3 -c "import yaml" 2>/dev/null || pip install --quiet --break-system-packages pyyaml
+          (cd _site && python3 -m http.server 4000 >/dev/null 2>&1 &)
+          sleep 2
+          mkdir -p shots/gorunum
+          export SITE_URL=http://localhost:4000
+          { echo "== Deney dosyaları"; python3 .github/scripts/experiments_check.py; echo "== Dil"; python3 .github/scripts/i18n_check.py | grep -v "^::"; echo "== SEO"; python3 .github/scripts/seo_audit.py | grep -v "^::" | head -60; echo "== Görünüm"; OUT_DIR=shots/gorunum timeout 300 node .github/scripts/visual_check.js | grep -v "^::"; } > shots/BEKCILER.txt 2>&1 || true
+          timeout 300 node .github/preview/shot.js > shots/OZET.txt 2>&1 || true
+          ls _site/experiments _site/tr _site/tr/deneyler > shots/DOSYALAR.txt 2>&1 || true
+      - name: Push screenshots
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          cd shots
+          git init -q -b onizleme-shots
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -qm "Önizleme"
+          git push -qf "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" onizleme-shots
