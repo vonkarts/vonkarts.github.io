@@ -1,0 +1,57 @@
+Görünüm bekçisi · 2026-11-25T18:24:14.230Z · 3 hata
+
+en-ana  /
+  - sorun yok
+
+en-deney  /experiments/open-label-placebo-study/
+  - sorun yok
+
+en-hakkinda  /about/
+  - sorun yok
+
+tr-ana  /tr/
+  - sorun yok
+
+tr-deney  /tr/deneyler/acik-etiketli-plasebo-calismasi/
+  - sorun yok
+
+tr-hakkinda  /tr/hakkinda/
+  - sorun yok
+
+de-ana  /de/
+  - sorun yok
+
+de-deney  /de/experimente/offenes-placebo-studie/
+  - sorun yok
+
+de-hakkinda  /de/ueber/
+  - sorun yok
+
+fr-ana  /fr/
+  - sorun yok
+
+fr-deney  /fr/experiences/etude-placebo-ouvert/
+  - sorun yok
+
+fr-hakkinda  /fr/a-propos/
+  - sorun yok
+
+es-ana  /es/
+  - sorun yok
+
+es-deney  /es/experimentos/estudio-placebo-abierto/
+  - sorun yok
+
+es-hakkinda  /es/acerca-de/
+  - sorun yok
+
+tr-404  /tr/bosanma-sonrasi-erkekler/
+  - HATA: 404 sayfasında sayaç betiği yok
+  - HATA: 404 sayfasında 5 dil düğmesi yok
+  - HATA: 404 sayfası dili Türkçe seçmedi
+
+en-ana-acik  /
+  - sorun yok
+
+en-ana-masaustu  /
+  - sorun yok
