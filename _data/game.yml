@@ -5,6 +5,8 @@ en:
   intro: A real, published experiment every day. Guess first, then see what actually happened.
   how: How it works
   about_url: /about/
+  all_url: /experiments/
+  all_link: "All experiments"
   about_link: About & method
   health_note: This page is for information only and is not medical advice. Talk to a doctor about decisions on your own health.
   more: "More experiments"
@@ -72,6 +74,8 @@ tr:
   intro: Her gün gerçek, yayımlanmış bir deney. Önce tahmin et, sonra gerçekte ne olduğunu gör.
   how: Nasıl çalışır
   about_url: /tr/hakkinda/
+  all_url: /tr/deneyler/
+  all_link: "Bütün deneyler"
   about_link: Hakkında ve yöntem
   health_note: Bu sayfa yalnızca bilgilendirme amaçlıdır, tıbbi tavsiye değildir. Kendi sağlığınla ilgili kararlar için bir doktora danış.
   more: "Diğer deneyler"
@@ -139,6 +143,8 @@ de:
   intro: Jeden Tag ein echtes, veröffentlichtes Experiment. Erst schätzen, dann sehen, was wirklich geschah.
   how: So funktioniert es
   about_url: /de/ueber/
+  all_url: /de/experimente/
+  all_link: "Alle Experimente"
   about_link: Über & Methode
   health_note: Diese Seite dient nur der Information und ist keine medizinische Beratung. Sprich bei Entscheidungen über deine Gesundheit mit einer Ärztin oder einem Arzt.
   more: "Weitere Experimente"
@@ -206,6 +212,8 @@ fr:
   intro: Chaque jour, une vraie expérience publiée. Devine d’abord, puis découvre ce qui s’est réellement passé.
   how: Comment ça marche
   about_url: /fr/a-propos/
+  all_url: /fr/experiences/
+  all_link: "Toutes les expériences"
   about_link: À propos et méthode
   health_note: Cette page est uniquement informative et ne constitue pas un avis médical. Pour toute décision concernant ta santé, parles-en à un médecin.
   more: "Autres expériences"
@@ -273,6 +281,8 @@ es:
   intro: Cada día, un experimento real y publicado. Primero adivina, luego mira qué pasó de verdad.
   how: Cómo funciona
   about_url: /es/acerca-de/
+  all_url: /es/experimentos/
+  all_link: "Todos los experimentos"
   about_link: Acerca de y método
   health_note: Esta página es solo informativa y no es consejo médico. Para decisiones sobre tu salud, consulta a un médico.
   more: "Más experimentos"

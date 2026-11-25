@@ -64,7 +64,7 @@ Not: "today" adı Jekyll'da her sayfada dolu geliyor; bayrak adı bu yüzden dai
 
       <p class="foot">{{ T.foot }} <a href="{{ T.about_url | relative_url }}">{{ T.about_link }}</a></p>
     </div>
-  </div>
+{% include shell_end.html %}  </div>
 
   {%- capture list %}[{% for x in exps %}{"ref":{{ x.ref | jsonify }},"no":{{ x.no }}}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endcapture %}
   <script type="application/json" id="game-data">{"e":{"ref":{{ e.ref | jsonify }},"no":{{ e.no }},"title":{{ e.title | jsonify }},"meta":{{ e.meta | jsonify }},"story":{{ e.story | jsonify }},"you":{{ e.you | jsonify }},"type":{{ e.type | jsonify }},"answer":{{ e.answer }},"q":{{ e.q | jsonify }},"opts":{{ e.opts | jsonify }},"stats":{{ e.stats | jsonify }},"you_real":{{ e.you_real | jsonify }}},

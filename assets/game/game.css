@@ -84,6 +84,8 @@ a{color:inherit}
 @media (min-width:1000px){
   .shell{max-width:940px;display:grid;grid-template-columns:260px minmax(0,560px);column-gap:64px;padding-top:24px}
   .bar{grid-column:1 / -1}
+  .col{grid-column:2;grid-row:2}
+  .archive{grid-column:1;grid-row:2}
   .arc-btn{display:none}
   .archive{position:sticky;top:24px;align-self:start;z-index:auto;width:auto;max-height:calc(100vh - 48px);transform:none;visibility:visible;
     background:none;border:0;padding:0}
@@ -336,3 +338,7 @@ h1.title{letter-spacing:-.035em}
   .story{font-size:17px;line-height:1.5}
   .intro{font-size:14px}
 }
+
+.all-list{list-style:none;padding:0;margin:24px 0 0}
+.all-list li{padding:12px 0;border-top:1px solid var(--line)}
+.all-list a{font-weight:600}
