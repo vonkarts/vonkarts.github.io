@@ -1,4 +1,5 @@
 ---
+date: 2026-11-25
 lang: fr
 ref: openlabel
 'no': 26
