@@ -1,4 +1,5 @@
 ---
+date: 2026-11-26
 lang: en
 ref: redshirt
 'no': 27
