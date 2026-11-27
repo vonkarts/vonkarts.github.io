@@ -1,4 +1,5 @@
 ---
+date: 2026-11-27
 lang: en
 ref: swearing
 'no': 28
