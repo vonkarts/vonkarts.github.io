@@ -1,4 +1,5 @@
 ---
+date: 2026-11-28
 lang: fr
 ref: lostmall
 'no': 29
